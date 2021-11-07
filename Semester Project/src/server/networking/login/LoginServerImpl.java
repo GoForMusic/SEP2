@@ -21,7 +21,7 @@ public class LoginServerImpl implements CreateAccountServer, LoginServer {
 
     @Override
     public boolean isConnectionPossible(User user) {
-        return DataBase.isConnectionPossible(user);
+//        return DataBase.isConnectionPossible(user);
     }
 
     @Override
