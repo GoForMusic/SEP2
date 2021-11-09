@@ -6,13 +6,13 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class CreateAccountViewHandler {
+public class CreateAccountViewModel {
     private StringProperty signUpFirstName, signUpLastName, signUpUsername, signUpPassword;
     private BooleanProperty signupScene;
 
     private ModelFactory modelFactory;
 
-    public CreateAccountViewHandler(ModelFactory modelFactory) {
+    public CreateAccountViewModel(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
         initializeAllProperties();
     }
@@ -29,5 +29,21 @@ public class CreateAccountViewHandler {
     }
     public void playSignInAnimation(){
         signupScene.setValue(false);
+    }
+
+    public StringProperty getSignUpFirstName() {
+        return signUpFirstName;
+    }
+    public StringProperty getSignUpLastName() {
+        return signUpLastName;
+    }
+    public StringProperty getSignUpUsername() {
+        return signUpUsername;
+    }
+    public StringProperty getSignUpPassword() {
+        return signUpPassword;
+    }
+    public BooleanProperty getSignupScene() {
+        return signupScene;
     }
 }

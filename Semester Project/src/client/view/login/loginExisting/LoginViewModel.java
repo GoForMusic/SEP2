@@ -15,6 +15,7 @@ public class LoginViewModel {
     public LoginViewModel(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
         initializeAllProperties();
+        signInScene.setValue(true);
 
     }
 
@@ -46,6 +47,5 @@ public class LoginViewModel {
 
     public String login() {
         return modelFactory.getLoginModel().isLoginPossible(usernameLogin.get(), passwordLogin.get());
-
     }
 }

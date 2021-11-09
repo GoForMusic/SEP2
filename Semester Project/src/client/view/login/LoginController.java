@@ -3,81 +3,98 @@ package client.view.login;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
-public class LoginController implements ViewController
-{
+public class LoginController implements ViewController {
 
-  @FXML  private AnchorPane SIgnUpLayer;
-  @FXML  private Label createTopic;
-  @FXML  private Label inSignIn;
-  @FXML  private TextField signUpFirstName;
-  @FXML  private TextField signUpLastName;
-  @FXML  private TextField signUpUsername;
-  @FXML  private PasswordField  signUpPassword;
-  @FXML  private Button signUpButton;
-  @FXML  private TextField signInUsername;
-  @FXML  private Button signInButton;
-  @FXML  private PasswordField signInPassword;
-  @FXML  private AnchorPane layer2;
-  @FXML  private Label upWelcome;
-  @FXML  private Label upWelcome2;
-  @FXML  private Button SignInButtonInUp;
-  @FXML  private Button signUpButton1;
-  @FXML  private Label inText;
-  @FXML  private Label inText2;
+    @FXML
+    private AnchorPane SIgnUpLayer;
+    @FXML
+    private Label createTopic;
+    @FXML
+    private Label inSignIn;
+    @FXML
+    private TextField signUpFirstName;
+    @FXML
+    private TextField signUpLastName;
+    @FXML
+    private TextField signUpUsername;
+    @FXML
+    private PasswordField signUpPassword;
+    @FXML
+    private Button signUpButton;
+    @FXML
+    private TextField signInUsername;
+    @FXML
+    private Button signInButton;
+    @FXML
+    private PasswordField signInPassword;
+    @FXML
+    private AnchorPane layer2;
+    @FXML
+    private Label upWelcome;
+    @FXML
+    private Label upWelcome2;
+    @FXML
+    private Button SignInButtonInUp;
+    @FXML
+    private Button signUpButton1;
+    @FXML
+    private Label inText;
+    @FXML
+    private Label inText2;
 
-  private ViewHandler viewHandler;
-  private ViewModelFactory viewModelFactory;
-  private LoginViewModel loginViewModel;
+    private ViewHandler viewHandler;
+    private ViewModelFactory viewModelFactory;
+    private LoginViewModel loginViewModel;
+    private CreateAccountViewModel createAccountViewModel;
 
-  @Override public void init(ViewHandler vh, ViewModelFactory vmf)
-  {
-    this.viewHandler=vh;
-    this.viewModelFactory=vmf;
-    loginViewModel= viewModelFactory.getLoginViewModel();
-    bindEverythingwithLogin();
-    bindEverythingwithSignUp();
+    @Override
+    public void init(ViewHandler vh, ViewModelFactory vmf) {
+        this.viewHandler = vh;
+        this.viewModelFactory = vmf;
+        loginViewModel = viewModelFactory.getLoginViewModel();
+        this.createAccountViewModel = viewModelFactory.getCreateAccountViewModel();
+        bindEverythingWithLogin();
+        bindEverythingWithSignUp();
 
+       // signInAnimation();
 
-  }
+    }
 
-  private void bindEverythingwithSignUp() {
-    
-  }
+    private void bindEverythingWithSignUp() {
+        createTopic.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        signUpFirstName.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        signUpLastName.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        signUpUsername.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        signUpPassword.visibleProperty().bind(createAccountViewModel.getSignupScene());
+       // signUpButton1.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        signUpButton.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        upWelcome.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        SignInButtonInUp.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        upWelcome2.visibleProperty().bind(createAccountViewModel.getSignupScene());
 
-  private void bindEverythingwithLogin(){
-    inSignIn.visibleProperty().bind(loginViewModel.getSignInScene());
-    signInUsername.visibleProperty().bind(loginViewModel.getSignInScene());
-    signInPassword.visibleProperty().bind(loginViewModel.getSignInScene());
-    signUpButton.visibleProperty().bind(loginViewModel.getSignInScene());
-    inText.visibleProperty().bind(loginViewModel.getSignInScene());
-    signUpButton1.visibleProperty().bind(loginViewModel.getSignInScene());
-  }
+    }
+    private void bindEverythingWithLogin() {
+        inSignIn.visibleProperty().bind(loginViewModel.getSignInScene());
+        signInUsername.visibleProperty().bind(loginViewModel.getSignInScene());
+        signInPassword.visibleProperty().bind(loginViewModel.getSignInScene());
+        signUpButton.visibleProperty().bind(loginViewModel.getSignInScene());
+        inText.visibleProperty().bind(loginViewModel.getSignInScene());
+        signUpButton1.visibleProperty().bind(loginViewModel.getSignInScene());
+        signInButton.visibleProperty().bind(loginViewModel.getSignInScene());
+    }
 
-  /*
-  @Override public void init(ViewHandler vh, ViewModelFactory vmf)
-  {
-    this.upName.setVisible(true);
-    this.upPassword.setVisible(true);
-    this.upUsername.setVisible(true);
-    this.inText.setVisible(false);
-    this.inText2.setVisible(false);
-    this.signUpButton1.setCancelButton(false);
-    this.signInPassword.setVisible(false);
-    this.inSignIn.setVisible(false);
-    this.signInPassword.setVisible(false);
-
-    this.viewModelFactory = vmf;
-    this.viewHandler=vh;
-
-  }
 
   public void signUpAnimation()
   {
@@ -87,20 +104,8 @@ public class LoginController implements ViewController
     slide.setToX(-370D);
     slide.play();
     this.SIgnUpLayer.setTranslateX(0);
-    this.SignInButton.setVisible(false);
-    this.SignInButtonInUp.setVisible(true);
-    this.upName.setVisible(true);
-    this.upPassword.setVisible(true);
-    this.upUsername.setVisible(true);
-    this.inText.setVisible(false);
-    this.inText2.setVisible(false);
-    this.signUpButton1.setVisible(false);
-    this.inPassword.setVisible(false);
-    this.inSignIn.setVisible(true);
-    this.inUsername.setVisible(true);
-    this.upWelcome.setVisible(true);
-    this.upCreateAccount.setVisible(true);
-    this.signUpButton.setVisible(true);
+    createAccountViewModel.playSignUpAnimation();
+    loginViewModel.playSignUpAnimation();
     slide.setOnFinished((e) -> {
     });
   }
@@ -113,25 +118,20 @@ public class LoginController implements ViewController
     slide.setToX(0);
     slide.play();
     this.SIgnUpLayer.setTranslateX(0.0D);
-    this.SignInButton.setVisible(true);
-    this.SignInButtonInUp.setVisible(false);
-    this.upName.setVisible(true);
-    this.upPassword.setVisible(true);
-    this.upUsername.setVisible(true);
-    this.inText.setVisible(true);
-    this.inText2.setVisible(true);
-    this.signUpButton1.setVisible(true);
-    this.inPassword.setVisible(true);
-    this.inSignIn.setVisible(true);
-    this.inUsername.setVisible(true);
-    this.upWelcome.setVisible(false);
-    this.upCreateAccount.setVisible(true);
-    this.signUpButton.setVisible(true);
-
-
+      createAccountViewModel.playSignInAnimation();
+      loginViewModel.playSignInAnimation();
     slide.setOnFinished((e) -> {
     });
   }
+  @FXML
+  private void signInPressed(ActionEvent event){
+        signInAnimation();
+  }
+  @FXML
+    private void signUpPressed(ActionEvent event){
+        signUpAnimation();
+  }
 
-*/
+
+
 }
