@@ -1,7 +1,6 @@
 package client.core;
 
-import client.view.login.LoginViewModel;
-import com.sun.webkit.Timer;
+import client.view.login.loginExisting.LoginViewModel;
 
 public class ViewModelFactory {
     private ModelFactory modelFactory;

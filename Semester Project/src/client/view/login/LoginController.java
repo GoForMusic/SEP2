@@ -3,18 +3,13 @@ package client.view.login;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
-import javafx.animation.TranslateTransition;
+import client.view.login.loginExisting.LoginViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginController implements ViewController
 {
@@ -38,13 +33,29 @@ public class LoginController implements ViewController
 
   private ViewHandler viewHandler;
   private ViewModelFactory viewModelFactory;
+  private LoginViewModel loginViewModel;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
+    this.viewHandler=vh;
+    this.viewModelFactory=vmf;
+    loginViewModel= viewModelFactory.getLoginViewModel();
+    bindEverything();
+
 
   }
 
-  /**
+  private void bindEverything(){
+    inSignIn.visibleProperty().bind(loginViewModel.getSignInScene());
+    signInUsername.visibleProperty().bind(loginViewModel.getSignInScene());
+    signInPassword.visibleProperty().bind(loginViewModel.getSignInScene());
+    signUpButton.visibleProperty().bind(loginViewModel.getSignInScene());
+    inText.visibleProperty().bind(loginViewModel.getSignInScene());
+    signUpButton1.visibleProperty().bind(loginViewModel.getSignInScene());
+
+  }
+
+  /*
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
     this.upName.setVisible(true);
@@ -116,5 +127,5 @@ public class LoginController implements ViewController
     });
   }
 
-**/
+*/
 }
