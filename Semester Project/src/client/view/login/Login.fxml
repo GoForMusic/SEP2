@@ -37,7 +37,7 @@
                     <Label fx:id="upWelcome" layoutX="99.0" layoutY="176.0" text="Welcome to The Hesam Hotel " textFill="WHITE" />
                     <Button fx:id="SignInButtonInUp" layoutX="161.0" layoutY="250.0" mnemonicParsing="false" onAction="#signInAnimation" text="Sign In" />
                     <Label fx:id="inText" layoutX="128.0" layoutY="85.0" text="Welcome to The Hotel Create a account" textFill="WHITE" />
-                    <Label fx:id="inText2" layoutX="143.0" layoutY="211.0" text="Login with username" textFill="WHITE" />
+                    <Label fx:id="upWelcome2" layoutX="143.0" layoutY="211.0" text="Login with username" textFill="WHITE" />
 
                     <Button fx:id="signUpButton1" layoutX="152.0" layoutY="118.0" mnemonicParsing="false" onAction="#signUpAnimation" prefHeight="22.0" prefWidth="66.0" text="Sign Up" />
                 </children>

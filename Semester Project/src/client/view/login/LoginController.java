@@ -15,17 +15,19 @@ public class LoginController implements ViewController
 {
 
   @FXML  private AnchorPane SIgnUpLayer;
-  @FXML  private Label upCreateAccount;
+  @FXML  private Label createTopic;
   @FXML  private Label inSignIn;
-  @FXML  private TextField upName;
-  @FXML  private TextField upUsername;
-  @FXML  private PasswordField  upPassword;
+  @FXML  private TextField signUpFirstName;
+  @FXML  private TextField signUpLastName;
+  @FXML  private TextField signUpUsername;
+  @FXML  private PasswordField  signUpPassword;
   @FXML  private Button signUpButton;
   @FXML  private TextField signInUsername;
-  @FXML  private Button SignInButton;
+  @FXML  private Button signInButton;
   @FXML  private PasswordField signInPassword;
   @FXML  private AnchorPane layer2;
   @FXML  private Label upWelcome;
+  @FXML  private Label upWelcome2;
   @FXML  private Button SignInButtonInUp;
   @FXML  private Button signUpButton1;
   @FXML  private Label inText;
