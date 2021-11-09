@@ -46,7 +46,7 @@ public class LoginViewModel {
     }
 
     public String login() {
-        System.out.println(usernameLogin.get());
+      //  System.out.println(usernameLogin.get());
         if (usernameLogin.get().isEmpty()){
            return "Username cannot be empty !!";
         }
