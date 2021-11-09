@@ -3,6 +3,7 @@ package client.view.login;
 import client.core.ModelFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.utils.User;
 
 public class LoginViewModel {
     private StringProperty errorLogin,  usernameLogin, passwordLogin;
@@ -46,4 +47,8 @@ public class LoginViewModel {
         return passwordCreate;
     }
 
+    public String login() {
+      return modelFactory.getLoginModel().isLoginPossible(usernameLogin.get(),passwordLogin.get());
+
+    }
 }
