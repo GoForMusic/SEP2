@@ -54,6 +54,7 @@ public class LoginController implements ViewController {
     @FXML
     private Label inText2;
 
+
     private ViewHandler viewHandler;
     private ViewModelFactory viewModelFactory;
     private LoginViewModel loginViewModel;
@@ -128,6 +129,9 @@ public class LoginController implements ViewController {
         createAccountViewModel.playSignInAnimation();
         loginViewModel.playSignInAnimation();
 
+    }
+    @FXML private void signIn(ActionEvent event){
+        loginViewModel.login();
     }
 
     @FXML
