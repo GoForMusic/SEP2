@@ -1,7 +1,5 @@
 package client.networking;
 
-import client.model.login.LoginModel;
-import client.model.login.LoginModelImpl;
 import shared.networking.serverInterfaces.Server;
 import shared.utils.User;
 
