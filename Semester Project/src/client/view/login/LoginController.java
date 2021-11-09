@@ -68,7 +68,7 @@ public class LoginController implements ViewController {
         bindEverythingWithLogin();
         bindEverythingWithSignUp();
 
-       // signInAnimation();
+        // signInAnimation();
 
     }
 
@@ -83,7 +83,14 @@ public class LoginController implements ViewController {
         SignInButtonInUp.visibleProperty().bind(createAccountViewModel.getSignupScene());
         upWelcome2.visibleProperty().bind(createAccountViewModel.getSignupScene());
 
+        // text properties
+        signUpFirstName.textProperty().bindBidirectional(createAccountViewModel.getSignUpFirstName());
+        signUpLastName.textProperty().bindBidirectional(createAccountViewModel.getSignUpLastName());
+        signUpPassword.textProperty().bindBidirectional(createAccountViewModel.getSignUpPassword());
+        signUpUsername.textProperty().bindBidirectional(createAccountViewModel.getSignUpUsername());
+
     }
+
     private void bindEverythingWithLogin() {
         inSignIn.visibleProperty().bind(loginViewModel.getSignInScene());
         signInUsername.visibleProperty().bind(loginViewModel.getSignInScene());
@@ -92,45 +99,44 @@ public class LoginController implements ViewController {
         inText.visibleProperty().bind(loginViewModel.getSignInScene());
         signUpButton1.visibleProperty().bind(loginViewModel.getSignInScene());
         signInButton.visibleProperty().bind(loginViewModel.getSignInScene());
+        // binding text properties..
+        signInUsername.textProperty().bindBidirectional(loginViewModel.getUsernameLogin());
+        signInPassword.textProperty().bindBidirectional(loginViewModel.getPasswordLogin());
+
     }
 
 
-  public void signUpAnimation()
-  {
-    TranslateTransition slide = new TranslateTransition();
-    slide.setDuration(Duration.seconds(0.9D));
-    slide.setNode(this.layer2);
-    slide.setToX(-370D);
-    slide.play();
-    this.SIgnUpLayer.setTranslateX(0);
-    createAccountViewModel.playSignUpAnimation();
-    loginViewModel.playSignUpAnimation();
-    slide.setOnFinished((e) -> {
-    });
-  }
+    public void signUpAnimation() {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.9D));
+        slide.setNode(this.layer2);
+        slide.setToX(-370D);
+        slide.play();
+        this.SIgnUpLayer.setTranslateX(0);
+        createAccountViewModel.playSignUpAnimation();
+        loginViewModel.playSignUpAnimation();
 
-  public void signInAnimation()
-  {
-    TranslateTransition slide = new TranslateTransition();
-    slide.setDuration(Duration.seconds(0.9D));
-    slide.setNode(this.layer2);
-    slide.setToX(0);
-    slide.play();
-    this.SIgnUpLayer.setTranslateX(0.0D);
-      createAccountViewModel.playSignInAnimation();
-      loginViewModel.playSignInAnimation();
-    slide.setOnFinished((e) -> {
-    });
-  }
-  @FXML
-  private void signInPressed(ActionEvent event){
+    }
+
+    public void signInAnimation() {
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.9D));
+        slide.setNode(this.layer2);
+        slide.setToX(0);
+        slide.play();
+        this.SIgnUpLayer.setTranslateX(0.0D);
+        createAccountViewModel.playSignInAnimation();
+        loginViewModel.playSignInAnimation();
+
+    }
+
+    @FXML
+    private void signInPressed(ActionEvent event) {
         signInAnimation();
-  }
-  @FXML
-  private void signUpPressed(ActionEvent event){
+    }
+
+    @FXML
+    private void signUpPressed(ActionEvent event) {
         signUpAnimation();
-  }
-
-
-
+    }
 }
