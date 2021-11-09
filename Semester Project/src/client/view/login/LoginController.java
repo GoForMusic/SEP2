@@ -46,13 +46,15 @@ public class LoginController implements ViewController {
     @FXML
     private Label upWelcome2;
     @FXML
+    private Label loginWarning;
+    @FXML
     private Button SignInButtonInUp;
     @FXML
     private Button signUpButton1;
     @FXML
     private Label inText;
     @FXML
-    private Label inText2;
+    private Label createError;
 
 
     private ViewHandler viewHandler;
@@ -83,12 +85,14 @@ public class LoginController implements ViewController {
         upWelcome.visibleProperty().bind(createAccountViewModel.getSignupScene());
         SignInButtonInUp.visibleProperty().bind(createAccountViewModel.getSignupScene());
         upWelcome2.visibleProperty().bind(createAccountViewModel.getSignupScene());
+        createError.visibleProperty().bind(createAccountViewModel.getSignupScene());
 
         // text properties
         signUpFirstName.textProperty().bindBidirectional(createAccountViewModel.getSignUpFirstName());
         signUpLastName.textProperty().bindBidirectional(createAccountViewModel.getSignUpLastName());
         signUpPassword.textProperty().bindBidirectional(createAccountViewModel.getSignUpPassword());
         signUpUsername.textProperty().bindBidirectional(createAccountViewModel.getSignUpUsername());
+        createError.textProperty().bind(createAccountViewModel.getErrorLabel());
 
     }
 
@@ -100,9 +104,11 @@ public class LoginController implements ViewController {
         inText.visibleProperty().bind(loginViewModel.getSignInScene());
         signUpButton1.visibleProperty().bind(loginViewModel.getSignInScene());
         signInButton.visibleProperty().bind(loginViewModel.getSignInScene());
+        loginWarning.visibleProperty().bind(loginViewModel.getSignInScene());
         // binding text properties..
         signInUsername.textProperty().bindBidirectional(loginViewModel.getUsernameLogin());
         signInPassword.textProperty().bindBidirectional(loginViewModel.getPasswordLogin());
+        loginWarning.textProperty().bind(loginViewModel.getErrorLogin());
 
     }
 
@@ -130,8 +136,13 @@ public class LoginController implements ViewController {
         loginViewModel.playSignInAnimation();
 
     }
-    @FXML private void signIn(ActionEvent event){
+    @FXML
+    private void signIn(ActionEvent event){
         loginViewModel.login();
+    }
+    @FXML
+    private void createAccount(ActionEvent event){
+        createAccountViewModel.createAccount();
     }
 
     @FXML   // this is the animation one
