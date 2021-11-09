@@ -46,6 +46,8 @@ public class LoginController implements ViewController {
     @FXML
     private Label upWelcome2;
     @FXML
+    private Label loginWarning;
+    @FXML
     private Button SignInButtonInUp;
     @FXML
     private Button signUpButton1;
@@ -103,6 +105,7 @@ public class LoginController implements ViewController {
         // binding text properties..
         signInUsername.textProperty().bindBidirectional(loginViewModel.getUsernameLogin());
         signInPassword.textProperty().bindBidirectional(loginViewModel.getPasswordLogin());
+        loginWarning.textProperty().bind(loginViewModel.getErrorLogin());
 
     }
 

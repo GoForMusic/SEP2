@@ -55,6 +55,7 @@ public class LoginViewModel {
         }
         else{
             String temp= modelFactory.getLoginModel().isLoginPossible(usernameLogin.get(), passwordLogin.get());
+            errorLogin.set(temp);
             clearAll();
             return temp;
         }
