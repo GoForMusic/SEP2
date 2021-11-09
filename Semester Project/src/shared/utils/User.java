@@ -70,7 +70,7 @@ public class User implements Serializable {
      */
     public String getEmailAddress() {
 
-       return emailAddress;
+        return emailAddress;
     }
 
     /**
