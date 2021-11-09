@@ -56,7 +56,7 @@ public class LoginController implements ViewController
 
   }
 
-  public void btn2()
+  public void signUpAnimation()
   {
     TranslateTransition slide = new TranslateTransition();
     slide.setDuration(Duration.seconds(0.9D));
@@ -82,7 +82,7 @@ public class LoginController implements ViewController
     });
   }
 
-  public void btn(MouseEvent mouseEvent)
+  public void signInAnimation()
   {
     TranslateTransition slide = new TranslateTransition();
     slide.setDuration(Duration.seconds(0.9D));
