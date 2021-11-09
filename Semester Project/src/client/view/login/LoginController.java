@@ -78,7 +78,6 @@ public class LoginController implements ViewController {
         signUpLastName.visibleProperty().bind(createAccountViewModel.getSignupScene());
         signUpUsername.visibleProperty().bind(createAccountViewModel.getSignupScene());
         signUpPassword.visibleProperty().bind(createAccountViewModel.getSignupScene());
-       // signUpButton1.visibleProperty().bind(createAccountViewModel.getSignupScene());
         signUpButton.visibleProperty().bind(createAccountViewModel.getSignupScene());
         upWelcome.visibleProperty().bind(createAccountViewModel.getSignupScene());
         SignInButtonInUp.visibleProperty().bind(createAccountViewModel.getSignupScene());
