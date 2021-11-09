@@ -127,7 +127,7 @@ public class LoginController implements ViewController {
         signInAnimation();
   }
   @FXML
-    private void signUpPressed(ActionEvent event){
+  private void signUpPressed(ActionEvent event){
         signUpAnimation();
   }
 
