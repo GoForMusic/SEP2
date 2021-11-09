@@ -26,7 +26,7 @@ public class ViewHandler {
     public void openLogin() {
         if (loginScene==null){
             try {
-                Parent root =loadFXML("#");
+                Parent root =loadFXML("../view/login/Login.fxml");
                 loginScene = new Scene(root);
                 stage.setTitle("Login");
             } catch (IOException e) {
