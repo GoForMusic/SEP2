@@ -14,7 +14,7 @@
 
     <AnchorPane fx:id="SIgnUpLayer" prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1">
         <children>
-            <Label fx:id="upCreateAccount" layoutX="456.0" layoutY="108.0" text="Create Account">
+            <Label fx:id="createTopic" layoutX="456.0" layoutY="108.0" text="Create Account">
                 <font>
                     <Font name="Arial" size="18.0" />
                 </font>
@@ -26,18 +26,18 @@
             </Label>
             <TextField fx:id="signUpFirstName" layoutX="396.0" layoutY="158.0" prefHeight="35.0" prefWidth="287.0" promptText="First Name" />
             <TextField fx:id="signUpUsername" layoutX="396.0" layoutY="286.0" prefHeight="35.0" prefWidth="287.0" promptText="Username" />
-            <PasswordField fx:id="upPassword" layoutX="396.0" layoutY="342.0" prefHeight="35.0" prefWidth="287.0" promptText="Password" />
+            <PasswordField fx:id="signUpPassword" layoutX="396.0" layoutY="342.0" prefHeight="35.0" prefWidth="287.0" promptText="Password" />
             <Button fx:id="signUpButton" layoutX="506.0" layoutY="416.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="66.0" text="Sign UP" />
             <TextField fx:id="signInUsername" layoutX="43.0" layoutY="194.0" prefHeight="35.0" prefWidth="259.0" promptText="Username" />
-            <Button fx:id="SignInButton" layoutX="119.0" layoutY="378.0" mnemonicParsing="false" text="Sign In" />
+            <Button fx:id="signInButton" layoutX="119.0" layoutY="378.0" mnemonicParsing="false" text="Sign In" />
             <PasswordField fx:id="signInPassword" layoutX="43.0" layoutY="277.0" prefHeight="35.0" prefWidth="259.0" promptText="Password" />
          <TextField fx:id="signUpLastName" layoutX="396.0" layoutY="217.0" prefHeight="35.0" prefWidth="287.0" promptText="Last Name" />
-            <AnchorPane fx:id="layer2" layoutX="354.0" layoutY="2.0" prefHeight="500.0" prefWidth="370.0" style="-fx-background-color: #300d33">
+            <AnchorPane fx:id="layer2" layoutY="1.0" prefHeight="500.0" prefWidth="370.0" style="-fx-background-color: #300d33">
                 <children>
-                    <Label fx:id="upWelcome" layoutX="89.0" layoutY="273.0" text="Welcome to The hesam go to sign in " textFill="WHITE" />
-                    <Button fx:id="SignInButtonInUp" layoutX="172.0" layoutY="316.0" mnemonicParsing="false" onAction="#signInAnimation" text="Sign In" />
-                    <Label fx:id="inText" layoutX="128.0" layoutY="85.0" text="Welcome to The Hotel" textFill="WHITE" />
-                    <Label fx:id="inText2" layoutX="133.0" layoutY="298.0" text="Login with username" textFill="WHITE" />
+                    <Label fx:id="upWelcome" layoutX="99.0" layoutY="176.0" text="Welcome to The Hesam Hotel " textFill="WHITE" />
+                    <Button fx:id="SignInButtonInUp" layoutX="161.0" layoutY="250.0" mnemonicParsing="false" onAction="#signInAnimation" text="Sign In" />
+                    <Label fx:id="inText" layoutX="128.0" layoutY="85.0" text="Welcome to The Hotel Create a account" textFill="WHITE" />
+                    <Label fx:id="inText2" layoutX="143.0" layoutY="211.0" text="Login with username" textFill="WHITE" />
 
                     <Button fx:id="signUpButton1" layoutX="152.0" layoutY="118.0" mnemonicParsing="false" onAction="#signUpAnimation" prefHeight="22.0" prefWidth="66.0" text="Sign Up" />
                 </children>
