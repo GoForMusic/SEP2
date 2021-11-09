@@ -26,9 +26,9 @@ public class LoginController implements ViewController
   @FXML  private TextField upUsername;
   @FXML  private PasswordField  upPassword;
   @FXML  private Button signUpButton;
-  @FXML  private TextField inUsername;
+  @FXML  private TextField signInUsername;
   @FXML  private Button SignInButton;
-  @FXML  private PasswordField inPassword;
+  @FXML  private PasswordField signInPassword;
   @FXML  private AnchorPane layer2;
   @FXML  private Label upWelcome;
   @FXML  private Button SignInButtonInUp;
@@ -41,15 +41,21 @@ public class LoginController implements ViewController
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
+
+  }
+
+  /**
+  @Override public void init(ViewHandler vh, ViewModelFactory vmf)
+  {
     this.upName.setVisible(true);
     this.upPassword.setVisible(true);
     this.upUsername.setVisible(true);
     this.inText.setVisible(false);
     this.inText2.setVisible(false);
     this.signUpButton1.setCancelButton(false);
-    this.inPassword.setVisible(false);
+    this.signInPassword.setVisible(false);
     this.inSignIn.setVisible(false);
-    this.inUsername.setVisible(false);
+    this.signInPassword.setVisible(false);
 
     this.viewModelFactory = vmf;
     this.viewHandler=vh;
@@ -110,5 +116,5 @@ public class LoginController implements ViewController
     });
   }
 
-
+**/
 }
