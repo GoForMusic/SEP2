@@ -11,7 +11,7 @@ public class LoginModelImpl implements LoginModel{
     }
 
     @Override
-    public String isLoginPossible(User user) {
+    public String isLoginPossible(String username,String password) {
         return null;
     }
 }
