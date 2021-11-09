@@ -27,11 +27,11 @@ public class LoginClientImpl implements LoginClient{
 
     @Override
     public boolean isConnectionPossible(String username) {
-        try {
-            return server.getLoginServer().isConnectionPossible(username);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            return server.getLoginServer().isConnectionPossible(username);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
         return false;
     }
 

@@ -13,7 +13,7 @@ public class ModelFactory {
 
     public LoginModel getLoginModel() {
         if (loginModel == null) {
-            loginModel = new LoginModelImpl();
+            loginModel = new LoginModelImpl(clientFactory.getLoginClient());
         }
         return loginModel;
     }
