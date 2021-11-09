@@ -40,19 +40,23 @@ public class LoginController implements ViewController
     this.viewHandler=vh;
     this.viewModelFactory=vmf;
     loginViewModel= viewModelFactory.getLoginViewModel();
-    bindEverything();
+    bindEverythingwithLogin();
+    bindEverythingwithSignUp();
 
 
   }
 
-  private void bindEverything(){
+  private void bindEverythingwithSignUp() {
+    
+  }
+
+  private void bindEverythingwithLogin(){
     inSignIn.visibleProperty().bind(loginViewModel.getSignInScene());
     signInUsername.visibleProperty().bind(loginViewModel.getSignInScene());
     signInPassword.visibleProperty().bind(loginViewModel.getSignInScene());
     signUpButton.visibleProperty().bind(loginViewModel.getSignInScene());
     inText.visibleProperty().bind(loginViewModel.getSignInScene());
     signUpButton1.visibleProperty().bind(loginViewModel.getSignInScene());
-
   }
 
   /*
