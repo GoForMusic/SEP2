@@ -5,15 +5,19 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String userName;
     private String password;
+    private String firstname;
+    private String lastName;
 
     public User(String userName, String password){
         this.userName=userName;
         this.password=password;
     }
-    public User(String userName)
-    {
+
+    public User (String firstname,String lastname,String userName,String password){
         this.userName=userName;
-        this.password=null;
+        this.password=password;
+        this.firstname=firstname;
+        this.lastName=lastname;
     }
 
     public String getUserName() {
@@ -24,6 +28,17 @@ public class User implements Serializable {
     public String getPassword() {
 
         return password;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    public String getFullName(){
+        return firstname+" "+lastName;
     }
 
     public boolean equals(Object obj){
@@ -39,6 +54,8 @@ public class User implements Serializable {
         return "User{" +
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }

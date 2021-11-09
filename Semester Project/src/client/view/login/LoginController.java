@@ -134,12 +134,12 @@ public class LoginController implements ViewController {
         loginViewModel.login();
     }
 
-    @FXML
+    @FXML   // this is the animation one
     private void signInPressed(ActionEvent event) {
         signInAnimation();
     }
 
-    @FXML
+    @FXML  // // this is the animation one
     private void signUpPressed(ActionEvent event) {
         signUpAnimation();
     }
