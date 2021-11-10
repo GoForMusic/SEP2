@@ -20,6 +20,7 @@ public class LoginHandlerImpl implements LoginHandler {
     @Override
     public String isLoginPossible(User user) {
         //need database
+        //TODO deal with database
 
         System.out.println("Login possible ??");
         return "is login possible is called...";

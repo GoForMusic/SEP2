@@ -10,8 +10,8 @@ public class CreateImpl implements CreateModel {
     }
 
     @Override
-    public void isConnectionPossible(String username) {
-        client.isConnectionPossible(username);
+    public boolean isConnectionPossible(String username) {
+       return client.isConnectionPossible(username);
 
     }
 

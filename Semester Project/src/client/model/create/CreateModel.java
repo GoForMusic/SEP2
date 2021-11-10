@@ -10,7 +10,7 @@ public interface CreateModel {
      * @param username the username to be checked
      * @return true if available, false if not
      */
-    void isConnectionPossible(String username);
+    boolean isConnectionPossible(String username);
 
     /**
      * Adds user to database

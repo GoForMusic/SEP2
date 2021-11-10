@@ -18,11 +18,11 @@ public class CreateServerImpl implements CreateAccountServer {
 
     @Override
     public boolean addUser(User user) throws RemoteException {
-        return false;
+      return createHandler.addUser(user);
     }
 
     @Override
     public boolean doesUsernameExists(String username) throws RemoteException {
-        return false;
+       return createHandler.doesUsernameExists(username);
     }
 }

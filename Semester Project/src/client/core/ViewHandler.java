@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * @author Sachin Baral
+ * A class that deals with loading fxml files and loading stages.
+ */
+
 public class ViewHandler {
     private Scene loginScene;
     private Stage stage;

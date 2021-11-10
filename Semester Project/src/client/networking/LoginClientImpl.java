@@ -23,15 +23,6 @@ public class LoginClientImpl implements LoginClient{
         }
     }
 
-    @Override
-    public boolean isConnectionPossible(String username) {
-//        try {
-//            return server.getLoginServer().isConnectionPossible(username);
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
-        return false;
-    }
 
     @Override
     public String isLoginPossible(User user) {

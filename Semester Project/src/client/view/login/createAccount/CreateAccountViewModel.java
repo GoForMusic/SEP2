@@ -75,9 +75,12 @@ public class CreateAccountViewModel {
             return null;
         }
         else{
-            return createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+            if (createModel.isConnectionPossible(signUpUsername.get())){
+                return createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+            }
 
         }
+        return null;
 
     }
 }
