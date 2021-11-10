@@ -4,6 +4,10 @@ import client.networking.LoginClient;
 import client.networking.LoginClientImpl;
 import shared.utils.User;
 
+/**
+ * @author Sachin
+ * The model that deals with login in the system
+ */
 public class LoginModelImpl implements LoginModel{
 
     private LoginClient client;
@@ -18,6 +22,7 @@ public class LoginModelImpl implements LoginModel{
     public boolean isConnectionPossible(String username) {
         return false;
     }
+
 
     @Override
     public String isLoginPossible(String username,String password) {

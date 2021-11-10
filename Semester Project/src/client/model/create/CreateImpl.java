@@ -1,15 +1,22 @@
 package client.model.create;
 
-public class CreateImpl implements CreateModel{
+import client.networking.create.CreateClient;
 
+public class CreateImpl implements CreateModel {
+    public CreateClient client;
+
+    public CreateImpl(CreateClient client) {
+        this.client = client;
+    }
 
     @Override
     public void isConnectionPossible(String username) {
+        client.isConnectionPossible(username);
 
     }
 
     @Override
-    public void addUser(String firstname, String lastname, String username, String password) {
-
+    public String addUser(String firstname, String lastname, String username, String password) {
+       return client.addUser(firstname, lastname, username, password);
     }
 }

@@ -1,6 +1,6 @@
 package client.networking.create;
 
-public class CreateClientImpl implements CreateClient{
+public class CreateClientImpl implements CreateClient {
 
 
     @Override
@@ -9,7 +9,7 @@ public class CreateClientImpl implements CreateClient{
     }
 
     @Override
-    public void addUser(String firstname, String lastname, String username, String password) {
-
+    public String addUser(String firstname, String lastname, String username, String password) {
+        return null;
     }
 }
