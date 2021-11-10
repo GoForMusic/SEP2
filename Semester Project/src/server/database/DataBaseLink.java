@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- * This class is the connection with database where is the actions CREATE/UPDATE/DELETE are executed
+ * This class is the connection with database where is the actions CREATE/UPDATE/DELETE are executed.
  * @author Adrian
  * @version 0.1
  */
