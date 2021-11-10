@@ -13,7 +13,7 @@ public class LoginHandlerImpl implements LoginHandler {
     public LoginHandlerImpl() {
         allUsers = new ArrayList<>();
         allUsernames = new ArrayList<>();
-        allUsers.add(new User("Sachin", "Baral", "sachin07", "sachin123"));
+       // allUsers.add(new User("Sachin", "Baral", "sachin07", "sachin123"));
     }
 
 

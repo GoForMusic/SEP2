@@ -1,7 +1,7 @@
 package client.model.create;
 
 public class CreateImpl implements CreateModel{
-    public
+
 
     @Override
     public void isConnectionPossible(String username) {
