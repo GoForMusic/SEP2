@@ -1,6 +1,7 @@
 package client.view.login.createAccount;
 
 import client.core.ModelFactory;
+import client.model.create.CreateModel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -11,9 +12,11 @@ public class CreateAccountViewModel {
     private BooleanProperty signupScene;
 
     private ModelFactory modelFactory;
+    private CreateModel createModel;
 
     public CreateAccountViewModel(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
+        createModel= modelFactory.getCreateModel();
         initializeAllProperties();
     }
 
@@ -72,7 +75,8 @@ public class CreateAccountViewModel {
             return null;
         }
         else{
-            c
+            return createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+
         }
 
     }
