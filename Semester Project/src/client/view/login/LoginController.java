@@ -98,6 +98,7 @@ public class LoginController implements ViewController {
     }
 
     private void bindEverythingWithLogin() {
+
         inSignIn.visibleProperty().bind(loginViewModel.getSignInScene());
         signInUsername.visibleProperty().bind(loginViewModel.getSignInScene());
         signInPassword.visibleProperty().bind(loginViewModel.getSignInScene());

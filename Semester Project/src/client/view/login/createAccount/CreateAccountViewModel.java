@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+
 public class CreateAccountViewModel {
     private StringProperty signUpFirstName, signUpLastName, signUpUsername, signUpPassword, errorLabel;
     private BooleanProperty signupScene;
@@ -63,24 +64,29 @@ public class CreateAccountViewModel {
 
     public String createAccount() {
         if (signUpUsername.get().isEmpty()){
-            errorLabel.set("Username cannot be empty");
+            errorLabel.set("Username cannot be empty..");
             return null;
         }
         else if (signUpFirstName.get().isEmpty() || signUpLastName.get().isEmpty() ){
-            errorLabel.set("First name and last name cannot be empty");
+            errorLabel.set("First name and last name cannot be empty..");
             return null;
         }
         else if (signUpPassword.get().isEmpty()){
-            errorLabel.set("Password invalid");
+            errorLabel.set("Password cannot be empty..");
             return null;
         }
         else{
             if (createModel.isConnectionPossible(signUpUsername.get())){
-                return createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+                String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+                if (!response.equals("Approved")){
+                    errorLabel.set(response);
+                    return response;
+                }
             }
-
+            else{
+                errorLabel.set("Username unavailable, please try another");
+            }
         }
         return null;
-
     }
 }

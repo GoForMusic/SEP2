@@ -4,6 +4,8 @@ import client.model.create.CreateImpl;
 import client.model.create.CreateModel;
 import client.model.login.LoginModel;
 import client.model.login.LoginModelImpl;
+import client.model.viewRooms.ViewRoomsModel;
+import client.model.viewRooms.ViewRoomsModelImpl;
 
 /**
  * @author Sachin Baral
@@ -13,6 +15,7 @@ public class ModelFactory {
     private ClientFactory clientFactory;
     private LoginModel loginModel;
     private CreateModel createModel;
+    private ViewRoomsModel viewRoomsModel;
 
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
@@ -30,5 +33,12 @@ public class ModelFactory {
             createModel = new CreateImpl(clientFactory.getCreateClient());
         }
         return createModel;
+    }
+
+    public ViewRoomsModel getViewRoomsModel() {
+        if (viewRoomsModel == null) {
+            viewRoomsModel = new ViewRoomsModelImpl(clientFactory.getViewRoomCLient());
+        }
+        return viewRoomsModel;
     }
 }
