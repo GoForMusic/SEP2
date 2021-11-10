@@ -70,6 +70,7 @@ public class LoginController implements ViewController {
         this.createAccountViewModel = viewModelFactory.getCreateAccountViewModel();
         bindEverythingWithLogin();
         bindEverythingWithSignUp();
+        
 
         // signInAnimation();
 
