@@ -1,18 +1,17 @@
-package client.model.viewRooms;
+package client.networking.viewRooms;
 
 import java.time.LocalDate;
 
 /**
  * @author Sachin Baral
- * Model for viewing rooms
+ * The client intergface dealing with viewing rooms
  */
-public interface ViewRoomsModel {
+public interface ViewRoomClient {
     /**
-     * searches available rooms on the given time period
-     *
+     * Searches room
      * @param dateFrom the date to search from
      * @param dateTo the date to search upto
-     * @param category the category of the room
+     * @param category the category of the room to search
      */
     void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category);
 }
