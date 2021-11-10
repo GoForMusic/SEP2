@@ -1,12 +1,9 @@
 package client.core;
 
-import client.networking.LoginClient;
-import client.networking.LoginClientImpl;
+import client.networking.login.LoginClient;
+import client.networking.login.LoginClientImpl;
 import client.networking.create.CreateClient;
 import client.networking.create.CreateClientImpl;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Sachin

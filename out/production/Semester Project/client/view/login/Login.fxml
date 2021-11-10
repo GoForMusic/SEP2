@@ -5,11 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.login.LoginController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.login.LoginController">
 
 
     <AnchorPane fx:id="SIgnUpLayer" prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1">
@@ -40,6 +42,11 @@
                     <Label fx:id="upWelcome2" layoutX="143.0" layoutY="211.0" text="Login with username" textFill="WHITE" />
 
                     <Button fx:id="signUpButton1" layoutX="152.0" layoutY="118.0" mnemonicParsing="false" onAction="#signUpPressed" prefHeight="22.0" prefWidth="66.0" text="Sign Up" />
+               <ImageView fitHeight="434.0" fitWidth="211.0" layoutX="113.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../images/Logo.png" />
+                  </image>
+               </ImageView>
                 </children>
             <padding>
                <Insets left="50.0" top="50.0" />

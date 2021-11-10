@@ -1,4 +1,4 @@
-package client.networking;
+package client.networking.login;
 
 import shared.utils.User;
 
@@ -7,5 +7,10 @@ import shared.utils.User;
  */
 public interface LoginClient {
 
+    /**
+     * Checks if the login is allowed
+     * @param user
+     * @return the result from server
+     */
     String isLoginPossible(User user);
 }

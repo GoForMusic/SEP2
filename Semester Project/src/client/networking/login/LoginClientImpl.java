@@ -1,4 +1,4 @@
-package client.networking;
+package client.networking.login;
 
 import shared.networking.serverInterfaces.Server;
 import shared.utils.User;

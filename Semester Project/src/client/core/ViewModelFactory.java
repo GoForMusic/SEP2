@@ -3,6 +3,10 @@ package client.core;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
 
+/**
+ * @author Sachin Baral
+ * Creates and stores all the view models
+ */
 public class ViewModelFactory {
     private ModelFactory modelFactory;
     private LoginViewModel loginViewModel;

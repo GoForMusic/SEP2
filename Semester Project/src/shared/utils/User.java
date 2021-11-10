@@ -64,6 +64,8 @@ public class User implements Serializable {
         this.department=department;
     }
 
+
+
     /**
      * A get method for email address.
      * @return emailAddress
