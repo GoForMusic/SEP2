@@ -6,6 +6,7 @@ import shared.utils.User.User;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 
 public class LoginServerImpl implements LoginServer {
     private LoginHandler loginHandler;

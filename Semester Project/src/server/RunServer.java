@@ -1,5 +1,6 @@
 package server;
 
+import server.database.Employee.EmployeeRepositoryImpl;
 import server.model.create.CreateHandler;
 import server.model.create.CreateImpl;
 import server.model.login.LoginHandler;
@@ -13,9 +14,10 @@ import shared.networking.serverInterfaces.Server;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 
 public class RunServer {
-    public static void main(String[] args) throws RemoteException, AlreadyBoundException {
+    public static void main(String[] args) throws RemoteException, AlreadyBoundException, SQLException {
         LoginHandler loginHandler= new LoginHandlerImpl();
         LoginServer loginServer = new LoginServerImpl(loginHandler);
 
@@ -24,6 +26,5 @@ public class RunServer {
 
         Server server = new ServerImpl(loginServer,createAccountServer);
         server.startServer();
-
     }
 }

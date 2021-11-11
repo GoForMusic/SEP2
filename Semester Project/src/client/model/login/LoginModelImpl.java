@@ -1,6 +1,7 @@
 package client.model.login;
 
 import client.networking.login.LoginClient;
+import shared.utils.User.Admin;
 import shared.utils.User.User;
 
 /**
@@ -25,7 +26,7 @@ public class LoginModelImpl implements LoginModel{
 
     @Override
     public String isLoginPossible(String username,String password) {
-       User tempUser = new User(username,password);
+       User tempUser = new Admin(username,password);
        String result= client.isLoginPossible(tempUser);
        if (result.equals("Approved")){
            this.user=tempUser;

@@ -20,12 +20,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     /**
      * A constructor where the driver for postgresql will be register
      */
-    public EmployeeRepositoryImpl(){
-        try {
+    public EmployeeRepositoryImpl() throws SQLException {
             DriverManager.registerDriver(new org.postgresql.Driver());
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+            try{
+                Class.forName("org.postgresql.Driver");
+            }catch (ClassNotFoundException e){
+                System.out.println(e.getMessage());
+            }
     }
 
 
@@ -112,13 +113,15 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      */
     @Override
     public User getEmployeeLogin(String userName, String password) throws SQLException {
-        try(Connection connection = DataBaseConnection.getConnection()){
+        User temp = null;
+        System.out.println("0-----");
+        try(Connection connection = getConnection()){
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Employee\" WHERE \"userName\" = ? AND password = ?;");
-
+            System.out.println("2-----");
             //set the parameters on the SQL statement
             statement.setString(1,userName);
-            statement.setString(1,password);
-
+            statement.setString(2,password);
+            System.out.println("3-----");
             //execute query
             ResultSet resultSet = statement.executeQuery();
 
@@ -130,24 +133,23 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
                     row[i] = resultSet.getObject(i+1);
                 }
 
+                System.out.println(row[5]+" ");
                 //base on the last element will return a specific object
-                if(row[4].equals("Admin"))
+                if(row[5].equals("Admin"))
                 {
-                    return new Admin((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
+                    System.out.println((String)row[1]);
+                    temp= new Admin((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
                 }else if(row[4].equals("Cleaner")){
-                    return new Cleaner((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
+                    temp = new Cleaner((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
                 }else if(row[4].equals("Receptionist")){
-                    return new Receptionist((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
+                    temp = new Receptionist((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
                 }
             }
-            resultSet.close();
-            statement.close();
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }finally{
-            connection.close();
+            //resultSet.close();
+            //statement.close();
         }
-        return null;
+
+        return temp;
     }
 
     /**
@@ -241,5 +243,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         } finally {
             connection.close();
         }
+    }
+
+
+    private Connection getConnection() throws SQLException {
+        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=\"Hesam\"", "postgres","1234");
     }
 }
