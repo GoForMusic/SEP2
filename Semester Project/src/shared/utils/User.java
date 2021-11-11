@@ -7,61 +7,56 @@ import java.io.Serializable;
  * @author Adrian, Sachin
  * @version 1
  */
-public class User implements Serializable {
-    private int userID;
-    private String emailAddress;
-    private String password;
+public abstract class User implements Serializable {
+    private int employee_id;
     private String firstname;
     private String lastName;
-    private String department;
+    private String userName;
+    private String password;
+
 
     /**
      * A 2 argument constructor
-     * @param emailAddress
+     * @param userName
      * @param password
      */
-    public User(String emailAddress, String password){
-        this.userID=0;
+    public User(String userName, String password){
+        this.employee_id =0;
         this.firstname="";
         this.lastName="";
-        this.emailAddress=emailAddress;
+        this.userName =userName;
         this.password=password;
-        this.department="";
     }
 
     /**
-     * A 5 argument constructor, when the user will be created in the app and after pushed to the database
+     * A 4 argument constructor, when the user will be created in the app and after pushed to the database
      * @param firstname
      * @param lastname
-     * @param emailAddress
+     * @param userName
      * @param password
-     * @param department
      */
-    public User (String firstname,String lastname,String emailAddress,String password, String department){
-        this.userID=0;
+    public User (String firstname,String lastname,String userName,String password){
+        this.employee_id =0;
         this.firstname=firstname;
         this.lastName=lastname;
-        this.emailAddress=emailAddress;
+        this.userName =userName;
         this.password=password;
-        this.department=department;
     }
 
     /**
-     * A 6 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.
+     * A 5 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.
      * @param userID
      * @param firstname
      * @param lastname
-     * @param emailAddress
+     * @param userName
      * @param password
-     * @param department
      */
-    public User (int userID, String firstname,String lastname,String emailAddress,String password, String department){
-        this.userID=userID;
+    public User (int userID, String firstname,String lastname,String userName,String password){
+        this.employee_id =userID;
         this.firstname=firstname;
         this.lastName=lastname;
-        this.emailAddress=emailAddress;
+        this.userName =userName;
         this.password=password;
-        this.department=department;
     }
 
 
@@ -70,9 +65,9 @@ public class User implements Serializable {
      * A get method for email address.
      * @return emailAddress
      */
-    public String getEmailAddress() {
+    public String getUserName() {
 
-        return emailAddress;
+        return userName;
     }
 
     /**
@@ -88,17 +83,15 @@ public class User implements Serializable {
      * A get method for userID.
      * @return userID.
      */
-    public int getUserID(){
-        return userID;
+    public int getEmployee_id(){
+        return employee_id;
     }
 
     /**
-     * A get method for department.
-     * @return department
+     * A abstract method that will return the userType.
+     * @return userType in childclasses
      */
-    public String getDepartment(){
-        return department;
-    }
+    public abstract String getEmployeeType();
 
     /**
      * A get method for first name
@@ -134,22 +127,6 @@ public class User implements Serializable {
             return false;
         }
         User temp =(User) obj;
-        return temp.getEmailAddress().equals(emailAddress) && temp.getPassword().equals(password);
-    }
-
-    /**
-     * A method that will return the details
-     * @return user details
-     */
-    @Override
-    public String toString() {
-        return "User{" +
-                "ID='" + userID + '\'' +
-                "emailAddress='" + emailAddress + '\'' +
-                ", password='" + password + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", department='" + department + '\'' +
-                '}';
+        return temp.getUserName().equals(userName) && temp.getPassword().equals(password);
     }
 }
