@@ -1,14 +1,17 @@
 package server.model.create;
 
+import server.database.Employee.EmployeeRepository;
 import shared.utils.User.User;
 
 public class CreateImpl implements CreateHandler{
 
+    private EmployeeRepository employeeRepository;
 
     @Override
     public boolean addUser(User user) {
+        //add user linked to database
+        employeeRepository.insertEmployee(user);
 
-        //TODO deal with the databse
         return false;
     }
 

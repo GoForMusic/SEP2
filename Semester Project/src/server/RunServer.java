@@ -27,6 +27,5 @@ public class RunServer {
 
         Server server = new ServerImpl(loginServer,createAccountServer);
         server.startServer();
-        EmployeeRepository db = new EmployeeRepositoryImpl();
     }
 }

@@ -19,7 +19,6 @@ public class ServerImpl implements Server {
 
     private LoginServer loginServer;
     private CreateAccountServer createAccountServer;
-    private EmployeeRepository employeeRepository;
 
     public ServerImpl(LoginServer loginServer,CreateAccountServer createAccountServer) throws RemoteException {
         this.loginServer = loginServer;

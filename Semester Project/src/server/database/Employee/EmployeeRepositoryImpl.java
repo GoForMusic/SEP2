@@ -105,14 +105,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public User getEmployeeLogin(String userName, String password){
         User temp = null;
-        System.out.println("0-----");
         try(Connection connection = DataBaseConnection.getConnection()){
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Employee\" WHERE \"userName\" = ? AND password = ?;");
-            System.out.println("2-----");
             //set the parameters on the SQL statement
             statement.setString(1,userName);
             statement.setString(2,password);
-            System.out.println("3-----");
+
             //execute query
             ResultSet resultSet = statement.executeQuery();
 
@@ -124,11 +122,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
                     row[i] = resultSet.getObject(i+1);
                 }
 
-                System.out.println(row[5]+" ");
                 //base on the last element will return a specific object
                 if(row[5].equals("Admin"))
                 {
-                    System.out.println((String)row[1]);
                     temp= new Admin((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
                 }else if(row[4].equals("Cleaner")){
                     temp = new Cleaner((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
