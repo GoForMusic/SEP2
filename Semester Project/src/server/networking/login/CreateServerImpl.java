@@ -2,7 +2,7 @@ package server.networking.login;
 
 import server.model.create.CreateHandler;
 import shared.networking.serverInterfaces.CreateAccountServer;
-import shared.utils.User;
+import shared.utils.User.User;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

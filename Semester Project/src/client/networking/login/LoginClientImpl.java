@@ -1,7 +1,7 @@
 package client.networking.login;
 
 import shared.networking.serverInterfaces.Server;
-import shared.utils.User;
+import shared.utils.User.User;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;

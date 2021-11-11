@@ -1,7 +1,6 @@
 package client.model.create;
 
 import client.networking.create.CreateClient;
-import shared.utils.User;
 
 public class CreateImpl implements CreateModel {
     public CreateClient client;

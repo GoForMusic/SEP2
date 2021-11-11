@@ -1,6 +1,6 @@
 package server.database.Employee;
 
-import shared.utils.User;
+import shared.utils.User.User;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,4 +14,5 @@ public interface EmployeeRepository {
     User getEmployeeLogin(String userName, String password) throws SQLException;
     void updateEmployee(int userID, User newUser) throws SQLException;
     ArrayList<User> getEmployees() throws SQLException;
+    void deleteEmployee(int userID) throws SQLException;
 }

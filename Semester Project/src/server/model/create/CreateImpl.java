@@ -1,6 +1,6 @@
 package server.model.create;
 
-import shared.utils.User;
+import shared.utils.User.User;
 
 public class CreateImpl implements CreateHandler{
 

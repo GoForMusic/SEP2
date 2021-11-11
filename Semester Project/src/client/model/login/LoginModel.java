@@ -1,7 +1,5 @@
 package client.model.login;
 
-import shared.utils.User;
-
 public interface LoginModel {
     /**
      * Checks if the username is available

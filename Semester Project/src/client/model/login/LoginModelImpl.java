@@ -1,7 +1,7 @@
 package client.model.login;
 
 import client.networking.login.LoginClient;
-import shared.utils.User;
+import shared.utils.User.User;
 
 /**
  * @author Sachin

@@ -1,6 +1,6 @@
 package server.model.login;
 
-import shared.utils.User;
+import shared.utils.User.User;
 
 import java.util.ArrayList;
 import java.util.List;
