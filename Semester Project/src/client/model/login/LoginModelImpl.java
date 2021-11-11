@@ -18,10 +18,7 @@ public class LoginModelImpl implements LoginModel{
     }
 
 
-    @Override
-    public boolean isConnectionPossible(String username) {
-        return false;
-    }
+
 
 
     @Override
