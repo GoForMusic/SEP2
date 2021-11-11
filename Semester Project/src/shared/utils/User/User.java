@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * User class
  * @author Adrian, Sachin
- * @version 1
+ * @version 2
  */
 public abstract class User implements Serializable {
     private int employee_id;

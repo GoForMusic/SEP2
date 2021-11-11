@@ -2,6 +2,11 @@ package shared.utils.User;
 
 import java.io.Serializable;
 
+/**
+ * A child class that is extends of the User
+ * @author Adrian
+ * @version 1
+ */
 public class Receptionist extends User implements Serializable {
     private String userType;
 
@@ -40,6 +45,10 @@ public class Receptionist extends User implements Serializable {
         this.userType="Receptionist";
     }
 
+    /**
+     * A method that will return the employee type
+     * @return "Receptionist"
+     */
     @Override
     public String getEmployeeType() {
         return userType;
