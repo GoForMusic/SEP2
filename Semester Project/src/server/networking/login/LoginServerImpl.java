@@ -2,10 +2,11 @@ package server.networking.login;
 
 import server.model.login.LoginHandler;
 import shared.networking.serverInterfaces.LoginServer;
-import shared.utils.User;
+import shared.utils.User.User;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 
 public class LoginServerImpl implements LoginServer {
     private LoginHandler loginHandler;

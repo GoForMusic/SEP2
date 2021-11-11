@@ -1,6 +1,6 @@
 package shared.networking.serverInterfaces;
 
-import shared.utils.User;
+import shared.utils.User.User;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

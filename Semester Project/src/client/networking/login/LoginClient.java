@@ -1,6 +1,6 @@
 package client.networking.login;
 
-import shared.utils.User;
+import shared.utils.User.User;
 
 /**
  * The client class that deals with the login
