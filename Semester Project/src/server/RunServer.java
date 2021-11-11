@@ -1,5 +1,6 @@
 package server;
 
+import server.database.Employee.EmployeeRepository;
 import server.database.Employee.EmployeeRepositoryImpl;
 import server.model.create.CreateHandler;
 import server.model.create.CreateImpl;
@@ -26,5 +27,6 @@ public class RunServer {
 
         Server server = new ServerImpl(loginServer,createAccountServer);
         server.startServer();
+        EmployeeRepository db = new EmployeeRepositoryImpl();
     }
 }

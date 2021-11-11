@@ -22,11 +22,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      */
     public EmployeeRepositoryImpl() throws SQLException {
             DriverManager.registerDriver(new org.postgresql.Driver());
-            try{
-                Class.forName("org.postgresql.Driver");
-            }catch (ClassNotFoundException e){
-                System.out.println(e.getMessage());
-            }
     }
 
 
@@ -36,26 +31,24 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      * @throws SQLException
      */
     @Override
-    public void insertEmployee(User user) throws SQLException{
-        try(Connection connection = DataBaseConnection.getConnection()){
+    public void insertEmployee(User user) {
+        try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO \"Employee\"(\"firstName\",\"lastName\",\"userName\",password,\"Employee_type\") VALUES(?,?,?,?,?);");
 
 
             //set the parameters on the SQL statement
-            statement.setString(1,user.getFirstname());
-            statement.setString(2,user.getLastName());
-            statement.setString(3,user.getUserName());
-            statement.setString(4,user.getPassword());
-            statement.setString(5,user.getEmployeeType());
+            statement.setString(1, user.getFirstname());
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getUserName());
+            statement.setString(4, user.getPassword());
+            statement.setString(5, user.getEmployeeType());
 
             //execute update
             statement.executeUpdate();
             statement.close();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }finally{
-        connection.close();
         }
     }
 
@@ -66,7 +59,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      * @throws SQLException
      */
     @Override
-    public User getEmployee(int userID) throws SQLException {
+    public User getEmployee(int userID){
         try(Connection connection = DataBaseConnection.getConnection()){
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Employee\" WHERE \"Employee_id\" = ?;");
 
@@ -96,10 +89,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             }
             resultSet.close();
             statement.close();
-        }catch (SQLException e){
+        }catch (SQLException e) {
             System.out.println(e.getMessage());
-        }finally{
-            connection.close();
         }
         return null;
     }
@@ -112,10 +103,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      * @throws SQLException
      */
     @Override
-    public User getEmployeeLogin(String userName, String password) throws SQLException {
+    public User getEmployeeLogin(String userName, String password){
         User temp = null;
         System.out.println("0-----");
-        try(Connection connection = getConnection()){
+        try(Connection connection = DataBaseConnection.getConnection()){
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Employee\" WHERE \"userName\" = ? AND password = ?;");
             System.out.println("2-----");
             //set the parameters on the SQL statement
@@ -147,8 +138,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             }
             //resultSet.close();
             //statement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-
         return temp;
     }
 
@@ -159,7 +151,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      * @throws SQLException
      */
     @Override
-    public void updateEmployee(int userID, User newUser) throws SQLException {
+    public void updateEmployee(int userID, User newUser){
         try(Connection connection = DataBaseConnection.getConnection()){
             PreparedStatement statement = connection.prepareStatement("UPDATE \"Employee\" SET(\"firstName\", \"lastName\",\"userName\",password,\"Employee_type\") = (?,?,?,?,?) WHERE \"Employee_id\"=?;");
 
@@ -179,8 +171,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             statement.close();
         }catch (SQLException e){
             System.out.println(e.getMessage());
-        }finally{
-            connection.close();
         }
     }
 
@@ -190,7 +180,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      * @throws SQLException
      */
     @Override
-    public ArrayList<User> getEmployees() throws SQLException {
+    public ArrayList<User> getEmployees(){
         ArrayList<User> temp = new ArrayList<>();
         try(Connection connection = DataBaseConnection.getConnection()){
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Employee\";");
@@ -220,8 +210,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             statement.close();
         }catch (SQLException e){
             System.out.println(e.getMessage());
-        }finally{
-            connection.close();
         }
         return temp;
     }
@@ -232,7 +220,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
      * @throws SQLException
      */
     @Override
-    public void deleteEmployee(int userID) throws SQLException {
+    public void deleteEmployee(int userID){
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM \"Employee\" WHERE \"Employee_id\"=?;");
             statement.setInt(1, userID);
@@ -240,13 +228,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             statement.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            connection.close();
         }
-    }
-
-
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=\"Hesam\"", "postgres","1234");
     }
 }

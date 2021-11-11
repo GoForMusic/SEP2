@@ -31,11 +31,6 @@ public class ServerImpl implements Server {
         Registry registry= LocateRegistry.createRegistry(1099);
         registry.bind("Server",this);
         System.out.println("Server started.....");
-        try {
-            employeeRepository = new EmployeeRepositoryImpl();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

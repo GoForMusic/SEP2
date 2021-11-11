@@ -15,9 +15,10 @@ public class LoginHandlerImpl implements LoginHandler {
     private List<String> allUsernames;
     private EmployeeRepository employeeRepository;
 
-    public LoginHandlerImpl() {
+    public LoginHandlerImpl() throws SQLException {
         allUsers = new ArrayList<>();
         allUsernames = new ArrayList<>();
+        employeeRepository = new EmployeeRepositoryImpl();
        // allUsers.add(new User("Sachin", "Baral", "sachin07", "sachin123"));
     }
 
@@ -27,14 +28,13 @@ public class LoginHandlerImpl implements LoginHandler {
         //need database
         //TODO deal with database
 
-        String message=" ";
+        User temp = employeeRepository.getEmployeeLogin(user.getUserName(), user.getPassword());
 
-        try {
-            message = employeeRepository.getEmployeeLogin("test","1234").getUserName();
-        } catch (SQLException e) {
-            message = e.getMessage();
-        }
-        return message;
+
+
+        System.out.println(temp.getFullName());
+        return "is login possible is called...";
+
     }
 
 //    private List<String> getAllUsernames() {

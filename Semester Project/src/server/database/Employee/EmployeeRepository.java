@@ -9,10 +9,10 @@ import java.util.ArrayList;
  * Interface for database
  */
 public interface EmployeeRepository {
-    void insertEmployee(User user) throws SQLException;
-    User getEmployee(int userID) throws SQLException;
-    User getEmployeeLogin(String userName, String password) throws SQLException;
-    void updateEmployee(int userID, User newUser) throws SQLException;
-    ArrayList<User> getEmployees() throws SQLException;
-    void deleteEmployee(int userID) throws SQLException;
+    void insertEmployee(User user);
+    User getEmployee(int userID);
+    User getEmployeeLogin(String userName, String password);
+    void updateEmployee(int userID, User newUser);
+    ArrayList<User> getEmployees();
+    void deleteEmployee(int userID);
 }
