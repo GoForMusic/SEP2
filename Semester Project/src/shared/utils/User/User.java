@@ -129,4 +129,22 @@ public abstract class User implements Serializable {
         User temp =(User) obj;
         return temp.getUserName().equals(userName) && temp.getPassword().equals(password);
     }
+    private void validateUsername(String userName){
+        if (userName.length()<4){
+            throw new IllegalStateException("Username should consist more than 3 characters");
+        }
+        else if (userName.length() > 14){
+            throw new IllegalStateException("Username should consist less than 15 characters");
+        }
+         char[] chars = userName.toCharArray();
+        boolean hasDigits = false;
+        for (char aChar : chars) {
+            if (Character.isDigit(aChar)){
+                hasDigits=true;
+                break;
+            }
+        }
+
+
+    }
 }

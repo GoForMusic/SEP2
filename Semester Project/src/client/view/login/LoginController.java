@@ -5,13 +5,11 @@ import client.core.ViewModelFactory;
 import client.view.ViewController;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
+import client.view.viewRooms.ViewRoomsViewModel;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -55,12 +53,15 @@ public class LoginController implements ViewController {
     private Label inText;
     @FXML
     private Label createError;
+    @FXML
+    private DatePicker datepicker;
 
 
     private ViewHandler viewHandler;
     private ViewModelFactory viewModelFactory;
     private LoginViewModel loginViewModel;
     private CreateAccountViewModel createAccountViewModel;
+    private ViewRoomsViewModel viewRoomsViewModel;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
@@ -70,7 +71,8 @@ public class LoginController implements ViewController {
         this.createAccountViewModel = viewModelFactory.getCreateAccountViewModel();
         bindEverythingWithLogin();
         bindEverythingWithSignUp();
-        
+
+
 
         // signInAnimation();
 
