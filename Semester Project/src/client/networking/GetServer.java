@@ -10,7 +10,7 @@ import java.rmi.registry.Registry;
 public class GetServer {
     public static Server getServerFromRmi(){
         Registry registry=null;
-        Server server = null;
+        Server server = null;//
         try {
             registry = LocateRegistry.getRegistry(1099);
             server = (Server) registry.lookup("Server");
