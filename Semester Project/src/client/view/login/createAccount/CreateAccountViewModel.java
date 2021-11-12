@@ -76,17 +76,12 @@ public class CreateAccountViewModel {
             return null;
         }
         else{
-            if (createModel.isConnectionPossible(signUpUsername.get())){
                 String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
                 if (!response.equals("Approved")){
                     errorLabel.set(response);
-                    return response;
+
                 }
+                return response;
             }
-            else{
-                errorLabel.set("Username unavailable, please try another");
-            }
-        }
-        return null;
     }
 }
