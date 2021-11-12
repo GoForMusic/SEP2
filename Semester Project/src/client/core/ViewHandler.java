@@ -42,6 +42,23 @@ public class ViewHandler {
         stage.show();
     }
 
+
+    // .. TODO look at this
+    private  Scene customerMainView;
+    public void openCustomerMainView() {
+        if (customerMainView==null){
+            try {
+                Parent root =loadFXML("../view/viewRooms/main.fxml");
+                customerMainView = new Scene(root);
+                stage.setTitle("Customer");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        stage.setScene(customerMainView);
+        stage.show();
+    }
+
     private Parent loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
