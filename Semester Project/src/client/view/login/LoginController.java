@@ -141,6 +141,7 @@ public class LoginController implements ViewController {
     @FXML
     private void signIn(ActionEvent event){
         loginViewModel.login();
+        viewModelFactory.getViewRoomsViewModel();
     }
     @FXML
     private void createAccount(ActionEvent event){
