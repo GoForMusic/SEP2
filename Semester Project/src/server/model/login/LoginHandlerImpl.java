@@ -2,7 +2,6 @@ package server.model.login;
 
 import server.database.Employee.EmployeeRepository;
 import server.database.Employee.EmployeeRepositoryImpl;
-import shared.utils.User.Admin;
 import shared.utils.User.User;
 
 import java.sql.SQLException;
