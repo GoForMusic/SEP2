@@ -1,7 +1,6 @@
 package server.database.Customer;
 
 import server.database.DataBaseConnection;
-import server.database.Employee.EmployeeRepository;
 import shared.utils.User.*;
 
 import java.sql.*;
@@ -203,5 +202,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public boolean doesUsernameExists(String username) {
+        //TODO search here if the customer already exists and return the corresponding boolean...
+        return false;
     }
 }
