@@ -141,7 +141,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     /**
-     * A method that will update the User on the employee table
+     * A method that will update the User on the employee table.
      * @param userID user ID provide to search on table
      * @param newUser new user object that will update the existing one on database
      * @throws SQLException
