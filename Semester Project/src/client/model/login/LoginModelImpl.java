@@ -23,8 +23,13 @@ public class LoginModelImpl implements LoginModel{
 
     @Override
     public String isLoginPossible(String username,String password) {
-       User tempUser = new Admin(username,password);
-       String result= client.isLoginPossible(tempUser);
+        User tempUser = null;
+        try {
+            tempUser = new Admin(username,password);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        String result= client.isLoginPossible(tempUser);
        if (result.equals("Approved")){
            this.user=tempUser;
        }

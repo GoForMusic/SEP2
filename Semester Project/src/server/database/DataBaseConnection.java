@@ -17,6 +17,6 @@ public class DataBaseConnection {
      * @throws SQLException = will show on the console the specific message from database
      */
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=\"Hesam\"", "postgres","3425");
+        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=\"Hesam\"", "postgres","2002");
     }
 }

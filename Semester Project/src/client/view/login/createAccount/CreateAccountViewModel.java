@@ -65,23 +65,38 @@ public class CreateAccountViewModel {
     public String createAccount() {
         if (signUpUsername.get().isEmpty()){
             errorLabel.set("Username cannot be empty..");
-            return null;
+
         }
         else if (signUpFirstName.get().isEmpty() || signUpLastName.get().isEmpty() ){
             errorLabel.set("First name and last name cannot be empty..");
-            return null;
+
         }
         else if (signUpPassword.get().isEmpty()){
             errorLabel.set("Password cannot be empty..");
-            return null;
+
         }
         else{
                 String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
                 if (!response.equals("Approved")){
                     errorLabel.set(response);
-
+                    clearUsernameAndPassword();
                 }
                 return response;
+
+
             }
+        clearAll();
+        return null;
+
+    }
+    private void clearAll(){
+        signUpPassword.set(null);
+        signUpUsername.set(null);
+        signUpFirstName.set(null);
+        signUpLastName.set(null);
+    }
+    private void clearUsernameAndPassword(){
+        signUpPassword.set(null);
+        signUpUsername.set(null);
     }
 }
