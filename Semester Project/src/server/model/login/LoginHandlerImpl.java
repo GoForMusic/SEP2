@@ -31,7 +31,10 @@ public class LoginHandlerImpl implements LoginHandler {
         User temp = employeeRepository.getEmployeeLogin(user.getUserName(), user.getPassword());
 
 
-
+        if(temp == null)
+        {
+            System.out.println("temp is null");
+        }
         System.out.println(temp.getFullName());
         return "is login possible is called...";
 
