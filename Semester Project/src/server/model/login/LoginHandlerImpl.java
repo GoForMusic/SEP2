@@ -33,10 +33,9 @@ public class LoginHandlerImpl implements LoginHandler {
 
         if(temp == null)
         {
-            System.out.println("temp is null");
+            return "Incorrect username or password";
         }
-        System.out.println(temp.getFullName());
-        return "is login possible is called...";
+        return "Oh, I see you are "+temp.getFullName();
 
     }
 
