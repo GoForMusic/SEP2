@@ -144,7 +144,8 @@ public abstract class User implements Serializable {
                 break;
             }
         }
-
-
+        if (!hasDigits){
+            throw new IllegalStateException("Username should have at least one digit..");
+        }
     }
 }

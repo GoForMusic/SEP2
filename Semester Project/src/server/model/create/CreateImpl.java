@@ -11,7 +11,6 @@ public class CreateImpl implements CreateHandler{
     public boolean addUser(User user) {
         //add user linked to database
         employeeRepository.insertEmployee(user);
-
         return false;
     }
 
