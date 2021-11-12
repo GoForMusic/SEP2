@@ -1,6 +1,7 @@
 package client.networking.create;
 
 import shared.networking.serverInterfaces.Server;
+import shared.utils.User.User;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -22,19 +23,13 @@ public class CreateClientImpl implements CreateClient {
         }
 
     }
-
     @Override
-    public boolean isConnectionPossible(String username) {
+    public String addUser(User user) {
         try {
-           return server.getCreateAccountServer().doesUsernameExists(username);
+            return server.getCreateAccountServer().addUser(user);
         } catch (RemoteException e) {
             e.printStackTrace();
-            throw new RuntimeException("Cannot contact the server");
+            throw new RuntimeException("Cannot connect to the server");
         }
-    }
-
-    @Override
-    public String addUser(String firstname, String lastname, String username, String password) {
-        return null;
     }
 }

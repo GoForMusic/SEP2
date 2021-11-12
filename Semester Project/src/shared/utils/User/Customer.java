@@ -48,6 +48,17 @@ public class Customer extends User implements Serializable {
     }
 
     /**
+     * A four argument constructor that creates a customer without the e-mail address
+     * @param firstname
+     * @param lastname
+     * @param userName
+     * @param password
+     */
+    public Customer (String firstname,String lastname,String userName,String password){
+        super(firstname, lastname, userName, password);
+    }
+
+    /**
      * A method that will return the employee type
      * @return "Cleaner"
      */

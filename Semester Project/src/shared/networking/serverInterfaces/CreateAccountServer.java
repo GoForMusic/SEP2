@@ -6,7 +6,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface CreateAccountServer extends Remote {
-    boolean addUser(User user) throws RemoteException;
     boolean doesUsernameExists(String username) throws RemoteException;
-
+    String addUser(User user) throws RemoteException;
 }

@@ -1,20 +1,17 @@
 package client.networking.create;
 
+import shared.utils.User.User;
+
+/**
+ * @author Sachin Baral
+ */
 public interface CreateClient {
-    /**
-     * Checks if the username is available
-     * @param username the username to be checked
-     * @return the result from server
-     */
-    boolean isConnectionPossible(String username);
+
 
     /**
-     * Adds the user to database
-     * @param firstname
-     * @param lastname
-     * @param username
-     * @param password
-     * @return the response from server
+     * Adds user to server
+     * @param user
+     * @return the response from the server
      */
-    String addUser(String firstname,String lastname,String username, String password);
+    String addUser(User user);
 }

@@ -21,6 +21,8 @@ public abstract class User implements Serializable {
      * @param password
      */
     public User(String userName, String password){
+       validateUsername(userName);
+       validatePassword(password);
         this.employee_id =0;
         this.firstname="";
         this.lastName="";
@@ -36,6 +38,8 @@ public abstract class User implements Serializable {
      * @param password
      */
     public User (String firstname,String lastname,String userName,String password){
+        validateUsername(userName);
+        validatePassword(password);
         this.employee_id =0;
         this.firstname=firstname;
         this.lastName=lastname;
@@ -52,6 +56,8 @@ public abstract class User implements Serializable {
      * @param password
      */
     public User (int userID, String firstname,String lastname,String userName,String password){
+        validateUsername(userName);
+        validatePassword(password);
         this.employee_id =userID;
         this.firstname=firstname;
         this.lastName=lastname;
@@ -128,5 +134,44 @@ public abstract class User implements Serializable {
         }
         User temp =(User) obj;
         return temp.getUserName().equals(userName) && temp.getPassword().equals(password);
+    }
+
+    private void validateUsername(String username){
+        if (username.length()<4){
+            throw new IllegalStateException("Username should consist more than 3 characters");
+        }
+        else if (username.length() > 14){
+            throw new IllegalStateException("Username should consist less than 15 characters");
+        }
+        char[] chars = username.toCharArray();
+        boolean hasDigits = false;
+        for (char aChar : chars) {
+            if (Character.isDigit(aChar)){
+                hasDigits=true;
+                break;
+            }
+        }
+        if (!hasDigits){
+            throw new IllegalStateException("Username should have at least one digit..");
+        }
+    }
+    private void validatePassword(String password){
+        if (password.length()<4){
+            throw new IllegalStateException("Password should consist more than 3 characters");
+        }
+        else if (password.length() > 14){
+            throw new IllegalStateException("Password should consist less than 15 characters");
+        }
+        char[] chars = password.toCharArray();
+        boolean hasDigits = false;
+        for (char aChar : chars) {
+            if (Character.isDigit(aChar)){
+                hasDigits=true;
+                break;
+            }
+        }
+        if (!hasDigits){
+            throw new IllegalStateException("Password should have at least one digit..");
+        }
     }
 }

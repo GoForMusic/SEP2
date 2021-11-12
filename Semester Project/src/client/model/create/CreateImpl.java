@@ -1,6 +1,7 @@
 package client.model.create;
 
 import client.networking.create.CreateClient;
+import shared.utils.User.Customer;
 
 public class CreateImpl implements CreateModel {
     public CreateClient client;
@@ -10,19 +11,21 @@ public class CreateImpl implements CreateModel {
     }
 
     /**
-     *
-     * @param username the username to be checked
+     * Adds user if possible
+     * @param firstname
+     * @param lastname
+     * @param username
+     * @param password
      * @return
      */
     @Override
-    public boolean isConnectionPossible(String username) {
-       return client.isConnectionPossible(username);
-
-    }
-
-
-    @Override
     public String addUser(String firstname, String lastname, String username, String password) {
-       return client.addUser(firstname, lastname, username, password);
+        Customer customer = null;
+        try {
+            customer = new Customer(firstname,lastname,username,password);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        return client.addUser(customer);
     }
 }
