@@ -1,7 +1,10 @@
 package server.model.create;
 
 import server.database.Employee.EmployeeRepository;
+import server.database.Employee.EmployeeRepositoryImpl;
 import shared.utils.User.User;
+
+import java.sql.SQLException;
 
 /**
  * @author Sachin Baral
@@ -15,6 +18,8 @@ public class CreateImpl implements CreateHandler{
 
     @Override
     public boolean doesUsernameExists(String username) {
+
+
         // TODO deal with database
         return false;
 
@@ -26,6 +31,11 @@ public class CreateImpl implements CreateHandler{
             return "User name already exists";
         }
         else{
+            try {
+                employeeRepository = new EmployeeRepositoryImpl();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             employeeRepository.insertEmployee(user);
             return "Approved";
         }

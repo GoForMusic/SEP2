@@ -23,6 +23,6 @@ public class App extends Application {
 
     @Override
     public void stop() throws Exception {
-        // react on closing of the stage
+        //TODO react on closing of the stage
     }
 }

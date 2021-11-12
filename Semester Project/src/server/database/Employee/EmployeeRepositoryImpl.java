@@ -126,9 +126,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
                 if(row[5].equals("Admin"))
                 {
                     temp= new Admin((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
-                }else if(row[4].equals("Cleaner")){
+                }else if(row[5].equals("Cleaner")){
                     temp = new Cleaner((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
-                }else if(row[4].equals("Receptionist")){
+                }else if(row[5].equals("Receptionist")){
                     temp = new Receptionist((int)row[0],(String)row[1],(String)row[2],(String)row[3],(String)row[4]);
                 }
             }
