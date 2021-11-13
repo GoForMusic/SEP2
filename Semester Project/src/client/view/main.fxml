@@ -17,11 +17,12 @@
          <children>
             <VBox layoutY="76.0" prefHeight="467.0" prefWidth="106.0">
                <children>
-                  <Button fx:id="viewRoom" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="71.0" prefWidth="62.0" style="-fx-background-radius: 30 0 0 30; -fx-background-color: #a868a0;" textAlignment="CENTER">
+                  <Button fx:id="viewRoom" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#viewRoomTypeAction" prefHeight="71.0" prefWidth="62.0" style="-fx-background-radius: 30 0 0 30; -fx-background-color: #a868a0;" textAlignment="CENTER">
+                     <fx:include fx:id="viewRooms" source="../view/viewRooms/customerViewRoom.fxml" />
                      <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="vi" fitHeight="27.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/single-bed.png" />
+                              <Image url="@../images/single-bed.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -55,6 +56,6 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="106.0" prefHeight="544.0" prefWidth="658.0" />
+      <AnchorPane fx:id="layer2" layoutX="106.0" prefHeight="544.0" prefWidth="658.0" />
    </children>
 </AnchorPane>
