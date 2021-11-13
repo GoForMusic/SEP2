@@ -24,7 +24,8 @@ public class ViewHandler {
 
     public void start() {
         stage= new Stage();
-        openLogin();
+       // openLogin();
+        openCustomerMainView();
 
     }
 
@@ -48,7 +49,7 @@ public class ViewHandler {
     public void openCustomerMainView() {
         if (customerMainView==null){
             try {
-                Parent root =loadFXML("../view/viewRooms/main.fxml");
+                Parent root =loadFXML("../view/customer/customerHomePage.fxml");
                 customerMainView = new Scene(root);
                 stage.setTitle("Customer");
             } catch (IOException e) {
@@ -58,6 +59,8 @@ public class ViewHandler {
         stage.setScene(customerMainView);
         stage.show();
     }
+
+
 
     private Parent loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();
