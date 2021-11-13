@@ -15,7 +15,7 @@ public class TestFX extends Application
   @Override public void start(Stage stage) throws Exception
   {
     Parent root = FXMLLoader.load((
-        getClass().getResource("../customer/customerHomePage.fxml")));
+        getClass().getResource("./customer/customerHomePage.fxml")));
 
     Scene scene = new Scene(root);
 
@@ -27,6 +27,8 @@ public class TestFX extends Application
 
   public static void main(String[] args)
   {
+
     launch(args);
+
   }
 }

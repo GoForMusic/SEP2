@@ -1,5 +1,8 @@
 package client.view.customer;
 
+import client.core.ViewHandler;
+import client.core.ViewModelFactory;
+import client.view.ViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,8 +11,9 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
-public class customerHomePageController
+public class customerHomePageController implements ViewController
 {
+
   @FXML private BorderPane customerBorderPane;
 
   @FXML private void clickedCustomerHome(MouseEvent mouseEvent)
@@ -37,5 +41,10 @@ public class customerHomePageController
       e.printStackTrace();
     }
     customerBorderPane.setCenter(root);
+  }
+
+  @Override public void init(ViewHandler vh, ViewModelFactory vmf)
+  {
+
   }
 }
