@@ -3,6 +3,7 @@ package client.networking.viewRooms;
 import client.networking.GetServer;
 import shared.networking.serverInterfaces.Server;
 
+import java.rmi.RemoteException;
 import java.time.LocalDate;
 
 public class ViewRoomImp implements ViewRoomClient {
@@ -14,6 +15,12 @@ public class ViewRoomImp implements ViewRoomClient {
 
     @Override
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category) {
+
+        try {
+            server.getViewRoomServer().searchRooms(dateFrom, dateTo, category);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
     }
 }

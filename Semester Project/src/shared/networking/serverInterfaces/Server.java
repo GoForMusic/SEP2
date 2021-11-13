@@ -8,5 +8,6 @@ public interface Server extends Remote {
     LoginServer getLoginServer() throws RemoteException;
     CreateAccountServer getCreateAccountServer() throws RemoteException;
     void startServer() throws RemoteException, AlreadyBoundException;
+    ViewRoomServer getViewRoomServer() throws RemoteException;
 
 }
