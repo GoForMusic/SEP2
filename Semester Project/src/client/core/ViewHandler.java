@@ -4,9 +4,11 @@ import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * @author Sachin Baral
@@ -51,4 +53,14 @@ public class ViewHandler {
         return root;
 
     }
+    private Pane getPane(String fileSource){
+        URL fileUrl = getClass().getResource(fileSource);
+        try {
+            return new FXMLLoader().load(fileUrl);
+        } catch (IOException e) {
+            throw new RuntimeException("Cannot link the view..");
+        }
+    }
+
+
 }
