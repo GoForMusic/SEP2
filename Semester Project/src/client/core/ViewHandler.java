@@ -53,12 +53,14 @@ public class ViewHandler {
         return root;
 
     }
-    public Pane getViewRoomPage(){
-        URL fileUrl = getClass().getResource("#");
+    private Pane getPane(String fileSource){
+        URL fileUrl = getClass().getResource(fileSource);
         try {
             return new FXMLLoader().load(fileUrl);
         } catch (IOException e) {
             throw new RuntimeException("Cannot link the view..");
         }
     }
+
+
 }
