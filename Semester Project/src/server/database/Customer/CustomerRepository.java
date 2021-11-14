@@ -2,6 +2,7 @@ package server.database.Customer;
 
 import shared.utils.User.Customer;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,5 +16,5 @@ public interface CustomerRepository {
     ArrayList<Customer> getCustomers();
     void deleteCustomer(int customerID);
 
-    boolean doesUsernameExists(String username);
+    boolean doesUsernameExists(String username) ;
 }

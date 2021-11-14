@@ -15,12 +15,6 @@ public class CreateServerImpl implements CreateAccountServer {
         this.createHandler = createHandler;
         UnicastRemoteObject.exportObject(this,0);
     }
-
-
-
-
-
-
     @Override
     public String addUser(User user) throws RemoteException {
         return createHandler.addUser(user);

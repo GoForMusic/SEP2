@@ -35,7 +35,7 @@ public class CreateImpl implements CreateHandler {
     }
 
     private boolean doesUsernameExists(String username) {
-//    return customerRepository.doesUsernameExists(username);
-        return false;
+        return customerRepository.doesUsernameExists(username);
+
     }
 }
