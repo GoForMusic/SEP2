@@ -1,0 +1,20 @@
+.button,.button1,.button2{
+  -fx-background-color: rgba(192, 145, 240, 0.74);
+  -fx-background-radius: 30 30 30 30;
+  -fx-text-fill: #FFCB3E;
+}
+
+.button:hover,.button1:hover,.button2:hover{
+  -fx-background-color: #7D7CF9;
+  -fx-background-radius: 30 30 30 30;
+}
+
+.button:pressed,.button1:pressed,.button2:pressed{
+  -fx-background-color: #C6C09C;
+  -fx-background-radius: 30 30 30 30;
+}
+
+.anchorPane{
+  -fx-background-color:  linear-gradient( #3becf1, #5f57a9);
+}
+
