@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -26,7 +27,14 @@ public class customerHomePageController implements ViewController {
 
     @FXML
     private void clickedCustomerViewRoom(MouseEvent mouseEvent) {
-        customerBorderPane.setCenter(viewHandler.getViewRoomPane());
+        try {
+            customerBorderPane.setCenter(viewHandler.getViewRoomPane());
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText(e.getMessage());
+            alert.show();
+        }
+
     }
 
     @FXML
