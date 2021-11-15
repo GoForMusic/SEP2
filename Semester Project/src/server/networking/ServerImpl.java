@@ -6,6 +6,7 @@ import server.database.Employee.EmployeeRepositoryImpl;
 import shared.networking.serverInterfaces.CreateAccountServer;
 import shared.networking.serverInterfaces.LoginServer;
 import shared.networking.serverInterfaces.Server;
+import shared.networking.serverInterfaces.ViewRoomServer;
 
 
 import java.rmi.AlreadyBoundException;
@@ -19,6 +20,7 @@ public class ServerImpl implements Server {
 
     private LoginServer loginServer;
     private CreateAccountServer createAccountServer;
+    private ViewRoomServer viewRoomServer;
 
     public ServerImpl(LoginServer loginServer,CreateAccountServer createAccountServer) throws RemoteException {
         this.loginServer = loginServer;
@@ -30,6 +32,11 @@ public class ServerImpl implements Server {
         Registry registry= LocateRegistry.createRegistry(1099);
         registry.bind("Server",this);
         System.out.println("Server started.....");
+    }
+
+    @Override
+    public ViewRoomServer getViewRoomServer() throws RemoteException {
+        return viewRoomServer;
     }
 
     @Override

@@ -1,7 +1,8 @@
 package server.model.create;
 
-import server.database.Employee.EmployeeRepository;
-import server.database.Employee.EmployeeRepositoryImpl;
+import server.database.Customer.CustomerRepository;
+import server.database.Customer.CustomerRepositoryImpl;
+import shared.utils.User.Customer;
 import shared.utils.User.User;
 
 import java.sql.SQLException;
@@ -10,34 +11,31 @@ import java.sql.SQLException;
  * @author Sachin Baral
  * A model on a server side that sends data related to creating an account to the data access object
  */
-public class CreateImpl implements CreateHandler{
+public class CreateImpl implements CreateHandler {
 
-    private EmployeeRepository employeeRepository;
+    private CustomerRepository customerRepository;
 
-//TODO initialize the employee repository
-
-    @Override
-    public boolean doesUsernameExists(String username) {
-
-
-        // TODO deal with database
-        return false;
-
+    public CreateImpl() {
+        try {
+            customerRepository = new CustomerRepositoryImpl();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Cannot connect to database");
+        }
     }
 
     @Override
     public String addUser(User user) {
-        if (doesUsernameExists(user.getUserName())){
+        if (doesUsernameExists(user.getUserName())) {
             return "User name already exists";
-        }
-        else{
-            try {
-                employeeRepository = new EmployeeRepositoryImpl();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            employeeRepository.insertEmployee(user);
+        } else {
+            customerRepository.insertCustomer((Customer) user);
             return "Approved";
         }
+    }
+
+    private boolean doesUsernameExists(String username) {
+        return customerRepository.doesUsernameExists(username);
+
     }
 }

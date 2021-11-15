@@ -1,8 +1,8 @@
 package server.database.Customer;
 
 import shared.utils.User.Customer;
-import shared.utils.User.User;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,4 +15,6 @@ public interface CustomerRepository {
     void updateCustomer(int customerID, Customer newCustomer);
     ArrayList<Customer> getCustomers();
     void deleteCustomer(int customerID);
+
+    boolean doesUsernameExists(String username) ;
 }

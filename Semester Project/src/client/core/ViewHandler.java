@@ -88,4 +88,8 @@ public class ViewHandler {
     public Pane getCustomerSingleBedPane(){
         return getPane("../view/customer/customerSingleBedRoom.fxml");
     }
+
+
+
+main
 }
