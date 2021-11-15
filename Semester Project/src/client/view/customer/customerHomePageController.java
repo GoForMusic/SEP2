@@ -10,8 +10,8 @@ import javafx.scene.layout.BorderPane;
 
 public class customerHomePageController implements ViewController {
 
-    @FXML
-    private BorderPane customerBorderPane;
+
+    public BorderPane customerBorderPane;
     private ViewHandler viewHandler;
 
     @Override
@@ -42,5 +42,8 @@ public class customerHomePageController implements ViewController {
 
     }
 
-
+    public BorderPane getCustomerBorderPane()
+    {
+        return customerBorderPane;
+    }
 }
