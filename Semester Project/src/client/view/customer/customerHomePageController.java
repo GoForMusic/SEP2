@@ -23,25 +23,14 @@ public class customerHomePageController implements ViewController
 
   @FXML private void clickedCustomerViewRoom(MouseEvent mouseEvent)
   {
-    loadViews("viewRoom");
+
   }
 
   @FXML private void clickedCustomerMyAccount(MouseEvent mouseEvent)
   {
-    loadViews("viewRoom");
+
   }
-  private void loadViews(String filename){
-    Parent root = null;
-    try
-    {
-     root= FXMLLoader.load(getClass().getResource("../customer"+filename+".fxml"));
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-    customerBorderPane.setCenter(root);
-  }
+
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
