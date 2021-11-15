@@ -26,7 +26,8 @@ public class ViewHandler {
 
     public void start() {
         stage= new Stage();
-        openLogin();
+       // openLogin();
+        openCustomerMainView();
 
     }
 
@@ -43,6 +44,25 @@ public class ViewHandler {
         stage.setScene(loginScene);
         stage.show();
     }
+
+
+    // .. TODO look at this
+    private  Scene customerMainView;
+    public void openCustomerMainView() {
+        if (customerMainView==null){
+            try {
+                Parent root =loadFXML("../view/customer/customerHomePage.fxml");
+                customerMainView = new Scene(root);
+                stage.setTitle("Customer");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        stage.setScene(customerMainView);
+        stage.show();
+    }
+
+
 
     private Parent loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -61,6 +81,15 @@ public class ViewHandler {
             throw new RuntimeException("Cannot link the view..");
         }
     }
+    public Pane getViewRoomPane(){
+        return getPane("../view/customer/viewRoom.fxml");
+    }
+
+    public Pane getCustomerSingleBedPane(){
+        return getPane("../view/customer/customerSingleBedRoom.fxml");
+    }
 
 
+
+main
 }
