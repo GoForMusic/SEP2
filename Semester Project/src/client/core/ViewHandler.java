@@ -25,16 +25,16 @@ public class ViewHandler {
     }
 
     public void start() {
-        stage = new Stage();
-        // openLogin();
+        stage= new Stage();
+       // openLogin();
         openCustomerMainView();
 
     }
 
     public void openLogin() {
-        if (loginScene == null) {
+        if (loginScene==null){
             try {
-                Parent root = loadFXML("../view/login/Login.fxml");
+                Parent root =loadFXML("../view/login/Login.fxml");
                 loginScene = new Scene(root);
                 stage.setTitle("Login");
             } catch (IOException e) {
@@ -47,12 +47,11 @@ public class ViewHandler {
 
 
     // .. TODO look at this
-    private Scene customerMainView;
-
+    private  Scene customerMainView;
     public void openCustomerMainView() {
-        if (customerMainView == null) {
+        if (customerMainView==null){
             try {
-                Parent root = loadFXML("../view/customer/customerHomePage.fxml");
+                Parent root =loadFXML("../view/customer/customerHomePage.fxml");
                 customerMainView = new Scene(root);
                 stage.setTitle("Customer");
             } catch (IOException e) {
@@ -64,6 +63,7 @@ public class ViewHandler {
     }
 
 
+
     private Parent loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
@@ -73,8 +73,7 @@ public class ViewHandler {
         return root;
 
     }
-
-    private Pane getPane(String fileSource) {
+    private Pane getPane(String fileSource){
         URL fileUrl = getClass().getResource(fileSource);
         try {
             return new FXMLLoader().load(fileUrl);
@@ -82,9 +81,11 @@ public class ViewHandler {
             throw new RuntimeException("Cannot link the view..");
         }
     }
-
-    public Pane getViewRoomPane() {
+    public Pane getViewRoomPane(){
         return getPane("../view/customer/viewRoom.fxml");
     }
 
+    public Pane getCustomerSingleBedPane(){
+        return getPane("../view/customer/customerSingleBedRoom.fxml");
+    }
 }
