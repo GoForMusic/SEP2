@@ -13,8 +13,7 @@ public class DoubleBedRoomViewModel {
 
     public DoubleBedRoomViewModel(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
-        dateFrom= new SimpleObjectProperty<>();
-        dateTo = new SimpleObjectProperty<>();
+        initializeDates();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -22,5 +21,12 @@ public class DoubleBedRoomViewModel {
     }
     public ObjectProperty<LocalDate> getDateTo() {
         return dateTo;
+    }
+
+    private void initializeDates(){
+        dateFrom= new SimpleObjectProperty<>();
+        dateFrom.set(LocalDate.now());
+        dateTo = new SimpleObjectProperty<>();
+        dateTo.set(LocalDate.now());
     }
 }

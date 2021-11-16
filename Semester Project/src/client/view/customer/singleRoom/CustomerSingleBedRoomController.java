@@ -20,16 +20,8 @@ public class CustomerSingleBedRoomController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = viewHandler;
         this.viewModel = vmf.getSingleRoomViewModel();
+        customerSingleDateFrom.valueProperty().bindBidirectional(viewModel.getDateFrom());
+        customerSingleDateto.valueProperty().bindBidirectional(viewModel.getDateTo());
     }
-
-
-    public void customerSingleDateFromPressed(ActionEvent actionEvent) {
-
-    }
-
-    public void customerSingleDateToPressed(ActionEvent actionEvent) {
-
-    }
-
 
 }

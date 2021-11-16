@@ -14,17 +14,11 @@ public class CustomerHomePageController implements ViewController {
 
     public BorderPane customerBorderPane;
     private ViewHandler viewHandler;
-    @FXML
-    private ViewRoomController viewRoomController;
+
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
-    }
-
-    @FXML
-    private void initialize() {
-//        viewRoomController.injectMainController(this);
     }
 
 
@@ -45,16 +39,8 @@ public class CustomerHomePageController implements ViewController {
 
     }
 
-//    public void setMainSceneToLuxury() {
-//        customerBorderPane.setCenter(viewHandler.getCustomerSingleBedPane());
-//    }
-
     @FXML
     private void clickedCustomerMyAccount(MouseEvent mouseEvent) {
 
-    }
-
-    public BorderPane getCustomerBorderPane() {
-        return customerBorderPane;
     }
 }
