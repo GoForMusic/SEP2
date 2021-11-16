@@ -1,4 +1,4 @@
-package client.view.customer;
+package client.view.customer.doubleRoom;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
