@@ -6,6 +6,7 @@ import client.model.login.LoginModel;
 import client.model.login.LoginModelImpl;
 import client.model.viewRooms.ViewRoomsModel;
 import client.model.viewRooms.ViewRoomsModelImpl;
+import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 
 /**
  * @author Sachin Baral
@@ -16,6 +17,7 @@ public class ModelFactory {
     private LoginModel loginModel;
     private CreateModel createModel;
     private ViewRoomsModel viewRoomsModel;
+    private DoubleBedRoomViewModel doubleBedRoomViewModel;
 
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
@@ -41,4 +43,5 @@ public class ModelFactory {
         }
         return viewRoomsModel;
     }
+
 }
