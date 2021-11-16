@@ -1,17 +1,14 @@
 package client.core;
 
 import client.view.ViewController;
-import client.view.customer.ViewRoomController;
 import client.view.mainView.CustomerHomePageController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * @author Sachin Baral
@@ -19,7 +16,7 @@ import java.net.URL;
  */
 
 public class ViewHandler {
-    private  Scene customerMainView;
+    private Scene customerMainView;
     private Scene loginScene;
     private Stage stage;
     private ViewModelFactory vmf;
@@ -29,16 +26,16 @@ public class ViewHandler {
     }
 
     public void start() {
-        stage= new Stage();
-       // openLogin();
+        stage = new Stage();
+        // openLogin();
         openCustomerMainView();
 
     }
 
     public void openLogin() {
-        if (loginScene==null){
+        if (loginScene == null) {
             try {
-                Parent root =loadFXML("../view/customer/viewRoom.fxml");
+                Parent root = loadFXML("../view/customer/viewRoom.fxml");
                 loginScene = new Scene(root);
                 stage.setTitle("Login");
             } catch (IOException e) {
@@ -53,9 +50,9 @@ public class ViewHandler {
     // .. TODO look at this
 
     public void openCustomerMainView() {
-        if (customerMainView==null){
+        if (customerMainView == null) {
             try {
-                Parent root =loadFXML("../view/mainView/customerHomePage.fxml");
+                Parent root = loadFXML("../view/mainView/customerHomePage.fxml");
                 customerMainView = new Scene(root);
                 stage.setTitle("Customer");
             } catch (IOException e) {
@@ -67,7 +64,6 @@ public class ViewHandler {
     }
 
 
-
     private Parent loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
@@ -77,6 +73,7 @@ public class ViewHandler {
         return root;
 
     }
+
     public CustomerHomePageController getMainController() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../view/mainView/customerHomePage.fxml)"));
@@ -85,25 +82,12 @@ public class ViewHandler {
         return ctrl;
 
     }
-    private Pane getPane(String fileSource){
-        URL fileUrl = getClass().getResource(fileSource);
-        try {
-            return new FXMLLoader().load(fileUrl);
-        } catch (IOException e) {
-            throw new RuntimeException("Cannot link the view..");
-        }
+
+    public Parent getViewRoom() throws IOException {
+        return loadFXML("../view/customer/viewRoom.fxml");
     }
-
-
-    public ViewRoomController getViewRoomController(){
-
-    }
-    public Pane getViewRoomPane(){
-        return getPane("../view/customer/viewRoom.fxml");
-    }
-
-    public Pane getCustomerSingleBedPane(){
-        return getPane("../view/customer/customerSingleBedRoom.fxml");
+    public Parent getSingleRoom() throws IOException {
+        return loadFXML("../view/customer/customerSingleBedRoom.fxml");
     }
 
 

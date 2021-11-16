@@ -36,7 +36,7 @@ public class CustomerHomePageController implements ViewController {
     @FXML
     private void clickedCustomerViewRoom(MouseEvent mouseEvent) {
         try {
-            customerBorderPane.setCenter(viewHandler.getViewRoomPane());
+            customerBorderPane.setCenter(viewHandler.getViewRoom());
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText(e.getMessage());
@@ -45,9 +45,9 @@ public class CustomerHomePageController implements ViewController {
 
     }
 
-    public void setMainSceneToLuxury() {
-        customerBorderPane.setCenter(viewHandler.getCustomerSingleBedPane());
-    }
+//    public void setMainSceneToLuxury() {
+//        customerBorderPane.setCenter(viewHandler.getCustomerSingleBedPane());
+//    }
 
     @FXML
     private void clickedCustomerMyAccount(MouseEvent mouseEvent) {

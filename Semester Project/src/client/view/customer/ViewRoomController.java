@@ -36,6 +36,7 @@ public class ViewRoomController implements ViewController {
     private void customerSingleRoomClicked(ActionEvent actionEvent) throws IOException {
 //      viewHandler.getMainController().setMainSceneToLuxury();
         anchorPane.getChildren().clear();
+        anchorPane.getChildren().setAll(viewHandler.getSingleRoom());
 //        anchorPane.getChildren().setAll(getCustomerSingleBedPane());
     }
 
