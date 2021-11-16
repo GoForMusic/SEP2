@@ -59,13 +59,13 @@ public class ViewHandler {
         return loadFXML("../view/customer/viewRooms/viewRoom.fxml");
     }
     public Parent getSingleRoom()  {
-        return loadFXML("../view/customer/singleRoom/customerSingleBedRoom.fxml");
+        return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
     }
     public Parent getDoubleRoom(){
-        return loadFXML("../view/customer/doubleBedroom/customerDoubleBedRoom.fxml");
+        return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
     }
     public Parent getLuxuryRoom(){
-        return loadFXML("../view/customer/luxuryRoom/customerLuxuryRoom.fxml");
+        return loadFXML("../view/customer/luxuryRoom/LuxuryRoom.fxml");
     }
     private Parent loadFXML(String path)  {
         FXMLLoader loader = new FXMLLoader();
@@ -91,18 +91,6 @@ public class ViewHandler {
         return ctrl;
 
     }
-
-    public Parent getViewRoom() throws IOException {
-        return loadFXML("../view/customer/viewRoom.fxml");
-    }
-    public Parent getSingleRoom() throws IOException {
-        return loadFXML("../view/customer/customerSingleBedRoom.fxml");
-    }
-    public Parent getDoubleRoom(){
-        return loadFXML()
-    }
-
-
 
 
 
