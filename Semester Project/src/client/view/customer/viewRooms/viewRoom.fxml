@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="anchorPane" stylesheets="@Customer.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.ViewRoomController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="anchorPane" stylesheets="@../Customer.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.viewRooms.ViewRoomController">
     <children>
         <GridPane layoutY="14.0" prefHeight="423.0" prefWidth="612.0">
             <columnConstraints>
@@ -27,7 +27,7 @@
             <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <Button layoutX="67.0" layoutY="4.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#customerSingleRoomClicked" onMouseClicked="#customerSingleRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button1" stylesheets="@Customer.css" />
+                        <Button layoutX="67.0" layoutY="4.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#customerSingleRoomClicked" onMouseClicked="#customerSingleRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button1" stylesheets="@../Customer.css" />
                         <Label layoutX="112.0" layoutY="161.0" text="Single Room" />
                         <Circle layoutX="151.0" layoutY="85.0" onMouseClicked="#customerSingleRoomClicked" radius="58.0" stroke="BLACK" strokeType="INSIDE">
                             <fill>
@@ -41,14 +41,14 @@
                         </Circle>
                         <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="119.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/single-bed.png" />
+                                <Image url="@../../../images/single-bed.png" />
                             </image>
                         </ImageView>
                     </children>
                 </Pane>
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                     <children>
-                        <Button layoutX="55.0" layoutY="7.0" mnemonicParsing="false" onAction="#customerDoubleRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button1" stylesheets="@Customer.css" />
+                        <Button layoutX="55.0" layoutY="7.0" mnemonicParsing="false" onAction="#customerDoubleRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button1" stylesheets="@../Customer.css" />
                         <Circle layoutX="139.0" layoutY="82.0" radius="58.0" stroke="BLACK" strokeType="INSIDE">
                             <fill>
                                 <LinearGradient endX="1.0" endY="1.0">
@@ -61,7 +61,7 @@
                         </Circle>
                         <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="107.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/double-bed.png" />
+                                <Image url="@../../../images/double-bed.png" />
                             </image>
                         </ImageView>
                         <Label layoutX="88.0" layoutY="161.0" text="Double Bed room" />
@@ -69,7 +69,7 @@
                 </Pane>
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <children>
-                        <Button layoutX="67.0" layoutY="7.0" mnemonicParsing="false" onAction="#customerLuxuryRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button2" stylesheets="@Customer.css" />
+                        <Button layoutX="67.0" layoutY="7.0" mnemonicParsing="false" onAction="#customerLuxuryRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button2" stylesheets="@../Customer.css" />
                         <Circle layoutX="151.0" layoutY="97.0" radius="58.0" stroke="BLACK" strokeType="INSIDE">
                             <fill>
                                 <LinearGradient endX="0.8222222464425223" endY="1.0" startX="0.38095237186976844" startY="0.28888884044828866">
@@ -82,7 +82,7 @@
                         </Circle>
                         <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="118.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/luxuryBed.png" />
+                                <Image url="@../../../images/luxuryBed.png" />
                             </image>
                         </ImageView>
                         <Label layoutX="99.0" layoutY="161.0" text="Luxury Bed Room" />
