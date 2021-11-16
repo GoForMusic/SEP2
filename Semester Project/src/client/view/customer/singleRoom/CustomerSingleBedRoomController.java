@@ -1,4 +1,4 @@
-package client.view.customer;
+package client.view.customer.singleRoom;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;

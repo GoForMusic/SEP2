@@ -89,6 +89,9 @@ public class ViewHandler {
     public Parent getSingleRoom() throws IOException {
         return loadFXML("../view/customer/customerSingleBedRoom.fxml");
     }
+    public Parent getDoubleRoom(){
+        return loadFXML()
+    }
 
 
 

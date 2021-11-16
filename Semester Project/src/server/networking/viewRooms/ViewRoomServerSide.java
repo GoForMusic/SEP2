@@ -1,34 +1,24 @@
 package server.networking.viewRooms;
 
-import client.model.viewRooms.ViewRoomsModel;
+import server.model.viewRooms.ViewRoomHandler;
 import shared.networking.serverInterfaces.ViewRoomServer;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
 
-public class ViewRoomServerSide implements ViewRoomsModel, Remote {
+public class ViewRoomServerSide implements ViewRoomServer {
 
-    private ViewRoomServer server;
+    private ViewRoomHandler viewRoomHandler;
 
-    public ViewRoomServerSide(ViewRoomServer server) {
-        this.server = server;
-    }
-
-    public ViewRoomServerSide() throws RemoteException
-    {
-        UnicastRemoteObject.exportObject(this, 0);
+    public ViewRoomServerSide(ViewRoomHandler viewRoomHandler) throws RemoteException {
+        this.viewRoomHandler = viewRoomHandler;
+        UnicastRemoteObject.exportObject(this,0);
     }
 
     @Override
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category) {
-
-        try {
-            server.searchRooms(dateFrom,dateTo,category);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+        viewRoomHandler.searchRoom(dateFrom,dateTo,category);
 
     }
 }
