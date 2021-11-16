@@ -1,7 +1,10 @@
 package client.core;
 
 import client.view.ViewController;
+import client.view.customer.ViewRoomController;
+import client.view.mainView.CustomerHomePageController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -16,6 +19,7 @@ import java.net.URL;
  */
 
 public class ViewHandler {
+    private  Scene customerMainView;
     private Scene loginScene;
     private Stage stage;
     private ViewModelFactory vmf;
@@ -34,7 +38,7 @@ public class ViewHandler {
     public void openLogin() {
         if (loginScene==null){
             try {
-                Parent root =loadFXML("../view/login/Login.fxml");
+                Parent root =loadFXML("../view/customer/viewRoom.fxml");
                 loginScene = new Scene(root);
                 stage.setTitle("Login");
             } catch (IOException e) {
@@ -47,11 +51,11 @@ public class ViewHandler {
 
 
     // .. TODO look at this
-    private  Scene customerMainView;
+
     public void openCustomerMainView() {
         if (customerMainView==null){
             try {
-                Parent root =loadFXML("../view/customer/customerHomePage.fxml");
+                Parent root =loadFXML("../view/mainView/customerHomePage.fxml");
                 customerMainView = new Scene(root);
                 stage.setTitle("Customer");
             } catch (IOException e) {
@@ -73,6 +77,14 @@ public class ViewHandler {
         return root;
 
     }
+    public CustomerHomePageController getMainController() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../view/mainView/customerHomePage.fxml)"));
+        Parent root = loader.load();
+        CustomerHomePageController ctrl = loader.getController();
+        return ctrl;
+
+    }
     private Pane getPane(String fileSource){
         URL fileUrl = getClass().getResource(fileSource);
         try {
@@ -80,6 +92,11 @@ public class ViewHandler {
         } catch (IOException e) {
             throw new RuntimeException("Cannot link the view..");
         }
+    }
+
+
+    public ViewRoomController getViewRoomController(){
+
     }
     public Pane getViewRoomPane(){
         return getPane("../view/customer/viewRoom.fxml");
@@ -91,5 +108,4 @@ public class ViewHandler {
 
 
 
-main
 }

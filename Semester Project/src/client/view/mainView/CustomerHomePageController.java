@@ -1,22 +1,30 @@
-package client.view.customer;
+package client.view.mainView;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import client.view.customer.ViewRoomController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
-public class customerHomePageController implements ViewController {
+public class CustomerHomePageController implements ViewController {
 
 
     public BorderPane customerBorderPane;
     private ViewHandler viewHandler;
+    @FXML
+    private ViewRoomController viewRoomController;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
+    }
+
+    @FXML
+    private void initialize() {
+//        viewRoomController.injectMainController(this);
     }
 
 
@@ -37,13 +45,16 @@ public class customerHomePageController implements ViewController {
 
     }
 
+    public void setMainSceneToLuxury() {
+        customerBorderPane.setCenter(viewHandler.getCustomerSingleBedPane());
+    }
+
     @FXML
     private void clickedCustomerMyAccount(MouseEvent mouseEvent) {
 
     }
 
-    public BorderPane getCustomerBorderPane()
-    {
+    public BorderPane getCustomerBorderPane() {
         return customerBorderPane;
     }
 }
