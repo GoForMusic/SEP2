@@ -81,4 +81,29 @@ public class ViewHandler {
         return root;
 
     }
+
+
+    public CustomerHomePageController getMainController() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../view/mainView/customerHomePage.fxml)"));
+        Parent root = loader.load();
+        CustomerHomePageController ctrl = loader.getController();
+        return ctrl;
+
+    }
+
+    public Parent getViewRoom() throws IOException {
+        return loadFXML("../view/customer/viewRoom.fxml");
+    }
+    public Parent getSingleRoom() throws IOException {
+        return loadFXML("../view/customer/customerSingleBedRoom.fxml");
+    }
+    public Parent getDoubleRoom(){
+        return loadFXML()
+    }
+
+
+
+
+
 }
