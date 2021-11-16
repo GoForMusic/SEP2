@@ -25,9 +25,6 @@ public class CustomerSingleBedRoomController implements ViewController {
         customerSingleDateto.valueProperty().bindBidirectional(viewModel.getDateTo());
     }
 
-
-    private ViewModelFactory viewModelFactory;
-
     public void customerSingleDateFromPressed(ActionEvent actionEvent) {
 
     }
@@ -36,10 +33,5 @@ public class CustomerSingleBedRoomController implements ViewController {
 
     }
 
-    @Override
-    public void init(ViewHandler vh, ViewModelFactory vmf) {
-        this.viewHandler=viewHandler;
-        this.viewModelFactory=vmf;
-    }
 
 }
