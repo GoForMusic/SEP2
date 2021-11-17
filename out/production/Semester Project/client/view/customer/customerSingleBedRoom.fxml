@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.CustomerSingleBedRoomController">
+
+    <children>
+        <Label layoutX="217.0" layoutY="38.0" text="Welcome to HESAM" />
+        <Label layoutX="233.0" layoutY="72.0" text="Single Bed Room" />
+        <DatePicker fx:id="customerSingleDateFrom" layoutX="37.0" layoutY="156.0" onAction="#customerSingleDateFromPressed" />
+        <DatePicker fx:id="customerSingleDateto" layoutX="271.0" layoutY="156.0" onAction="#customerSingleDateToPressed" />
+        <CheckBox layoutX="46.0" layoutY="249.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="162.0" text="Room 101" />
+    </children>
+
+</AnchorPane>
