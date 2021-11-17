@@ -32,9 +32,7 @@ public class CustomerHomePageController implements ViewController {
         try {
             customerBorderPane.setCenter(viewHandler.getViewRoom());
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText(e.getMessage());
-            alert.show();
+            e.printStackTrace();
         }
 
     }

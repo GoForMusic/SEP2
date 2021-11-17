@@ -17,7 +17,6 @@ public class ModelFactory {
     private LoginModel loginModel;
     private CreateModel createModel;
     private ViewRoomsModel viewRoomsModel;
-    private DoubleBedRoomViewModel doubleBedRoomViewModel;
 
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;

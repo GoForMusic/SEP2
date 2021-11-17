@@ -1,5 +1,4 @@
 package client.view.login;
-
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
@@ -137,14 +136,19 @@ public class LoginController implements ViewController {
         loginViewModel.playSignInAnimation();
 
     }
+
     @FXML
-    private void signIn(ActionEvent event){
+    private void signIn(ActionEvent event) {
         loginViewModel.login();
         viewModelFactory.getViewRoomsViewModel();
     }
+
     @FXML
-    private void createAccount(ActionEvent event){
+    private void createAccount(ActionEvent event) {
         createAccountViewModel.createAccount();
+//        Alert alert = new Alert(Alert.AlertType.WARNING);
+//        alert.setContentText("Example");
+//        alert.show();
     }
 
     @FXML   // this is the animation one
