@@ -25,11 +25,11 @@ public class ViewHandler {
 
     public void start() {
         stage = new Stage();
-        openLogin();
-        // openCustomerMainView();
+      //  openLogin();
+         openCustomerMainView();
     }
     /**
-     * Opens the login scene
+     * Opens the login scene in a new Stage
      */
     public void openLogin() {
         if (loginScene == null) {

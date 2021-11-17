@@ -27,7 +27,7 @@
             <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <Button layoutX="67.0" layoutY="4.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#customerSingleRoomClicked" onMouseClicked="#customerSingleRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button1" stylesheets="@../Customer.css" />
+                        <Button layoutX="67.0" layoutY="4.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#customerSingleRoomClicked" prefHeight="180.0" prefWidth="167.0" styleClass="button1" stylesheets="@../Customer.css" />
                         <Label layoutX="112.0" layoutY="161.0" text="Single Room" />
                         <Circle layoutX="151.0" layoutY="85.0" onMouseClicked="#customerSingleRoomClicked" radius="58.0" stroke="BLACK" strokeType="INSIDE">
                             <fill>
@@ -39,7 +39,7 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="119.0" layoutY="53.0" onMouseClicked="#customerSingleRoomClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="singleRoomImage" fitHeight="71.0" fitWidth="65.0" layoutX="119.0" layoutY="53.0" onMouseClicked="#customerSingleRoomClicked" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../images/single-bed.png" />
                             </image>
