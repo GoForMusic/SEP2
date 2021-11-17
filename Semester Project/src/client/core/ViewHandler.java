@@ -26,14 +26,14 @@ public class ViewHandler {
 
     public void start() {
         stage = new Stage();
-        // openLogin();
-        openCustomerMainView();
+         openLogin();
+       // openCustomerMainView();
 
     }
 
     public void openLogin() {
         if (loginScene == null) {
-            Parent root = loadFXML("../view/customer/viewRoom.fxml");
+            Parent root = loadFXML("../view/login/Login.fxml");
             loginScene = new Scene(root);
             stage.setTitle("Login");
         }

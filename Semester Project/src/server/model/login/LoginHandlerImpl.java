@@ -29,7 +29,6 @@ public class LoginHandlerImpl implements LoginHandler {
 
         User temp = employeeRepository.getEmployeeLogin(user.getUserName(), user.getPassword());
 
-
         if(temp == null)
         {
             return "Incorrect username or password";
