@@ -1,5 +1,8 @@
 package client.core;
 
+import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
+import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
+import client.view.customer.singleRoom.SingleRoomViewModel;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
 import client.view.viewRooms.ViewRoomsViewModel;
@@ -13,6 +16,9 @@ public class ViewModelFactory {
     private LoginViewModel loginViewModel;
     private CreateAccountViewModel createAccountViewModel;
     private ViewRoomsViewModel viewRoomsViewModel;
+    private LuxuryRoomViewModel luxuryRoomViewModel;
+    private DoubleBedRoomViewModel doubleBedRoomViewModel;
+    private SingleRoomViewModel singleRoomViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -37,5 +43,26 @@ public class ViewModelFactory {
             viewRoomsViewModel = new ViewRoomsViewModel(modelFactory);
         }
         return viewRoomsViewModel;
+    }
+
+    public LuxuryRoomViewModel getLuxuryRoomViewModel() {
+        if (luxuryRoomViewModel == null) {
+            luxuryRoomViewModel = new LuxuryRoomViewModel(modelFactory);
+        }
+        return luxuryRoomViewModel;
+    }
+
+    public DoubleBedRoomViewModel getDoubleBedRoomViewModel() {
+        if (doubleBedRoomViewModel == null) {
+            doubleBedRoomViewModel = new DoubleBedRoomViewModel(modelFactory);
+        }
+        return doubleBedRoomViewModel;
+    }
+
+    public SingleRoomViewModel getSingleRoomViewModel() {
+        if (singleRoomViewModel == null) {
+            singleRoomViewModel = new SingleRoomViewModel(modelFactory);
+        }
+        return singleRoomViewModel;
     }
 }

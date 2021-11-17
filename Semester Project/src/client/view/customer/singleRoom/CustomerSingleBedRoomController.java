@@ -1,4 +1,4 @@
-package client.view.customer;
+package client.view.customer.singleRoom;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
@@ -13,7 +13,17 @@ public class CustomerSingleBedRoomController implements ViewController {
     @FXML
     private DatePicker customerSingleDateto;
     private ViewHandler viewHandler;
-    private ViewModelFactory viewModelFactory;
+
+    private SingleRoomViewModel viewModel;
+
+
+    @Override
+    public void init(ViewHandler vh, ViewModelFactory vmf) {
+        this.viewHandler = viewHandler;
+        this.viewModel = vmf.getSingleRoomViewModel();
+        customerSingleDateFrom.valueProperty().bindBidirectional(viewModel.getDateFrom());
+        customerSingleDateto.valueProperty().bindBidirectional(viewModel.getDateTo());
+    }
 
     public void customerSingleDateFromPressed(ActionEvent actionEvent) {
 
@@ -23,9 +33,5 @@ public class CustomerSingleBedRoomController implements ViewController {
 
     }
 
-    @Override
-    public void init(ViewHandler vh, ViewModelFactory vmf) {
-        this.viewHandler=viewHandler;
-        this.viewModelFactory=vmf;
-    }
+
 }

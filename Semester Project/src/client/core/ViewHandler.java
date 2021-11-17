@@ -1,11 +1,10 @@
 package client.core;
 
 import client.view.ViewController;
-import client.view.mainView.CustomerHomePageController;
+import client.view.customer.mainView.CustomerHomePageController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,45 +33,55 @@ public class ViewHandler {
 
     public void openLogin() {
         if (loginScene == null) {
-            try {
-                Parent root = loadFXML("../view/customer/viewRoom.fxml");
-                loginScene = new Scene(root);
-                stage.setTitle("Login");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Parent root = loadFXML("../view/customer/viewRoom.fxml");
+            loginScene = new Scene(root);
+            stage.setTitle("Login");
         }
         stage.setScene(loginScene);
         stage.show();
     }
 
 
-    // .. TODO look at this
+
 
     public void openCustomerMainView() {
         if (customerMainView == null) {
-            try {
-                Parent root = loadFXML("../view/mainView/customerHomePage.fxml");
-                customerMainView = new Scene(root);
-                stage.setTitle("Customer");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Parent root = loadFXML("../view/customer/mainView/customerHomePage.fxml");
+            customerMainView = new Scene(root);
+            stage.setTitle("Customer");
         }
         stage.setScene(customerMainView);
         stage.show();
     }
 
 
-    private Parent loadFXML(String path) throws IOException {
+    public Parent getViewRoom()   {
+        return loadFXML("../view/customer/viewRooms/viewRoom.fxml");
+    }
+    public Parent getSingleRoom()  {
+        return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
+    }
+    public Parent getDoubleRoom(){
+        return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
+    }
+    public Parent getLuxuryRoom(){
+        return loadFXML("../view/customer/luxuryRoom/LuxuryRoom.fxml");
+    }
+    private Parent loadFXML(String path)  {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         ViewController ctrl = loader.getController();
         ctrl.init(this, vmf);
         return root;
 
     }
+
 
     public CustomerHomePageController getMainController() throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -82,14 +91,6 @@ public class ViewHandler {
         return ctrl;
 
     }
-
-    public Parent getViewRoom() throws IOException {
-        return loadFXML("../view/customer/viewRoom.fxml");
-    }
-    public Parent getSingleRoom() throws IOException {
-        return loadFXML("../view/customer/customerSingleBedRoom.fxml");
-    }
-
 
 
 
