@@ -20,28 +20,31 @@ public class ViewRoomController implements ViewController {
     private AnchorPane anchorPane;
     @FXML
     private CustomerHomePageController customerHomePageController;
-    @FXML
-    private ImageView singleRoomImage;
+
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         viewHandler = vh;
     }
 
-    public void customerDoubleRoomClicked(ActionEvent actionEvent) {
+    @FXML
+    private EventHandler<? super MouseEvent> customerDoubleRoomClicked() {
         clearAnchorPane();
         anchorPane.getChildren().setAll(viewHandler.getDoubleRoom());
-    }
-
-    public void customerLuxuryRoomClicked(ActionEvent actionEvent) {
-        clearAnchorPane();
-        anchorPane.getChildren().setAll(viewHandler.getDoubleRoom());
+        return null;
     }
 
     @FXML
-    private EventHandler<? super MouseEvent> customerSingleRoomClicked( ) throws IOException {
+    private EventHandler<? super MouseEvent> customerSingleRoomClicked()  {
         clearAnchorPane();
         anchorPane.getChildren().setAll(viewHandler.getSingleRoom());
+        return null;
+    }
+    @FXML
+    private EventHandler<? super MouseEvent> customerLuxuryRoomClicked( )
+    {
+        clearAnchorPane();
+        anchorPane.getChildren().setAll(viewHandler.getLuxuryRoom());
         return null;
     }
 

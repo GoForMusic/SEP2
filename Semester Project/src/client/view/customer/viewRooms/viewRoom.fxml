@@ -39,7 +39,7 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fx:id="singleRoomImage" fitHeight="71.0" fitWidth="65.0" layoutX="119.0" layoutY="53.0" onMouseClicked="#customerSingleRoomClicked" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="71.0" fitWidth="65.0" layoutX="119.0" layoutY="53.0" onMouseClicked="#customerSingleRoomClicked" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../images/single-bed.png" />
                             </image>
@@ -59,7 +59,7 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="107.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="107.0" layoutY="49.0" onMouseClicked="#customerDoubleRoomClicked" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../images/double-bed.png" />
                             </image>
@@ -80,7 +80,7 @@
                                 </LinearGradient>
                             </fill>
                         </Circle>
-                        <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="118.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="118.0" layoutY="64.0" onMouseClicked="#customerLuxuryRoomClicked" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../images/luxuryBed.png" />
                             </image>
