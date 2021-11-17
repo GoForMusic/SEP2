@@ -1,4 +1,4 @@
-package client.view.customer;
+package client.view.customer.profile;
 
 public class AccountInformationController
 {

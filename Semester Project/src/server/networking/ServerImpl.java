@@ -22,9 +22,10 @@ public class ServerImpl implements Server {
     private CreateAccountServer createAccountServer;
     private ViewRoomServer viewRoomServer;
 
-    public ServerImpl(LoginServer loginServer,CreateAccountServer createAccountServer) throws RemoteException {
+    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, ViewRoomServer viewRoomServer) throws RemoteException {
         this.loginServer = loginServer;
         this.createAccountServer=createAccountServer;
+        this.viewRoomServer=viewRoomServer;
         UnicastRemoteObject.exportObject(this,0);
     }
 
