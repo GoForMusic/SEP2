@@ -1,7 +1,6 @@
 package client.core;
 
 import client.view.ViewController;
-import client.view.customer.mainView.CustomerHomePageController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,11 +25,12 @@ public class ViewHandler {
 
     public void start() {
         stage = new Stage();
-         openLogin();
-       // openCustomerMainView();
-
+        openLogin();
+        // openCustomerMainView();
     }
-
+    /**
+     * Opens the login scene
+     */
     public void openLogin() {
         if (loginScene == null) {
             Parent root = loadFXML("../view/login/Login.fxml");
@@ -42,8 +42,9 @@ public class ViewHandler {
     }
 
 
-
-
+    /**
+     * Opens the main view for customers
+     */
     public void openCustomerMainView() {
         if (customerMainView == null) {
             Parent root = loadFXML("../view/customer/mainView/customerHomePage.fxml");
@@ -55,19 +56,23 @@ public class ViewHandler {
     }
 
 
-    public Parent getViewRoom()   {
+    public Parent getViewRoom() {
         return loadFXML("../view/customer/viewRooms/viewRoom.fxml");
     }
-    public Parent getSingleRoom()  {
+
+    public Parent getSingleRoom() {
         return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
     }
-    public Parent getDoubleRoom(){
+
+    public Parent getDoubleRoom() {
         return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
     }
-    public Parent getLuxuryRoom(){
+
+    public Parent getLuxuryRoom() {
         return loadFXML("../view/customer/luxuryRoom/LuxuryRoom.fxml");
     }
-    private Parent loadFXML(String path)  {
+
+    private Parent loadFXML(String path) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
         Parent root = null;
@@ -81,17 +86,6 @@ public class ViewHandler {
         return root;
 
     }
-
-
-    public CustomerHomePageController getMainController() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../view/mainView/customerHomePage.fxml)"));
-        Parent root = loader.load();
-        CustomerHomePageController ctrl = loader.getController();
-        return ctrl;
-
-    }
-
 
 
 }
