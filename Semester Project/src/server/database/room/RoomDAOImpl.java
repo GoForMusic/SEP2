@@ -3,9 +3,9 @@ package server.database.room;
 import server.database.DataBaseConnection;
 import shared.utils.room.Room;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO {
@@ -29,18 +29,41 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
-    public List<Room> getAllRoomsByType(String type) throws SQLException {
-//        try(Connection connection = DataBaseConnection.getConnection()){
-//            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Room WHERE type =?");
-//            statement.setString(1,type);
-//            ResultSet resultSet = statement.executeQuery();
-//            List<Room> rooms= new ArrayList<>();
-//            while (resultSet.next()){
-//                String room_type = resultSet.getString("Room_type");
-//                String room_price = resultSet.getString("Room_price");
-//
-//            }
-//        }
-        return null;
+    public List<Room> getAllRoomsByType(String category) {
+        try (Connection connection = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Room WHERE type =?");
+            statement.setString(1, category);
+            return getRooms(statement);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException("Error in database");
+        }
+    }
+
+    @Override
+    public List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo) {
+
+        try (Connection connection = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Room where type =? and Room_id not in (SELECT Room_id from Reservation where startDate<=? and endDate>=? )");
+            statement.setString(1, category);
+            statement.setDate(2,Date.valueOf(dateFrom));
+            statement.setDate(3,Date.valueOf(dateTo));
+            return getRooms(statement);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException("Error in database");
+        }
+    }
+
+    private List<Room> getRooms(PreparedStatement statement) throws SQLException {
+        ResultSet resultSet = statement.executeQuery();
+        List<Room> rooms = new ArrayList<>();
+        while (resultSet.next()){
+            String room_type = resultSet.getString("Room_type");
+            Room room = new Room(room_type);
+            rooms.add(room);
+        }
+        return rooms;
     }
 }
