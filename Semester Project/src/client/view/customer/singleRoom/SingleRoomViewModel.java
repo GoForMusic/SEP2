@@ -17,6 +17,7 @@ public class SingleRoomViewModel {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeValues();
         getDescriptionByCategory();
+        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {

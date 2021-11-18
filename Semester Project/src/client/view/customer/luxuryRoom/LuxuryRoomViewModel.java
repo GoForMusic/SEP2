@@ -17,6 +17,8 @@ public class LuxuryRoomViewModel {
     public LuxuryRoomViewModel(ModelFactory modelFactory) {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeData();
+        getDescriptionByCategory();
+        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -34,6 +36,10 @@ public class LuxuryRoomViewModel {
     private void getDescriptionByCategory(){
         String description = viewRoomsModel.getDescriptionByCategory(RoomType.LUXURY);
         this.description.set(description);
+    }
+    private void getPriceByCategory(){
+        double price = viewRoomsModel.getPriceByCategory(RoomType.LUXURY);
+        this.price.set(price);
     }
     private void initializeData() {
         dateFrom = new SimpleObjectProperty<>();
