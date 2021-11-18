@@ -1,18 +1,23 @@
 package client.view.customer.singleRoom;
 
 import client.core.ModelFactory;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import client.model.viewRooms.ViewRoomsModel;
+import javafx.beans.property.*;
+import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 
 public class SingleRoomViewModel {
-    private ModelFactory modelFactory;
     private ObjectProperty<LocalDate> dateFrom, dateTo;
+    private StringProperty description;
+    private DoubleProperty price;
+    private ViewRoomsModel viewRoomsModel;
 
     public SingleRoomViewModel(ModelFactory modelFactory) {
-        this.modelFactory = modelFactory;
-        initializeDates();
+        this.viewRoomsModel = modelFactory.getViewRoomsModel();
+        initializeValues();
+//        getDescriptionByCategory();
+//        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -23,10 +28,25 @@ public class SingleRoomViewModel {
         return dateTo;
     }
 
-    private void initializeDates() {
+    public void searchRooms() {
+        viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.SINGLE);
+    }
+
+    private void getDescriptionByCategory(){
+        String description = viewRoomsModel.getDescriptionByCategory(RoomType.SINGLE);
+        this.description.set(description);
+    }
+    private void getPriceByCategory(){
+        double price = viewRoomsModel.getPriceByCategory(RoomType.SINGLE);
+        this.price.set(price);
+    }
+    private void initializeValues() {
         dateFrom = new SimpleObjectProperty<>();
         dateFrom.set(LocalDate.now());
         dateTo = new SimpleObjectProperty<>();
         dateTo.set(LocalDate.now());
+        description = new SimpleStringProperty();
+        price = new SimpleDoubleProperty();
     }
+
 }

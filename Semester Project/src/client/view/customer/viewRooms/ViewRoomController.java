@@ -5,7 +5,10 @@ import client.core.ViewModelFactory;
 import client.view.ViewController;
 import client.view.customer.mainView.CustomerHomePageController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -18,26 +21,31 @@ public class ViewRoomController implements ViewController {
     @FXML
     private CustomerHomePageController customerHomePageController;
 
+
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         viewHandler = vh;
-
-    }
-
-    public void customerDoubleRoomClicked(ActionEvent actionEvent) {
-        clearAnchorPane();
-        anchorPane.getChildren().setAll(viewHandler.getDoubleRoom());
-    }
-
-    public void customerLuxuryRoomClicked(ActionEvent actionEvent) {
-        clearAnchorPane();
-        anchorPane.getChildren().setAll(viewHandler.getDoubleRoom());
     }
 
     @FXML
-    private void customerSingleRoomClicked(ActionEvent actionEvent) throws IOException {
+    private EventHandler<? super MouseEvent> customerDoubleRoomClicked() {
+        clearAnchorPane();
+        anchorPane.getChildren().setAll(viewHandler.getDoubleRoom());
+        return null;
+    }
+
+    @FXML
+    private EventHandler<? super MouseEvent> customerSingleRoomClicked()  {
         clearAnchorPane();
         anchorPane.getChildren().setAll(viewHandler.getSingleRoom());
+        return null;
+    }
+    @FXML
+    private EventHandler<? super MouseEvent> customerLuxuryRoomClicked( )
+    {
+        clearAnchorPane();
+        anchorPane.getChildren().setAll(viewHandler.getLuxuryRoom());
+        return null;
     }
 
     private void clearAnchorPane() {

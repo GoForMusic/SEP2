@@ -1,6 +1,6 @@
 package server.database.room;
 
-import shared.utils.Room;
+import shared.utils.room.Room;
 
 import java.sql.SQLException;
 import java.util.List;

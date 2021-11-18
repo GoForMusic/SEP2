@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.singleRoom.CustomerSingleBedRoomController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.singleRoom.SingleBedRoomController">
    <children>
       <DatePicker fx:id="customerSingleDateFrom" layoutX="64.0" layoutY="217.0" />
       <DatePicker fx:id="customerSingleDateto" layoutX="364.0" layoutY="217.0" />

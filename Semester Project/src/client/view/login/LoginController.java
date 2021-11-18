@@ -1,11 +1,9 @@
 package client.view.login;
-
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
-import client.view.viewRooms.ViewRoomsViewModel;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,7 +59,6 @@ public class LoginController implements ViewController {
     private ViewModelFactory viewModelFactory;
     private LoginViewModel loginViewModel;
     private CreateAccountViewModel createAccountViewModel;
-    private ViewRoomsViewModel viewRoomsViewModel;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
@@ -137,14 +134,19 @@ public class LoginController implements ViewController {
         loginViewModel.playSignInAnimation();
 
     }
+
     @FXML
-    private void signIn(ActionEvent event){
+    private void signIn(ActionEvent event) {
         loginViewModel.login();
-        viewModelFactory.getViewRoomsViewModel();
+
     }
+
     @FXML
-    private void createAccount(ActionEvent event){
+    private void createAccount(ActionEvent event) {
         createAccountViewModel.createAccount();
+//        Alert alert = new Alert(Alert.AlertType.WARNING);
+//        alert.setContentText("Example");
+//        alert.show();
     }
 
     @FXML   // this is the animation one
