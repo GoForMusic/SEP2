@@ -8,11 +8,11 @@ public interface CreateModel {
 
     /**
      * Adds user to database
-     * @param firstname
-     * @param lastname
-     * @param username
-     * @param password
-     * @return
+     * @param firstname the firstname
+     * @param lastname the lastname
+     * @param username the username
+     * @param password the password
+     * @return the result from the client
      */
     String addUser(String firstname,String lastname,String username, String password);
 

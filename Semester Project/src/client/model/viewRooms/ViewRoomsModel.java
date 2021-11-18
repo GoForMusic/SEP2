@@ -1,5 +1,7 @@
 package client.model.viewRooms;
 
+import shared.utils.room.RoomType;
+
 import java.time.LocalDate;
 
 /**
@@ -12,7 +14,11 @@ public interface ViewRoomsModel {
      *
      * @param dateFrom the date to search from
      * @param dateTo the date to search upto
-     * @param category the category of the room
+     * @param roomType the category of the room
      */
-    void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category);
+    void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
+
+    String getDescriptionByCategory(RoomType roomType);
+
+    double getPriceByCategory(RoomType roomType);
 }

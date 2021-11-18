@@ -1,11 +1,16 @@
 package shared.networking.serverInterfaces;
 
+import shared.utils.room.RoomType;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.time.LocalDate;
 
 public interface ViewRoomServer extends Remote {
 
-    void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category) throws RemoteException;
+    void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) throws RemoteException;
 
+    String getDescriptionByCategory(RoomType roomType);
+
+    double getPriceByCategory(RoomType roomType);
 }

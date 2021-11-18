@@ -170,7 +170,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Customer\";");
 
-            //exegute command
+            //execute command
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
