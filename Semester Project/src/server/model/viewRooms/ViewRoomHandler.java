@@ -1,5 +1,7 @@
 package server.model.viewRooms;
 
+import shared.utils.RoomType;
+
 import java.time.LocalDate;
 
 /**
@@ -12,5 +14,5 @@ public interface ViewRoomHandler {
      * @param dateTo the date to search upto
      * @param category the category of the room to search
      */
-    void searchRoom(LocalDate dateFrom, LocalDate dateTo, String category);
+    void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 }

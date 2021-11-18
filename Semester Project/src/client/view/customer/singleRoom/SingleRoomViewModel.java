@@ -1,18 +1,20 @@
 package client.view.customer.singleRoom;
 
 import client.core.ModelFactory;
+import client.model.viewRooms.ViewRoomsModel;
 import javafx.beans.property.*;
+import shared.utils.RoomType;
 
 import java.time.LocalDate;
 
 public class SingleRoomViewModel {
-    private ModelFactory modelFactory;
     private ObjectProperty<LocalDate> dateFrom, dateTo;
     private StringProperty description;
     private DoubleProperty price;
+    private ViewRoomsModel viewRoomsModel;
 
     public SingleRoomViewModel(ModelFactory modelFactory) {
-        this.modelFactory = modelFactory;
+        this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeValues();
     }
 
@@ -24,6 +26,10 @@ public class SingleRoomViewModel {
         return dateTo;
     }
 
+    public void searchRooms() {
+        viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.SINGLE);
+    }
+
     private void initializeValues() {
         dateFrom = new SimpleObjectProperty<>();
         dateFrom.set(LocalDate.now());
@@ -32,4 +38,5 @@ public class SingleRoomViewModel {
         description = new SimpleStringProperty();
         price = new SimpleDoubleProperty();
     }
+
 }

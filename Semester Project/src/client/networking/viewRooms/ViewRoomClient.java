@@ -1,5 +1,7 @@
 package client.networking.viewRooms;
 
+import shared.utils.RoomType;
+
 import java.time.LocalDate;
 
 /**
@@ -13,5 +15,5 @@ public interface ViewRoomClient {
      * @param dateTo the date to search upto
      * @param category the category of the room to search
      */
-    void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category);
+    void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 }
