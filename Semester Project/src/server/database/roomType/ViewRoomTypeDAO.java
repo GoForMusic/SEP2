@@ -2,9 +2,9 @@ package server.database.roomType;
 
 public interface ViewRoomTypeDAO
 {
-  String getRoomDescription(String roomType);
+  String getRoomDescriptionByCategory(String roomType);
 
 
 
-  int getRoomPrice(String roomType);
+  int getRoomPriceByCategory(String roomType);
 }

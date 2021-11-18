@@ -17,7 +17,7 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
    * @version 0.1
    */
 
-  @Override public String getRoomDescription(String roomType)
+  @Override public String getRoomDescriptionByCategory(String roomType)
   {
     String temp = "It was connected but did not get Description";
     try (Connection connection = DataBaseConnection.getConnection())
@@ -47,7 +47,7 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
 
   }
 
-  @Override public int getRoomPrice(String roomType)
+  @Override public int getRoomPriceByCategory(String roomType)
   {
     int price = 0;
     try(Connection connection = DataBaseConnection.getConnection())
