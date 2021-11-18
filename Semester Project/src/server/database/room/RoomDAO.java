@@ -3,6 +3,7 @@ package server.database.room;
 import shared.utils.room.Room;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ import java.util.List;
 public interface RoomDAO {
     void create(String type,double price) throws SQLException;
     List<Room> getAllRooms() throws SQLException;
-    List<Room> getAllRoomsByType(String type) throws SQLException;
+    List<Room> getAllRoomsByType(String category) throws SQLException;
+    List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo);
 
 }

@@ -1,5 +1,7 @@
 package server.database.roomType;
 
+import java.time.LocalDate;
+
 public interface ViewRoomTypeDAO
 {
   String getRoomDescriptionByCategory(String roomType);
