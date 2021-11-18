@@ -18,4 +18,6 @@ public interface ViewRoomClient {
     void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
     String getDescriptionByCategory(RoomType roomType);
+
+    double getPriceByCategory(RoomType roomType);
 }

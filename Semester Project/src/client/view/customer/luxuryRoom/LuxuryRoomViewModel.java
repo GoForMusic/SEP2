@@ -2,8 +2,7 @@ package client.view.customer.luxuryRoom;
 
 import client.core.ModelFactory;
 import client.model.viewRooms.ViewRoomsModel;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.*;
 import shared.utils.RoomType;
 
 import java.time.LocalDate;
@@ -12,10 +11,14 @@ public class LuxuryRoomViewModel {
     private ObjectProperty<LocalDate> dateFrom, dateTo;
     private ModelFactory modelFactory;
     private ViewRoomsModel viewRoomsModel;
+    private StringProperty description;
+    private DoubleProperty price;
 
     public LuxuryRoomViewModel(ModelFactory modelFactory) {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
-        initializeDates();
+        initializeData();
+        getDescriptionByCategory();
+        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -30,10 +33,20 @@ public class LuxuryRoomViewModel {
         viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.LUXURY);
     }
 
-    private void initializeDates() {
+    private void getDescriptionByCategory(){
+        String description = viewRoomsModel.getDescriptionByCategory(RoomType.LUXURY);
+        this.description.set(description);
+    }
+    private void getPriceByCategory(){
+        double price = viewRoomsModel.getPriceByCategory(RoomType.LUXURY);
+        this.price.set(price);
+    }
+    private void initializeData() {
         dateFrom = new SimpleObjectProperty<>();
         dateFrom.set(LocalDate.now());
         dateTo = new SimpleObjectProperty<>();
         dateTo.set(LocalDate.now());
+        description = new SimpleStringProperty();
+        price = new SimpleDoubleProperty();
     }
 }

@@ -17,4 +17,10 @@ public class ViewRoomImpl implements ViewRoomHandler{
         // TODO: 11/18/2021  ask database to return the description of the Room Type ....
         return null;
     }
+
+    @Override
+    public double getPriceByCategory(RoomType roomType) {
+        // TODO: 11/18/2021 ask database about the price of room..
+        return 0;
+    }
 }

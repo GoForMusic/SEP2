@@ -33,4 +33,14 @@ public class ViewRoomImp implements ViewRoomClient {
         }
         return null;
     }
+
+    @Override
+    public double getPriceByCategory(RoomType roomType) {
+        try {
+            return server.getViewRoomServer().getPriceByCategory(roomType);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
