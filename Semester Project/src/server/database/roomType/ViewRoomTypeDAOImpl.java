@@ -47,7 +47,7 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
 
   }
 
-  @Override public int getRoomPriceByCategory(String roomType)
+  @Override public int  getRoomPriceByCategory(String roomType)
   {
     int price = 0;
     try(Connection connection = DataBaseConnection.getConnection())
