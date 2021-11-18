@@ -64,7 +64,7 @@ public class ViewHandler {
         return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
     }
 
-    public Parent getDoubleRoom() {
+    public  Parent getDoubleRoom() {
         return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
     }
 
