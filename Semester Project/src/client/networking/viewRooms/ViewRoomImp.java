@@ -16,12 +16,21 @@ public class ViewRoomImp implements ViewRoomClient {
 
     @Override
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
-
         try {
             server.getViewRoomServer().searchRooms(dateFrom, dateTo, roomType);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public String getDescriptionByCategory(RoomType roomType) {
+        try {
+            return server.getViewRoomServer().getDescriptionByCategory(roomType);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

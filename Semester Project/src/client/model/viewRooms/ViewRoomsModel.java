@@ -14,7 +14,9 @@ public interface ViewRoomsModel {
      *
      * @param dateFrom the date to search from
      * @param dateTo the date to search upto
-     * @param category the category of the room
+     * @param roomType the category of the room
      */
     void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
+
+    String getDescriptionByCategory(RoomType roomType);
 }

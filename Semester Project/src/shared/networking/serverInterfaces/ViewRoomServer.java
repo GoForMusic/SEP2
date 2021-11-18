@@ -10,4 +10,5 @@ public interface ViewRoomServer extends Remote {
 
     void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) throws RemoteException;
 
+    String getDescriptionByCategory(RoomType roomType);
 }

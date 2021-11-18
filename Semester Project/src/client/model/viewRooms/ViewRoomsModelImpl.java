@@ -16,4 +16,10 @@ public class ViewRoomsModelImpl implements ViewRoomsModel{
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         client.searchRooms(dateFrom, dateTo, roomType);
     }
+
+    @Override
+    public String getDescriptionByCategory(RoomType roomType) {
+        return client.getDescriptionByCategory(roomType);
+    }
+
 }

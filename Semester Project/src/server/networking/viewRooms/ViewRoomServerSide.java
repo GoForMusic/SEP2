@@ -23,4 +23,9 @@ public class ViewRoomServerSide implements ViewRoomServer {
         viewRoomHandler.searchRoom(dateFrom,dateTo,roomType);
 
     }
+
+    @Override
+    public String getDescriptionByCategory(RoomType roomType) {
+       return viewRoomHandler.getDescriptionByCategory(roomType);
+    }
 }

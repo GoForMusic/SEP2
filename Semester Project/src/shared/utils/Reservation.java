@@ -17,8 +17,7 @@ public class Reservation implements Serializable {
     private List<Room> bookedRooms;
 
     /**
-     * A four argument constructor that takes customer, datefrom , dateTo and the list of booked rooms
-     *
+     * A four argument constructor that takes customer, dateFrom , dateTo and the list of booked rooms
      * @param customer    the customer who books the room
      * @param dateFrom    the starting date of the reservation
      * @param dateTo      the end date of the reservation
