@@ -34,8 +34,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public void insertEmployee(User user) {
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO \"Employee\"(\"firstName\",\"lastName\",\"userName\",password,\"Employee_type\") VALUES(?,?,?,?,?);");
-
-
             //set the parameters on the SQL statement
             statement.setString(1, user.getFirstname());
             statement.setString(2, user.getLastName());
