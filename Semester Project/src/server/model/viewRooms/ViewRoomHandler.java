@@ -17,4 +17,6 @@ public interface ViewRoomHandler {
     void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
     String getDescriptionByCategory(RoomType roomType);
+
+    double getPriceByCategory(RoomType roomType);
 }

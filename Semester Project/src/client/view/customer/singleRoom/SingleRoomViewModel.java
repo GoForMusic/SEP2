@@ -16,6 +16,7 @@ public class SingleRoomViewModel {
     public SingleRoomViewModel(ModelFactory modelFactory) {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeValues();
+        getDescriptionByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -30,6 +31,14 @@ public class SingleRoomViewModel {
         viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.SINGLE);
     }
 
+    private void getDescriptionByCategory(){
+        String description = viewRoomsModel.getDescriptionByCategory(RoomType.SINGLE);
+        this.description.set(description);
+    }
+    private void getPriceByCategory(){
+        double price = viewRoomsModel.getPriceByCategory(RoomType.SINGLE);
+        this.price.set(price);
+    }
     private void initializeValues() {
         dateFrom = new SimpleObjectProperty<>();
         dateFrom.set(LocalDate.now());
