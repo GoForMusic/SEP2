@@ -2,6 +2,8 @@ package server.networking.viewRooms;
 
 import server.model.viewRooms.ViewRoomHandler;
 import shared.networking.serverInterfaces.ViewRoomServer;
+import shared.utils.Room;
+import shared.utils.RoomType;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -17,8 +19,13 @@ public class ViewRoomServerSide implements ViewRoomServer {
     }
 
     @Override
-    public void searchRooms(LocalDate dateFrom, LocalDate dateTo, String category) {
-        viewRoomHandler.searchRoom(dateFrom,dateTo,category);
+    public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+        viewRoomHandler.searchRoom(dateFrom,dateTo,roomType);
 
+    }
+
+    @Override
+    public String getDescriptionByCategory(RoomType roomType) {
+       return viewRoomHandler.getDescriptionByCategory(roomType);
     }
 }
