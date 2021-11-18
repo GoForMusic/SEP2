@@ -1,6 +1,6 @@
 package server.model.viewRooms;
 
-import shared.utils.RoomType;
+import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 

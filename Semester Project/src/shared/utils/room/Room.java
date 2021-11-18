@@ -1,4 +1,4 @@
-package shared.utils;
+package shared.utils.room;
 
 import java.io.Serializable;
 

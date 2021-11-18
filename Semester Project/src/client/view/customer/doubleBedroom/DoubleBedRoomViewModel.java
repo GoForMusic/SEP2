@@ -3,7 +3,7 @@ package client.view.customer.doubleBedroom;
 import client.core.ModelFactory;
 import client.model.viewRooms.ViewRoomsModel;
 import javafx.beans.property.*;
-import shared.utils.RoomType;
+import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 
@@ -21,8 +21,8 @@ public class DoubleBedRoomViewModel {
     public DoubleBedRoomViewModel(ModelFactory modelFactory) {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeData();
-        getDescriptionByCategory();
-        getPriceByCategory();
+//        getDescriptionByCategory();
+//        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
