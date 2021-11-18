@@ -2,7 +2,7 @@ package client.networking.viewRooms;
 
 import client.networking.GetServer;
 import shared.networking.serverInterfaces.Server;
-import shared.utils.RoomType;
+import shared.utils.room.RoomType;
 
 import java.rmi.RemoteException;
 import java.time.LocalDate;

@@ -1,13 +1,11 @@
 package server.database.room;
 
 import server.database.DataBaseConnection;
-import shared.utils.Room;
+import shared.utils.room.Room;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO {

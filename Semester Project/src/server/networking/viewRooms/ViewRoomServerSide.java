@@ -2,8 +2,7 @@ package server.networking.viewRooms;
 
 import server.model.viewRooms.ViewRoomHandler;
 import shared.networking.serverInterfaces.ViewRoomServer;
-import shared.utils.Room;
-import shared.utils.RoomType;
+import shared.utils.room.RoomType;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

@@ -1,7 +1,7 @@
 package client.model.viewRooms;
 
 import client.networking.viewRooms.ViewRoomClient;
-import shared.utils.RoomType;
+import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 

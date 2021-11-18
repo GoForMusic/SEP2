@@ -1,6 +1,6 @@
 package shared.networking.serverInterfaces;
 
-import shared.utils.RoomType;
+import shared.utils.room.RoomType;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

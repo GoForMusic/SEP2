@@ -5,7 +5,7 @@ import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.singleRoom.SingleRoomViewModel;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
-import client.view.viewRooms.ViewRoomsViewModel;
+
 
 /**
  * @author Sachin Baral
@@ -15,7 +15,6 @@ public class ViewModelFactory {
     private ModelFactory modelFactory;
     private LoginViewModel loginViewModel;
     private CreateAccountViewModel createAccountViewModel;
-    private ViewRoomsViewModel viewRoomsViewModel;
     private LuxuryRoomViewModel luxuryRoomViewModel;
     private DoubleBedRoomViewModel doubleBedRoomViewModel;
     private SingleRoomViewModel singleRoomViewModel;
@@ -36,13 +35,6 @@ public class ViewModelFactory {
             loginViewModel = new LoginViewModel(modelFactory);
         }
         return loginViewModel;
-    }
-
-    public ViewRoomsViewModel getViewRoomsViewModel() {
-        if (viewRoomsViewModel == null) {
-            viewRoomsViewModel = new ViewRoomsViewModel(modelFactory);
-        }
-        return viewRoomsViewModel;
     }
 
     public LuxuryRoomViewModel getLuxuryRoomViewModel() {
