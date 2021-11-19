@@ -7,6 +7,7 @@ import java.io.Serializable;
  * The object room
  */
 public class Room implements Serializable {
+    private String name;
     private String category;
     private boolean isClean;
 
@@ -14,7 +15,8 @@ public class Room implements Serializable {
      * Constructor that creates a room
      * @param category type of room
      */
-    public Room(String category) {
+    public Room(String name,String category) {
+        this.name=name;
         this.category = category;
         isClean=true;
     }
@@ -39,5 +41,18 @@ public class Room implements Serializable {
      */
     public boolean isCleanOrNot(){
         return isClean;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", isClean=" + isClean +
+                '}';
     }
 }

@@ -14,7 +14,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public void create(String type, double price) throws SQLException {
         try (Connection connection = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO Room(type ,price)VALUES(?,?);");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO \"Room\"(type ,price)VALUES(?,?);");
 
             statement.setString(1, type);
             statement.setString(2, type);
@@ -31,7 +31,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public List<Room> getAllRoomsByType(String category) {
         try (Connection connection = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Room WHERE type =?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Room\" WHERE \"Room_type\" =?");
             statement.setString(1, category);
             return getRooms(statement);
         } catch (SQLException throwables) {
@@ -44,7 +44,7 @@ public class RoomDAOImpl implements RoomDAO {
     public List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo) {
 
         try (Connection connection = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Room where type =? and Room_id not in (SELECT Room_id from Reservation where startDate<=? and endDate>=? )");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Room\" where \"Room_type\" =? and Room_name not in (SELECT Room_name from \"Reservation\" where \"startDate\"<=? and \"endDate\">=? )");
             statement.setString(1, category);
             statement.setDate(2,Date.valueOf(dateFrom));
             statement.setDate(3,Date.valueOf(dateTo));

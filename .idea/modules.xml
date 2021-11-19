@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SEP2Group6.iml" filepath="$PROJECT_DIR$/SEP2Group6.iml" />
       <module fileurl="file://$PROJECT_DIR$/Semester Project/Semester Project.iml" filepath="$PROJECT_DIR$/Semester Project/Semester Project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tet/tet.iml" filepath="$PROJECT_DIR$/tet/tet.iml" />
     </modules>
   </component>
 </project>
