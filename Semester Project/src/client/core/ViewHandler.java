@@ -19,12 +19,15 @@ public class ViewHandler {
     private Stage stage;
     private ViewModelFactory vmf;
 
-    public ViewHandler(ViewModelFactory vmf) {
+    public ViewHandler(ViewModelFactory vmf,Stage stage) {
         this.vmf = vmf;
+        this.stage=stage;
+        stage.setResizable(false);
     }
 
     public void start() {
-        stage = new Stage();
+      //  stage = new Stage();
+
       //  openLogin();
          openCustomerMainView();
     }
