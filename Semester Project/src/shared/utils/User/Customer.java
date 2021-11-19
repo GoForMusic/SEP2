@@ -13,12 +13,11 @@ public class Customer extends User implements Serializable {
     /**
      * A 2 argument constructor
      * @param userName
-     * @param password
-     * @param email
+
      */
-    public Customer(String userName, String password, String email){
-        super(userName, password);
-        this.email=email;
+    public Customer(String firstname, String lastname, String userName){
+        super(firstname, lastname,userName);
+
     }
 
     /**
@@ -33,6 +32,7 @@ public class Customer extends User implements Serializable {
         super(firstname, lastname, userName, password);
         this.email=email;
     }
+
 
     /**
      * A 5 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.
