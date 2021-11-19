@@ -1,5 +1,7 @@
 package client.model.login;
 
+import shared.utils.Request;
+
 public interface LoginModel {
 
     /**
@@ -8,5 +10,5 @@ public interface LoginModel {
      * @param password the password of the user
      * @return the String with the information about the login status..
      */
-    String isLoginPossible(String username,String password);
+    Request login(String username, String password);
 }

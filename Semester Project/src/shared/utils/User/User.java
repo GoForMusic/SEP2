@@ -30,6 +30,12 @@ public abstract class User implements Serializable {
         this.password=password;
     }
 
+    public User(String firstname,String lastName,String username){
+        this.firstname=firstname;
+        this.lastName=lastName;
+        this.userName=username;
+    }
+
     /**
      * A 4 argument constructor, when the user will be created in the app and after pushed to the database
      * @param firstname
