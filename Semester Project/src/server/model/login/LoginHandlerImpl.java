@@ -30,7 +30,6 @@ public class LoginHandlerImpl implements LoginHandler {
         } catch (SQLException e) {
             return new Request("Error connecting to database",null);
         }
-
     }
 
 //    private List<String> getAllUsernames() {

@@ -5,7 +5,7 @@ import shared.utils.Request;
 import shared.utils.User.*;
 
 import java.sql.*;
-import java.util.function.Predicate;
+
 
 /**
  * @author Sachin Baral
@@ -16,8 +16,6 @@ public class LoginDAOImpl implements LoginDAO{
     public LoginDAOImpl() throws SQLException {
         DriverManager.registerDriver(new org.postgresql.Driver());
     }
-
-
 
     @Override
     public Request login(String username, String password ) throws SQLException {
@@ -36,7 +34,6 @@ public class LoginDAOImpl implements LoginDAO{
                 return new Request("Username or password incorrect",null);
             }
         }
-
     }
 
     private Request getUserType(String firstname, String lastname,String username, String accessType) {
