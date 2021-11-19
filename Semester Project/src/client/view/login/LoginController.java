@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import shared.utils.User.Usertype;
 
 public class LoginController implements ViewController {
 
@@ -137,8 +138,10 @@ public class LoginController implements ViewController {
 
     @FXML
     private void signIn(ActionEvent event) {
-        loginViewModel.login();
-
+      String temp= loginViewModel.login();
+      if (temp.equals(Usertype.CUSTOMER.toString())){
+          viewHandler.openCustomerMainView();
+      }
     }
 
     @FXML

@@ -44,7 +44,7 @@ public class RoomDAOImpl implements RoomDAO {
     public List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo) {
 
         try (Connection connection = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Room\" where \"Room_type\" =? and Room_name not in (SELECT Room_name from \"Reservation\" where \"startDate\"<=? and \"endDate\">=? )");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Room\" where \"Room_type\" =? and \"Room_name\" not in (SELECT \"Room_name\" from \"Reservation\" where \"startDate\"<=? and \"endDate\">=? )");
             statement.setString(1, category);
             statement.setDate(2,Date.valueOf(dateFrom));
             statement.setDate(3,Date.valueOf(dateTo));
@@ -61,7 +61,7 @@ public class RoomDAOImpl implements RoomDAO {
         List<Room> rooms = new ArrayList<>();
         while (resultSet.next()){
             String room_type = resultSet.getString("Room_type");
-            Room room = new Room(room_type);
+            Room room = new Room("hello",room_type);
             rooms.add(room);
         }
         return rooms;
