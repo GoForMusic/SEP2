@@ -14,7 +14,6 @@ public abstract class User implements Serializable {
     private String userName;
     private String password;
 
-
     /**
      * A 2 argument constructor
      * @param userName
