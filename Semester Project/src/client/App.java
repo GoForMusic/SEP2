@@ -14,10 +14,11 @@ public class App extends Application {
     private ViewHandler viewHandler;
     @Override
     public void start(Stage stage) throws Exception {
+
         cf = new ClientFactory();
         mf = new ModelFactory(cf);
         vmf = new ViewModelFactory(mf);
-        viewHandler= new ViewHandler(vmf);
+        viewHandler= new ViewHandler(vmf,stage);
         viewHandler.start();
     }
 

@@ -14,7 +14,6 @@ public abstract class User implements Serializable {
     private String userName;
     private String password;
 
-
     /**
      * A 2 argument constructor
      * @param userName
@@ -28,6 +27,12 @@ public abstract class User implements Serializable {
         this.lastName="";
         this.userName =userName;
         this.password=password;
+    }
+
+    public User(String firstname,String lastName,String username){
+        this.firstname=firstname;
+        this.lastName=lastName;
+        this.userName=username;
     }
 
     /**

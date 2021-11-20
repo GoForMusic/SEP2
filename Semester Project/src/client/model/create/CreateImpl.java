@@ -2,6 +2,7 @@ package client.model.create;
 
 import client.networking.create.CreateClient;
 import shared.utils.User.Customer;
+import shared.utils.User.User;
 
 public class CreateImpl implements CreateModel {
     public CreateClient client;
@@ -19,13 +20,7 @@ public class CreateImpl implements CreateModel {
      * @return
      */
     @Override
-    public String addUser(String firstname, String lastname, String username, String password) {
-        Customer customer = null;
-        try {
-            customer = new Customer(firstname,lastname,username,password);
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-        return client.addUser(customer);
+    public String addUser(String firstname, String lastname, String username, String password,String userType) {
+        return client.addUser(firstname,lastname,username,password,userType);
     }
 }

@@ -6,6 +6,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.utils.User.Usertype;
 
 
 public class CreateAccountViewModel {
@@ -63,20 +64,20 @@ public class CreateAccountViewModel {
     }
 
     public String createAccount() {
-        if (signUpUsername.get().isEmpty()){
+        if (signUpUsername.get()==null ||signUpUsername.get().isEmpty()){
             errorLabel.set("Username cannot be empty..");
 
         }
-        else if (signUpFirstName.get().isEmpty() || signUpLastName.get().isEmpty() ){
+        else if ( signUpFirstName.get()==null ||signUpFirstName.get().isEmpty() || signUpLastName.get().isEmpty() ){
             errorLabel.set("First name and last name cannot be empty..");
 
         }
-        else if (signUpPassword.get().isEmpty()){
+        else if (signUpPassword.get()==null||signUpPassword.get().isEmpty()){
             errorLabel.set("Password cannot be empty..");
 
         }
         else{
-                String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+                String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get(), Usertype.CUSTOMER.toString());
                 if (!response.equals("Approved")){
                     errorLabel.set(response);
                     clearUsernameAndPassword();

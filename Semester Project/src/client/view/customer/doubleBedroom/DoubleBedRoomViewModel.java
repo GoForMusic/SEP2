@@ -57,7 +57,6 @@ public class DoubleBedRoomViewModel {
     public DoubleProperty getPricePerNight() {
         return price;
     }
-
     private void initializeData() {
         dateFrom = new SimpleObjectProperty<>();
         dateFrom.set(LocalDate.now());

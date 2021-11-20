@@ -17,7 +17,7 @@ public class GetServer {
 
         } catch (RemoteException e) {
 //            e.printStackTrace();
-//            throw new RuntimeException("Cannot connect to server");
+            System.out.println("Cannot connect to server");
         } catch (NotBoundException e) {
             e.printStackTrace();
         }
