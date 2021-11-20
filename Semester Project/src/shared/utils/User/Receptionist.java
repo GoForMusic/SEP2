@@ -12,12 +12,12 @@ public class Receptionist extends User implements Serializable {
 
     /**
      * A 2 argument constructor
+     * @param firstname
      * @param userName
      * @param password
      */
-    public Receptionist(String userName, String password){
-        super(userName, password);
-        this.userType="Receptionist";
+    public Receptionist(String firstname, String userName, String password){
+        super(firstname,userName, password);
     }
 
     /**
@@ -31,6 +31,8 @@ public class Receptionist extends User implements Serializable {
         super(firstname, lastname, userName, password);
         this.userType="Receptionist";
     }
+
+
 
     /**
      * A 5 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.

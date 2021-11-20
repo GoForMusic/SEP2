@@ -12,11 +12,12 @@ public class Admin extends User implements Serializable {
 
     /**
      * A 2 argument constructor
+     * @param firstname
      * @param userName
      * @param password
      */
-    public Admin(String userName, String password){
-        super(userName, password);
+    public Admin(String firstname, String userName, String password){
+        super(firstname,userName, password);
         this.userType="Admin";
     }
 

@@ -2,6 +2,7 @@ package server.networking.login;
 
 import server.model.login.LoginHandler;
 import shared.networking.serverInterfaces.LoginServer;
+import shared.utils.Request;
 import shared.utils.User.User;
 
 import java.rmi.RemoteException;
@@ -18,8 +19,7 @@ public class LoginServerImpl implements LoginServer {
     }
 
     @Override
-    public String isLoginPossible(User user) {
-        String result = loginHandler.isLoginPossible(user);
-        return result;
+    public Request isLoginPossible(String username, String password) {
+        return loginHandler.login( username, password);
     }
 }

@@ -10,15 +10,19 @@ public class CreateClientImpl implements CreateClient {
     private Server server;
 
     public CreateClientImpl() {
-           server = GetServer.getServerFromRmi();
-    }
-    @Override
-    public String addUser(User user) {
         try {
-            return server.getCreateAccountServer().addUser(user);
+            server = GetServer.getServerFromRmi();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public String addUser(String firstname, String lastname, String username, String password, String userType) {
+        try {
+            return server.getCreateAccountServer().addUser(firstname,lastname,username,password,userType);
         } catch (RemoteException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Cannot connect to the server");
+            return "Cannot connect to server";
         }
     }
 }

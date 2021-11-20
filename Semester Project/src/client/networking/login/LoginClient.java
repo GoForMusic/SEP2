@@ -1,5 +1,6 @@
 package client.networking.login;
 
+import shared.utils.Request;
 import shared.utils.User.User;
 
 /**
@@ -12,5 +13,5 @@ public interface LoginClient {
      * @param user
      * @return the result from server
      */
-    String isLoginPossible(User user);
+    Request login(String username,String password);
 }

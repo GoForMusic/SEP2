@@ -19,14 +19,18 @@ public class ViewHandler {
     private Stage stage;
     private ViewModelFactory vmf;
 
-    public ViewHandler(ViewModelFactory vmf) {
+    public ViewHandler(ViewModelFactory vmf,Stage stage) {
         this.vmf = vmf;
+        this.stage=stage;
+        stage.setResizable(false);
     }
 
     public void start() {
-        stage = new Stage();
-      //  openLogin();
-         openCustomerMainView();
+      //  stage = new Stage();
+
+       openLogin();
+//        test();
+        // openCustomerMainView();
     }
     /**
      * Opens the login scene in a new Stage
@@ -54,6 +58,13 @@ public class ViewHandler {
         stage.setScene(customerMainView);
         stage.show();
     }
+
+//    private void test(){
+//        Parent root = getSingleRoom();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
 
     public Parent getViewRoom() {

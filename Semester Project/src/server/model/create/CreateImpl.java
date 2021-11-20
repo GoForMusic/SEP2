@@ -1,11 +1,7 @@
 package server.model.create;
 
-import server.database.Customer.CustomerRepository;
-import server.database.Customer.CustomerRepositoryImpl;
-import shared.utils.User.Customer;
-import shared.utils.User.User;
-
-import java.sql.SQLException;
+import server.database.createAccount.CreateDAO;
+import server.database.createAccount.CreateDAOImpl;
 
 /**
  * @author Sachin Baral
@@ -13,29 +9,18 @@ import java.sql.SQLException;
  */
 public class CreateImpl implements CreateHandler {
 
-    private CustomerRepository customerRepository;
+    //    private CustomerRepository customerRepository;
+    private CreateDAO createDAO;
+
 
     public CreateImpl() {
-        try {
-            customerRepository = new CustomerRepositoryImpl();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Cannot connect to database");
-        }
+        // TODO: 11/20/2021 implement singleton here
+        createDAO= new CreateDAOImpl();
     }
+
 
     @Override
-    public String addUser(User user) {
-        if (doesUsernameExists(user.getUserName())) {
-            return "User name already exists";
-        } else {
-            customerRepository.insertCustomer((Customer) user);
-            return "Approved";
-        }
-    }
-
-    private boolean doesUsernameExists(String username) {
-        return customerRepository.doesUsernameExists(username);
-
+    public String addUser(String firstname, String lastname, String username, String password, String userType) {
+       return createDAO.addUser(firstname, lastname, username, password, userType);
     }
 }

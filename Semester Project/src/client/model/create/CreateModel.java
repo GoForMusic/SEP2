@@ -14,6 +14,6 @@ public interface CreateModel {
      * @param password the password
      * @return the result from the client
      */
-    String addUser(String firstname,String lastname,String username, String password);
+    String addUser(String firstname,String lastname,String username, String password,String userType);
 
 }
