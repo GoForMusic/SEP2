@@ -6,6 +6,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.utils.User.Usertype;
 
 
 public class CreateAccountViewModel {
@@ -76,7 +77,7 @@ public class CreateAccountViewModel {
 
         }
         else{
-                String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get());
+                String response= createModel.addUser(signUpFirstName.get(),signUpLastName.get(),signUpUsername.get(),signUpPassword.get(), Usertype.CUSTOMER.toString());
                 if (!response.equals("Approved")){
                     errorLabel.set(response);
                     clearUsernameAndPassword();

@@ -18,4 +18,5 @@ public interface LoginDAO {
      * @throws SQLException
      */
     Request login(String username, String password ) throws SQLException;
+//    LoginDAO getInstance();
 }
