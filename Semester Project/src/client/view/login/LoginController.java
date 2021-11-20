@@ -52,9 +52,6 @@ public class LoginController implements ViewController {
     private Label inText;
     @FXML
     private Label createError;
-    @FXML
-    private DatePicker datepicker;
-
 
     private ViewHandler viewHandler;
     private ViewModelFactory viewModelFactory;

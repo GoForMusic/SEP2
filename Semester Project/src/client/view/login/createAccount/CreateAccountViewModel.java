@@ -63,15 +63,15 @@ public class CreateAccountViewModel {
     }
 
     public String createAccount() {
-        if (signUpUsername.get().isEmpty()){
+        if (signUpUsername.get()==null ||signUpUsername.get().isEmpty()){
             errorLabel.set("Username cannot be empty..");
 
         }
-        else if (signUpFirstName.get().isEmpty() || signUpLastName.get().isEmpty() ){
+        else if ( signUpFirstName.get()==null ||signUpFirstName.get().isEmpty() || signUpLastName.get().isEmpty() ){
             errorLabel.set("First name and last name cannot be empty..");
 
         }
-        else if (signUpPassword.get().isEmpty()){
+        else if (signUpPassword.get()==null||signUpPassword.get().isEmpty()){
             errorLabel.set("Password cannot be empty..");
 
         }

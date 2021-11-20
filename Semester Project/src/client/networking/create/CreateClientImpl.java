@@ -10,7 +10,11 @@ public class CreateClientImpl implements CreateClient {
     private Server server;
 
     public CreateClientImpl() {
-           server = GetServer.getServerFromRmi();
+        try {
+            server = GetServer.getServerFromRmi();
+        } catch (Exception e) {
+            throw e;
+        }
     }
     @Override
     public String addUser(User user) {
