@@ -53,10 +53,12 @@ public class LoginViewModel {
 
     public String login() {
         //  System.out.println(usernameLogin.get());
-        if (usernameLogin.get().isEmpty()) {
-            return "Username cannot be empty !!";
-        } else if (passwordLogin.get().isEmpty()) {
-            return "Password cannot be empty !!";
+        if (usernameLogin.get()==null||usernameLogin.get().isEmpty() ) {
+            errorLogin.set("Username cannot be empty !!");
+            return "";
+        } else if (passwordLogin.get()==null || passwordLogin.get().isEmpty() ) {
+            errorLogin.set("Password cannot be empty !!");
+            return "";
         } else {
             Request temp = modelFactory.getLoginModel().login(usernameLogin.get(), passwordLogin.get());
             errorLogin.set(temp.getType());
