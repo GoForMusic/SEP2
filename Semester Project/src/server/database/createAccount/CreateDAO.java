@@ -1,8 +1,5 @@
-package server.model.create;
+package server.database.createAccount;
 
-import shared.utils.User.User;
-
-public interface CreateHandler {
-
+public interface CreateDAO {
     String addUser(String firstname, String lastname, String username, String password, String userType);
 }

@@ -8,10 +8,5 @@ import shared.utils.User.User;
 public interface CreateClient {
 
 
-    /**
-     * Adds user to server
-     * @param user
-     * @return the response from the server
-     */
-    String addUser(User user);
+    String addUser(String firstname, String lastname, String username, String password, String userType);
 }

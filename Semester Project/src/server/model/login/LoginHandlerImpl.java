@@ -18,7 +18,7 @@ public class LoginHandlerImpl implements LoginHandler {
     public LoginHandlerImpl() throws SQLException {
         allUsers = new ArrayList<>();
         allUsernames = new ArrayList<>();
-        loginDAO = new LoginDAOImpl();
+        loginDAO= new LoginDAOImpl();
         // allUsers.add(new User("Sachin", "Baral", "sachin07", "sachin123"));
     }
 

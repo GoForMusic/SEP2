@@ -16,13 +16,13 @@ public class CreateClientImpl implements CreateClient {
             throw e;
         }
     }
+
     @Override
-    public String addUser(User user) {
+    public String addUser(String firstname, String lastname, String username, String password, String userType) {
         try {
-            return server.getCreateAccountServer().addUser(user);
+            return server.getCreateAccountServer().addUser(firstname,lastname,username,password,userType);
         } catch (RemoteException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Cannot connect to the server");
+            return "Cannot connect to server";
         }
     }
 }
