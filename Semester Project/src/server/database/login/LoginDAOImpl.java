@@ -12,10 +12,21 @@ import java.sql.*;
  * @version 1.0
  */
 public class LoginDAOImpl implements LoginDAO{
+//    private LoginDAOImpl instance;
 
     public LoginDAOImpl() throws SQLException {
         DriverManager.registerDriver(new org.postgresql.Driver());
     }
+//    public  LoginDAO getInstance(){
+//        if (instance==null){
+//            try {
+//                instance= new LoginDAOImpl();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return instance;
+//    }
 
     @Override
     public Request login(String username, String password ) throws SQLException {
