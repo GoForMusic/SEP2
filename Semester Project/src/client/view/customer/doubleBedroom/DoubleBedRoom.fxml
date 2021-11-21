@@ -3,12 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.doubleBedroom.CustomerDoubleBedRoomController">
    <children>
@@ -28,16 +28,20 @@
             <Image url="@107219189-.jpg" />
          </image>
       </ImageView>
-      <TextFlow layoutX="215.0" layoutY="264.0" prefHeight="51.0" prefWidth="370.0" />
       <Label layoutX="482.0" layoutY="349.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="36.0" layoutY="322.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="146.0" text="See availability">
+      <Button layoutX="36.0" layoutY="322.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="146.0" text="Search Rooms">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      <Label layoutX="14.0" layoutY="97.0" text="Book From :" />
+      <Label layoutX="14.0" layoutY="168.0" text="Book to :" />
+      <TextArea fx:id="description" layoutX="224.0" layoutY="262.0" prefHeight="66.0" prefWidth="361.0" />
+      <Label layoutX="14.0" layoutY="239.0" text="Price per night :" />
+      <Label fx:id="price" layoutX="109.0" layoutY="239.0" prefHeight="18.0" prefWidth="47.0" text="price" />
    </children>
 </AnchorPane>

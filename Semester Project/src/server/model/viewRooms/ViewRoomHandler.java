@@ -18,5 +18,5 @@ public interface ViewRoomHandler {
 
     String getDescriptionByCategory(RoomType roomType);
 
-    double getPriceByCategory(RoomType roomType);
+    String getPriceByCategory(RoomType roomType);
 }

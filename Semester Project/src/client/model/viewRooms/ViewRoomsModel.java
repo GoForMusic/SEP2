@@ -20,5 +20,5 @@ public interface ViewRoomsModel {
 
     String getDescriptionByCategory(RoomType roomType);
 
-    double getPriceByCategory(RoomType roomType);
+    String getPriceByCategory(RoomType roomType);
 }

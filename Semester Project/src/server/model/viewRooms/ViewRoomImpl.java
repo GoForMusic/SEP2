@@ -1,11 +1,20 @@
 package server.model.viewRooms;
 
+
+import server.database.roomType.ViewRoomTypeDAO;
+import server.database.roomType.ViewRoomTypeDAOImpl;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 
-public class ViewRoomImpl implements ViewRoomHandler{
+public class ViewRoomImpl implements ViewRoomHandler {
 
+    private ViewRoomTypeDAO viewRoomTypeDAO;
+
+
+    public ViewRoomImpl() {
+        viewRoomTypeDAO = new ViewRoomTypeDAOImpl();
+    }
 
     @Override
     public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
@@ -14,13 +23,12 @@ public class ViewRoomImpl implements ViewRoomHandler{
 
     @Override
     public String getDescriptionByCategory(RoomType roomType) {
-        // TODO: 11/18/2021  ask database to return the description of the Room Type ....
-        return null;
+        return viewRoomTypeDAO.getRoomDescriptionByCategory(roomType.toString());
     }
 
     @Override
-    public double getPriceByCategory(RoomType roomType) {
-        // TODO: 11/18/2021 ask database about the price of room..
-        return 0;
+    public String getPriceByCategory(RoomType roomType) {
+
+        return viewRoomTypeDAO.getRoomPriceByCategory(roomType.toString()) + "";
     }
 }
