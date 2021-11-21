@@ -28,9 +28,9 @@ public class ViewHandler {
     public void start() {
       //  stage = new Stage();
 
-       //openLogin();
+       openLogin();
 //        test();
-         openCustomerMainView();
+         //openCustomerMainView();
     }
     /**
      * Opens the login scene in a new Stage

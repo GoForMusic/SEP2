@@ -39,11 +39,16 @@ public class LoginDAOImpl implements LoginDAO{
                 String firstname = resultSet.getString("firstname");
                 String lastname =resultSet.getString("lastname");
                 String accessType = resultSet.getString("access_type");
+                connection.close();
                 return getUserType(firstname,lastname,username,accessType);
             }
             else{
+                connection.close();
                 return new Request("Username or password incorrect",null);
             }
+        }catch (SQLException e)
+        {
+            return new Request(e.getMessage(),null);
         }
     }
 
