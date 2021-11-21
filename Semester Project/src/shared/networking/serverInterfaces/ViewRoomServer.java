@@ -12,5 +12,5 @@ public interface ViewRoomServer extends Remote {
 
     String getDescriptionByCategory(RoomType roomType) throws RemoteException;
 
-    double getPriceByCategory(RoomType roomType) throws RemoteException;
+    String getPriceByCategory(RoomType roomType) throws RemoteException;
 }

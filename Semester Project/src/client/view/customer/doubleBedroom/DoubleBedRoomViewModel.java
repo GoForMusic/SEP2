@@ -16,13 +16,13 @@ public class DoubleBedRoomViewModel {
     private ObjectProperty<LocalDate> dateFrom, dateTo;
     private ViewRoomsModel viewRoomsModel;
     private StringProperty description;
-    private DoubleProperty price;
+    private StringProperty price;
 
     public DoubleBedRoomViewModel(ModelFactory modelFactory) {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeData();
-//        getDescriptionByCategory();
-//        getPriceByCategory();
+        getDescriptionByCategory();
+        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -39,7 +39,7 @@ public class DoubleBedRoomViewModel {
     }
 
     private void getPriceByCategory() {
-        double price = viewRoomsModel.getPriceByCategory(RoomType.DOUBLE);
+        String price = viewRoomsModel.getPriceByCategory(RoomType.DOUBLE);
         this.price.set(price);
     }
 
@@ -54,7 +54,7 @@ public class DoubleBedRoomViewModel {
         return description;
     }
 
-    public DoubleProperty getPricePerNight() {
+    public StringProperty getPricePerNight() {
         return price;
     }
     private void initializeData() {
@@ -63,6 +63,6 @@ public class DoubleBedRoomViewModel {
         dateTo = new SimpleObjectProperty<>();
         dateTo.set(LocalDate.now());
         description = new SimpleStringProperty();
-        price = new SimpleDoubleProperty();
+        price = new SimpleStringProperty();
     }
 }

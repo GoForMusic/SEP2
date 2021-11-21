@@ -23,7 +23,7 @@ public class ViewRoomsModelImpl implements ViewRoomsModel{
     }
 
     @Override
-    public double getPriceByCategory(RoomType roomType) {
+    public String getPriceByCategory(RoomType roomType) {
         return client.getPriceByCategory(roomType);
     }
 
