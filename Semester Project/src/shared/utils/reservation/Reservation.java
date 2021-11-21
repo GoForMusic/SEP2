@@ -1,6 +1,7 @@
-package shared.utils.room;
+package shared.utils.reservation;
 
 import shared.utils.User.Customer;
+import shared.utils.room.Room;
 
 import java.io.Serializable;
 import java.time.LocalDate;
