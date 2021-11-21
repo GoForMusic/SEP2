@@ -1,17 +1,13 @@
-package client.view.customer.viewRooms;
+package client.view.customer.viewRoomsTypes;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
 import client.view.customer.mainView.CustomerHomePageController;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
-import java.io.IOException;
 
 public class ViewRoomController implements ViewController {
 

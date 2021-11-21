@@ -29,7 +29,7 @@ public class ViewRoomServerSide implements ViewRoomServer {
     }
 
     @Override
-    public double getPriceByCategory(RoomType roomType) {
+    public String getPriceByCategory(RoomType roomType) {
         return viewRoomHandler.getPriceByCategory(roomType);
     }
 }

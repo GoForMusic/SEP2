@@ -13,11 +13,11 @@ public class CreateImpl implements CreateModel {
 
     /**
      * Adds user if possible
-     * @param firstname
-     * @param lastname
-     * @param username
-     * @param password
-     * @return
+     * @param firstname the first name of the user
+     * @param lastname the last name of the user
+     * @param username the username of the user
+     * @param password the password of the user
+     * @return the appropriate string from database
      */
     @Override
     public String addUser(String firstname, String lastname, String username, String password,String userType) {

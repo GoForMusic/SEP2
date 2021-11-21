@@ -5,6 +5,9 @@ import client.core.ViewModelFactory;
 import client.view.ViewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.TextFlow;
 
 
 /**
@@ -16,11 +19,12 @@ public class SingleBedRoomController implements ViewController {
     private DatePicker customerSingleDateFrom;
     @FXML
     private DatePicker customerSingleDateto;
+    @FXML
+    private TextArea description;
     private ViewHandler viewHandler;
+    @FXML
+    private Label price;
 //    @FXML
-//    private Label priceLabel;
-//    @FXML
-//    private TextArea description;
 
     private SingleRoomViewModel viewModel;
 
@@ -31,6 +35,8 @@ public class SingleBedRoomController implements ViewController {
         this.viewModel = vmf.getSingleRoomViewModel();
         customerSingleDateFrom.valueProperty().bindBidirectional(viewModel.getDateFrom());
         customerSingleDateto.valueProperty().bindBidirectional(viewModel.getDateTo());
+        price.textProperty().bind(viewModel.getPrice());
+        description.textProperty().bind(viewModel.getDescription());
     }
 
 

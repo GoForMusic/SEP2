@@ -6,6 +6,7 @@ import server.model.login.LoginHandler;
 import server.model.login.LoginHandlerImpl;
 import server.model.viewRooms.ViewRoomHandler;
 import server.model.viewRooms.ViewRoomImpl;
+import server.model.viewRooms.ViewRoomProxy;
 import server.networking.ServerImpl;
 import server.networking.login.CreateServerImpl;
 import server.networking.login.LoginServerImpl;
@@ -27,7 +28,7 @@ public class RunServer {
         CreateHandler createHandler = new CreateImpl();
         CreateAccountServer createAccountServer = new CreateServerImpl(createHandler);
 
-        ViewRoomHandler viewRoomHandler = new ViewRoomImpl();
+        ViewRoomHandler viewRoomHandler = new ViewRoomProxy();
         ViewRoomServer viewRoomServer = new ViewRoomServerSide(viewRoomHandler);
 
         Server server = new ServerImpl(loginServer,createAccountServer,viewRoomServer);
