@@ -32,21 +32,6 @@ public class Receptionist extends User implements Serializable {
         this.userType="Receptionist";
     }
 
-
-
-    /**
-     * A 5 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.
-     * @param userID
-     * @param firstname
-     * @param lastname
-     * @param userName
-     * @param password
-     */
-    public Receptionist (int userID, String firstname,String lastname,String userName,String password){
-        super(userID, firstname, lastname, userName, password);
-        this.userType="Receptionist";
-    }
-
     /**
      * A method that will return the employee type
      * @return "Receptionist"

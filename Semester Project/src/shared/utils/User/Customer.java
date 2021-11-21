@@ -33,20 +33,6 @@ public class Customer extends User implements Serializable {
         this.email=email;
     }
 
-
-    /**
-     * A 5 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.
-     * @param userID
-     * @param firstname
-     * @param lastname
-     * @param userName
-     * @param password
-     */
-    public Customer (int userID, String firstname,String lastname,String userName,String password, String email){
-        super(userID, firstname, lastname, userName, password);
-        this.email=email;
-    }
-
     /**
      * A four argument constructor that creates a customer without the e-mail address
      * @param firstname

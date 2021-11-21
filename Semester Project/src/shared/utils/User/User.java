@@ -5,13 +5,12 @@ import java.io.Serializable;
 /**
  * User class
  * @author Adrian, Sachin
- * @version 2
+ * @version 3
  */
 public abstract class User implements Serializable {
-    private int employee_id;
-    private String firstname;
-    private String lastName;
     private String userName;
+    private String firstName;
+    private String lastName;
     private String password;
 
     /**
@@ -22,15 +21,14 @@ public abstract class User implements Serializable {
     public User(String userName, String password){
        validateUsername(userName);
        validatePassword(password);
-        this.employee_id =0;
-        this.firstname="";
+        this.firstName="";
         this.lastName="";
         this.userName =userName;
         this.password=password;
     }
 
     public User(String firstname,String lastName,String username){
-        this.firstname=firstname;
+        this.firstName=firstname;
         this.lastName=lastName;
         this.userName=username;
     }
@@ -45,32 +43,11 @@ public abstract class User implements Serializable {
     public User (String firstname,String lastname,String userName,String password){
         validateUsername(userName);
         validatePassword(password);
-        this.employee_id =0;
-        this.firstname=firstname;
+        this.firstName=firstname;
         this.lastName=lastname;
         this.userName =userName;
         this.password=password;
     }
-
-    /**
-     * A 5 argument constructor, used only when is needed to show a list of users and the admin needs to see the specific userID from the database.
-     * @param userID
-     * @param firstname
-     * @param lastname
-     * @param userName
-     * @param password
-     */
-    public User (int userID, String firstname,String lastname,String userName,String password){
-        validateUsername(userName);
-        validatePassword(password);
-        this.employee_id =userID;
-        this.firstname=firstname;
-        this.lastName=lastname;
-        this.userName =userName;
-        this.password=password;
-    }
-
-
 
     /**
      * A get method for email address.
@@ -91,14 +68,6 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * A get method for userID.
-     * @return userID.
-     */
-    public int getEmployee_id(){
-        return employee_id;
-    }
-
-    /**
      * A abstract method that will return the userType.
      * @return userType in childclasses
      */
@@ -109,7 +78,7 @@ public abstract class User implements Serializable {
      * @return firstname
      */
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     /**
@@ -125,7 +94,7 @@ public abstract class User implements Serializable {
      * @return firstname and lastname
      */
     public String getFullName(){
-        return firstname+" "+lastName;
+        return firstName+" "+lastName;
     }
 
     /**

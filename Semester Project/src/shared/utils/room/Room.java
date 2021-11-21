@@ -3,21 +3,22 @@ package shared.utils.room;
 import java.io.Serializable;
 
 /**
- * @author Sachin Baral
+ * @author Adrian Militaru , Sachin Baral
+ * @version 2
  * The object room
  */
 public class Room implements Serializable {
     private String name;
-    private String category;
+    private String type;
     private boolean isClean;
 
     /**
      * Constructor that creates a room
-     * @param category type of room
+     * @param type type of room
      */
-    public Room(String name,String category) {
+    public Room(String name,String type) {
         this.name=name;
-        this.category = category;
+        this.type = type;
         isClean=true;
     }
 
@@ -31,8 +32,8 @@ public class Room implements Serializable {
      *
      * @return the type of the room
      */
-     public String getCategory() {
-        return category;
+     public String getType() {
+        return type;
     }
 
     /**
@@ -51,7 +52,7 @@ public class Room implements Serializable {
     public String toString() {
         return "Room{" +
                 "name='" + name + '\'' +
-                ", category='" + category + '\'' +
+                ", category='" + type + '\'' +
                 ", isClean=" + isClean +
                 '}';
     }

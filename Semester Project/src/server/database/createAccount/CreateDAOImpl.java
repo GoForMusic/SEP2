@@ -25,6 +25,7 @@ public class CreateDAOImpl implements CreateDAO {
             statement.setString(1,username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                connection.close();
                 return "Username is already taken";
             } else {
                 PreparedStatement statement2 = connection.prepareStatement("INSERT INTO \"User\"(\"username\", \"firstname\", \"lastname\", \"password\", \"access_type\") VALUES (?,?,?,?,?);");
@@ -34,11 +35,11 @@ public class CreateDAOImpl implements CreateDAO {
                 statement2.setString(4, password);
                 statement2.setString(5, userType);
                 statement2.executeUpdate();
+                connection.close();
                 return "User created successfully";
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            return "Error in database";
+            return throwables.getMessage();
         }
     }
 }
