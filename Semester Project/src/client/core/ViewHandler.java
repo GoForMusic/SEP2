@@ -30,7 +30,7 @@ public class ViewHandler {
 
        openLogin();
 //        test();
-        // openCustomerMainView();
+         //openCustomerMainView();
     }
     /**
      * Opens the login scene in a new Stage
@@ -68,7 +68,7 @@ public class ViewHandler {
 
 
     public Parent getViewRoom() {
-        return loadFXML("../view/customer/viewRooms/viewRoom.fxml");
+        return loadFXML("../view/customer/viewRoomsTypes/viewRoom.fxml");
     }
 
     public Parent getSingleRoom() {

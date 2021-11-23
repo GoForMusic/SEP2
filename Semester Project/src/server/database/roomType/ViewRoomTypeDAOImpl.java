@@ -29,13 +29,9 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
 
       ResultSet resultSet = statement.executeQuery();
 
-      while (resultSet.next()){
-        Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
-        row[0] = resultSet.getString(1);
-        temp= ((String) row[0]);
+      if (resultSet.next()){
+        temp = resultSet.getString("Description");
       }
-
-
 
     }
     catch (SQLException throwables)
@@ -56,11 +52,8 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
       statement.setString(1,roomType);
       ResultSet resultSet = statement.executeQuery();
 
-      while (resultSet.next()){
-        Object row[] = new Object[resultSet.getMetaData().getColumnCount()];
-        row[0]=resultSet.getInt(1);
-        price =((int) row[0]);
-
+      if (resultSet.next()){
+         price = resultSet.getInt("Price per Night");
       }
     }
     catch (SQLException throwables)

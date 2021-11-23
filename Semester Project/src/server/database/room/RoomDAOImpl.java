@@ -19,6 +19,7 @@ public class RoomDAOImpl implements RoomDAO {
             statement.setString(1, type);
             statement.setString(2, type);
             statement.executeUpdate();
+            connection.close();
         }
 
     }
@@ -33,10 +34,11 @@ public class RoomDAOImpl implements RoomDAO {
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Room\" WHERE \"Room_type\" =?");
             statement.setString(1, category);
+            connection.close();
             return getRooms(statement);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            throw new RuntimeException("Error in database");
+            throw new RuntimeException(throwables.getMessage());
         }
     }
 
@@ -48,11 +50,12 @@ public class RoomDAOImpl implements RoomDAO {
             statement.setString(1, category);
             statement.setDate(2,Date.valueOf(dateFrom));
             statement.setDate(3,Date.valueOf(dateTo));
+            connection.close();
             return getRooms(statement);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-            throw new RuntimeException("Error in database");
+            throw new RuntimeException(throwables.getMessage());
         }
     }
 

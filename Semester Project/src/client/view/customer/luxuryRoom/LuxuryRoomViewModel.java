@@ -12,13 +12,13 @@ public class LuxuryRoomViewModel {
     private ModelFactory modelFactory;
     private ViewRoomsModel viewRoomsModel;
     private StringProperty description;
-    private DoubleProperty price;
+    private StringProperty price;
 
     public LuxuryRoomViewModel(ModelFactory modelFactory) {
         this.viewRoomsModel = modelFactory.getViewRoomsModel();
         initializeData();
-//        getDescriptionByCategory();
-//        getPriceByCategory();
+        getDescriptionByCategory();
+        getPriceByCategory();
     }
 
     public ObjectProperty<LocalDate> getDateFrom() {
@@ -33,12 +33,20 @@ public class LuxuryRoomViewModel {
         viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.LUXURY);
     }
 
+    public StringProperty getDescription() {
+        return description;
+    }
+
+    public StringProperty getPrice() {
+        return price;
+    }
+
     private void getDescriptionByCategory(){
         String description = viewRoomsModel.getDescriptionByCategory(RoomType.LUXURY);
         this.description.set(description);
     }
     private void getPriceByCategory(){
-        double price = viewRoomsModel.getPriceByCategory(RoomType.LUXURY);
+        String price = viewRoomsModel.getPriceByCategory(RoomType.LUXURY);
         this.price.set(price);
     }
     private void initializeData() {
@@ -47,6 +55,6 @@ public class LuxuryRoomViewModel {
         dateTo = new SimpleObjectProperty<>();
         dateTo.set(LocalDate.now());
         description = new SimpleStringProperty();
-        price = new SimpleDoubleProperty();
+        price = new SimpleStringProperty();
     }
 }
