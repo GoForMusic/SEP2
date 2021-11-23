@@ -1,5 +1,8 @@
 package shared.networking.serverInterfaces;
 
+import client.networking.viewRooms.ViewRoomImp;
+import shared.networking.clientInterfaces.RoomsCallBack;
+
 import java.rmi.AlreadyBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -10,4 +13,5 @@ public interface Server extends Remote {
     void startServer() throws RemoteException, AlreadyBoundException;
     ViewRoomServer getViewRoomServer() throws RemoteException;
 
+    void registerViewRoomClient(RoomsCallBack roomsCallBack);
 }

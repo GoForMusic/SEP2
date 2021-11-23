@@ -1,5 +1,6 @@
 package server.model.viewRooms;
 
+import shared.utils.Subject;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
@@ -7,7 +8,7 @@ import java.time.LocalDate;
 /**
  * @author Sachin Baral
  */
-public interface ViewRoomHandler {
+public interface ViewRoomHandler extends Subject {
     /**
      * Asks dataBase to search the room
      * @param dateFrom the date to search from
