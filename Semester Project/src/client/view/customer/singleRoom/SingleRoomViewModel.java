@@ -31,6 +31,7 @@ public class SingleRoomViewModel {
     }
 
     public void searchRooms() {
+        System.out.println("single room view model");
         viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.SINGLE);
     }
 

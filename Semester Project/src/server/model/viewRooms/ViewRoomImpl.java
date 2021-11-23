@@ -5,61 +5,60 @@ import server.database.room.RoomDAO;
 import server.database.room.RoomDAOImpl;
 import server.database.roomType.ViewRoomTypeDAO;
 import server.database.roomType.ViewRoomTypeDAOImpl;
+import shared.utils.Observer;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * A implementation that will link rooms with db
- * @author Adrian
- * @version 1
- */
 public class ViewRoomImpl implements ViewRoomHandler {
 
     private ViewRoomTypeDAO viewRoomTypeDAO;
     private RoomDAO roomDAO;
+    private PropertyChangeSupport support;
 
-    /**
-     * A constructor that will initialize the db links class
-     */
+
     public ViewRoomImpl() {
         viewRoomTypeDAO = new ViewRoomTypeDAOImpl();
+        // todo singleton
         roomDAO = new RoomDAOImpl();
+        support= new PropertyChangeSupport(this);
     }
 
-    /**
-     * A method that will search for the avaible rooms base on the parameters
-     * @param dateFrom the date to search from
-     * @param dateTo the date to search upto
-     * @param roomType the category of the room to search
-     */
     @Override
     public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
-
-        List<Room> rooms = roomDAO.getAllAvailableRoomsByType(roomType.toString(),dateFrom,dateTo);
-        System.out.println(rooms.get(0));
+        try {
+            System.out.println("");
+            List<Room> allAvailableRoomsByType = roomDAO.getAllAvailableRoomsByType(roomType.toString(), dateFrom, dateTo);
+            System.out.println(allAvailableRoomsByType);
+            support.firePropertyChange(Observer.AVAILABLEROOMS.toString(),null,allAvailableRoomsByType);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * A method that will get the descriptions base on the roomtype
-     * @param roomType
-     * @return the specific description
-     */
     @Override
     public String getDescriptionByCategory(RoomType roomType) {
         return viewRoomTypeDAO.getRoomDescriptionByCategory(roomType.toString());
     }
 
-    /**
-     * A method that will get the price base on the roomtype
-     * @param roomType
-     * @return
-     */
     @Override
     public String getPriceByCategory(RoomType roomType) {
 
         return viewRoomTypeDAO.getRoomPriceByCategory(roomType.toString()) + "";
+    }
+
+    @Override
+    public void addListener(String eventName, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(eventName, listener);
+    }
+
+    @Override
+    public void removeListener(String eventName, PropertyChangeListener listener) {
+        support.removePropertyChangeListener(eventName, listener);
     }
 }

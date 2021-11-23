@@ -1,5 +1,6 @@
 package client.model.viewRooms;
 
+import shared.utils.Subject;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.time.LocalDate;
  * @author Sachin Baral
  * Model for viewing rooms
  */
-public interface ViewRoomsModel {
+public interface ViewRoomsModel extends Subject {
     /**
      * searches available rooms on the given time period
      *

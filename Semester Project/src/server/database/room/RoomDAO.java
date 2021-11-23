@@ -12,8 +12,8 @@ import java.util.List;
  */
 public interface RoomDAO {
     void create(String type,double price) throws SQLException;
-    List<Room> getAllRooms() throws SQLException;
+    List<Room> getAllRooms() throws SQLException  ;
     List<Room> getAllRoomsByType(String category) throws SQLException;
-    List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo);
+    List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo) throws SQLException;
 
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.luxuryRoom.CustomerLuxuryRoomController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.luxuryRoom.CustomerLuxuryRoomController">
    <children>
       <DatePicker fx:id="customerLuxuryDateFrom" layoutX="14.0" layoutY="138.0" prefHeight="25.0" prefWidth="146.0" promptText="start date" />
       <DatePicker fx:id="customerLuxuryDateTo" layoutX="14.0" layoutY="200.0" prefHeight="25.0" prefWidth="146.0" promptText="end date" />
@@ -28,7 +28,7 @@
             <Image url="@360_F_247835794_MQTUoi2ajHRQiLvVQtxsCvFeyi1wIFjU.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="14.0" layoutY="304.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="146.0" text="See availability">
+      <Button layoutX="14.0" layoutY="304.0" mnemonicParsing="false" onAction="#searchRooms" prefHeight="46.0" prefWidth="146.0" text="See availability">
          <font>
             <Font size="15.0" />
          </font>

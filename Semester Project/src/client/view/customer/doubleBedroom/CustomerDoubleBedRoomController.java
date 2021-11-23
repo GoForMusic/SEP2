@@ -7,8 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 
 public class CustomerDoubleBedRoomController implements ViewController {
+
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private DatePicker customerDoubleDateFrom;
     @FXML
@@ -28,6 +32,12 @@ public class CustomerDoubleBedRoomController implements ViewController {
         customerDoubleDateTo.valueProperty().bindBidirectional(viewModel.getDateTo());
         price.textProperty().bind(viewModel.getPricePerNight());
         description.textProperty().bind(viewModel.getDescription());
+    }
+    @FXML
+    private void searchRooms(){
+        viewModel.searchRooms();
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().setAll(viewHandler.getRoomList());
     }
 
 }
