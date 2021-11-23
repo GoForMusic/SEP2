@@ -3,6 +3,7 @@ package server.model.viewRooms;
 import shared.utils.room.RoomType;
 
 import javax.print.attribute.standard.MediaSize;
+import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 
 public class ViewRoomProxy implements ViewRoomHandler {
@@ -16,7 +17,7 @@ public class ViewRoomProxy implements ViewRoomHandler {
     }
     @Override
     public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
-
+        viewRoomHandler.searchRoom(dateFrom,dateTo,roomType);
     }
 
     @Override
@@ -69,5 +70,15 @@ public class ViewRoomProxy implements ViewRoomHandler {
         {
             return "Something went wrong in server";
         }
+    }
+
+    @Override
+    public void addListener(String eventName, PropertyChangeListener listener) {
+        viewRoomHandler.addListener(eventName,listener);
+    }
+
+    @Override
+    public void removeListener(String eventName, PropertyChangeListener listener) {
+        viewRoomHandler.removeListener(eventName,listener);
     }
 }
