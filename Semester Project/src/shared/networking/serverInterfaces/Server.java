@@ -12,6 +12,4 @@ public interface Server extends Remote {
     CreateAccountServer getCreateAccountServer() throws RemoteException;
     void startServer() throws RemoteException, AlreadyBoundException;
     ViewRoomServer getViewRoomServer() throws RemoteException;
-
-    void registerViewRoomClient(RoomsCallBack roomsCallBack);
 }

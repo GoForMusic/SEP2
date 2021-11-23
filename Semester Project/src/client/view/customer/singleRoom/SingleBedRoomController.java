@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.TextFlow;
+import javafx.scene.layout.AnchorPane;
 
 
 /**
@@ -15,6 +15,8 @@ import javafx.scene.text.TextFlow;
  * The controller that handles the single room view
  */
 public class SingleBedRoomController implements ViewController {
+    @FXML
+    private AnchorPane anchorpane;
     @FXML
     private DatePicker customerSingleDateFrom;
     @FXML
@@ -37,6 +39,12 @@ public class SingleBedRoomController implements ViewController {
         customerSingleDateto.valueProperty().bindBidirectional(viewModel.getDateTo());
         price.textProperty().bind(viewModel.getPrice());
         description.textProperty().bind(viewModel.getDescription());
+    }
+    @FXML
+    private void searchRoom(){
+        viewModel.searchRooms();
+        anchorpane.getChildren().clear();
+        anchorpane.getChildren().setAll(viewHandler.getRoomList());
     }
 
 

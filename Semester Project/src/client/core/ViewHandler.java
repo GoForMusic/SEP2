@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -28,9 +29,9 @@ public class ViewHandler {
     public void start() {
       //  stage = new Stage();
 
-       openLogin();
+     //  openLogin();
 //        test();
-         //openCustomerMainView();
+         openCustomerMainView();
     }
     /**
      * Opens the login scene in a new Stage
@@ -97,5 +98,7 @@ public class ViewHandler {
         return root;
     }
 
-
+    public Parent getRoomList() {
+      return loadFXML("../view/customer/displayRooms/DisplayRooms.fxml");
+    }
 }

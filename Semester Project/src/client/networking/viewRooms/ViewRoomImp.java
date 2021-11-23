@@ -26,11 +26,15 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
      * Constructor initializing the server
      */
 
-    public ViewRoomImp() throws RemoteException {
-        UnicastRemoteObject.exportObject(this,0);
-        support= new PropertyChangeSupport(this);
-        server = GetServer.getServerFromRmi();
-        server.getViewRoomServer().registerViewRoomClient(this);
+    public ViewRoomImp()  {
+        try {
+            UnicastRemoteObject.exportObject(this,0);
+            support= new PropertyChangeSupport(this);
+            server = GetServer.getServerFromRmi();
+            server.getViewRoomServer().registerViewRoomClient(this);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -41,6 +45,7 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
     @Override
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         try {
+            System.out.println("View room impl");
             server.getViewRoomServer().searchRooms(dateFrom, dateTo, roomType);
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -70,6 +75,7 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
 
     @Override
     public void roomsFromServer(List<Room> roomList) throws RemoteException {
+        System.out.println(roomList);
         support.firePropertyChange(Observer.AVAILABLEROOMS.toString(),null,roomList);
     }
 

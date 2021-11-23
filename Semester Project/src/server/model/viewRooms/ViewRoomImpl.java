@@ -32,7 +32,9 @@ public class ViewRoomImpl implements ViewRoomHandler {
     @Override
     public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         try {
+            System.out.println("");
             List<Room> allAvailableRoomsByType = roomDAO.getAllAvailableRoomsByType(roomType.toString(), dateFrom, dateTo);
+            System.out.println(allAvailableRoomsByType);
             support.firePropertyChange(Observer.AVAILABLEROOMS.toString(),null,allAvailableRoomsByType);
         } catch (SQLException e) {
             e.printStackTrace();

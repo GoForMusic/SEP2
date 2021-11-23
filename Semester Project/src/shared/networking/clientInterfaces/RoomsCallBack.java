@@ -7,6 +7,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface RoomsCallBack extends Remote, Subject {
+public interface RoomsCallBack extends Remote {
     void roomsFromServer(List<Room> roomListo) throws RemoteException;
 }

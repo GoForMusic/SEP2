@@ -29,6 +29,7 @@ public class ViewRoomServerSide implements ViewRoomServer {
 
     @Override
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+        System.out.println("Reached server...");
         viewRoomHandler.searchRoom(dateFrom, dateTo, roomType);
     }
 
@@ -49,6 +50,7 @@ public class ViewRoomServerSide implements ViewRoomServer {
 
     private void fireAvailableRooms(PropertyChangeEvent event) {
         try {
+            System.out.println("\n\n\n "+event.getNewValue());
             roomsCallBack.roomsFromServer((List<Room>) event.getNewValue());
         } catch (RemoteException e) {
             throw new RuntimeException("Error in server");
