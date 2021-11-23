@@ -1,5 +1,8 @@
 package shared.networking.serverInterfaces;
 
+import client.networking.viewRooms.ViewRoomImp;
+import shared.networking.clientInterfaces.RoomsCallBack;
+import shared.utils.Subject;
 import shared.utils.room.RoomType;
 
 import java.rmi.Remote;
@@ -13,4 +16,6 @@ public interface ViewRoomServer extends Remote {
     String getDescriptionByCategory(RoomType roomType) throws RemoteException;
 
     String getPriceByCategory(RoomType roomType) throws RemoteException;
+
+    void registerViewRoomClient(RoomsCallBack roomsCallBack) throws RemoteException;
 }

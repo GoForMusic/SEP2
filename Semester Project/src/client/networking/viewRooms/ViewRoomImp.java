@@ -26,15 +26,11 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
      * Constructor initializing the server
      */
 
-    public ViewRoomImp()  {
-        try {
-            UnicastRemoteObject.exportObject(this,0);
-            support= new PropertyChangeSupport(this);
-            server = GetServer.getServerFromRmi();
-            server.getViewRoomServer().registerViewRoomClient(this);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+    public ViewRoomImp() throws RemoteException {
+        UnicastRemoteObject.exportObject(this,0);
+        support= new PropertyChangeSupport(this);
+        server = GetServer.getServerFromRmi();
+        server.getViewRoomServer().registerViewRoomClient(this);
     }
 
     /**

@@ -12,7 +12,6 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
 
   /**
    * This class is the connection with database where is the actions getting description for room and getting price are executed.
-   *
    * @author Himal
    * @version 0.1
    */
