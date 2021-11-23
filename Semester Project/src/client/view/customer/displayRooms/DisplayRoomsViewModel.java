@@ -23,9 +23,9 @@ public class DisplayRoomsViewModel {
 
     private void roomFromServer(PropertyChangeEvent event) {
         Platform.runLater(()->{
+            listRooms.clear();
             List<Room> rooms = (List<Room>) event.getNewValue();
-            listRooms.setAll(rooms);
-
+            listRooms.addAll(rooms);
         });
 
     }
