@@ -37,9 +37,9 @@ public class CustomerLuxuryRoomController implements ViewController {
     }
     @FXML
     private void searchRooms(){
-        viewModel.searchRooms();
         anchorPane.getChildren().clear();
         anchorPane.getChildren().setAll(viewHandler.getRoomList());
+        viewModel.searchRooms();
     }
 }
 

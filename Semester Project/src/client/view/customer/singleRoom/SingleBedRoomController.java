@@ -42,9 +42,9 @@ public class SingleBedRoomController implements ViewController {
     }
     @FXML
     private void searchRoom(){
-        viewModel.searchRooms();
         anchorpane.getChildren().clear();
         anchorpane.getChildren().setAll(viewHandler.getRoomList());
+        viewModel.searchRooms();
     }
 
 
