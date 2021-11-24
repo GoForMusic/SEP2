@@ -50,10 +50,6 @@ public class Room implements Serializable {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "name='" + name + '\'' +
-                ", category='" + type + '\'' +
-                ", isClean=" + isClean +
-                '}';
+        return name;
     }
 }

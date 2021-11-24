@@ -8,8 +8,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 
 public class CustomerLuxuryRoomController implements ViewController {
+
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private DatePicker customerLuxuryDateFrom;
     @FXML
@@ -30,6 +34,12 @@ public class CustomerLuxuryRoomController implements ViewController {
         customerLuxuryDateTo.valueProperty().bindBidirectional(viewModel.getDateFrom());
         price.textProperty().bind(viewModel.getPrice());
         description.textProperty().bind(viewModel.getDescription());
+    }
+    @FXML
+    private void searchRooms(){
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().setAll(viewHandler.getRoomList());
+        viewModel.searchRooms();
     }
 }
 

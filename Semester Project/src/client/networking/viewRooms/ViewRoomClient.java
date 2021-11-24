@@ -1,5 +1,6 @@
 package client.networking.viewRooms;
 
+import shared.utils.Subject;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.time.LocalDate;
  * @author Sachin Baral
  * The client intergface dealing with viewing rooms
  */
-public interface ViewRoomClient {
+public interface ViewRoomClient extends Subject {
     /**
      * Searches room
      * @param dateFrom the date to search from

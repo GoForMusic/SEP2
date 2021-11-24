@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.singleRoom.SingleBedRoomController">
+<AnchorPane fx:id="anchorpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.singleRoom.SingleBedRoomController">
    <children>
       <DatePicker fx:id="customerSingleDateFrom" layoutX="20.0" layoutY="127.0" prefHeight="25.0" prefWidth="146.0" promptText="start date" />
       <DatePicker fx:id="customerSingleDateto" layoutX="18.0" layoutY="188.0" prefHeight="25.0" prefWidth="151.0" promptText="end date" />
@@ -28,7 +28,7 @@
             <Image url="@istockphoto-635870148-170667a.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" text="Search Rooms">
+      <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#searchRoom" prefHeight="40.0" prefWidth="139.0" text="Search Rooms">
          <font>
             <Font size="15.0" />
          </font>
