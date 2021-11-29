@@ -27,7 +27,7 @@ public class BookRoomController implements ViewController {
     }
     @FXML
     private void bookRoom(){
-        viewModel.setSelectedRoom(Arrays.asList(roomList.getSelectionModel().getSelectedItems().toArray()));
+     viewModel.setSelectedRoom(roomList.getSelectionModel().getSelectedItems());
         viewModel.bookRoom();
     }
     private void initializeRoomList(){

@@ -2,7 +2,7 @@ package client.view.customer.bookRooms;
 
 import client.core.ModelFactory;
 import client.model.login.LoginModel;
-import client.model.viewRooms.ViewRoomsModel;
+import client.model.rooms.RoomsModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,19 +10,21 @@ import shared.utils.Observer;
 import shared.utils.room.Room;
 
 import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookRoomViewModel {
-    private ViewRoomsModel viewRoomsModel;
+    private RoomsModel roomsModel;
     private LoginModel loginModel;
     private ObservableList<Room> listRooms;
+    private List<Room> selectedRooms;
 
     public BookRoomViewModel(ModelFactory modelFactory) {
-        viewRoomsModel = modelFactory.getViewRoomsModel();
+        roomsModel = modelFactory.getViewRoomsModel();
         this.loginModel = modelFactory.getLoginModel();
         listRooms = FXCollections.observableArrayList();
-        viewRoomsModel.addListener(Observer.AVAILABLEROOMS.toString(), this::roomFromServer);
-
+        selectedRooms= new ArrayList<>();
+        roomsModel.addListener(Observer.AVAILABLEROOMS.toString(), this::roomFromServer);
     }
 
     private void roomFromServer(PropertyChangeEvent event) {
@@ -35,14 +37,17 @@ public class BookRoomViewModel {
 
     public ObservableList<Room> getRoomList() {
         return listRooms;
-
     }
 
     public void bookRoom() {
+        roomsModel.bookRoom(loginModel.getUsername(),selectedRooms,roomsModel.getTempStartDate(),roomsModel.getTempEndDate());
 
     }
 
-    public void setSelectedRoom(List<Object> selectedRooms) {
-
+    public void setSelectedRoom(ObservableList<Room> selectedRooms) {
+        for (Room i : selectedRooms
+        ) {
+            this.selectedRooms.add(i);
+        }
     }
 }

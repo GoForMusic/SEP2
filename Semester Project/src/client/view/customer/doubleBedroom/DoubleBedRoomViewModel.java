@@ -1,7 +1,7 @@
 package client.view.customer.doubleBedroom;
 
 import client.core.ModelFactory;
-import client.model.viewRooms.ViewRoomsModel;
+import client.model.rooms.RoomsModel;
 import javafx.beans.property.*;
 import shared.utils.room.RoomType;
 
@@ -14,12 +14,12 @@ import java.time.LocalDate;
 public class DoubleBedRoomViewModel {
 
     private ObjectProperty<LocalDate> dateFrom, dateTo;
-    private ViewRoomsModel viewRoomsModel;
+    private RoomsModel roomsModel;
     private StringProperty description;
     private StringProperty price;
 
     public DoubleBedRoomViewModel(ModelFactory modelFactory) {
-        this.viewRoomsModel = modelFactory.getViewRoomsModel();
+        this.roomsModel = modelFactory.getViewRoomsModel();
         initializeData();
         getDescriptionByCategory();
         getPriceByCategory();
@@ -34,12 +34,12 @@ public class DoubleBedRoomViewModel {
     }
 
     private void getDescriptionByCategory() {
-        String description = viewRoomsModel.getDescriptionByCategory(RoomType.DOUBLE);
+        String description = roomsModel.getDescriptionByCategory(RoomType.DOUBLE);
         this.description.set(description);
     }
 
     private void getPriceByCategory() {
-        String price = viewRoomsModel.getPriceByCategory(RoomType.DOUBLE);
+        String price = roomsModel.getPriceByCategory(RoomType.DOUBLE);
         this.price.set(price);
     }
 
@@ -47,8 +47,8 @@ public class DoubleBedRoomViewModel {
      * Passes the dates and rooms to the model
      */
     public void searchRooms() {
-        viewRoomsModel.setTempStartAndEndDate(dateFrom.get(),dateTo.get());
-        viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.DOUBLE);
+        roomsModel.setTempStartAndEndDate(dateFrom.get(),dateTo.get());
+        roomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.DOUBLE);
     }
 
     public StringProperty getDescription() {

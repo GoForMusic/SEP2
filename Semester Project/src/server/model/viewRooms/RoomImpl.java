@@ -6,6 +6,7 @@ import server.database.room.RoomDAOImpl;
 import server.database.roomType.ViewRoomTypeDAO;
 import server.database.roomType.ViewRoomTypeDAOImpl;
 import shared.utils.Observer;
+import shared.utils.Request;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -15,14 +16,14 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ViewRoomImpl implements ViewRoomHandler {
+public class RoomImpl implements RoomHandler {
 
     private ViewRoomTypeDAO viewRoomTypeDAO;
     private RoomDAO roomDAO;
     private PropertyChangeSupport support;
 
 
-    public ViewRoomImpl() {
+    public RoomImpl() {
         viewRoomTypeDAO = new ViewRoomTypeDAOImpl();
         // todo singleton
         roomDAO = new RoomDAOImpl();
@@ -50,6 +51,12 @@ public class ViewRoomImpl implements ViewRoomHandler {
     public String getPriceByCategory(RoomType roomType) {
 
         return viewRoomTypeDAO.getRoomPriceByCategory(roomType.toString()) + "";
+    }
+
+    @Override
+    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
+        //FIXME loop through all the selected rooms and ask the DAO to fix the problem...
+       return null;
     }
 
     @Override

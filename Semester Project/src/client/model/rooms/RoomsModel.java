@@ -1,15 +1,18 @@
-package client.model.viewRooms;
+package client.model.rooms;
 
+import shared.utils.Request;
 import shared.utils.Subject;
+import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author Sachin Baral
  * Model for viewing rooms
  */
-public interface ViewRoomsModel extends Subject {
+public interface RoomsModel extends Subject {
     /**
      * searches available rooms on the given time period
      *
@@ -28,4 +31,6 @@ public interface ViewRoomsModel extends Subject {
     LocalDate getTempStartDate();
 
     LocalDate getTempEndDate();
+
+    Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate);
 }

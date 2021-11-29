@@ -1,20 +1,23 @@
-package client.model.viewRooms;
+package client.model.rooms;
 
-import client.networking.viewRooms.ViewRoomClient;
+import client.networking.rooms.RoomsClient;
 import shared.utils.Observer;
+import shared.utils.Request;
+import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author Adrian
  * @version 0.1
  */
-public class ViewRoomsModelImpl implements ViewRoomsModel {
-    private ViewRoomClient client;
+public class RoomsModelImpl implements RoomsModel {
+    private RoomsClient client;
     private PropertyChangeSupport support;
     private LocalDate tempStartDate;
     private LocalDate tempEndDate;
@@ -22,10 +25,10 @@ public class ViewRoomsModelImpl implements ViewRoomsModel {
     /**
      * A constructor that will initialize the client
      *
-     * @param viewRoomClient
+     * @param roomsClient
      */
-    public ViewRoomsModelImpl(ViewRoomClient viewRoomClient) {
-        this.client = viewRoomClient;
+    public RoomsModelImpl(RoomsClient roomsClient) {
+        this.client = roomsClient;
         support = new PropertyChangeSupport(this);
         client.addListener(Observer.AVAILABLEROOMS.toString(), this::fireProperty);
     }
@@ -84,6 +87,11 @@ public class ViewRoomsModelImpl implements ViewRoomsModel {
     @Override
     public LocalDate getTempEndDate() {
         return tempEndDate;
+    }
+
+    @Override
+    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
+        return client.bookRoom(username,selectedRooms,startDate,endDate);
     }
 
     @Override

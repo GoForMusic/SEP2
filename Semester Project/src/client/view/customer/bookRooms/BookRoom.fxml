@@ -9,6 +9,6 @@
    <children>
       <Label layoutX="209.0" layoutY="67.0" text="Available rooms" />
       <ListView fx:id="roomList" layoutX="167.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="465.0" layoutY="329.0" mnemonicParsing="false" onAction="#bookRoom" text="Button" />
+      <Button layoutX="465.0" layoutY="329.0" mnemonicParsing="false" onAction="#bookRoom" text="Book" />
    </children>
 </AnchorPane>
