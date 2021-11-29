@@ -14,7 +14,7 @@ public interface ViewRoomsModel extends Subject {
      * searches available rooms on the given time period
      *
      * @param dateFrom the date to search from
-     * @param dateTo the date to search upto
+     * @param dateTo   the date to search upto
      * @param roomType the category of the room
      */
     void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
@@ -22,4 +22,10 @@ public interface ViewRoomsModel extends Subject {
     String getDescriptionByCategory(RoomType roomType);
 
     String getPriceByCategory(RoomType roomType);
+
+    void setTempStartAndEndDate(LocalDate startDate, LocalDate endDate);
+
+    LocalDate getTempStartDate();
+
+    LocalDate getTempEndDate();
 }

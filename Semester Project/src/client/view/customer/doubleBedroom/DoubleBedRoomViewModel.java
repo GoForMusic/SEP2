@@ -47,6 +47,7 @@ public class DoubleBedRoomViewModel {
      * Passes the dates and rooms to the model
      */
     public void searchRooms() {
+        viewRoomsModel.setTempStartAndEndDate(dateFrom.get(),dateTo.get());
         viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.DOUBLE);
     }
 

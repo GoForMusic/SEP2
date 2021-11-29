@@ -2,9 +2,6 @@ package client.model.login;
 
 import client.networking.login.LoginClient;
 import shared.utils.Request;
-import shared.utils.User.Admin;
-import shared.utils.User.Customer;
-import shared.utils.User.User;
 
 /**
  * @author Sachin
@@ -13,15 +10,23 @@ import shared.utils.User.User;
 public class LoginModelImpl implements LoginModel {
 
     private LoginClient client;
-    private User user;
+    private String userName;
 
     public LoginModelImpl(LoginClient loginClient) {
         this.client = loginClient;
     }
-
-
     @Override
     public Request login(String username, String password) {
-       return client.login(username,password);
+        return client.login(username, password);
+    }
+
+    @Override
+    public void setUsername(String userName) {
+        this.userName = userName;
+    }
+
+    @Override
+    public String getUsername() {
+        return userName;
     }
 }

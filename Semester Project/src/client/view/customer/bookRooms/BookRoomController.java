@@ -1,28 +1,39 @@
-package client.view.customer.displayRooms;
+package client.view.customer.bookRooms;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import shared.utils.room.Room;
 
-public class DisplayRoomsController implements ViewController {
+import java.util.Arrays;
+
+public class BookRoomController implements ViewController {
 
     @FXML
     private ListView<Room> roomList;
     private ViewHandler viewHandler;
     private ViewModelFactory viewModelFactory;
-    private DisplayRoomsViewModel viewModel;
+    private BookRoomViewModel viewModel;
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler=vh;
         this.viewModelFactory=vmf;
         this.viewModel = vmf.getDisplayRoomsViewModel();
-        roomList.setItems(viewModel.getRoomList());
+        initializeRoomList();
+
     }
     @FXML
     private void bookRoom(){
-        //todo booking room here....
+        viewModel.setSelectedRoom(Arrays.asList(roomList.getSelectionModel().getSelectedItems().toArray()));
+        viewModel.bookRoom();
     }
+    private void initializeRoomList(){
+        roomList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        roomList.setItems(viewModel.getRoomList());
+
+    }
+
 }

@@ -16,6 +16,8 @@ import java.time.LocalDate;
 public class ViewRoomsModelImpl implements ViewRoomsModel {
     private ViewRoomClient client;
     private PropertyChangeSupport support;
+    private LocalDate tempStartDate;
+    private LocalDate tempEndDate;
 
     /**
      * A constructor that will initialize the client
@@ -66,6 +68,22 @@ public class ViewRoomsModelImpl implements ViewRoomsModel {
     @Override
     public String getPriceByCategory(RoomType roomType) {
         return client.getPriceByCategory(roomType);
+    }
+
+    @Override
+    public void setTempStartAndEndDate(LocalDate startDate, LocalDate endDate) {
+        this.tempStartDate = startDate;
+        this.tempEndDate = endDate;
+    }
+
+    @Override
+    public LocalDate getTempStartDate() {
+        return tempStartDate;
+    }
+
+    @Override
+    public LocalDate getTempEndDate() {
+        return tempEndDate;
     }
 
     @Override
