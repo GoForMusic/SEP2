@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.displayRooms.DisplayRoomsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.bookRooms.BookRoomController">
    <children>
       <Label layoutX="209.0" layoutY="67.0" text="Available rooms" />
       <ListView fx:id="roomList" layoutX="167.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
