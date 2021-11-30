@@ -65,7 +65,8 @@ public class RoomDAOImpl implements RoomDAO {
         List<Room> rooms = new ArrayList<>();
         while (resultSet.next()){
             String room_type = resultSet.getString("Room_type");
-            Room room = new Room("hello",room_type);
+            String name = resultSet.getString("Room_name");
+            Room room = new Room(name,room_type);
             rooms.add(room);
         }
         return rooms;

@@ -4,7 +4,7 @@ package server.networking;
 import shared.networking.serverInterfaces.CreateAccountServer;
 import shared.networking.serverInterfaces.LoginServer;
 import shared.networking.serverInterfaces.Server;
-import shared.networking.serverInterfaces.ViewRoomServer;
+import shared.networking.serverInterfaces.RoomServer;
 
 
 import java.rmi.AlreadyBoundException;
@@ -12,18 +12,17 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLException;
 
 public class ServerImpl implements Server {
 
     private LoginServer loginServer;
     private CreateAccountServer createAccountServer;
-    private ViewRoomServer viewRoomServer;
+    private RoomServer roomServer;
 
-    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, ViewRoomServer viewRoomServer) throws RemoteException {
+    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer) throws RemoteException {
         this.loginServer = loginServer;
         this.createAccountServer=createAccountServer;
-        this.viewRoomServer=viewRoomServer;
+        this.roomServer = roomServer;
         UnicastRemoteObject.exportObject(this,0);
     }
 
@@ -34,8 +33,8 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public ViewRoomServer getViewRoomServer() throws RemoteException {
-        return viewRoomServer;
+    public RoomServer getRoomsServer() throws RemoteException {
+        return roomServer;
     }
 
     @Override

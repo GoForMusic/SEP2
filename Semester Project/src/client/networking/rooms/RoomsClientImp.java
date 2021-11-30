@@ -1,9 +1,10 @@
-package client.networking.viewRooms;
+package client.networking.rooms;
 
 import client.networking.GetServer;
 import shared.networking.clientInterfaces.RoomsCallBack;
 import shared.networking.serverInterfaces.Server;
 import shared.utils.Observer;
+import shared.utils.Request;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * creating a class for the rooms view
  *
  */
-public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
+public class RoomsClientImp implements RoomsClient, RoomsCallBack {
     private Server server;
     private PropertyChangeSupport support;
 
@@ -26,12 +27,12 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
      * Constructor initializing the server
      */
 
-    public ViewRoomImp()  {
+    public RoomsClientImp()  {
         try {
             UnicastRemoteObject.exportObject(this,0);
             support= new PropertyChangeSupport(this);
             server = GetServer.getServerFromRmi();
-            server.getViewRoomServer().registerViewRoomClient(this);
+            server.getRoomsServer().registerRoomClient(this);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -46,7 +47,7 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
     public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         try {
             System.out.println("View room impl");
-            server.getViewRoomServer().searchRooms(dateFrom, dateTo, roomType);
+            server.getRoomsServer().searchRooms(dateFrom, dateTo, roomType);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -56,7 +57,7 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
     @Override
     public String getDescriptionByCategory(RoomType roomType) {
         try {
-            return server.getViewRoomServer().getDescriptionByCategory(roomType);
+            return server.getRoomsServer().getDescriptionByCategory(roomType);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -66,11 +67,21 @@ public class ViewRoomImp implements ViewRoomClient, RoomsCallBack {
     @Override
     public String getPriceByCategory(RoomType roomType) {
         try {
-            return server.getViewRoomServer().getPriceByCategory(roomType);
+            return server.getRoomsServer().getPriceByCategory(roomType);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return "Error...";
+    }
+
+    @Override
+    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
+        try {
+            return server.getRoomsServer().bookRoom(username,selectedRooms,startDate,endDate);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return new Request("Error connecting to server",null);
     }
 
     @Override

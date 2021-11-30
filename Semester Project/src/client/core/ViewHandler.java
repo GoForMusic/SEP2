@@ -29,7 +29,7 @@ public class ViewHandler {
     public void start() {
       //  stage = new Stage();
 
-     //  openLogin();
+      // openLogin();
 //        test();
          openCustomerMainView();
     }
@@ -99,6 +99,6 @@ public class ViewHandler {
     }
 
     public Parent getRoomList() {
-      return loadFXML("../view/customer/displayRooms/DisplayRooms.fxml");
+      return loadFXML("../view/customer/bookRooms/BookRoom.fxml");
     }
 }

@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 public class CustomerDoubleBedRoomController implements ViewController {
 
     @FXML
-    private AnchorPane anchorPane;
+    private AnchorPane anchorpane;
     @FXML
     private DatePicker customerDoubleDateFrom;
     @FXML
@@ -35,9 +35,9 @@ public class CustomerDoubleBedRoomController implements ViewController {
     }
     @FXML
     private void searchRooms(){
+        anchorpane.getChildren().clear();
+        anchorpane.getChildren().setAll(viewHandler.getRoomList());
         viewModel.searchRooms();
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().setAll(viewHandler.getRoomList());
     }
 
 }
