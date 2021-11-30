@@ -2,7 +2,6 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -20,19 +19,20 @@ public class ViewHandler {
     private Stage stage;
     private ViewModelFactory vmf;
 
-    public ViewHandler(ViewModelFactory vmf,Stage stage) {
+    public ViewHandler(ViewModelFactory vmf, Stage stage) {
         this.vmf = vmf;
-        this.stage=stage;
+        this.stage = stage;
         stage.setResizable(false);
     }
 
     public void start() {
-      //  stage = new Stage();
+        //  stage = new Stage();
 
-       openLogin();
+        openLogin();
 //        test();
-      //   openCustomerMainView();
+        //   openCustomerMainView();
     }
+
     /**
      * Opens the login scene in a new Stage
      */
@@ -76,7 +76,7 @@ public class ViewHandler {
         return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
     }
 
-    public  Parent getDoubleRoom() {
+    public Parent getDoubleRoom() {
         return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
     }
 
@@ -99,6 +99,10 @@ public class ViewHandler {
     }
 
     public Parent getRoomList() {
-      return loadFXML("../view/bookRooms/BookRoom.fxml");
+        return loadFXML("../view/bookRooms/BookRoom.fxml");
+    }
+
+    public Parent getSearchReservation() {
+        return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
     }
 }

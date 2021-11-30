@@ -1,4 +1,4 @@
-package client.view.receptionist;
+package client.view.receptionist.mainView;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
