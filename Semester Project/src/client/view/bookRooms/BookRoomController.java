@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import shared.utils.room.Room;
 
 public class BookRoomController implements ViewController {
@@ -18,6 +19,9 @@ public class BookRoomController implements ViewController {
     private BookRoomViewModel viewModel;
     @FXML
     private Label error;
+    @FXML
+    private TextField username;
+
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler=vh;
@@ -25,6 +29,8 @@ public class BookRoomController implements ViewController {
         this.viewModel = vmf.getDisplayRoomsViewModel();
         initializeRoomList();
         error.textProperty().bind(viewModel.getError());
+        username.visibleProperty().bind(viewModel.showStatus());
+        username.textProperty().bindBidirectional(viewModel.getUsernameUsedByReceptionist());
 
     }
     @FXML

@@ -11,6 +11,7 @@ public class LoginModelImpl implements LoginModel {
 
     private LoginClient client;
     private String userName;
+    private String userType;
 
     public LoginModelImpl(LoginClient loginClient) {
         this.client = loginClient;
@@ -32,5 +33,18 @@ public class LoginModelImpl implements LoginModel {
     public String getUsername() {
         System.out.println("get username called ,,, returned." + userName);
         return userName;
+    }
+
+    @Override
+    public void setUserType(String userType) {
+        this.userType=userType;
+        System.out.println("UserType set as :"+this.userType);
+    }
+
+    @Override
+    public String getUserType() {
+        System.out.println("Returned usertype as "+userType);
+        return userType;
+
     }
 }
