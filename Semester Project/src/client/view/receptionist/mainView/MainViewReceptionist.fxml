@@ -10,12 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="customerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.customer.mainView.CustomerHomePageController">
+<BorderPane fx:id="customerBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.mainView.MainViewReceptionistController">
     <left>
         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #67B7CB;" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="customerHomeButton" mnemonicParsing="false" onMouseClicked="#clickedCustomerHome" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Home" textFill="#aa5353">
+                <Button mnemonicParsing="false" onMouseClicked="#clickedReceptionistHome" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Home" textFill="#aa5353">
                     <font>
                         <Font name="Georgia Italic" size="13.0" />
                     </font>
@@ -23,6 +22,11 @@
                         <Insets top="15.0" />
                     </VBox.margin>
                 </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#clickedCustomerList" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Customer List" textFill="#aa5353">
+               <font>
+                  <Font name="Georgia Italic" size="13.0" />
+               </font>
+            </Button>
             </children>
             <opaqueInsets>
                 <Insets right="3.0" />

@@ -18,3 +18,21 @@
   -fx-background-color:  linear-gradient( #3becf1, #5f57a9);
 }
 
+
+.buttonRed{
+  -fx-background-color: #cf0516;
+  -fx-text-base-color: rgb(255, 255, 255);
+}
+
+.buttonRed:hover{
+  -fx-background-color: rgb(255, 0, 0);
+}
+
+.buttonGreen{
+  -fx-background-color: #1eaf01;
+  -fx-text-base-color: rgb(255, 255, 255);
+}
+
+.buttonGreen:hover{
+  -fx-background-color: rgb(49, 247, 0);
+}
