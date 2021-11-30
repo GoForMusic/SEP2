@@ -1,5 +1,7 @@
 package client.core;
 
+import client.networking.customer.CustomerInfoClient;
+import client.networking.customer.CustomerInfoImpl;
 import client.networking.login.LoginClient;
 import client.networking.login.LoginClientImpl;
 import client.networking.create.CreateClient;
@@ -15,6 +17,7 @@ public class ClientFactory {
     private LoginClient loginClient;
     private CreateClient createClient;
     private RoomsClient roomsClient;
+    private CustomerInfoClient customerInfoClient;
 
 
 
@@ -37,5 +40,12 @@ public class ClientFactory {
             roomsClient = new RoomsClientImp();
         }
         return roomsClient;
+    }
+
+    public CustomerInfoClient getCustomerInfoClient() {
+        if (customerInfoClient == null) {
+            customerInfoClient = new CustomerInfoImpl();
+        }
+        return customerInfoClient;
     }
 }
