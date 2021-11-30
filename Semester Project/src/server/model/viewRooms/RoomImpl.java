@@ -1,12 +1,15 @@
 package server.model.viewRooms;
 
 
+import server.database.Reservation.ReservationDAO;
+import server.database.Reservation.ReservationDAOImp;
 import server.database.room.RoomDAO;
 import server.database.room.RoomDAOImpl;
 import server.database.roomType.ViewRoomTypeDAO;
 import server.database.roomType.ViewRoomTypeDAOImpl;
 import shared.utils.Observer;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -21,22 +24,22 @@ public class RoomImpl implements RoomHandler {
     private ViewRoomTypeDAO viewRoomTypeDAO;
     private RoomDAO roomDAO;
     private PropertyChangeSupport support;
+    private ReservationDAO reservationDAO;
 
 
     public RoomImpl() {
         viewRoomTypeDAO = new ViewRoomTypeDAOImpl();
-        // todo singleton
+        reservationDAO = ReservationDAOImp.getInstance();
         roomDAO = new RoomDAOImpl();
-        support= new PropertyChangeSupport(this);
+        support = new PropertyChangeSupport(this);
     }
 
     @Override
     public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         try {
-            System.out.println("");
             List<Room> allAvailableRoomsByType = roomDAO.getAllAvailableRoomsByType(roomType.toString(), dateFrom, dateTo);
             System.out.println(allAvailableRoomsByType);
-            support.firePropertyChange(Observer.AVAILABLEROOMS.toString(),null,allAvailableRoomsByType);
+            support.firePropertyChange(Observer.AVAILABLEROOMS.toString(), null, allAvailableRoomsByType);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,9 +57,22 @@ public class RoomImpl implements RoomHandler {
     }
 
     @Override
-    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
-        //FIXME loop through all the selected rooms and ask the DAO to fix the problem...
-       return null;
+    public Request bookRoom(Reservation reservation) {
+        System.out.println("Reached the final method");
+        String username = reservation.getUsername();
+        List<String> selected = reservation.getBookedRooms();
+        LocalDate startDate = reservation.getDateFrom();
+        LocalDate endDate = reservation.getDateTo();
+        Request temp =new Request("Error", null);
+        for (String i : selected) {
+            try {
+              temp= reservationDAO.addReservation(username, startDate, endDate, i);
+            } catch (Exception e) {
+                return new Request(e.getMessage(), null);
+            }
+        }
+
+        return temp;
     }
 
     @Override

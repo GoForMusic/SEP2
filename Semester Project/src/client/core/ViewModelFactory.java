@@ -1,6 +1,6 @@
 package client.core;
 
-import client.view.customer.bookRooms.BookRoomViewModel;
+import client.view.bookRooms.BookRoomViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.singleRoom.SingleRoomViewModel;
