@@ -1,7 +1,5 @@
 package shared.utils.reservation;
 
-import shared.utils.room.Room;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -14,16 +12,17 @@ public class Reservation implements Serializable {
     private String username;
     private LocalDate dateFrom;
     private LocalDate dateTo;
-    private List<Room> bookedRooms;
+    private List<String> bookedRooms;
 
     /**
      * A four argument constructor that takes customer, dateFrom , dateTo and the list of booked rooms
+     *
      * @param username    the customer username who books the room
      * @param dateFrom    the starting date of the reservation
      * @param dateTo      the end date of the reservation
      * @param bookedRooms the list of rooms that the customer wants to book
      */
-    public Reservation(String username, LocalDate dateFrom, LocalDate dateTo, List<Room> bookedRooms) throws Exception {
+    public Reservation(String username, LocalDate dateFrom, LocalDate dateTo, List<String> bookedRooms) throws Exception {
         verifyData(username, dateFrom, dateTo, bookedRooms);
         this.username = username;
         this.dateFrom = dateFrom;
@@ -31,7 +30,7 @@ public class Reservation implements Serializable {
         this.bookedRooms = bookedRooms;
     }
 
-    private void verifyData(String username, LocalDate dateFrom, LocalDate dateTo, List<Room> bookedRooms) throws Exception {
+    private void verifyData(String username, LocalDate dateFrom, LocalDate dateTo, List<String> bookedRooms) throws Exception {
         if (username == null) {
             throw new Exception("Cannot create a reservation without customer");
         }
@@ -41,7 +40,7 @@ public class Reservation implements Serializable {
             throw new Exception("The end date cannot be on past");
         } else if (dateTo.isBefore(dateFrom)) {
             throw new Exception("The end date cannot be before start date");
-        } else if (bookedRooms.isEmpty()) {
+        } else if (bookedRooms == null || bookedRooms.isEmpty()) {
             throw new Exception("Cannot create a reservation without rooms");
         }
     }
@@ -54,7 +53,7 @@ public class Reservation implements Serializable {
         return dateTo;
     }
 
-    public List<Room> getBookedRooms() {
+    public List<String> getBookedRooms() {
         return bookedRooms;
     }
 
@@ -62,7 +61,7 @@ public class Reservation implements Serializable {
         return username;
     }
 
-    public void setBookedRooms(List<Room> bookedRooms) {
+    public void setBookedRooms(List<String> bookedRooms) {
         this.bookedRooms = bookedRooms;
     }
 
@@ -79,18 +78,18 @@ public class Reservation implements Serializable {
      * @param obj the object to compare
      * @return true, if the object is equal , else false.
      */
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Reservation)) {
-            return false;
-        }
-        Reservation temp = (Reservation) obj;
-        if (temp.getUsername().equals(this.username)) {
-            if (temp.getDateFrom().equals(this.dateFrom) && temp.getDateTo().equals(this.getDateTo())) {
-                if (temp.getBookedRooms().equals(this.bookedRooms)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+//    public boolean equals(Object obj) {
+//        if (!(obj instanceof Reservation)) {
+//            return false;
+//        }
+//        Reservation temp = (Reservation) obj;
+//        if (temp.getUsername().equals(this.username)) {
+//            if (temp.getDateFrom().equals(this.dateFrom) && temp.getDateTo().equals(this.getDateTo())) {
+//                if (temp.getBookedRooms().equals(this.bookedRooms)) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 }

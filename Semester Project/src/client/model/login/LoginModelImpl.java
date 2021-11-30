@@ -15,6 +15,7 @@ public class LoginModelImpl implements LoginModel {
     public LoginModelImpl(LoginClient loginClient) {
         this.client = loginClient;
     }
+
     @Override
     public Request login(String username, String password) {
         return client.login(username, password);
@@ -22,11 +23,14 @@ public class LoginModelImpl implements LoginModel {
 
     @Override
     public void setUsername(String userName) {
+
         this.userName = userName;
+        System.out.println("Set username called .. username set to be :" + this.userName);
     }
 
     @Override
     public String getUsername() {
+        System.out.println("get username called ,,, returned." + userName);
         return userName;
     }
 }
