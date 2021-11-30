@@ -29,9 +29,10 @@ public class ViewHandler {
     public void start() {
       //  stage = new Stage();
 
-       openLogin();
+
+       //openLogin();
 //        test();
-      //   openCustomerMainView();
+      openCustomerMainView();
     }
     /**
      * Opens the login scene in a new Stage
@@ -52,7 +53,8 @@ public class ViewHandler {
      */
     public void openCustomerMainView() {
         if (customerMainView == null) {
-            Parent root = loadFXML("../view/customer/mainView/customerHomePage.fxml");
+            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
+            //Parent root = loadFXML("../view/customer/mainView/customerHomePage.fxml");
             customerMainView = new Scene(root);
             stage.setTitle("Customer");
         }
@@ -100,5 +102,8 @@ public class ViewHandler {
 
     public Parent getRoomList() {
       return loadFXML("../view/bookRooms/BookRoom.fxml");
+    }
+
+    public Parent getCustomerList() {return loadFXML("../view/receptionist/customerList/customerList.fxml");
     }
 }
