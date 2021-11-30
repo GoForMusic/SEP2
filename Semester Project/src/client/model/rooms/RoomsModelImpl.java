@@ -3,6 +3,7 @@ package client.model.rooms;
 import client.networking.rooms.RoomsClient;
 import shared.utils.Observer;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -91,7 +92,13 @@ public class RoomsModelImpl implements RoomsModel {
 
     @Override
     public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
-        return client.bookRoom(username,selectedRooms,startDate,endDate);
+        try {
+            Reservation reservation = new Reservation(username,startDate,endDate,selectedRooms);
+            return client.bookRoom(reservation);
+        } catch (Exception e) {
+            return new Request(e.getMessage(),null);
+        }
+
     }
 
     @Override

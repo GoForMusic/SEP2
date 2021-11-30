@@ -2,6 +2,7 @@ package client.networking.rooms;
 
 import shared.utils.Request;
 import shared.utils.Subject;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -25,5 +26,5 @@ public interface RoomsClient extends Subject {
 
     String getPriceByCategory(RoomType roomType);
 
-    Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate);
+    Request bookRoom(Reservation reservation);
 }

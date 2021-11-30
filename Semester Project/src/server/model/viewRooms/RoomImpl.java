@@ -7,6 +7,7 @@ import server.database.roomType.ViewRoomTypeDAO;
 import server.database.roomType.ViewRoomTypeDAOImpl;
 import shared.utils.Observer;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -54,7 +55,9 @@ public class RoomImpl implements RoomHandler {
     }
 
     @Override
-    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
+    public Request bookRoom(Reservation reservation) {
+        String username = reservation.getUsername();
+
         //FIXME loop through all the selected rooms and ask the DAO to fix the problem...
        return null;
     }

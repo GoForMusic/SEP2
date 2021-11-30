@@ -1,6 +1,7 @@
 package server.model.viewRooms;
 
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -71,8 +72,8 @@ public class RoomProxy implements RoomHandler {
     }
 
     @Override
-    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
-      return roomHandler.bookRoom(username,selectedRooms,startDate,endDate);
+    public Request bookRoom(Reservation reservation) {
+      return roomHandler.bookRoom(reservation);
     }
 
     @Override

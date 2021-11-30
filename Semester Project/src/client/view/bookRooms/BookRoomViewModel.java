@@ -1,4 +1,4 @@
-package client.view.customer.bookRooms;
+package client.view.bookRooms;
 
 import client.core.ModelFactory;
 import client.model.login.LoginModel;

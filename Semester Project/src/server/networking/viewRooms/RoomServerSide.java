@@ -5,6 +5,7 @@ import shared.networking.clientInterfaces.RoomsCallBack;
 import shared.networking.serverInterfaces.RoomServer;
 import shared.utils.Observer;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -48,8 +49,8 @@ public class RoomServerSide implements RoomServer {
     }
 
     @Override
-    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
-        return roomHandler.bookRoom(username,selectedRooms,startDate,endDate);
+    public Request bookRoom(Reservation reservation) {
+        return roomHandler.bookRoom(reservation);
     }
 
     private void fireAvailableRooms(PropertyChangeEvent event) {

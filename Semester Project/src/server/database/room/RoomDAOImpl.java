@@ -19,7 +19,6 @@ public class RoomDAOImpl implements RoomDAO {
             statement.setString(1, type);
             statement.setString(2, type);
             statement.executeUpdate();
-            connection.close();
         }
 
     }

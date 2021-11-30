@@ -2,6 +2,7 @@ package shared.networking.serverInterfaces;
 
 import shared.networking.clientInterfaces.RoomsCallBack;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -20,5 +21,5 @@ public interface RoomServer extends Remote {
 
     void registerRoomClient(RoomsCallBack roomsCallBack) throws RemoteException;
 
-    Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate);
+    Request bookRoom(Reservation reservation);
 }

@@ -1,4 +1,4 @@
-package client.view.customer.bookRooms;
+package client.view.bookRooms;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
@@ -7,8 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import shared.utils.room.Room;
-
-import java.util.Arrays;
 
 public class BookRoomController implements ViewController {
 
