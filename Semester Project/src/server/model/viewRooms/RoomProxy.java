@@ -73,6 +73,7 @@ public class RoomProxy implements RoomHandler {
 
     @Override
     public Request bookRoom(Reservation reservation) {
+        System.out.println("server model");
       return roomHandler.bookRoom(reservation);
     }
 

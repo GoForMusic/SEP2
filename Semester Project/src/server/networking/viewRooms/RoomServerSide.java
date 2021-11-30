@@ -50,6 +50,7 @@ public class RoomServerSide implements RoomServer {
 
     @Override
     public Request bookRoom(Reservation reservation) {
+        System.out.println("server room");
         return roomHandler.bookRoom(reservation);
     }
 

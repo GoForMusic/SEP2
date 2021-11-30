@@ -34,6 +34,9 @@ public class Reservation implements Serializable {
         if (username == null) {
             throw new Exception("Cannot create a reservation without customer");
         }
+        if (dateFrom==null || dateTo==null){
+            throw new Exception("Start date or end date missing");
+        }
         if (dateFrom.isBefore(LocalDate.now())) {
             throw new Exception("The starting date cannot be on past");
         } else if (dateTo.isBefore(LocalDate.now())) {

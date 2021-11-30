@@ -77,6 +77,7 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
 
     @Override
     public Request bookRoom(Reservation reservation) {
+        System.out.println("Rooms client impl");
         try {
             return server.getRoomsServer().bookRoom(reservation);
         } catch (RemoteException e) {

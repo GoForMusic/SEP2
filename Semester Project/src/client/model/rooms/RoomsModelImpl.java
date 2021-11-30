@@ -93,6 +93,8 @@ public class RoomsModelImpl implements RoomsModel {
 
     @Override
     public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
+
+        System.out.println("Rooms model impl");
         List<String> temp = new ArrayList<>();
         for (Room i : selectedRooms
         ) {
@@ -103,6 +105,7 @@ public class RoomsModelImpl implements RoomsModel {
             Reservation reservation = new Reservation(username, startDate, endDate, temp);
             return client.bookRoom(reservation);
         } catch (Exception e) {
+          //  e.printStackTrace();
             return new Request(e.getMessage(), null);
         }
 
