@@ -1,12 +1,11 @@
 package client.core;
 
-import client.model.viewRooms.ViewRoomsModel;
 import client.networking.login.LoginClient;
 import client.networking.login.LoginClientImpl;
 import client.networking.create.CreateClient;
 import client.networking.create.CreateClientImpl;
-import client.networking.viewRooms.ViewRoomClient;
-import client.networking.viewRooms.ViewRoomImp;
+import client.networking.rooms.RoomsClient;
+import client.networking.rooms.RoomsClientImp;
 
 /**
  * @author Sachin
@@ -15,7 +14,7 @@ import client.networking.viewRooms.ViewRoomImp;
 public class ClientFactory {
     private LoginClient loginClient;
     private CreateClient createClient;
-    private ViewRoomClient viewRoomClient;
+    private RoomsClient roomsClient;
 
 
 
@@ -33,10 +32,10 @@ public class ClientFactory {
         return createClient;
     }
 
-    public ViewRoomClient getViewRoomCLient() {
-        if (viewRoomClient == null) {
-            viewRoomClient = new ViewRoomImp();
+    public RoomsClient getViewRoomCLient() {
+        if (roomsClient == null) {
+            roomsClient = new RoomsClientImp();
         }
-        return viewRoomClient;
+        return roomsClient;
     }
 }

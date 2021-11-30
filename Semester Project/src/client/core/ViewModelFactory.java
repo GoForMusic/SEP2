@@ -1,6 +1,6 @@
 package client.core;
 
-import client.view.customer.displayRooms.DisplayRoomsViewModel;
+import client.view.customer.bookRooms.BookRoomViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.singleRoom.SingleRoomViewModel;
@@ -13,7 +13,7 @@ import client.view.login.loginExisting.LoginViewModel;
  * Creates and stores all the view models
  */
 public class ViewModelFactory {
-    private DisplayRoomsViewModel displayRoomsViewModel;
+    private BookRoomViewModel bookRoomViewModel;
     private ModelFactory modelFactory;
     private LoginViewModel loginViewModel;
     private CreateAccountViewModel createAccountViewModel;
@@ -60,10 +60,10 @@ public class ViewModelFactory {
         return singleRoomViewModel;
     }
 
-    public DisplayRoomsViewModel getDisplayRoomsViewModel() {
-        if (displayRoomsViewModel == null) {
-            displayRoomsViewModel = new DisplayRoomsViewModel(modelFactory);
+    public BookRoomViewModel getDisplayRoomsViewModel() {
+        if (bookRoomViewModel == null) {
+            bookRoomViewModel = new BookRoomViewModel(modelFactory);
         }
-        return displayRoomsViewModel;
+        return bookRoomViewModel;
     }
 }

@@ -1,10 +1,8 @@
 package client.view.customer.singleRoom;
 
 import client.core.ModelFactory;
-import client.model.viewRooms.ViewRoomsModel;
+import client.model.rooms.RoomsModel;
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
-import org.xml.sax.SAXNotRecognizedException;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
@@ -13,10 +11,10 @@ public class SingleRoomViewModel {
     private ObjectProperty<LocalDate> dateFrom, dateTo;
     private StringProperty description;
     private StringProperty price;
-    private ViewRoomsModel viewRoomsModel;
+    private RoomsModel roomsModel;
 
     public SingleRoomViewModel(ModelFactory modelFactory) {
-        this.viewRoomsModel = modelFactory.getViewRoomsModel();
+        this.roomsModel = modelFactory.getViewRoomsModel();
         initializeValues();
         getDescriptionByCategory();
         getPriceByCategory();
@@ -31,7 +29,7 @@ public class SingleRoomViewModel {
     }
 
     public void searchRooms() {
-        viewRoomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.SINGLE);
+        roomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.SINGLE);
     }
 
     public StringProperty getPrice() {
@@ -39,11 +37,11 @@ public class SingleRoomViewModel {
     }
 
     public void getDescriptionByCategory(){
-        String description = viewRoomsModel.getDescriptionByCategory(RoomType.SINGLE);
+        String description = roomsModel.getDescriptionByCategory(RoomType.SINGLE);
         this.description.set(description);
     }
     public void getPriceByCategory(){
-        String price = viewRoomsModel.getPriceByCategory(RoomType.SINGLE);
+        String price = roomsModel.getPriceByCategory(RoomType.SINGLE);
         this.price.set(price);
     }
     private void initializeValues() {
