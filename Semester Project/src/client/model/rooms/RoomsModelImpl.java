@@ -3,6 +3,7 @@ package client.model.rooms;
 import client.networking.rooms.RoomsClient;
 import shared.utils.Observer;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -10,6 +11,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -91,7 +93,22 @@ public class RoomsModelImpl implements RoomsModel {
 
     @Override
     public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
-        return client.bookRoom(username,selectedRooms,startDate,endDate);
+
+        System.out.println("Rooms model impl");
+        List<String> temp = new ArrayList<>();
+        for (Room i : selectedRooms
+        ) {
+            temp.add(i.getName());
+        }
+
+        try {
+            Reservation reservation = new Reservation(username, startDate, endDate, temp);
+            return client.bookRoom(reservation);
+        } catch (Exception e) {
+          //  e.printStackTrace();
+            return new Request(e.getMessage(), null);
+        }
+
     }
 
     @Override

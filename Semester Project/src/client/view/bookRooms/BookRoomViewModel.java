@@ -1,12 +1,15 @@
-package client.view.customer.bookRooms;
+package client.view.bookRooms;
 
 import client.core.ModelFactory;
 import client.model.login.LoginModel;
 import client.model.rooms.RoomsModel;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.utils.Observer;
+import shared.utils.Request;
 import shared.utils.room.Room;
 
 import java.beans.PropertyChangeEvent;
@@ -18,6 +21,7 @@ public class BookRoomViewModel {
     private LoginModel loginModel;
     private ObservableList<Room> listRooms;
     private List<Room> selectedRooms;
+    private StringProperty error;
 
     public BookRoomViewModel(ModelFactory modelFactory) {
         roomsModel = modelFactory.getViewRoomsModel();
@@ -25,6 +29,7 @@ public class BookRoomViewModel {
         listRooms = FXCollections.observableArrayList();
         selectedRooms= new ArrayList<>();
         roomsModel.addListener(Observer.AVAILABLEROOMS.toString(), this::roomFromServer);
+        error = new SimpleStringProperty();
     }
 
     private void roomFromServer(PropertyChangeEvent event) {
@@ -40,7 +45,8 @@ public class BookRoomViewModel {
     }
 
     public void bookRoom() {
-        roomsModel.bookRoom(loginModel.getUsername(),selectedRooms,roomsModel.getTempStartDate(),roomsModel.getTempEndDate());
+        Request request = roomsModel.bookRoom(loginModel.getUsername(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
+        error.set(request.getType());
 
     }
 
@@ -49,5 +55,9 @@ public class BookRoomViewModel {
         ) {
             this.selectedRooms.add(i);
         }
+    }
+
+    public StringProperty getError() {
+        return error;
     }
 }

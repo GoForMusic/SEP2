@@ -30,6 +30,7 @@ public class LuxuryRoomViewModel {
     }
 
     public void searchRooms() {
+        roomsModel.setTempStartAndEndDate(dateFrom.get(),dateTo.get());
         roomsModel.searchRooms(dateFrom.get(), dateTo.get(), RoomType.LUXURY);
     }
 
