@@ -29,6 +29,7 @@ public class SingleBedRoomController implements ViewController {
     private ViewHandler viewHandler;
     @FXML
     private Label price;
+//    @FXML
 
     private SingleRoomViewModel viewModel;
 
@@ -41,13 +42,14 @@ public class SingleBedRoomController implements ViewController {
         customerSingleDateto.valueProperty().bindBidirectional(viewModel.getDateTo());
         price.textProperty().bind(viewModel.getPrice());
         description.textProperty().bind(viewModel.getDescription());
-        disablePast(customerSingleDateto);
         disablePast(customerSingleDateFrom);
+        disablePast(customerSingleDateto);
     }
     @FXML
     private void searchRoom(){
         anchorpane.getChildren().clear();
         anchorpane.getChildren().setAll(viewHandler.getRoomList());
+        viewModel.searchRooms();
     }
     private void disablePast(DatePicker dp){
         dp.setDayCellFactory(picker -> new DateCell() {
