@@ -23,6 +23,11 @@ public class ViewHandler {
     private ViewModelFactory vmf;
     private Scene adminMainView;
 
+    public ViewHandler(ViewModelFactory vmf, Stage stage) {
+        this.vmf = vmf;
+        this.stage = stage;
+        stage.setResizable(false);
+    }
   public ViewHandler(ViewModelFactory vmf, Stage stage)
   {
     this.vmf = vmf;
@@ -30,10 +35,29 @@ public class ViewHandler {
     stage.setResizable(false);
   }
 
+    public void start() {
+        //  stage = new Stage();
   public void start()
   {
     //  stage = new Stage();
 
+        openLogin();
+//        test();
+        //   openCustomerMainView();
+    }
+
+    /**
+     * Opens the login scene in a new Stage
+     */
+    public void openLogin() {
+        if (loginScene == null) {
+            Parent root = loadFXML("../view/login/Login.fxml");
+            loginScene = new Scene(root);
+            stage.setTitle("Login");
+        }
+        stage.setScene(loginScene);
+        stage.show();
+    }
      openLogin();
       //openAdminMainView();
     //   openCustomerMainView();
@@ -144,7 +168,11 @@ public class ViewHandler {
   }
 
     public Parent getRoomList() {
-      return loadFXML("../view/bookRooms/BookRoom.fxml");
+        return loadFXML("../view/bookRooms/BookRoom.fxml");
+    }
+
+    public Parent getSearchReservation() {
+        return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
     }
 
 
