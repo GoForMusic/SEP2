@@ -21,7 +21,7 @@ public class CustomerListController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
 
-        ArrayList<User> list = new ArrayList<>();
+        ArrayList<Customer> list = new ArrayList<>();
         list.add(new Customer("Adrian1","Militaru","adri1213","123456","adrian@test.com"));
         list.add(new Customer("Adrian2","Militaru2","testUsername1","1234","test@test.com"));
         setListDetails(list);
@@ -32,16 +32,16 @@ public class CustomerListController implements ViewController {
 
 
     //TODO
-    private void setListDetails(ArrayList<User> list)
+    private void setListDetails(ArrayList<Customer> list)
     {
 
         customerList.getItems().clear();
 
-        for(User item:list)
+        for(Customer item:list)
         {
             HBox hBox = new HBox();
             //add the item title and author as well the specific details
-            Label label = new Label(item.getUserName() + " | " + item.getFullName());
+            Label label = new Label(item.getUserName() + " | " + item.getFullName() + " | "+ item.getEmail());
             label.setPrefWidth(450);
             hBox.getChildren().add(label);
             //add edit button

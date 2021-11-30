@@ -3,7 +3,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.customerList.CustomerListController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../customer/Customer.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.customerList.CustomerListController">
    <children>
       <ListView fx:id="customerList" prefHeight="400.0" prefWidth="600.0" />
    </children>
