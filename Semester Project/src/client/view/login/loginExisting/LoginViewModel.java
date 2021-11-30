@@ -64,6 +64,7 @@ public class LoginViewModel {
             Request temp = loginModel.login(usernameLogin.get(), passwordLogin.get());
             if (temp.getObject() != null) {
                 loginModel.setUsername(((User) temp.getObject()).getUserName());
+                loginModel.setUserType(temp.getType());
             }
             errorLogin.set(temp.getType());
             return temp.getType();
