@@ -5,6 +5,7 @@ import shared.networking.clientInterfaces.RoomsCallBack;
 import shared.networking.serverInterfaces.Server;
 import shared.utils.Observer;
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -75,9 +76,10 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
     }
 
     @Override
-    public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
+    public Request bookRoom(Reservation reservation) {
+        System.out.println("Rooms client impl");
         try {
-            return server.getRoomsServer().bookRoom(username,selectedRooms,startDate,endDate);
+            return server.getRoomsServer().bookRoom(reservation);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

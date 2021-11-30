@@ -16,4 +16,8 @@ public interface LoginModel {
     void setUsername(String userName);
 
     String getUsername();
+
+    void setUserType(String userType);
+
+    String getUserType();
 }
