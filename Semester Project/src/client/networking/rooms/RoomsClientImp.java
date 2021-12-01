@@ -93,17 +93,6 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        return new Request("Error connecting to server",null);
-    }
-
-    @Override
-    public Request searchByUsername(String username) {
-        try {
-            return server.getRoomsServer().searchByUsername(username);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return new Request("Error connecting to server",null);
     }
 
     @Override

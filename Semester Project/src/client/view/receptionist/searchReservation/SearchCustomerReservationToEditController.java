@@ -4,7 +4,6 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -16,8 +15,6 @@ import java.time.LocalDate;
 public class SearchCustomerReservationToEditController implements ViewController {
     private ViewHandler viewHandler;
 
-    @FXML
-    private Label error;
     @FXML
     private TextField username;
     @FXML
@@ -35,8 +32,6 @@ public class SearchCustomerReservationToEditController implements ViewController
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
         viewModel = vmf.getSearchReservationViewModel();
-        username.textProperty().bindBidirectional(viewModel.getUsername());
-        error.textProperty().bind(viewModel.getError());
         initializeTable();
     }
 
