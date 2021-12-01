@@ -1,5 +1,6 @@
 package client.core;
 
+import client.view.admin.createAccount.AdminCreateAccountViewModel;
 import client.view.bookRooms.BookRoomViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
@@ -22,6 +23,7 @@ public class ViewModelFactory {
     private DoubleBedRoomViewModel doubleBedRoomViewModel;
     private SingleRoomViewModel singleRoomViewModel;
     private CustomerListViewModel customerListViewModel;
+    private AdminCreateAccountViewModel adminCreateAccountViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -67,6 +69,13 @@ public class ViewModelFactory {
             bookRoomViewModel = new BookRoomViewModel(modelFactory);
         }
         return bookRoomViewModel;
+    }
+
+    public AdminCreateAccountViewModel getAdminCreateAccountViewModel() {
+        if (adminCreateAccountViewModel == null) {
+            adminCreateAccountViewModel = new AdminCreateAccountViewModel(modelFactory);
+        }
+        return adminCreateAccountViewModel;
     }
 
     public CustomerListViewModel getCustomerListViewModel(){

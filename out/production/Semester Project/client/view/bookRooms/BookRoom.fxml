@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.bookRooms.BookRoomController">
+   <children>
+      <Label layoutX="209.0" layoutY="67.0" text="Available rooms" />
+      <ListView fx:id="roomList" layoutX="167.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="465.0" layoutY="329.0" mnemonicParsing="false" onAction="#bookRoom" text="Book" />
+      <Label fx:id="error" layoutX="160.0" layoutY="321.0" prefHeight="18.0" prefWidth="240.0" text="Label" />
+      <TextField fx:id="username" layoutX="379.0" layoutY="244.0" promptText="Customer username" />
+   </children>
+</AnchorPane>
