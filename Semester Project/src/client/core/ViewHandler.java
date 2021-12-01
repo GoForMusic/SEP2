@@ -15,7 +15,8 @@ import java.io.IOException;
  */
 
 public class ViewHandler {
-    private Scene customerMainView, receptionistMainView;
+    private Scene customerMainView;
+    private Scene receptionistMainView;
     private Scene loginScene;
     private Stage stage;
     private ViewModelFactory vmf;
