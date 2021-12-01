@@ -2,7 +2,6 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -30,8 +29,8 @@ public class ViewHandler {
     }
 
     public void start() {
-      stage = new Stage();
-      openLogin();
+        stage = new Stage();
+        openLogin();
     }
 
 
@@ -49,90 +48,81 @@ public class ViewHandler {
     }
 
 
-
-  /**
-   * Opens the main view for customers
-   */
-  public void openCustomerMainView()
-  {
-    if (customerMainView == null)
-    {
-      Parent root = loadFXML("../view/customer/mainView/customerHomePage.fxml");
-      customerMainView = new Scene(root);
-      stage.setTitle("Customer");
+    /**
+     * Opens the main view for customers
+     */
+    public void openCustomerMainView() {
+        if (customerMainView == null) {
+            Parent root = loadFXML("../view/customer/mainView/customerHomePage.fxml");
+            customerMainView = new Scene(root);
+            stage.setTitle("Customer");
+        }
+        stage.setScene(customerMainView);
+        stage.show();
     }
-    stage.setScene(customerMainView);
-    stage.show();
-  }
 
-  // To load Customer Main view
-  public void openAdminMainView()
-  {
-    if (adminMainView == null)
-    {
-      Parent root = loadFXML("../view/admin/mainView/AdminMainView.fxml");
-      adminMainView = new Scene(root);
-      stage.setTitle("Admin");
+    // To load Customer Main view
+    public void openAdminMainView() {
+        if (adminMainView == null) {
+            Parent root = loadFXML("../view/admin/mainView/AdminMainView.fxml");
+            adminMainView = new Scene(root);
+            stage.setTitle("Admin");
+        }
+        stage.setScene(adminMainView);
+        stage.show();
     }
-    stage.setScene(adminMainView);
-    stage.show();
-  }
 
-  //To Load ReceptionistMainView
-  public void openReceptionistMainView()
-  {
-    if (receptionistMainView == null)
-    {
-      Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
-      receptionistMainView = new Scene(root);
-      stage.setTitle("Receptionist");
+    //To Load ReceptionistMainView
+    public void openReceptionistMainView() {
+        if (receptionistMainView == null) {
+            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
+            receptionistMainView = new Scene(root);
+            stage.setTitle("Receptionist");
+        }
+        stage.setScene(receptionistMainView);
+        stage.show();
+
     }
-    stage.setScene(receptionistMainView);
-    stage.show();
+    //    private void test(){
+    //        Parent root = getSingleRoom();
+    //        Scene scene = new Scene(root);
+    //        stage.setScene(scene);
+    //        stage.show();
+    //    }
 
-  }
-
-
-  public Parent getViewRoom()
-  {
-    return loadFXML("../view/viewRoomsTypes/viewRoom.fxml");
-  }
-
-  public Parent getSingleRoom()
-  {
-    return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
-  }
-
-  public Parent getDoubleRoom()
-  {
-    return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
-  }
-
-  public Parent getLuxuryRoom()
-  {
-    return loadFXML("../view/customer/luxuryRoom/LuxuryRoom.fxml");
-  }
-
-  public Parent getAdminCreateAccount(){
-    return loadFXML("../view/admin/createAccount/CreateAccount.fxml");
-  }
-  private Parent loadFXML(String path)
-  {
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(getClass().getResource(path));
-    Parent root = null;
-    try
-    {
-      root = loader.load();
+    public Parent getViewRoom() {
+        return loadFXML("../view/viewRoomsTypes/viewRoom.fxml");
     }
-    catch (IOException e)
-    {
-      e.printStackTrace();
+
+    public Parent getSingleRoom() {
+        return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
     }
-    ViewController ctrl = loader.getController();
-    ctrl.init(this, vmf);
-    return root;
-  }
+
+    public Parent getDoubleRoom() {
+        return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
+    }
+
+    public Parent getLuxuryRoom() {
+        return loadFXML("../view/customer/luxuryRoom/LuxuryRoom.fxml");
+    }
+
+    public Parent getAdminCreateAccount() {
+        return loadFXML("../view/admin/createAccount/CreateAccount.fxml");
+    }
+
+    private Parent loadFXML(String path) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ViewController ctrl = loader.getController();
+        ctrl.init(this, vmf);
+        return root;
+    }
 
     public Parent getRoomList() {
         return loadFXML("../view/bookRooms/BookRoom.fxml");
@@ -143,14 +133,19 @@ public class ViewHandler {
     }
 
 
-  public Parent getCustomerList() {
-    return loadFXML("../view/receptionist/customerList/customerList.fxml");
-  }
+    public Parent getCustomerList() {
+        return loadFXML("../view/receptionist/customerList/customerList.fxml");
+    }
 
-  public Parent getReceptionistCreateCustomerAccount() {
-    return loadFXML("../view/receptionist/CreateCustomerAccount/CreateAccount.fxml");
-  }
-  public Parent getReceptionistReservation(){
-      return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
-  }
+    public Parent getReceptionistCreateCustomerAccount() {
+        return loadFXML("../view/receptionist/CreateCustomerAccount/CreateAccount.fxml");
+    }
+
+    public Parent getReceptionistReservation() {
+        return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
+    }
+
+    public Parent getEditReservation() {
+        return loadFXML("../view/receptionist/editReservation/EditReservation.fxml");
+    }
 }
