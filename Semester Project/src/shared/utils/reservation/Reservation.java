@@ -51,11 +51,6 @@ public class Reservation implements Serializable {
         }
         if (dateFrom==null || dateTo==null){
             throw new Exception("Start date or end date missing");
-        }
-        if (dateFrom.isBefore(LocalDate.now())) {
-            throw new Exception("The starting date cannot be on past");
-        } else if (dateTo.isBefore(LocalDate.now())) {
-            throw new Exception("The end date cannot be on past");
         } else if (dateTo.isBefore(dateFrom)) {
             throw new Exception("The end date cannot be before start date");
         } else if (bookedRooms == null || bookedRooms.isEmpty()) {

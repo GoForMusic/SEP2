@@ -155,4 +155,7 @@ public class ViewHandler {
   public Parent getReceptionistCreateCustomerAccount() {
     return loadFXML("../view/receptionist/CreateCustomerAccount/CreateAccount.fxml");
   }
+  public Parent getReceptionistReservation(){
+      return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
+  }
 }
