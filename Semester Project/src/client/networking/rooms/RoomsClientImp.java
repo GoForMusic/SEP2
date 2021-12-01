@@ -45,12 +45,12 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
      * @param dateTo the date to search upto
      */
     @Override
-    public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+    public Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         try {
             System.out.println("View room impl");
-            server.getRoomsServer().searchRooms(dateFrom, dateTo, roomType);
+           return server.getRoomsServer().searchRooms(dateFrom, dateTo, roomType);
         } catch (RemoteException e) {
-            e.printStackTrace();
+           return new Request("Cannot connect to the server",null);
         }
 
     }
@@ -96,6 +96,14 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         return new Request("Error connecting to server",null);
     }
 
+    @Override
+    public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom)  {
+        try {
+            return server.getRoomsServer().updateReservation(username,previousStart,previousEnd,roomName,newStart,newEnd,newRoom);
+        } catch (RemoteException e) {
+            return new Request("Cannot connect to server",null);
+        }
+    }
 
 
     @Override
