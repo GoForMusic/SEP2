@@ -93,6 +93,7 @@ public class CreateAccountViewModel
     }
     else
     {
+      // Approved
       String response = createModel.addUser(signUpFirstName.get(),
           signUpLastName.get(), signUpUsername.get(), signUpPassword.get(),
           Usertype.CUSTOMER.toString());
