@@ -29,7 +29,7 @@ public class BookRoomViewModel {
     private StringProperty usernameUsedByReceptionist;
 
     public BookRoomViewModel(ModelFactory modelFactory) {
-        roomsModel = modelFactory.getViewRoomsModel();
+        roomsModel = modelFactory.getRoomsModel();
         this.loginModel = modelFactory.getLoginModel();
         listRooms = FXCollections.observableArrayList();
         selectedRooms= new ArrayList<>();

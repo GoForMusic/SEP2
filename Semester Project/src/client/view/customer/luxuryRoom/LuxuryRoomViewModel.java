@@ -15,7 +15,7 @@ public class LuxuryRoomViewModel {
     private StringProperty price;
 
     public LuxuryRoomViewModel(ModelFactory modelFactory) {
-        this.roomsModel = modelFactory.getViewRoomsModel();
+        this.roomsModel = modelFactory.getRoomsModel();
         initializeData();
         getDescriptionByCategory();
         getPriceByCategory();
