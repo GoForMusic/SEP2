@@ -19,7 +19,7 @@ public class DoubleBedRoomViewModel {
     private StringProperty price;
 
     public DoubleBedRoomViewModel(ModelFactory modelFactory) {
-        this.roomsModel = modelFactory.getViewRoomsModel();
+        this.roomsModel = modelFactory.getRoomsModel();
         initializeData();
         getDescriptionByCategory();
         getPriceByCategory();

@@ -35,7 +35,7 @@ public class ModelFactory {
         return createModel;
     }
 
-    public RoomsModel getViewRoomsModel() {
+    public RoomsModel getRoomsModel() {
         if (roomsModel == null) {
             roomsModel = new RoomsModelImpl(clientFactory.getViewRoomCLient());
         }

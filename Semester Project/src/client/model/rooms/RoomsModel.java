@@ -33,4 +33,6 @@ public interface RoomsModel extends Subject {
     LocalDate getTempEndDate();
 
     Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate);
+
+    Request searchByUsername(String username);
 }
