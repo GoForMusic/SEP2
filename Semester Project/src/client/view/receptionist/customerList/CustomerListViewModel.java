@@ -2,6 +2,10 @@ package client.view.receptionist.customerList;
 
 import client.core.ModelFactory;
 import client.model.customer.CustomerModel;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -18,11 +22,21 @@ import java.util.Optional;
 
 public class CustomerListViewModel {
     private ObservableList<HBox> customerList;
+    private StringProperty firstName, lastName, username, password, errorLabel;
+    private BooleanProperty editCustomer;
 
     private CustomerModel customerModel;
 
     public CustomerListViewModel(ModelFactory modelFactory) {
         this.customerModel = modelFactory.getCustomerModel();
+
+        firstName = new SimpleStringProperty();
+        lastName = new SimpleStringProperty();
+        username = new SimpleStringProperty();
+        password = new SimpleStringProperty();
+        errorLabel = new SimpleStringProperty();
+        editCustomer = new SimpleBooleanProperty();
+
         loadUsers();
     }
 
@@ -44,7 +58,11 @@ public class CustomerListViewModel {
 
                 //edit item button event handler using lambda method
                 editButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
-
+                    editCustomer.setValue(true);
+                    firstName.setValue(item.getFirstname());
+                    lastName.setValue(item.getLastName());
+                    username.setValue(item.getUserName());
+                    password.setValue(item.getPassword());
                 });
 
                 Button removeButton = new Button("Remove");
@@ -57,7 +75,11 @@ public class CustomerListViewModel {
                     Optional<ButtonType> result = alert.showAndWait();
                     if(result.get()== ButtonType.OK)
                     {
-                        //remove User
+                        firstName.setValue(item.getFirstname());
+                        lastName.setValue(item.getFirstname());
+                        username.setValue(item.getFirstname());
+                        password.setValue(item.getFirstname());
+                        //TODO send to DB the SQL
                     }
 
                 });
@@ -75,4 +97,27 @@ public class CustomerListViewModel {
         return customerList;
     }
 
+    public StringProperty getFirstName() {
+        return firstName;
+    }
+
+    public StringProperty getLastName() {
+        return lastName;
+    }
+
+    public StringProperty getUsername() {
+        return username;
+    }
+
+    public StringProperty getPassword() {
+        return password;
+    }
+
+    public StringProperty getErrorLabel() {
+        return errorLabel;
+    }
+
+    public BooleanProperty getEditCustomer(){
+        return editCustomer;
+    }
 }
