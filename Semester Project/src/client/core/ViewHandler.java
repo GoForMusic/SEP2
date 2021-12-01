@@ -91,12 +91,7 @@ public class ViewHandler {
     stage.show();
 
   }
-  //    private void test(){
-  //        Parent root = getSingleRoom();
-  //        Scene scene = new Scene(root);
-  //        stage.setScene(scene);
-  //        stage.show();
-  //    }
+
 
   public Parent getViewRoom()
   {
