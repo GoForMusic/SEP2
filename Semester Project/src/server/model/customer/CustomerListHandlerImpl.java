@@ -17,13 +17,13 @@ public class CustomerListHandlerImpl implements CustomerListHandler{
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
-
+    public void updateCustomer(Customer customer, String oldUsername) {
+        customerDAO.updateCustomer(customer,oldUsername);
     }
 
     @Override
     public void removeCustomer(Customer customer) {
-
+        customerDAO.removeCustomer(customer);
     }
 
     @Override

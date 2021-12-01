@@ -3,6 +3,11 @@ package client.view.receptionist.customerList;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -22,11 +27,12 @@ public class CustomerListController implements ViewController {
     private ViewHandler viewHandler;
     private CustomerListViewModel vm;
 
+
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
         vm = vmf.getCustomerListViewModel();
-        customerList.setItems(vm.getCustomerList());
+        loadCustomerList();
         editUserInfo.visibleProperty().bindBidirectional(vm.getEditCustomer());
         textFieldFirstName.textProperty().bindBidirectional(vm.getFirstName());
         textFieldLastName.textProperty().bindBidirectional(vm.getLastName());
@@ -35,15 +41,25 @@ public class CustomerListController implements ViewController {
         errorLabel.textProperty().bindBidirectional(vm.getErrorLabel());
     }
 
+    private void loadCustomerList()
+    {
+        vm.loadUsers();
+        customerList.setItems(vm.getCustomerList());
+    }
+
     @FXML
     public void updateUserInfo(MouseEvent mouseEvent) {
         try{
+            StringProperty oldUsername = new SimpleStringProperty();
+            oldUsername.bindBidirectional(vm.getOldUsernameStored());
             Customer customer = new Customer(textFieldFirstName.getText(),textFieldLastName.getText(),textFieldUsername.getText(),textFieldPassword.getText());
-            //TODO send it to DB
+            vm.updateCustomer(customer,oldUsername.get());
+            CancelEditAction(mouseEvent);
         }catch (IllegalStateException e)
         {
             errorLabel.setText(e.getMessage());
         }
+        loadCustomerList();
     }
 
     @FXML

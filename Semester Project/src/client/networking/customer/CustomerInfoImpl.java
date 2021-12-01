@@ -21,13 +21,21 @@ public class CustomerInfoImpl implements CustomerInfoClient{
 
 
     @Override
-    public void updateCustomer(Customer customer) {
-
+    public void updateCustomer(Customer customer, String oldUsername) {
+        try {
+            server.getCustomerListServer().updateCustomer(customer,oldUsername);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void removeCustomer(Customer customer) {
-
+        try {
+            server.getCustomerListServer().removeCustomer(customer);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
