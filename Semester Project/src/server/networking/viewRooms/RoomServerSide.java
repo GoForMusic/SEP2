@@ -56,7 +56,7 @@ public class RoomServerSide implements RoomServer {
 
     @Override
     public Request searchByUsername(String username) {
-     return    roomHandler.searchByUsername(username);
+     return  roomHandler.searchByUsername(username);
     }
 
     @Override
