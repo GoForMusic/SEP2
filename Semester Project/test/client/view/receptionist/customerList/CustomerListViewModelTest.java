@@ -1,4 +1,4 @@
-package client.view.receptionist.customerList;
+/**package client.view.receptionist.customerList;
 
 import client.core.ClientFactory;
 import client.core.ModelFactory;
@@ -85,3 +85,4 @@ class CustomerListViewModelTest {
         });
     }
 }
+ **/
