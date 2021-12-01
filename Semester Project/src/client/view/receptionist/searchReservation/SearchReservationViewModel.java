@@ -17,9 +17,6 @@ import java.util.List;
 public class SearchReservationViewModel {
 
     private StringProperty username, error;
-    private Room selectedRoom;
-    private LocalDate selectedStartDate;
-    private LocalDate selectedEndDate;
     private ObservableList<Reservation> table;
     private RoomsModel roomsModel;
 
@@ -39,22 +36,13 @@ public class SearchReservationViewModel {
         return error;
     }
 
-    public Room getSelectedRoom() {
-        return selectedRoom;
-
-    }
-
 
     public ObservableList<Reservation> getTable() {
         return table;
     }
 
-    public LocalDate getSelectedEndDate() {
-        return selectedEndDate;
-    }
-
-    public LocalDate getSelectedStartDate() {
-        return selectedStartDate;
+    public void setSelectedReservation(Reservation selectedReservation) {
+       roomsModel.setSelectedReservation(selectedReservation);
     }
 
     public void searchByUsername() {
