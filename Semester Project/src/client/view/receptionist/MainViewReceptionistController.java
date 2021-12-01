@@ -7,10 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import java.awt.event.MouseEvent;
 
+/*
 public class MainViewReceptionistController implements ViewController {
 
     public BorderPane receptionistBorderPane;
     private ViewHandler viewHandler;
+
 
 
 
@@ -36,3 +38,7 @@ public class MainViewReceptionistController implements ViewController {
         }
     }
 }
+
+
+
+ */

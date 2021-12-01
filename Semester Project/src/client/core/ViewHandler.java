@@ -22,18 +22,19 @@ public class ViewHandler {
     private ViewModelFactory vmf;
     private Scene adminMainView;
 
-    public ViewHandler(ViewModelFactory vmf,Stage stage) {
-        this.vmf = vmf;
-        this.stage=stage;
-        stage.setResizable(false);
-    }
+  public ViewHandler(ViewModelFactory vmf, Stage stage)
+  {
+    this.vmf = vmf;
+    this.stage = stage;
+    stage.setResizable(false);
+  }
 
   public void start()
   {
     //  stage = new Stage();
 
-    // openLogin();
-      openAdminMainView();
+     openLogin();
+      //openAdminMainView();
     //   openCustomerMainView();
   }
 
@@ -78,6 +79,20 @@ public class ViewHandler {
     }
     stage.setScene(adminMainView);
     stage.show();
+  }
+
+  //To Load ReceptionistMainView
+  public void openReceptionistMainView()
+  {
+    if (receptionistMainView == null)
+    {
+      Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
+      receptionistMainView = new Scene(root);
+      stage.setTitle("Receptionist");
+    }
+    stage.setScene(receptionistMainView);
+    stage.show();
+
   }
   //    private void test(){
   //        Parent root = getSingleRoom();
@@ -133,7 +148,7 @@ public class ViewHandler {
 
     public void openReceptionistMainView() {
         if(receptionistMainView == null){
-            Parent root = loadFXML("../view/receptionist/MainViewReceptionist.fxml");
+            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
             receptionistMainView = new Scene(root);
             stage.setTitle("ReceptionistView");
         }

@@ -9,9 +9,11 @@ import javafx.scene.layout.BorderPane;
 
 
 
+
 public class MainViewReceptionistController implements ViewController {
 
-    public BorderPane customerBorderPane;
+    @FXML
+    private BorderPane receptionistBorderPane;
     private ViewHandler viewHandler;
 
 
@@ -25,7 +27,7 @@ public class MainViewReceptionistController implements ViewController {
     @FXML
     public void clickedReceptionistHome(MouseEvent mouseEvent) {
         try {
-            customerBorderPane.setCenter(viewHandler.getViewRoom());
+            receptionistBorderPane.setCenter(viewHandler.getViewRoom());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,10 +36,31 @@ public class MainViewReceptionistController implements ViewController {
     @FXML
     public void clickedCustomerList(MouseEvent mouseEvent) {
         try {
-            customerBorderPane.setCenter(viewHandler.getCustomerList());
+            receptionistBorderPane.setCenter(viewHandler.getCustomerList());
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void clickedCreateCustomerAccount(MouseEvent mouseEvent)
+    {
+        try {
+            receptionistBorderPane.setCenter(viewHandler.getReceptionistCreateCustomerAccount());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void clickedBookCustomer(MouseEvent mouseEvent){
+        try{
+            receptionistBorderPane.setCenter(viewHandler.getViewRoom());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 
