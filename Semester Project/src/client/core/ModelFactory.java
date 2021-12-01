@@ -38,6 +38,7 @@ public class ModelFactory {
         return createModel;
     }
 
+    public RoomsModel getRoomsModel() {
     public CustomerModel getCustomerModel() {
         if (customerModel == null) {
             customerModel = new CustomerModelImpl(clientFactory.getCustomerInfoClient());

@@ -77,6 +77,12 @@ public class RoomImpl implements RoomHandler {
 
     @Override
     public Request searchByUsername(String username) {
+        //todo search by username here....
+        return null;
+    }
+
+    @Override
+    public Request searchByUsername(String username) {
       return reservationDAO.getReservationByUsername(username);
     }
 

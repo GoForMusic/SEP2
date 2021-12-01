@@ -6,6 +6,7 @@ import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.singleRoom.SingleRoomViewModel;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
+import client.view.receptionist.searchReservation.SearchReservationViewModel;
 
 
 /**
@@ -20,6 +21,7 @@ public class ViewModelFactory {
     private LuxuryRoomViewModel luxuryRoomViewModel;
     private DoubleBedRoomViewModel doubleBedRoomViewModel;
     private SingleRoomViewModel singleRoomViewModel;
+    private SearchReservationViewModel searchReservationViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -65,6 +67,13 @@ public class ViewModelFactory {
             bookRoomViewModel = new BookRoomViewModel(modelFactory);
         }
         return bookRoomViewModel;
+    }
+
+    public SearchReservationViewModel getSearchReservationViewModel() {
+        if (searchReservationViewModel == null) {
+            searchReservationViewModel = new SearchReservationViewModel(modelFactory);
+        }
+        return searchReservationViewModel;
     }
 
     public SearchReservationViewModel getSearchReservationViewModel() {

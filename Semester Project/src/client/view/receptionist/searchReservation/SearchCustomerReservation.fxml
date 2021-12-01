@@ -7,14 +7,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.searchReservation.SearchCustomerReservationToEdit">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.searchReservation.SearchCustomerReservationToEditController">
    <children>
-      <TextField layoutX="22.0" layoutY="153.0" promptText="Username" />
+      <TextField fx:id="username" layoutX="22.0" layoutY="159.0" promptText="Username" />
       <AnchorPane layoutX="200.0" prefHeight="400.0" prefWidth="399.0">
          <children>
-            <TableView layoutX="6.0" layoutY="57.0" prefHeight="296.0" prefWidth="390.0">
+            <TableView fx:id="tableView" layoutX="6.0" layoutY="57.0" prefHeight="296.0" prefWidth="390.0">
               <columns>
+                <TableColumn fx:id="room" prefWidth="130.0" text="Room" />
+                <TableColumn fx:id="startDate" prefWidth="130.0" text="Start Date" />
+                  <TableColumn fx:id="endDate" prefWidth="130.0" text="End Date" />
                 <TableColumn prefWidth="130.0" text="Room" />
                 <TableColumn prefWidth="130.0" text="Start Date" />
                   <TableColumn prefWidth="130.0" text="End Date" />
@@ -35,8 +37,6 @@
             <Button layoutX="325.0" layoutY="359.0" mnemonicParsing="false" text="Remove" />
          </children>
       </AnchorPane>
-      <Button layoutX="71.0" layoutY="228.0" mnemonicParsing="false" onAction="#searchByUsername" text="Search" />
-      <Label fx:id="error" layoutX="22.0" layoutY="369.0" prefHeight="18.0" prefWidth="337.0" text="Label" />
       <Button layoutX="71.0" layoutY="228.0" mnemonicParsing="false" text="Search" />
    </children>
 </AnchorPane>
