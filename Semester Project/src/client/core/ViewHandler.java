@@ -31,10 +31,10 @@ public class ViewHandler {
   public void start()
   {
     //  stage = new Stage();
-
+    openReceptionistMainView();
     // openLogin();
-      openAdminMainView();
-    //   openCustomerMainView();
+      //openAdminMainView();
+    //openCustomerMainView();
   }
 
   /**
@@ -133,7 +133,7 @@ public class ViewHandler {
 
     public void openReceptionistMainView() {
         if(receptionistMainView == null){
-            Parent root = loadFXML("../view/receptionist/MainViewReceptionist.fxml");
+            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
             receptionistMainView = new Scene(root);
             stage.setTitle("ReceptionistView");
         }
