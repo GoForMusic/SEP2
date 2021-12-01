@@ -23,5 +23,5 @@ public interface RoomServer extends Remote {
 
     Request bookRoom(Reservation reservation) throws RemoteException;
 
-    Request searchByUsername(String username);
+    Request searchByUsername(String username) throws RemoteException;
 }
