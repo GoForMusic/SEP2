@@ -136,8 +136,12 @@ public class LoginController implements ViewController {
     @FXML
     private void signIn(ActionEvent event) {
       String temp= loginViewModel.login();
+        System.out.println(temp);
       if (temp.equals(Usertype.CUSTOMER.toString())){
           viewHandler.openCustomerMainView();
+      }else if(temp.equals(Usertype.RECEPTIONIST.toString())){
+          viewHandler.openReceptionistMainView();
+
       }
     }
 

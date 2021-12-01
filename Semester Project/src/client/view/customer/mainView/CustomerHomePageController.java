@@ -12,6 +12,7 @@ public class CustomerHomePageController implements ViewController {
 
     public BorderPane customerBorderPane;
     private ViewHandler viewHandler;
+    public BorderPane receptionistBorderPane;
 
 
     @Override
@@ -38,5 +39,22 @@ public class CustomerHomePageController implements ViewController {
     @FXML
     private void clickedCustomerMyAccount(MouseEvent mouseEvent) {
 
+
     }
+
+  //  public void clickedBookButton(MouseEvent mouseEvent) {
+
+   // }
+
+
+    @FXML
+    private void clickedBookButton(MouseEvent mouseEvent){
+        try{
+            receptionistBorderPane.setCenter(viewHandler.getViewRoom());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
