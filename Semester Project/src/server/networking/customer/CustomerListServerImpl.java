@@ -16,7 +16,7 @@ public class CustomerListServerImpl implements CustomerListServer {
 
     public CustomerListServerImpl(CustomerListHandler customerListHandler) throws RemoteException {
         this.customerListHandler = customerListHandler;
-        UnicastRemoteObject.exportObject((Remote) this,0);
+        UnicastRemoteObject.exportObject(this,0);
     }
 
 

@@ -45,26 +45,22 @@ public class CustomerDAOImpl implements CustomerDAO {
     public ArrayList<Customer> getCustomers() {
         ArrayList<Customer> list = new ArrayList<>();
         try(Connection connection = DataBaseConnection.getConnection()){
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"User\";");
-
-            System.out.println("-111");
+            PreparedStatement statement = connection.prepareStatement("select * from \"User\"");
 
             ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            while (resultSet.next()){
                 String firstname = resultSet.getString("firstname");
                 String lastname =resultSet.getString("lastname");
                 String username =resultSet.getString("username");
                 String password = resultSet.getString("password");
-                connection.close();
                 list.add(new Customer(firstname,lastname,username,password));
             }
-            else{
-                connection.close();
-            }
+            connection.close();
         }catch (SQLException e)
         {
             System.out.println(e.getMessage());
         }
+        System.out.println(list);
         return list;
     }
 }

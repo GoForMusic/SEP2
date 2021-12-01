@@ -12,7 +12,7 @@ public class GetServer {
         Registry registry=null;
         Server server = null;//
         try {
-            registry = LocateRegistry.getRegistry(3000);
+            registry = LocateRegistry.getRegistry(1099);
             server = (Server) registry.lookup("Server");
 
         } catch (RemoteException e) {
