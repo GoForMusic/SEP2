@@ -1,6 +1,6 @@
 package server.networking.viewRooms;
 
-import server.model.viewRooms.RoomHandler;
+import server.model.rooms.RoomHandler;
 import shared.networking.clientInterfaces.RoomsCallBack;
 import shared.networking.serverInterfaces.RoomServer;
 import shared.utils.Observer;
@@ -28,9 +28,9 @@ public class RoomServerSide implements RoomServer {
     }
 
     @Override
-    public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+    public Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
        // System.out.println("Reached server...");
-        roomHandler.searchRoom(dateFrom, dateTo, roomType);
+       return roomHandler.searchRoom(dateFrom, dateTo, roomType);
     }
 
     @Override
@@ -59,6 +59,10 @@ public class RoomServerSide implements RoomServer {
      return  roomHandler.searchByUsername(username);
     }
 
+    @Override
+    public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) {
+     return    roomHandler.updateReservation(username,previousStart,previousEnd,roomName,newStart,newEnd,newRoom);
+    }
 
 
     private void fireAvailableRooms(PropertyChangeEvent event) {

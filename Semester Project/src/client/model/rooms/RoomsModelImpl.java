@@ -24,6 +24,7 @@ public class RoomsModelImpl implements RoomsModel {
     private LocalDate tempStartDate;
     private LocalDate tempEndDate;
     private Reservation selectedReservation;
+    private String tempUsername;
 
     /**
      * A constructor that will initialize the client
@@ -49,9 +50,9 @@ public class RoomsModelImpl implements RoomsModel {
      * @param roomType the category of the room
      */
     @Override
-    public void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+    public Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         System.out.println(" room model");
-        client.searchRooms(dateFrom, dateTo, roomType);
+      return   client.searchRooms(dateFrom, dateTo, roomType);
     }
 
     /**
@@ -125,6 +126,21 @@ public class RoomsModelImpl implements RoomsModel {
     @Override
     public void setSelectedReservation(Reservation reservation) {
         this.selectedReservation = reservation;
+    }
+
+    @Override
+    public void setTempUsername(String text) {
+        this.tempUsername = text;
+    }
+
+    @Override
+    public String getUsername() {
+        return tempUsername;
+    }
+
+    @Override
+    public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) {
+        return client.updateReservation(username,previousStart, previousEnd,  roomName,  newStart,  newEnd,  newRoom);
     }
 
     @Override

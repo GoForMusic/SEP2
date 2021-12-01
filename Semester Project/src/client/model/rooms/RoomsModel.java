@@ -21,7 +21,7 @@ public interface RoomsModel extends Subject {
      * @param dateTo   the date to search upto
      * @param roomType the category of the room
      */
-    void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
+    Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
     String getDescriptionByCategory(RoomType roomType);
 
@@ -40,4 +40,10 @@ public interface RoomsModel extends Subject {
     Reservation getSelectedReservation();
 
     void setSelectedReservation(Reservation reservation);
+
+    void setTempUsername(String text);
+
+    String getUsername();
+
+    Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
 }

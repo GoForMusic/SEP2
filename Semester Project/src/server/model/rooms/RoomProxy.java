@@ -1,13 +1,11 @@
-package server.model.viewRooms;
+package server.model.rooms;
 
 import shared.utils.Request;
 import shared.utils.reservation.Reservation;
-import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
-import java.util.List;
 
 public class RoomProxy implements RoomHandler {
 
@@ -20,8 +18,8 @@ public class RoomProxy implements RoomHandler {
     }
 
     @Override
-    public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
-        roomHandler.searchRoom(dateFrom, dateTo, roomType);
+    public Request searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+       return roomHandler.searchRoom(dateFrom, dateTo, roomType);
     }
 
     @Override
@@ -80,6 +78,11 @@ public class RoomProxy implements RoomHandler {
     @Override
     public Request searchByUsername(String username) {
         return roomHandler.searchByUsername(username);
+    }
+
+    @Override
+    public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) {
+        return roomHandler.updateReservation(username, previousStart, previousEnd, roomName, newStart, newEnd, newRoom);
     }
 
     @Override
