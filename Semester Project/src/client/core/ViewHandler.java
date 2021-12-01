@@ -2,7 +2,6 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -23,45 +22,21 @@ public class ViewHandler {
     private ViewModelFactory vmf;
     private Scene adminMainView;
 
-    public ViewHandler(ViewModelFactory vmf, Stage stage) {
+    public ViewHandler(ViewModelFactory vmf,Stage stage) {
         this.vmf = vmf;
-        this.stage = stage;
+        this.stage=stage;
         stage.setResizable(false);
     }
-  public ViewHandler(ViewModelFactory vmf, Stage stage)
-  {
-    this.vmf = vmf;
-    this.stage = stage;
-    stage.setResizable(false);
-  }
 
     public void start() {
-        //  stage = new Stage();
-  public void start()
-  {
-    //  stage = new Stage();
+      //  stage = new Stage();
 
-        openLogin();
+       openLogin();
 //        test();
         //   openCustomerMainView();
     }
 
-    /**
-     * Opens the login scene in a new Stage
-     */
-    public void openLogin() {
-        if (loginScene == null) {
-            Parent root = loadFXML("../view/login/Login.fxml");
-            loginScene = new Scene(root);
-            stage.setTitle("Login");
-        }
-        stage.setScene(loginScene);
-        stage.show();
-    }
-     openLogin();
-      //openAdminMainView();
-    //   openCustomerMainView();
-  }
+
 
   /**
    * Opens the login scene in a new Stage
@@ -136,10 +111,9 @@ public class ViewHandler {
     return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
   }
 
-  public Parent getDoubleRoom()
-  {
-    return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
-  }
+    public  Parent getDoubleRoom() {
+        return loadFXML("../view/customer/doubleBedroom/DoubleBedRoom.fxml");
+    }
 
   public Parent getLuxuryRoom()
   {
@@ -175,13 +149,5 @@ public class ViewHandler {
         return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
     }
 
-    public void openReceptionistMainView() {
-        if(receptionistMainView == null){
-            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
-            receptionistMainView = new Scene(root);
-            stage.setTitle("ReceptionistView");
-        }
-        stage.setScene(receptionistMainView);
-        stage.show();
-    }
+
 }

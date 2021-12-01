@@ -39,14 +39,6 @@ public class ModelFactory {
     }
 
     public RoomsModel getRoomsModel() {
-    public CustomerModel getCustomerModel() {
-        if (customerModel == null) {
-            customerModel = new CustomerModelImpl(clientFactory.getCustomerInfoClient());
-        }
-        return customerModel;
-    }
-
-    public RoomsModel getViewRoomsModel() {
         if (roomsModel == null) {
             roomsModel = new RoomsModelImpl(clientFactory.getViewRoomCLient());
         }

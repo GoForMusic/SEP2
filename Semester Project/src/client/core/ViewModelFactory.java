@@ -75,37 +75,4 @@ public class ViewModelFactory {
         }
         return searchReservationViewModel;
     }
-
-    public SearchReservationViewModel getSearchReservationViewModel() {
-        if (searchReservationViewModel == null) {
-            searchReservationViewModel = new SearchReservationViewModel(modelFactory);
-        }
-        return searchReservationViewModel;
-    }
-
-    public AdminCreateAccountViewModel getAdminCreateAccountViewModel() {
-        if (adminCreateAccountViewModel == null) {
-            adminCreateAccountViewModel = new AdminCreateAccountViewModel(modelFactory);
-        }
-        return adminCreateAccountViewModel;
-    }
-
-
-
-    public CustomerListViewModel getCustomerListViewModel(){
-        if (customerListViewModel == null) {
-            customerListViewModel = new CustomerListViewModel(modelFactory);
-        }
-        return customerListViewModel;
-    }
-
-    public ReceptionistCreateCustomerAccountViewModel getReceptionistCreateCustomerAccount() {
-
-        if(receptionistCreateCustomerAccountViewModel == null)
-        {
-            receptionistCreateCustomerAccountViewModel = new ReceptionistCreateCustomerAccountViewModel(modelFactory);
-        }
-        return receptionistCreateCustomerAccountViewModel;
-
-    }
 }

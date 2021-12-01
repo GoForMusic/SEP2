@@ -81,11 +81,6 @@ public class RoomImpl implements RoomHandler {
     }
 
     @Override
-    public Request searchByUsername(String username) {
-      return reservationDAO.getReservationByUsername(username);
-    }
-
-    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }
