@@ -1,4 +1,4 @@
-package server.model.viewRooms;
+package server.model.rooms;
 
 
 import server.database.Reservation.ReservationDAO;
@@ -35,13 +35,15 @@ public class RoomImpl implements RoomHandler {
     }
 
     @Override
-    public void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
+    public Request searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         try {
             List<Room> allAvailableRoomsByType = roomDAO.getAllAvailableRoomsByType(roomType.toString(), dateFrom, dateTo);
             System.out.println(allAvailableRoomsByType);
+            //TODO remove the stupid observer pattern and then do it the synchronous way..
             support.firePropertyChange(Observer.AVAILABLEROOMS.toString(), null, allAvailableRoomsByType);
+            return new Request("Available rooms",allAvailableRoomsByType);
         } catch (SQLException e) {
-            e.printStackTrace();
+            return new Request(e.getMessage(),null);
         }
     }
 
@@ -80,6 +82,10 @@ public class RoomImpl implements RoomHandler {
       return reservationDAO.getReservationByUsername(username);
     }
 
+    @Override
+    public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) {
+        return reservationDAO.updateReservation(username,previousStart,previousEnd,roomName,newStart,newEnd,newRoom);
+    }
 
 
     @Override

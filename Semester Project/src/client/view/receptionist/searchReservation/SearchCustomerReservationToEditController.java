@@ -16,7 +16,6 @@ import java.time.LocalDate;
 
 public class SearchCustomerReservationToEditController implements ViewController {
     private ViewHandler viewHandler;
-
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -49,6 +48,8 @@ public class SearchCustomerReservationToEditController implements ViewController
     }
     @FXML private void onEdit(){
          Reservation r =tableView.getSelectionModel().getSelectedItem();
+       // System.out.println(r.getTempRoom());
+        viewModel.setUsername(username.getText());
          viewModel.setSelectedReservation(r);
          if (r!= null){
              anchorPane.getChildren().clear();

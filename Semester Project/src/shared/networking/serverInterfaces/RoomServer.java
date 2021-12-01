@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface RoomServer extends Remote {
 
-    void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) throws RemoteException;
+    Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) throws RemoteException;
 
     String getDescriptionByCategory(RoomType roomType) throws RemoteException;
 
@@ -24,4 +24,7 @@ public interface RoomServer extends Remote {
     Request bookRoom(Reservation reservation) throws RemoteException;
 
     Request searchByUsername(String username) throws RemoteException;
+
+    Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) throws RemoteException;
+
 }

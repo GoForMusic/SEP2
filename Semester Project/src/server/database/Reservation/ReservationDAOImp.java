@@ -4,6 +4,7 @@ import server.database.DataBaseConnection;
 import shared.utils.Request;
 import shared.utils.reservation.Reservation;
 
+import javax.security.auth.login.AppConfigurationEntry;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -82,5 +83,23 @@ public class ReservationDAOImp implements ReservationDAO {
             return new Request(e.getMessage(), null);
         }
 
+    }
+
+    @Override
+    public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) {
+        try(Connection connection = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE \"Reservation\" SET \"startDate\" =?,\"endDate\" =?, \"roomName\"=? WHERE \"userName\"=? AND \"startDate\" =? AND\"endDate\" =? AND \"roomName\"=?;");
+            statement.setDate(1,Date.valueOf(newStart));
+            statement.setDate(2,Date.valueOf(newEnd));
+            statement.setString(3,newRoom);
+            statement.setString(4,username);
+            statement.setDate(5,Date.valueOf(previousStart));
+            statement.setDate(6,Date.valueOf(previousEnd));
+            statement.setString(7,roomName);
+            statement.executeUpdate();
+            return new Request("Updated successfully",null);
+        } catch (SQLException throwables) {
+            return new Request(throwables.getMessage(),null);
+        }
     }
 }

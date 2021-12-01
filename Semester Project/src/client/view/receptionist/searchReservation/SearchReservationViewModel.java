@@ -8,9 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.utils.Request;
 import shared.utils.reservation.Reservation;
-import shared.utils.room.Room;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +22,10 @@ public class SearchReservationViewModel {
         roomsModel = modelFactory.getRoomsModel();
         username = new SimpleStringProperty();
         error = new SimpleStringProperty();
-        table= FXCollections.observableArrayList();
+        table = FXCollections.observableArrayList();
     }
 
     public StringProperty getUsername() {
-
         return username;
     }
 
@@ -36,13 +33,16 @@ public class SearchReservationViewModel {
         return error;
     }
 
-
     public ObservableList<Reservation> getTable() {
         return table;
     }
 
     public void setSelectedReservation(Reservation selectedReservation) {
-       roomsModel.setSelectedReservation(selectedReservation);
+        if (selectedReservation==null){
+            error.set("Select a reservation to edit..");
+            return;
+        }
+        roomsModel.setSelectedReservation(selectedReservation);
     }
 
     public void searchByUsername() {
@@ -56,11 +56,15 @@ public class SearchReservationViewModel {
             List<String> roomList = reservationFromServer.getBookedRooms();
             for (String i : roomList
             ) {
-                reservations.add(new Reservation(i,reservationFromServer.getDateFrom(),reservationFromServer.getDateTo()));
+                reservations.add(new Reservation(i, reservationFromServer.getDateFrom(), reservationFromServer.getDateTo()));
             }
 
             error.set(request.getType());
         }
         table.setAll(reservations);
+    }
+
+    public void setUsername(String text) {
+        roomsModel.setTempUsername(text);
     }
 }
