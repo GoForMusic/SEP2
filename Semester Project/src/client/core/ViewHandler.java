@@ -2,7 +2,6 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,14 +14,13 @@ import java.io.IOException;
  * A class that deals with loading fxml files and loading stages.
  */
 
-public class ViewHandler
-{
-  private Scene customerMainView;
-  private Scene loginScene;
-  private Stage stage;
-  private ViewModelFactory vmf;
-  private Scene adminMainView;
-  private Scene receptionistMainView;
+public class ViewHandler {
+    private Scene customerMainView;
+    private Scene receptionistMainView;
+    private Scene loginScene;
+    private Stage stage;
+    private ViewModelFactory vmf;
+    private Scene adminMainView;
 
   public ViewHandler(ViewModelFactory vmf, Stage stage)
   {
@@ -36,9 +34,8 @@ public class ViewHandler
     //  stage = new Stage();
 
      openLogin();
-    //  openAdminMainView();
+      //openAdminMainView();
     //   openCustomerMainView();
-    //openReceptionistMainView();
   }
 
   /**
@@ -127,7 +124,6 @@ public class ViewHandler
   public Parent getAdminCreateAccount(){
     return loadFXML("../view/admin/createAccount/CreateAccount.fxml");
   }
-  public Parent getReceptionistCreateCustomerAccount()  { return loadFXML("../view/receptionist/CreateCustomerAccount/CreateAccount.fxml");}
   private Parent loadFXML(String path)
   {
     FXMLLoader loader = new FXMLLoader();
@@ -146,12 +142,17 @@ public class ViewHandler
     return root;
   }
 
-  public Parent getRoomList()
-  {
-    return loadFXML("../view/bookRooms/BookRoom.fxml");
-  }
+    public Parent getRoomList() {
+      return loadFXML("../view/bookRooms/BookRoom.fxml");
+    }
 
-  public Node getCustomerList() {
-    return null;
-  }
+    public void openReceptionistMainView() {
+        if(receptionistMainView == null){
+            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
+            receptionistMainView = new Scene(root);
+            stage.setTitle("ReceptionistView");
+        }
+        stage.setScene(receptionistMainView);
+        stage.show();
+    }
 }

@@ -140,6 +140,7 @@ public class LoginController implements ViewController {
           viewHandler.openCustomerMainView();
       }else if(temp.equals(Usertype.RECEPTIONIST.toString())){
           viewHandler.openReceptionistMainView();
+
       }
     }
 

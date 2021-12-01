@@ -6,9 +6,8 @@ import client.view.ViewController;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import shared.utils.User.Receptionist;
 
-import java.awt.event.ActionEvent;
+
 
 
 public class MainViewReceptionistController implements ViewController {
@@ -16,7 +15,6 @@ public class MainViewReceptionistController implements ViewController {
     @FXML
     private BorderPane receptionistBorderPane;
     private ViewHandler viewHandler;
-
 
 
 
@@ -54,6 +52,16 @@ public class MainViewReceptionistController implements ViewController {
         }
     }
 
+    @FXML
+    public void clickedBookCustomer(MouseEvent mouseEvent){
+        try{
+            receptionistBorderPane.setCenter(viewHandler.getViewRoom());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 
 }
