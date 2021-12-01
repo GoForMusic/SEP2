@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 public class ReservationDAOImp implements ReservationDAO {
 
     private static ReservationDAO instance;
@@ -49,23 +50,30 @@ public class ReservationDAOImp implements ReservationDAO {
     @Override
     public Request getReservationByUsername(String username) {
         try (Connection connection = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Reservation\" WHERE \"userName\"=?;");
+            PreparedStatement statement = connection.prepareStatement("SELECT * from \"User\" WHERE \"username\"=?;");
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
-            List<String> roomList = new ArrayList<>();
-            List<Reservation> reservations = new ArrayList<>();
-            LocalDate startDate = null;
-            LocalDate endDate = null;
-            while (resultSet.next()) {
-                String roomName = resultSet.getString("roomName");
-                roomList.add(roomName);
-                startDate = (resultSet.getDate("startDate")).toLocalDate();
-                endDate = (resultSet.getDate("endDate")).toLocalDate();
-            }
-            if (startDate == null || endDate == null || roomList.isEmpty()) {
-                return new Request("No reservation found", null);
+            if (resultSet.next()) {
+                statement = connection.prepareStatement("SELECT * FROM \"Reservation\" WHERE \"userName\"=?;");
+                statement.setString(1, username);
+                resultSet = statement.executeQuery();
+                List<String> roomList = new ArrayList<>();
+                List<Reservation> reservations = new ArrayList<>();
+                LocalDate startDate = null;
+                LocalDate endDate = null;
+                while (resultSet.next()) {
+                    String roomName = resultSet.getString("roomName");
+                    roomList.add(roomName);
+                    startDate = (resultSet.getDate("startDate")).toLocalDate();
+                    endDate = (resultSet.getDate("endDate")).toLocalDate();
+                }
+                if (startDate == null || endDate == null || roomList.isEmpty()) {
+                    return new Request("User has not reserved any room", null);
+                } else {
+                    return new Request("Reservation found..", new Reservation(username, startDate, endDate, roomList));
+                }
             } else {
-                return new Request("Reservation found..", new Reservation(username, startDate, endDate, roomList));
+                return new Request("Username doesnot exist", null);
             }
 
         } catch (SQLException throwables) {

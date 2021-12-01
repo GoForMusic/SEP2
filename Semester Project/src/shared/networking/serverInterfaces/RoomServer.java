@@ -22,4 +22,6 @@ public interface RoomServer extends Remote {
     void registerRoomClient(RoomsCallBack roomsCallBack) throws RemoteException;
 
     Request bookRoom(Reservation reservation) throws RemoteException;
+
+    Request searchByUsername(String username) throws RemoteException;
 }

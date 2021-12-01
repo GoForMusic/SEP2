@@ -29,7 +29,7 @@ public class BookRoomViewModel {
     private StringProperty usernameUsedByReceptionist;
 
     public BookRoomViewModel(ModelFactory modelFactory) {
-        roomsModel = modelFactory.getViewRoomsModel();
+        roomsModel = modelFactory.getRoomsModel();
         this.loginModel = modelFactory.getLoginModel();
         listRooms = FXCollections.observableArrayList();
         selectedRooms= new ArrayList<>();
@@ -68,11 +68,7 @@ public class BookRoomViewModel {
         }else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST)){
             Request request = roomsModel.bookRoom(usernameUsedByReceptionist.get(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
             error.set(request.getType());
-
-
         }
-
-
     }
 
     public void setSelectedRoom(ObservableList<Room> selectedRooms) {

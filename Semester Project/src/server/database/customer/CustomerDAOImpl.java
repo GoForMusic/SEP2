@@ -34,6 +34,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
+
     @Override
     public void removeCustomer(Customer customer) {
         try(Connection connection = DataBaseConnection.getConnection()){

@@ -1,5 +1,7 @@
 package shared.utils.reservation;
 
+import shared.utils.room.Room;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,6 +15,7 @@ public class Reservation implements Serializable {
     private LocalDate dateFrom;
     private LocalDate dateTo;
     private List<String> bookedRooms;
+    private String tempRoom;
 
     /**
      * A four argument constructor that takes customer, dateFrom , dateTo and the list of booked rooms
@@ -30,22 +33,37 @@ public class Reservation implements Serializable {
         this.bookedRooms = bookedRooms;
     }
 
+    /**
+     * Will only be used for the tableView ....
+     * @param tempRoom the room name
+     * @param dateFrom the start date of the booking
+     * @param dateTo the endDate of the booking.
+     */
+    public Reservation(String tempRoom, LocalDate dateFrom, LocalDate dateTo){
+        this.tempRoom=tempRoom;
+        this.dateFrom=dateFrom;
+        this.dateTo=dateTo;
+    }
+
     private void verifyData(String username, LocalDate dateFrom, LocalDate dateTo, List<String> bookedRooms) throws Exception {
         if (username == null) {
             throw new Exception("Cannot create a reservation without customer");
         }
         if (dateFrom==null || dateTo==null){
             throw new Exception("Start date or end date missing");
-        }
-        if (dateFrom.isBefore(LocalDate.now())) {
-            throw new Exception("The starting date cannot be on past");
-        } else if (dateTo.isBefore(LocalDate.now())) {
-            throw new Exception("The end date cannot be on past");
         } else if (dateTo.isBefore(dateFrom)) {
             throw new Exception("The end date cannot be before start date");
         } else if (bookedRooms == null || bookedRooms.isEmpty()) {
             throw new Exception("Cannot create a reservation without rooms");
         }
+    }
+
+    public void setTempRoom(String tempRoom) {
+        this.tempRoom = tempRoom;
+    }
+
+    public String getTempRoom() {
+        return tempRoom;
     }
 
     public LocalDate getDateFrom() {

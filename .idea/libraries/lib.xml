@@ -2,7 +2,6 @@
   <library name="lib">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/externalLIBS/javafx-sdk-17.0.1/lib" />
-      <root url="jar://$PROJECT_DIR$/externalLIBS/fontawesomefx-fontawesome-4.7.0-9.1.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

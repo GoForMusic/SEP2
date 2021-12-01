@@ -54,6 +54,13 @@ public class RoomServerSide implements RoomServer {
         return roomHandler.bookRoom(reservation);
     }
 
+    @Override
+    public Request searchByUsername(String username) {
+     return  roomHandler.searchByUsername(username);
+    }
+
+
+
     private void fireAvailableRooms(PropertyChangeEvent event) {
         try {
           //  System.out.println("\n\n\n "+event.getNewValue());
