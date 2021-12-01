@@ -11,12 +11,10 @@ import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SearchReservationViewModel {
 
-    private StringProperty username, error;
+    private StringProperty username;
     private Room selectedRoom;
     private LocalDate selectedStartDate;
     private LocalDate selectedEndDate;
@@ -31,7 +29,6 @@ public class SearchReservationViewModel {
     }
 
     public StringProperty getUsername() {
-
         return username;
     }
 
