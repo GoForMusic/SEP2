@@ -25,5 +25,6 @@
          </children>
       </AnchorPane>
       <Button layoutX="71.0" layoutY="228.0" mnemonicParsing="false" onAction="#searchByUsername" text="Search" />
+      <Label fx:id="error" layoutX="22.0" layoutY="369.0" prefHeight="18.0" prefWidth="337.0" text="Label" />
    </children>
 </AnchorPane>
