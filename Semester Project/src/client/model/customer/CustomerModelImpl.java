@@ -17,6 +17,16 @@ public class CustomerModelImpl implements CustomerModel{
     }
 
     @Override
+    public void updateCustomer(Customer customer) {
+
+    }
+
+    @Override
+    public void removeCustomer(Customer customer) {
+
+    }
+
+    @Override
     public Customer getCustomer(String username) {
         return client.getCustomer(username);
     }

@@ -17,6 +17,16 @@ public class CustomerListHandlerImpl implements CustomerListHandler{
     }
 
     @Override
+    public void updateCustomer(Customer customer) {
+
+    }
+
+    @Override
+    public void removeCustomer(Customer customer) {
+
+    }
+
+    @Override
     public Customer getCustomer(String username) {
         return customerDAO.getCustomer(username);
     }

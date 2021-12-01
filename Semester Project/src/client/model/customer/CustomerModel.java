@@ -7,6 +7,8 @@ import shared.utils.User.Customer;
 import java.util.ArrayList;
 
 public interface CustomerModel extends Subject {
+    void updateCustomer(Customer customer);
+    void removeCustomer(Customer customer);
     Customer getCustomer(String username);
     ArrayList<Customer> getCustomers();
 }
