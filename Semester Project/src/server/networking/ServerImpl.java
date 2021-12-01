@@ -1,10 +1,7 @@
 package server.networking;
 
 
-import shared.networking.serverInterfaces.CreateAccountServer;
-import shared.networking.serverInterfaces.LoginServer;
-import shared.networking.serverInterfaces.Server;
-import shared.networking.serverInterfaces.RoomServer;
+import shared.networking.serverInterfaces.*;
 
 
 import java.rmi.AlreadyBoundException;
@@ -18,16 +15,18 @@ public class ServerImpl implements Server {
     private LoginServer loginServer;
     private CreateAccountServer createAccountServer;
     private RoomServer roomServer;
+    private CustomerListServer customerListServer;
 
-    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer) throws RemoteException {
+    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer, CustomerListServer customerListServer) throws RemoteException {
         this.loginServer = loginServer;
         this.createAccountServer=createAccountServer;
         this.roomServer = roomServer;
+        this.customerListServer = customerListServer;
         UnicastRemoteObject.exportObject(this,0);
     }
 
     public void startServer() throws AlreadyBoundException, RemoteException {
-        Registry registry= LocateRegistry.createRegistry(1099);
+        Registry registry= LocateRegistry.createRegistry(3000);
         registry.bind("Server",this);
         System.out.println("Server started.....");
     }
@@ -35,6 +34,11 @@ public class ServerImpl implements Server {
     @Override
     public RoomServer getRoomsServer() throws RemoteException {
         return roomServer;
+    }
+
+    @Override
+    public CustomerListServer getCustomerListServer() throws RemoteException {
+        return customerListServer;
     }
 
     @Override

@@ -4,6 +4,7 @@ import client.networking.GetServer;
 import shared.networking.serverInterfaces.Server;
 import shared.utils.User.Customer;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class CustomerInfoImpl implements CustomerInfoClient{
@@ -21,15 +22,21 @@ public class CustomerInfoImpl implements CustomerInfoClient{
 
     @Override
     public Customer getCustomer(String username) {
-        return null;
+        try {
+            return server.getCustomerListServer().getCustomer(username);
+        } catch (RemoteException e) {
+            System.out.println("Cannot connect!");
+            return null;
+        }
     }
 
     @Override
     public ArrayList<Customer> getCustomers() {
-        ArrayList<Customer> list= new ArrayList<>();
-        list.add(new Customer("Adrian","Militaru","Adri123","12345","test@test.com"));
-        list.add(new Customer("Adrian2","Militaru2","Adri1234","12345","test2@test2.com"));
-
-        return list;
+        try {
+            return server.getCustomerListServer().getCustomers();
+        } catch (RemoteException e) {
+            System.out.println("Cannot connect!");
+            return null;
+        }
     }
 }
