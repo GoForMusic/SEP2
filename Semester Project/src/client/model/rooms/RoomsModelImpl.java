@@ -23,6 +23,7 @@ public class RoomsModelImpl implements RoomsModel {
     private PropertyChangeSupport support;
     private LocalDate tempStartDate;
     private LocalDate tempEndDate;
+    private Reservation selectedReservation;
 
     /**
      * A constructor that will initialize the client
@@ -105,7 +106,7 @@ public class RoomsModelImpl implements RoomsModel {
             Reservation reservation = new Reservation(username, startDate, endDate, temp);
             return client.bookRoom(reservation);
         } catch (Exception e) {
-          //  e.printStackTrace();
+            //  e.printStackTrace();
             return new Request(e.getMessage(), null);
         }
 
@@ -113,7 +114,17 @@ public class RoomsModelImpl implements RoomsModel {
 
     @Override
     public Request searchByUsername(String username) {
-       return client.searchByUsername(username);
+        return client.searchByUsername(username);
+    }
+
+    @Override
+    public Reservation getSelectedReservation() {
+        return selectedReservation;
+    }
+
+    @Override
+    public void setSelectedReservation(Reservation reservation) {
+        this.selectedReservation = reservation;
     }
 
     @Override

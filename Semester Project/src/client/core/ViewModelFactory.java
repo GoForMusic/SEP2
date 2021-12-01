@@ -9,6 +9,7 @@ import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
 import client.view.receptionist.CreateCustomerAccount.ReceptionistCreateCustomerAccountViewModel;
 import client.view.receptionist.customerList.CustomerListViewModel;
+import client.view.receptionist.editReservation.EditReservationViewModel;
 import client.view.receptionist.searchReservation.SearchReservationViewModel;
 
 
@@ -28,6 +29,7 @@ public class ViewModelFactory {
     private CustomerListViewModel customerListViewModel;
     private AdminCreateAccountViewModel adminCreateAccountViewModel;
     private ReceptionistCreateCustomerAccountViewModel receptionistCreateCustomerAccountViewModel;
+    private EditReservationViewModel editReservationViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -101,5 +103,12 @@ public class ViewModelFactory {
             receptionistCreateCustomerAccountViewModel = new ReceptionistCreateCustomerAccountViewModel(modelFactory);
         }
         return receptionistCreateCustomerAccountViewModel;
+    }
+
+    public EditReservationViewModel getEditReservationViewModel() {
+        if (editReservationViewModel == null) {
+            editReservationViewModel = new EditReservationViewModel(modelFactory);
+        }
+        return editReservationViewModel;
     }
 }
