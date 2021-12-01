@@ -36,7 +36,8 @@ public class ViewHandler {
      * */
     public void start() {
         stage = new Stage();
-        openLogin();
+//        openLogin();
+        openReceptionistMainView();
     }
 
 
