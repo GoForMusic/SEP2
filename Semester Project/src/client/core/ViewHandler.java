@@ -28,23 +28,12 @@ public class ViewHandler {
         this.stage = stage;
         stage.setResizable(false);
     }
-  public ViewHandler(ViewModelFactory vmf, Stage stage)
-  {
-    this.vmf = vmf;
-    this.stage = stage;
-    stage.setResizable(false);
-  }
 
     public void start() {
-        //  stage = new Stage();
-  public void start()
-  {
-    //  stage = new Stage();
-
-        openLogin();
-//        test();
-        //   openCustomerMainView();
+      stage = new Stage();
+      openLogin();
     }
+
 
     /**
      * Opens the login scene in a new Stage
@@ -58,25 +47,8 @@ public class ViewHandler {
         stage.setScene(loginScene);
         stage.show();
     }
-     openLogin();
-      //openAdminMainView();
-    //   openCustomerMainView();
-  }
 
-  /**
-   * Opens the login scene in a new Stage
-   */
-  public void openLogin()
-  {
-    if (loginScene == null)
-    {
-      Parent root = loadFXML("../view/login/Login.fxml");
-      loginScene = new Scene(root);
-      stage.setTitle("Login");
-    }
-    stage.setScene(loginScene);
-    stage.show();
-  }
+
 
   /**
    * Opens the main view for customers

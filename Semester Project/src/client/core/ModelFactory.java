@@ -2,6 +2,8 @@ package client.core;
 
 import client.model.create.CreateImpl;
 import client.model.create.CreateModel;
+import client.model.customer.CustomerModel;
+import client.model.customer.CustomerModelImpl;
 import client.model.login.LoginModel;
 import client.model.login.LoginModelImpl;
 import client.model.rooms.RoomsModel;
@@ -16,6 +18,7 @@ public class ModelFactory {
     private LoginModel loginModel;
     private CreateModel createModel;
     private RoomsModel roomsModel;
+    private CustomerModel customerModel;
 
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
