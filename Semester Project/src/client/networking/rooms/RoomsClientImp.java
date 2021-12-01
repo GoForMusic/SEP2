@@ -93,6 +93,7 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+        return new Request("Error connecting to server",null);
     }
 
     @Override
