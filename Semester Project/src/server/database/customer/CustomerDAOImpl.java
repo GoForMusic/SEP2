@@ -20,20 +20,14 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public void updateCustomer(Customer customer, String oldUsername) {
         try(Connection connection = DataBaseConnection.getConnection()){
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"User\" WHERE \"username\"=?;");
-            statement.setString(1,oldUsername);
+            PreparedStatement statement = connection.prepareStatement("UPDATE \"User\" SET (firstname,lastname,username,password)=(?,?,?,?) WHERE \"username\"=?;");
+            statement.setString(1,customer.getFirstname());
+            statement.setString(2,customer.getLastName());
+            statement.setString(3,customer.getUserName());
+            statement.setString(4,customer.getPassword());
+            statement.setString(5,oldUsername);
 
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()){
-                String firstname = resultSet.getString("firstname");
-                String lastname =resultSet.getString("lastname");
-                String password = resultSet.getString("password");
-                connection.close();
-                return new Customer(firstname,lastname,username,password);
-            }
-            else{
-                connection.close();
-            }
+            statement.executeUpdate();
         }catch (SQLException e)
         {
             System.out.println(e.getMessage());
@@ -42,7 +36,15 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void removeCustomer(Customer customer) {
+        try(Connection connection = DataBaseConnection.getConnection()){
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM \"User\" WHERE \"username\"=?;");
+            statement.setString(1,customer.getUserName());
 
+            statement.executeUpdate();
+        }catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override

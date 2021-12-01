@@ -21,13 +21,13 @@ public class CustomerListServerImpl implements CustomerListServer {
 
 
     @Override
-    public void updateCustomer(Customer customer) throws RemoteException {
-
+    public void updateCustomer(Customer customer, String oldCustomer) throws RemoteException {
+        customerListHandler.updateCustomer(customer,oldCustomer);
     }
 
     @Override
     public void removeCustomer(Customer customer) throws RemoteException {
-
+        customerListHandler.removeCustomer(customer);
     }
 
     @Override

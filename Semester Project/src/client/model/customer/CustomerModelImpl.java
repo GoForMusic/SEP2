@@ -17,13 +17,13 @@ public class CustomerModelImpl implements CustomerModel{
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
-
+    public void updateCustomer(Customer customer, String oldUsername) {
+        client.updateCustomer(customer,oldUsername);
     }
 
     @Override
     public void removeCustomer(Customer customer) {
-
+        client.removeCustomer(customer);
     }
 
     @Override
