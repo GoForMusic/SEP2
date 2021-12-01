@@ -76,6 +76,12 @@ public class RoomImpl implements RoomHandler {
     }
 
     @Override
+    public Request searchByUsername(String username) {
+        //todo search by username here....
+        return null;
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }

@@ -78,6 +78,11 @@ public class RoomProxy implements RoomHandler {
     }
 
     @Override
+    public Request searchByUsername(String username) {
+        return roomHandler.searchByUsername(username);
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         roomHandler.addListener(eventName, listener);
     }
