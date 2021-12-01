@@ -1,13 +1,11 @@
-package server.model.viewRooms;
+package server.model.rooms;
 
 import shared.utils.Request;
 import shared.utils.Subject;
 import shared.utils.reservation.Reservation;
-import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
-import java.util.List;
 
 /**
  * @author Sachin Baral
@@ -19,7 +17,7 @@ public interface RoomHandler extends Subject {
      * @param dateTo the date to search upto
      * @param roomType the category of the room to search
      */
-    void searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
+    Request searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
     String getDescriptionByCategory(RoomType roomType);
 
@@ -28,4 +26,6 @@ public interface RoomHandler extends Subject {
     Request bookRoom(Reservation reservation);
 
     Request searchByUsername(String username);
+
+    Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
 }

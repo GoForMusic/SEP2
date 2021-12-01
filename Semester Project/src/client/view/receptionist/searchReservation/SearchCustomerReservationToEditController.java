@@ -9,13 +9,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import shared.utils.reservation.Reservation;
 
 import java.time.LocalDate;
 
 public class SearchCustomerReservationToEditController implements ViewController {
     private ViewHandler viewHandler;
-
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private Label error;
     @FXML
@@ -44,11 +46,23 @@ public class SearchCustomerReservationToEditController implements ViewController
     private void searchByUsername() {
         viewModel.searchByUsername();
     }
+    @FXML private void onEdit(){
+         Reservation r =tableView.getSelectionModel().getSelectedItem();
+       // System.out.println(r.getTempRoom());
+        viewModel.setUsername(username.getText());
+         viewModel.setSelectedReservation(r);
+         if (r!= null){
+             anchorPane.getChildren().clear();
+             anchorPane.getChildren().setAll(viewHandler.getEditReservation());
+         }
+    }
+
 
     private void initializeTable() {
         room.setCellValueFactory(new PropertyValueFactory<Reservation, String>("tempRoom"));
-        startDate.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
-        endDate.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
+        startDate.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
+        endDate.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
         tableView.setItems(viewModel.getTable());
     }
+
 }

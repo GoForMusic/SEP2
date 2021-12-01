@@ -2,6 +2,7 @@ package client.model.rooms;
 
 import shared.utils.Request;
 import shared.utils.Subject;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -20,7 +21,7 @@ public interface RoomsModel extends Subject {
      * @param dateTo   the date to search upto
      * @param roomType the category of the room
      */
-    void searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
+    Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
     String getDescriptionByCategory(RoomType roomType);
 
@@ -35,4 +36,14 @@ public interface RoomsModel extends Subject {
     Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate);
 
     Request searchByUsername(String username);
+
+    Reservation getSelectedReservation();
+
+    void setSelectedReservation(Reservation reservation);
+
+    void setTempUsername(String text);
+
+    String getUsername();
+
+    Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
 }
