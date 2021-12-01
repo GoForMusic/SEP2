@@ -19,26 +19,27 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void updateCustomer(Customer customer, String oldUsername) {
-        try(Connection connection = DataBaseConnection.getConnection()){
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"User\" WHERE \"username\"=?;");
-            statement.setString(1,oldUsername);
-
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()){
-                String firstname = resultSet.getString("firstname");
-                String lastname =resultSet.getString("lastname");
-                String password = resultSet.getString("password");
-                connection.close();
-                return new Customer(firstname,lastname,username,password);
-            }
-            else{
-                connection.close();
-            }
-        }catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-        }
+//        try(Connection connection = DataBaseConnection.getConnection()){
+//            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"User\" WHERE \"username\"=?;");
+//            statement.setString(1,oldUsername);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            if (resultSet.next()){
+//                String firstname = resultSet.getString("firstname");
+//                String lastname =resultSet.getString("lastname");
+//                String password = resultSet.getString("password");
+//                connection.close();
+//                return new Customer(firstname,lastname,username,password);
+//            }
+//            else{
+//                connection.close();
+//            }
+//        }catch (SQLException e)
+//        {
+//            System.out.println(e.getMessage());
+//        }
     }
+
 
     @Override
     public void removeCustomer(Customer customer) {

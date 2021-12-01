@@ -3,27 +3,37 @@ package client.view.receptionist.mainView;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
-import java.awt.event.MouseEvent;
 
 public class MainViewReceptionistController implements ViewController {
 
-    public BorderPane customerBorderPane;
     private ViewHandler viewHandler;
-
+    @FXML
+    private BorderPane borderPane;
 
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
-        this.viewHandler = viewHandler;
+        this.viewHandler = vh;
     }
 
 
     @FXML
-    private void clickedCreateCustomer(MouseEvent mouseEvent)
-    {
+    private void clickedCreateCustomer(ActionEvent mouseEvent) {
+
+    }
+
+    @FXML
+    private void reservation(ActionEvent actionEvent) {
+       borderPane.setCenter(viewHandler.getReceptionistReservation());
+    }
+
+    @FXML
+    private void home(ActionEvent event) {
 
     }
 }
