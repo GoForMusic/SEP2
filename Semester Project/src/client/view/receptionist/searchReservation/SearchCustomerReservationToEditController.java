@@ -56,8 +56,6 @@ public class SearchCustomerReservationToEditController implements ViewController
              anchorPane.getChildren().setAll(viewHandler.getEditReservation());
          }
     }
-
-
     private void initializeTable() {
         room.setCellValueFactory(new PropertyValueFactory<Reservation, String>("tempRoom"));
         startDate.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
