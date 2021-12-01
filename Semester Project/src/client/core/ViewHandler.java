@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,6 +22,7 @@ public class ViewHandler
   private Stage stage;
   private ViewModelFactory vmf;
   private Scene adminMainView;
+  private Scene receptionistMainView;
 
   public ViewHandler(ViewModelFactory vmf, Stage stage)
   {
@@ -33,9 +35,10 @@ public class ViewHandler
   {
     //  stage = new Stage();
 
-    // openLogin();
-      openAdminMainView();
+     openLogin();
+    //  openAdminMainView();
     //   openCustomerMainView();
+    //openReceptionistMainView();
   }
 
   /**
@@ -80,6 +83,20 @@ public class ViewHandler
     stage.setScene(adminMainView);
     stage.show();
   }
+
+  //To Load ReceptionistMainView
+  public void openReceptionistMainView()
+  {
+    if (receptionistMainView == null)
+    {
+      Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
+      receptionistMainView = new Scene(root);
+      stage.setTitle("Receptionist");
+    }
+    stage.setScene(receptionistMainView);
+    stage.show();
+
+  }
   //    private void test(){
   //        Parent root = getSingleRoom();
   //        Scene scene = new Scene(root);
@@ -110,6 +127,7 @@ public class ViewHandler
   public Parent getAdminCreateAccount(){
     return loadFXML("../view/admin/createAccount/CreateAccount.fxml");
   }
+  public Parent getReceptionistCreateCustomerAccount()  { return loadFXML("../view/receptionist/CreateCustomerAccount/CreateAccount.fxml");}
   private Parent loadFXML(String path)
   {
     FXMLLoader loader = new FXMLLoader();
@@ -131,5 +149,9 @@ public class ViewHandler
   public Parent getRoomList()
   {
     return loadFXML("../view/bookRooms/BookRoom.fxml");
+  }
+
+  public Node getCustomerList() {
+    return null;
   }
 }

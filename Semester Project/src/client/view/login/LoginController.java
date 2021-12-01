@@ -138,6 +138,8 @@ public class LoginController implements ViewController {
       String temp= loginViewModel.login();
       if (temp.equals(Usertype.CUSTOMER.toString())){
           viewHandler.openCustomerMainView();
+      }else if(temp.equals(Usertype.RECEPTIONIST.toString())){
+          viewHandler.openReceptionistMainView();
       }
     }
 
