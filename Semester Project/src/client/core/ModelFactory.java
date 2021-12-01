@@ -38,18 +38,17 @@ public class ModelFactory {
         return createModel;
     }
 
-    public CustomerModel getCustomerModel() {
-        if (customerModel == null) {
-            customerModel = new CustomerModelImpl(clientFactory.getCustomerInfoClient());
-        }
-        return customerModel;
-    }
-
-    public RoomsModel getViewRoomsModel() {
+    public RoomsModel getRoomsModel() {
         if (roomsModel == null) {
             roomsModel = new RoomsModelImpl(clientFactory.getViewRoomCLient());
         }
         return roomsModel;
     }
 
+    public CustomerModel getCustomerModel() {
+        if (customerModel==null){
+            customerModel= new CustomerModelImpl(clientFactory.getCustomerInfoClient());
+        }
+        return customerModel;
+    }
 }

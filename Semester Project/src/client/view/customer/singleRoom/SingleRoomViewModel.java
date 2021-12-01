@@ -14,7 +14,7 @@ public class SingleRoomViewModel {
     private RoomsModel roomsModel;
 
     public SingleRoomViewModel(ModelFactory modelFactory) {
-        this.roomsModel = modelFactory.getViewRoomsModel();
+        this.roomsModel = modelFactory.getRoomsModel();
         initializeValues();
         getDescriptionByCategory();
         getPriceByCategory();

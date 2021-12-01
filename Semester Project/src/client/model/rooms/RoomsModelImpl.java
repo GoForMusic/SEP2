@@ -112,6 +112,11 @@ public class RoomsModelImpl implements RoomsModel {
     }
 
     @Override
+    public Request searchByUsername(String username) {
+       return client.searchByUsername(username);
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }

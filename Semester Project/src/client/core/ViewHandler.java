@@ -23,36 +23,32 @@ public class ViewHandler {
     private ViewModelFactory vmf;
     private Scene adminMainView;
 
-  public ViewHandler(ViewModelFactory vmf, Stage stage)
-  {
-    this.vmf = vmf;
-    this.stage = stage;
-    stage.setResizable(false);
-  }
-
-  public void start()
-  {
-    //  stage = new Stage();
-
-     openLogin();
-      //openAdminMainView();
-    //   openCustomerMainView();
-  }
-
-  /**
-   * Opens the login scene in a new Stage
-   */
-  public void openLogin()
-  {
-    if (loginScene == null)
-    {
-      Parent root = loadFXML("../view/login/Login.fxml");
-      loginScene = new Scene(root);
-      stage.setTitle("Login");
+    public ViewHandler(ViewModelFactory vmf, Stage stage) {
+        this.vmf = vmf;
+        this.stage = stage;
+        stage.setResizable(false);
     }
-    stage.setScene(loginScene);
-    stage.show();
-  }
+
+    public void start() {
+      stage = new Stage();
+      openLogin();
+    }
+
+
+    /**
+     * Opens the login scene in a new Stage
+     */
+    public void openLogin() {
+        if (loginScene == null) {
+            Parent root = loadFXML("../view/login/Login.fxml");
+            loginScene = new Scene(root);
+            stage.setTitle("Login");
+        }
+        stage.setScene(loginScene);
+        stage.show();
+    }
+
+
 
   /**
    * Opens the main view for customers
@@ -144,7 +140,11 @@ public class ViewHandler {
   }
 
     public Parent getRoomList() {
-      return loadFXML("../view/bookRooms/BookRoom.fxml");
+        return loadFXML("../view/bookRooms/BookRoom.fxml");
+    }
+
+    public Parent getSearchReservation() {
+        return loadFXML("../view/receptionist/searchReservation/SearchCustomerReservation.fxml");
     }
 
 

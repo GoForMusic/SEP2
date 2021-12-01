@@ -26,4 +26,6 @@ public interface RoomHandler extends Subject {
     String getPriceByCategory(RoomType roomType);
 
     Request bookRoom(Reservation reservation);
+
+    Request searchByUsername(String username);
 }
