@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -146,13 +147,12 @@ public class ViewHandler {
       return loadFXML("../view/bookRooms/BookRoom.fxml");
     }
 
-    public void openReceptionistMainView() {
-        if(receptionistMainView == null){
-            Parent root = loadFXML("../view/receptionist/mainView/MainViewReceptionist.fxml");
-            receptionistMainView = new Scene(root);
-            stage.setTitle("ReceptionistView");
-        }
-        stage.setScene(receptionistMainView);
-        stage.show();
-    }
+
+  public Parent getCustomerList() {
+    return loadFXML("../view/receptionist/customerList/customerList.fxml");
+  }
+
+  public Parent getReceptionistCreateCustomerAccount() {
+    return loadFXML("../view/receptionist/CreateCustomerAccount/CreateAccount.fxml");
+  }
 }
