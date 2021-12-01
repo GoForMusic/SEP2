@@ -15,10 +15,11 @@ import java.io.IOException;
  */
 
 public class ViewHandler {
-    private Scene customerMainView;
+    private Scene customerMainView, receptionistMainView;
     private Scene loginScene;
     private Stage stage;
     private ViewModelFactory vmf;
+
 
     public ViewHandler(ViewModelFactory vmf,Stage stage) {
         this.vmf = vmf;
@@ -100,5 +101,15 @@ public class ViewHandler {
 
     public Parent getRoomList() {
       return loadFXML("../view/bookRooms/BookRoom.fxml");
+    }
+
+    public void openReceptionistMainView() {
+        if(receptionistMainView == null){
+            Parent root = loadFXML("../view/receptionist/MainViewReceptionist.fxml");
+            receptionistMainView = new Scene(root);
+            stage.setTitle("ReceptionistView");
+        }
+        stage.setScene(receptionistMainView);
+        stage.show();
     }
 }
