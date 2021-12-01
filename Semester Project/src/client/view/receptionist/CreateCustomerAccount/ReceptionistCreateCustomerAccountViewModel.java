@@ -4,6 +4,7 @@ import client.core.ModelFactory;
 import client.model.create.CreateModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.utils.User.Usertype;
 
 import java.util.Locale;
 
@@ -13,6 +14,21 @@ public class ReceptionistCreateCustomerAccountViewModel {
     private CreateModel createModel;
 
 
+
+    public ReceptionistCreateCustomerAccountViewModel(ModelFactory modelFactory) {
+        this.modelFactory = modelFactory;
+        createModel = modelFactory.getCreateModel();
+        initializeAllProperties();
+    }
+
+    private void initializeAllProperties() {
+
+        firstName = new SimpleStringProperty();
+        lastName = new SimpleStringProperty();
+        userName = new SimpleStringProperty();
+        password = new SimpleStringProperty();
+        errorLabel = new SimpleStringProperty();
+    }
     public javafx.beans.property.StringProperty getFirstNameProperty() {
         return firstName;
     }
@@ -33,21 +49,6 @@ public class ReceptionistCreateCustomerAccountViewModel {
         return errorLabel;
     }
 
-    public ReceptionistCreateCustomerAccountViewModel(ModelFactory modelFactory) {
-        this.modelFactory = modelFactory;
-        createModel = modelFactory.getCreateModel();
-        initializeAllProperties();
-    }
-
-    private void initializeAllProperties() {
-
-        firstName = new SimpleStringProperty();
-        lastName = new SimpleStringProperty();
-        userName = new SimpleStringProperty();
-        password = new SimpleStringProperty();
-        errorLabel = new SimpleStringProperty();
-    }
-
     public String createAccount() {
         if (userName.get() == null || userName.get().isEmpty()) {
             errorLabel.set("Username cannot be empty..");
@@ -60,10 +61,10 @@ public class ReceptionistCreateCustomerAccountViewModel {
             errorLabel.set("Password cannot be empty..");
 
         } else {
+            // If everything is okkie dokkie boys and girls
             String response = createModel.addUser(firstName.get(),
-                    lastName.get(), userName.get(), password.get(), userType.get().toUpperCase(
-                            Locale.ROOT)
-            );
+                    lastName.get(), userName.get(), password.get(), Usertype.CUSTOMER.toString());
+
             if (!response.equals("Approved")) {
                 errorLabel.set(response);
                 clearUsernameAndPassword();
