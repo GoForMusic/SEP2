@@ -10,12 +10,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import server.database.Reservation.ReservationDAOImp;
 import shared.utils.Observer;
 import shared.utils.Request;
 import shared.utils.User.Usertype;
 import shared.utils.room.Room;
 
 import java.beans.PropertyChangeEvent;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class BookRoomViewModel {
     private BooleanProperty showTextField;
     private StringProperty usernameUsedByReceptionist;
 
+  //  private ReservationDAOImp reservationDAOImp;
+
     public BookRoomViewModel(ModelFactory modelFactory) {
         roomsModel = modelFactory.getViewRoomsModel();
         this.loginModel = modelFactory.getLoginModel();
@@ -38,6 +42,7 @@ public class BookRoomViewModel {
         showTextField= new SimpleBooleanProperty();
         usernameUsedByReceptionist= new SimpleStringProperty();
         doActionOnTextField();
+
     }
 
     private void doActionOnTextField() {
@@ -68,12 +73,11 @@ public class BookRoomViewModel {
         }else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST)){
             Request request = roomsModel.bookRoom(usernameUsedByReceptionist.get(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
             error.set(request.getType());
-
-
         }
 
-
     }
+
+
 
     public void setSelectedRoom(ObservableList<Room> selectedRooms) {
         for (Room i : selectedRooms
