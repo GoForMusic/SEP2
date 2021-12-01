@@ -45,4 +45,10 @@ public class ModelFactory {
         return roomsModel;
     }
 
+    public CustomerModel getCustomerModel() {
+        if (customerModel==null){
+            customerModel= new CustomerModelImpl(clientFactory.getCustomerInfoClient());
+        }
+        return customerModel;
+    }
 }
