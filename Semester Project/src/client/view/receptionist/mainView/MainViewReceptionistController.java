@@ -5,6 +5,7 @@ import client.core.ViewModelFactory;
 import client.view.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -35,5 +36,10 @@ public class MainViewReceptionistController implements ViewController {
     @FXML
     private void home(ActionEvent event) {
 
+    }
+
+    @FXML
+    private  void clickedBook(MouseEvent mouseEvent) {
+        borderPane.setCenter(viewHandler.getViewRoom());
     }
 }

@@ -16,4 +16,6 @@ public interface CreateDAO {
      * @return the string of what happened at the database
      */
     String addUser(String firstname, String lastname, String username, String password, String userType);
+
+
 }

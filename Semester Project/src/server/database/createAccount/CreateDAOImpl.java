@@ -18,6 +18,7 @@ public class CreateDAOImpl implements CreateDAO {
         }
     }
 
+
     @Override
     public String addUser(String firstname, String lastname, String username, String password, String userType) {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -42,4 +43,9 @@ public class CreateDAOImpl implements CreateDAO {
             return throwables.getMessage();
         }
     }
+
+
+
+
+
 }

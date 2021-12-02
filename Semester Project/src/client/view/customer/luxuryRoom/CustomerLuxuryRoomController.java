@@ -34,7 +34,7 @@ public class CustomerLuxuryRoomController implements ViewController {
         this.viewHandler = vh;
         this.viewModel = vmf.getLuxuryRoomViewModel();
         customerLuxuryDateFrom.valueProperty().bindBidirectional(viewModel.getDateFrom());
-        customerLuxuryDateTo.valueProperty().bindBidirectional(viewModel.getDateFrom());
+        customerLuxuryDateTo.valueProperty().bindBidirectional(viewModel.getDateTo());
         price.textProperty().bind(viewModel.getPrice());
         description.textProperty().bind(viewModel.getDescription());
         disablePast(customerLuxuryDateFrom);

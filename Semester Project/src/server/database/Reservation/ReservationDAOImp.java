@@ -44,7 +44,7 @@ public class ReservationDAOImp implements ReservationDAO {
             statement.executeUpdate();
             return new Request("Room is booked", null);
         } catch (SQLException throwables) {
-            return new Request(throwables.getMessage(), null);
+            return new Request("Username doesnt exist", null);
         }
     }
 
