@@ -8,7 +8,8 @@ import shared.utils.room.RoomType;
 import java.time.LocalDate;
 
 public class SingleRoomViewModel {
-    private ObjectProperty<LocalDate> dateFrom, dateTo;
+    private ObjectProperty<LocalDate> dateFrom;
+    private ObjectProperty<LocalDate> dateTo;
     private StringProperty description;
     private StringProperty price;
     private RoomsModel roomsModel;
@@ -49,7 +50,7 @@ public class SingleRoomViewModel {
         dateFrom = new SimpleObjectProperty<>();
         dateFrom.set(LocalDate.now());
         dateTo = new SimpleObjectProperty<>();
-        dateTo.set(LocalDate.now());
+        dateTo.set(LocalDate.now().plusDays(1));
         description = new SimpleStringProperty();
         price = new SimpleStringProperty();
     }

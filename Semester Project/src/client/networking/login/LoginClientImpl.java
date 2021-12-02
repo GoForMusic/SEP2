@@ -18,6 +18,7 @@ public class LoginClientImpl implements LoginClient{
         try {
             return server.getLoginServer().isLoginPossible(username,password);
         } catch (Exception e){
+            e.printStackTrace();
             return new Request("Cannot connect to server",null);
         }
 
