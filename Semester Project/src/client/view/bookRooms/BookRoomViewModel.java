@@ -10,12 +10,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import server.database.Reservation.ReservationDAOImp;
 import shared.utils.Observer;
 import shared.utils.Request;
 import shared.utils.User.Usertype;
 import shared.utils.room.Room;
 
 import java.beans.PropertyChangeEvent;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,28 +29,26 @@ public class BookRoomViewModel {
     private StringProperty error;
     private BooleanProperty showTextField;
     private StringProperty usernameUsedByReceptionist;
-    //  private BookARoom bookARoom;
 
-    //  private ReservationDAOImp reservationDAOImp;
+  //  private ReservationDAOImp reservationDAOImp;
 
     public BookRoomViewModel(ModelFactory modelFactory) {
-        roomsModel = modelFactory.getViewRoomsdel();
+        roomsModel = modelFactory.getViewRoomsModel();
         this.loginModel = modelFactory.getLoginModel();
-        //   this.bookARoom = modelFactory.getBookARoomModel();
         listRooms = FXCollections.observableArrayList();
-        selectedRooms = new ArrayList<>();
+        selectedRooms= new ArrayList<>();
         roomsModel.addListener(Observer.AVAILABLEROOMS.toString(), this::roomFromServer);
         error = new SimpleStringProperty();
-        showTextField = new SimpleBooleanProperty();
-        usernameUsedByReceptionist = new SimpleStringProperty();
+        showTextField= new SimpleBooleanProperty();
+        usernameUsedByReceptionist= new SimpleStringProperty();
         doActionOnTextField();
 
     }
 
     private void doActionOnTextField() {
-        if (loginModel.getUserType().equals(Usertype.CUSTOMER.toString())) {
+        if (loginModel.getUserType().equals(Usertype.CUSTOMER.toString())){
             showTextField.set(false);
-        } else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())) {
+        }else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())){
             showTextField.set(true);
         }
     }
@@ -67,17 +67,16 @@ public class BookRoomViewModel {
     }
 
     public void bookRoom() {
-        if (loginModel.getUserType().equals(Usertype.CUSTOMER.toString())) {
+        if (loginModel.getUserType().equals(Usertype.CUSTOMER)){
             Request request = roomsModel.bookRoom(loginModel.getUsername(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
             error.set(request.getType());
-        } else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())) {
-            System.out.println(usernameUsedByReceptionist.get());
+        }else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST)){
             Request request = roomsModel.bookRoom(usernameUsedByReceptionist.get(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
             error.set(request.getType());
         }
 
-
     }
+
 
 
     public void setSelectedRoom(ObservableList<Room> selectedRooms) {
@@ -86,8 +85,7 @@ public class BookRoomViewModel {
             this.selectedRooms.add(i);
         }
     }
-
-    public BooleanProperty showStatus() {
+    public BooleanProperty showStatus(){
         return showTextField;
     }
 
