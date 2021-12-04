@@ -1,8 +1,8 @@
-package client.model.chat;
+package shared.networking.serverInterfaces;
 
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
-public interface ChatModel {
+public interface ChatServer {
     Request sendMessage(Message message);
 }
