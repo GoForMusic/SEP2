@@ -1,5 +1,7 @@
 package client.core;
 
+import client.model.chat.ChatModel;
+import client.model.chat.ChatModelImpl;
 import client.model.create.CreateImpl;
 import client.model.create.CreateModel;
 import client.model.customer.CustomerModel;
@@ -19,6 +21,7 @@ public class ModelFactory {
     private CreateModel createModel;
     private RoomsModel roomsModel;
     private CustomerModel customerModel;
+    private ChatModel chatModel;
 
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
@@ -50,5 +53,12 @@ public class ModelFactory {
             customerModel= new CustomerModelImpl(clientFactory.getCustomerInfoClient());
         }
         return customerModel;
+    }
+
+    public ChatModel getChatModel() {
+        if (chatModel == null) {
+            chatModel = new ChatModelImpl(clientFactory.getChatClient());
+        }
+        return chatModel;
     }
 }
