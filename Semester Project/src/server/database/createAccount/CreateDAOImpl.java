@@ -21,6 +21,7 @@ public class CreateDAOImpl implements CreateDAO {
 
     @Override
     public String addUser(String firstname, String lastname, String username, String password, String userType) {
+        //FIXME to make the parameter
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * from \"User\" where \"username\"=?;");
             statement.setString(1,username);

@@ -3,6 +3,7 @@ package client.core;
 import client.view.admin.createAccount.AdminCreateAccountViewModel;
 import client.view.bookRooms.BookRoomViewModel;
 import client.view.cleaner.CleanerHomePageViewModel;
+import client.view.chat.ChatViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.overview.overviewViewModel;
@@ -34,6 +35,7 @@ public class ViewModelFactory {
     private EditReservationViewModel editReservationViewModel;
     private overviewViewModel overviewViewModel;
     private CleanerHomePageViewModel cleanerHomePageViewModel;
+    private ChatViewModel chatViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -127,5 +129,12 @@ public class ViewModelFactory {
             cleanerHomePageViewModel =new CleanerHomePageViewModel(modelFactory);
         }
         return cleanerHomePageViewModel;
+    }
+
+    public ChatViewModel getChatViewModel() {
+        if (chatViewModel == null) {
+            chatViewModel = new ChatViewModel(modelFactory);
+        }
+        return chatViewModel;
     }
 }

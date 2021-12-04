@@ -1,6 +1,7 @@
 package client.core;
 
-
+import client.model.chat.ChatModel;
+import client.model.chat.ChatModelImpl;
 import client.model.create.CreateImpl;
 import client.model.create.CreateModel;
 import client.model.customer.CustomerModel;
@@ -9,7 +10,6 @@ import client.model.login.LoginModel;
 import client.model.login.LoginModelImpl;
 import client.model.rooms.RoomsModel;
 import client.model.rooms.RoomsModelImpl;
-import client.view.bookRooms.BookRoomViewModel;
 
 /**
  * @author Sachin Baral
@@ -21,9 +21,7 @@ public class ModelFactory {
     private CreateModel createModel;
     private RoomsModel roomsModel;
     private CustomerModel customerModel;
-
-
-
+    private ChatModel chatModel;
 
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
@@ -57,11 +55,10 @@ public class ModelFactory {
         return customerModel;
     }
 
-    public RoomsModel getViewRoomsdel() {
-        if (roomsModel==null){
-            roomsModel= new RoomsModelImpl(clientFactory.getRoomsClient());
+    public ChatModel getChatModel() {
+        if (chatModel == null) {
+            chatModel = new ChatModelImpl(clientFactory.getChatClient());
         }
-        return roomsModel;
+        return chatModel;
     }
-
 }

@@ -59,6 +59,7 @@ public class SearchReservationViewModel {
             }
 
             error.set(request.getType());
+            
         }
         table.setAll(reservations);
     }
