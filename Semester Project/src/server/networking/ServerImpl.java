@@ -3,7 +3,6 @@ package server.networking;
 
 import shared.networking.serverInterfaces.*;
 
-
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -16,18 +15,20 @@ public class ServerImpl implements Server {
     private CreateAccountServer createAccountServer;
     private RoomServer roomServer;
     private CustomerListServer customerListServer;
+    private ChatServer chatServer;
 
-    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer, CustomerListServer customerListServer) throws RemoteException {
+    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer, CustomerListServer customerListServer,ChatServer chatServer) throws RemoteException {
         this.loginServer = loginServer;
-        this.createAccountServer=createAccountServer;
+        this.createAccountServer = createAccountServer;
         this.roomServer = roomServer;
         this.customerListServer = customerListServer;
-        UnicastRemoteObject.exportObject(this,0);
+        this.chatServer=chatServer;
+        UnicastRemoteObject.exportObject(this, 0);
     }
 
     public void startServer() throws AlreadyBoundException, RemoteException {
-        Registry registry= LocateRegistry.createRegistry(1099);
-        registry.bind("Server",this);
+        Registry registry = LocateRegistry.createRegistry(1099);
+        registry.bind("Server", this);
         System.out.println("Server started.....");
     }
 
@@ -42,6 +43,11 @@ public class ServerImpl implements Server {
     }
 
     @Override
+    public ChatServer getChatServer() throws RemoteException {
+        return chatServer;
+    }
+
+    @Override
     public LoginServer getLoginServer() throws RemoteException {
         return loginServer;
     }
@@ -50,4 +56,5 @@ public class ServerImpl implements Server {
     public CreateAccountServer getCreateAccountServer() throws RemoteException {
         return createAccountServer;
     }
+
 }

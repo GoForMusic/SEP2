@@ -10,4 +10,5 @@ public interface Server extends Remote {
     void startServer() throws RemoteException, AlreadyBoundException;
     RoomServer getRoomsServer() throws RemoteException;
     CustomerListServer getCustomerListServer() throws RemoteException;
+    ChatServer getChatServer() throws RemoteException;
 }
