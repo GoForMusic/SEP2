@@ -18,9 +18,9 @@ public class ChatClientImpl implements ChatClient {
     @Override
     public Request sendMessage(Message message) {
         try {
-           return server.getChatServer().sendMessage(message);
+            return server.getChatServer().sendMessage(message);
         } catch (RemoteException e) {
-            return new Request("Cannot connect to server",null);
+            return new Request("Cannot connect to server", null);
         }
     }
 
@@ -29,7 +29,7 @@ public class ChatClientImpl implements ChatClient {
         try {
             return server.getChatServer().getAllReceptionists();
         } catch (RemoteException e) {
-            return new Request("Cannot connect to server",null);
+            return new Request("Cannot connect to server", null);
         }
     }
 
@@ -38,7 +38,8 @@ public class ChatClientImpl implements ChatClient {
         try {
             return server.getChatServer().getAllCustomersWhoWantsToChat(username);
         } catch (RemoteException e) {
-            return new Request("Cannot connect to server",null);
+            e.printStackTrace();
+            return new Request("Cannot connect to server", null);
         }
     }
 }
