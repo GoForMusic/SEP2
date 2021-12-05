@@ -59,32 +59,18 @@ public class ChatRoomController implements ViewController {
     @FXML
     private Button btnClose;
 
-
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
+        viewModel = vmf.getChatViewModel();
+        manageEmojiList();
         bindEverything();
 
-        for (Node text : emojiList.getChildren()
-        ) {
-            text.setOnMouseClicked(mouseEvent -> {
-                txtMsg.setText(txtMsg.getText() + " " + ((Text) text).getText());
-                viewModel.makeEmojiInVisible();
-            });
-        }
-        scrollPane.vvalueProperty().bind(chatBox.heightProperty());
-
-    }
-
-    private void bindEverything() {
-        emojiList.visibleProperty().bind(viewModel.getEmojiProperty());
-        txtMsg.textProperty().bindBidirectional(viewModel.getMessage());
     }
 
     @FXML
     private void sendAction(ActionEvent event) {
         viewModel.sendMessage();
-
     }
 
     @FXML
@@ -96,4 +82,19 @@ public class ChatRoomController implements ViewController {
             viewModel.makeEmojiVisible();
         }
     }
+    private void manageEmojiList() {
+        for (Node text : emojiList.getChildren()
+        ) {
+            text.setOnMouseClicked(mouseEvent -> {
+                txtMsg.setText(txtMsg.getText() + " " + ((Text) text).getText());
+                viewModel.makeEmojiInVisible();
+            });
+        }
+        scrollPane.vvalueProperty().bind(chatBox.heightProperty());
+    }
+    private void bindEverything() {
+        emojiList.visibleProperty().bind(viewModel.getEmojiProperty());
+        txtMsg.textProperty().bindBidirectional(viewModel.getMessage());
+    }
+
 }

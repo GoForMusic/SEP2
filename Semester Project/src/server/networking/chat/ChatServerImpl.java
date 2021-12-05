@@ -11,11 +11,21 @@ public class ChatServerImpl implements ChatServer {
 
 
     public ChatServerImpl(ChatHandler chatHandler) {
-        this.chatHandler=chatHandler;
+        this.chatHandler = chatHandler;
     }
 
     @Override
     public Request sendMessage(Message message) {
         return chatHandler.sendMessage(message);
+    }
+
+    @Override
+    public Request getAllReceptionists() {
+        return chatHandler.getAllReceptionists();
+    }
+
+    @Override
+    public Request getAllCustomersWhoWantsToChat(String username) {
+        return chatHandler.getAllCustomersWhoWantsToChat(username);
     }
 }

@@ -10,19 +10,18 @@ import javafx.beans.property.StringProperty;
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
+
 public class ChatViewModel {
     private BooleanProperty emoji;
-    private StringProperty message;
+    private StringProperty message, usernameReceiver;
     private ChatModel chatModel;
     private LoginModel loginModel;
 
     public ChatViewModel(ModelFactory modelFactory) {
-        this.chatModel=modelFactory.getChatModel();
-        this.loginModel= modelFactory.getLoginModel();
-        emoji = new SimpleBooleanProperty();
-        message = new SimpleStringProperty();
+        this.chatModel = modelFactory.getChatModel();
+        this.loginModel = modelFactory.getLoginModel();
+        initializeProperties();
     }
-
     public void makeEmojiInVisible() {
         emoji.set(false);
     }
@@ -45,7 +44,21 @@ public class ChatViewModel {
 
     public void sendMessage() {
         if (message.get().equals("")) return;
-        Request request = chatModel.sendMessage(new Message(loginModel.getUsername(), true,message.get()));
+        Request request = chatModel.sendMessage(new Message(loginModel.getUsername(), usernameReceiver.get(),message.get()));
         message.set("");
     }
+
+    private void initializeProperties() {
+        emoji = new SimpleBooleanProperty();
+        emoji.set(false);
+        message = new SimpleStringProperty();
+        usernameReceiver = new SimpleStringProperty();
+    }
+    private Request getALlReceptionists(){
+        return chatModel.getAllReceptionists();
+    }
+    private Request getCustomers(){
+        return chatModel.getAllCustomersWhoWantsToChat(loginModel.getUsername());
+    }
+
 }

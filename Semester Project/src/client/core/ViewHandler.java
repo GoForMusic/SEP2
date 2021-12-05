@@ -30,8 +30,8 @@ public class ViewHandler {
 
     public void start() {
         stage = new Stage();
-       openLogin();
-     //   openReceptionistMainView();
+        openLogin();
+//        openReceptionistMainView();
     }
 
 
@@ -164,6 +164,9 @@ public class ViewHandler {
 
     public Parent getEditReservation() {
         return loadFXML("../view/receptionist/editReservation/EditReservation.fxml");
+    }
+    public Parent getChatView(){
+        return loadFXML("../view/chat/ChatRoom.fxml");
     }
     public Parent getCustomerOverview(){
         return loadFXML("../view/customer/overview/overview.fxml");

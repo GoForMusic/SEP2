@@ -23,4 +23,22 @@ public class ChatClientImpl implements ChatClient {
             return new Request("Cannot connect to server",null);
         }
     }
+
+    @Override
+    public Request getAllReceptionists() throws Exception {
+        try {
+            return server.getChatServer().getAllReceptionists();
+        } catch (RemoteException e) {
+            return new Request("Cannot connect to server",null);
+        }
+    }
+
+    @Override
+    public Request getAllCustomersWhoWantsToChar(String username) {
+        try {
+            return server.getChatServer().getAllCustomersWhoWantsToChat(username);
+        } catch (RemoteException e) {
+            return new Request("Cannot connect to server",null);
+        }
+    }
 }
