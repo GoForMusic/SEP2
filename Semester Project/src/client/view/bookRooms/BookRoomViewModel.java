@@ -30,10 +30,10 @@ public class BookRoomViewModel {
     private BooleanProperty showTextField;
     private StringProperty usernameUsedByReceptionist;
 
-  //  private ReservationDAOImp reservationDAOImp;
+   private ReservationDAOImp reservationDAOImp;
 
     public BookRoomViewModel(ModelFactory modelFactory) {
-        roomsModel = modelFactory.getViewRoomsModel();
+       roomsModel = modelFactory.getViewRoomsdel();
         this.loginModel = modelFactory.getLoginModel();
         listRooms = FXCollections.observableArrayList();
         selectedRooms= new ArrayList<>();

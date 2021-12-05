@@ -42,19 +42,26 @@ public class CustomerHomePageController implements ViewController {
 
     }
 
-  //  public void clickedBookButton(MouseEvent mouseEvent) {
+    //  public void clickedBookButton(MouseEvent mouseEvent) {
 
-   // }
+    // }
 
 
     @FXML
-    private void clickedBookButton(MouseEvent mouseEvent){
-        try{
+    private void clickedBookButton(MouseEvent mouseEvent) {
+        try {
             receptionistBorderPane.setCenter(viewHandler.getViewRoom());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @FXML
+    private void clickedOverview(MouseEvent mouseEvent) {
+        try {
+            customerBorderPane.setCenter(viewHandler.getCustomerOverview());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
