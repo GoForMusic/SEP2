@@ -112,10 +112,10 @@ public class ChatViewModel {
             clientContainer.setPadding(new Insets(3));
             clientContainer.setPrefWidth(clientListBoxPrefWidth);
             clientContainer.getStyleClass().add("online-user-container");
-            Circle img = new Circle(30, 30, 15);
-            String path = new File(String.format("user.png", client)).toURI().toString();
-            img.setFill(new ImagePattern(new Image(path)));
-            clientContainer.getChildren().add(img);
+//            Circle img = new Circle(30, 30, 15);
+//            String path = new File(String.format("user.png", client)).toURI().toString();
+//            img.setFill(new ImagePattern(new Image(path)));
+//            clientContainer.getChildren().add(img);
 
             VBox userDetailContainer = new VBox();
             userDetailContainer.setPrefWidth(clientListBoxPrefWidth);

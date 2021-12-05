@@ -14,4 +14,4 @@ public interface ChatClient {
 
     Request getAllReceptionists() throws Exception;
 
-    Request getAllCustomersWhoWantsToChar(String username);}
+    Request getAllCustomersWhoWantsToChat(String username);}

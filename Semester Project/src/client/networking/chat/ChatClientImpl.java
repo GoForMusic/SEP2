@@ -5,6 +5,7 @@ import shared.networking.serverInterfaces.Server;
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 
 public class ChatClientImpl implements ChatClient {
@@ -34,7 +35,7 @@ public class ChatClientImpl implements ChatClient {
     }
 
     @Override
-    public Request getAllCustomersWhoWantsToChar(String username) {
+    public Request getAllCustomersWhoWantsToChat(String username) {
         try {
             return server.getChatServer().getAllCustomersWhoWantsToChat(username);
         } catch (RemoteException e) {

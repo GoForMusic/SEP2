@@ -3,10 +3,13 @@ package shared.networking.serverInterfaces;
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
-public interface ChatServer {
-    Request sendMessage(Message message);
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-    Request getAllReceptionists();
+public interface ChatServer extends Remote {
+    Request sendMessage(Message message) throws RemoteException;
 
-    Request getAllCustomersWhoWantsToChat(String username);
+    Request getAllReceptionists()throws RemoteException;
+
+    Request getAllCustomersWhoWantsToChat(String username) throws RemoteException;
 }

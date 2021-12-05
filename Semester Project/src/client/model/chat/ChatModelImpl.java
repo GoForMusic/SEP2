@@ -29,6 +29,6 @@ public class ChatModelImpl implements ChatModel {
 
     @Override
     public Request getAllCustomersWhoWantsToChat(String username) {
-        return chatClient.getAllCustomersWhoWantsToChar(username);
+        return chatClient.getAllCustomersWhoWantsToChat(username);
     }
 }
