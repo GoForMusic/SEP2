@@ -65,7 +65,9 @@ public class ChatRoomController implements ViewController {
         viewModel = vmf.getChatViewModel();
         manageEmojiList();
         bindEverything();
-
+        viewModel.setClientListBoxPrefWidth(clientListBox.getPrefWidth());
+        clientListBox.getChildren().clear();
+        clientListBox.getChildren().add(viewModel.getClientContainer());
     }
 
     @FXML

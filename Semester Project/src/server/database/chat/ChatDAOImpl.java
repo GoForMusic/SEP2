@@ -78,6 +78,7 @@ public class ChatDAOImpl implements ChatDAO {
             }
             return new Request("Customers wanting to chat",customers);
         } catch (SQLException throwables) {
+            throwables.printStackTrace();
             throw new Exception(throwables.getMessage());
         }
     }

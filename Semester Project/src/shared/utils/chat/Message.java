@@ -1,10 +1,12 @@
 package shared.utils.chat;
 
+import java.io.Serializable;
+
 /**
  * @author Sachin Baral
  * Message object used for chatting
  */
-public class Message {
+public class Message implements Serializable {
     private String userNameSender;
     private String userNameReceiver;
     private String messageBody;
