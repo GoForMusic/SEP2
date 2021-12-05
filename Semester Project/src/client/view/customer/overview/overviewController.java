@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import shared.utils.reservation.Reservation;
@@ -28,7 +29,7 @@ public class overviewController implements ViewController {
     @FXML
     private TableColumn<Reservation, LocalDate> endDate;
     public AnchorPane customerAnchorPane;
-    private SearchReservationViewModel viewModel;
+    private overviewViewModel overviewViewModel;
 
 
 
@@ -37,10 +38,20 @@ public class overviewController implements ViewController {
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
-        viewModel = vmf.getSearchReservationViewModel();
+        overviewViewModel = vmf.getOverviewViewModel();
+        initializeTable();
+
+    }
+
+    private void initializeTable(){
+        room.setCellValueFactory(new PropertyValueFactory<Reservation, String>("tempRoom"));
+        startDate.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
+        endDate.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
+        tableView.setItems(overviewViewModel.getTable());
+    }
+
 
     }
 
 
 
-}

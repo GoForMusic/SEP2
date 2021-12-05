@@ -66,4 +66,7 @@ public class SearchReservationViewModel {
     public void setUsername(String text) {
         roomsModel.setTempUsername(text);
     }
-}
+
+
+    }
+

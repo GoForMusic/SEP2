@@ -46,4 +46,6 @@ public interface RoomsModel extends Subject {
     String getUsername();
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
+
+
 }

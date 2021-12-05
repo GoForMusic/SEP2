@@ -4,6 +4,7 @@ import client.view.admin.createAccount.AdminCreateAccountViewModel;
 import client.view.bookRooms.BookRoomViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
+import client.view.customer.overview.overviewViewModel;
 import client.view.customer.singleRoom.SingleRoomViewModel;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
@@ -30,6 +31,7 @@ public class ViewModelFactory {
     private AdminCreateAccountViewModel adminCreateAccountViewModel;
     private ReceptionistCreateCustomerAccountViewModel receptionistCreateCustomerAccountViewModel;
     private EditReservationViewModel editReservationViewModel;
+    private overviewViewModel overviewViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -111,4 +113,11 @@ public class ViewModelFactory {
         }
         return editReservationViewModel;
     }
+    public overviewViewModel getOverviewViewModel(){
+        if (overviewViewModel == null){
+            overviewViewModel = new overviewViewModel(modelFactory);
+        }
+        return overviewViewModel;
+    }
+
 }
