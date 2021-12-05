@@ -36,4 +36,8 @@ public class MainViewReceptionistController implements ViewController {
     private void home(ActionEvent event) {
 
     }
+
+    public void chat(ActionEvent event) {
+        borderPane.setCenter(viewHandler.getChatView());
+    }
 }
