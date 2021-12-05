@@ -5,13 +5,17 @@ import shared.networking.serverInterfaces.ChatServer;
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 public class ChatServerImpl implements ChatServer {
 
     private ChatHandler chatHandler;
 
 
-    public ChatServerImpl(ChatHandler chatHandler) {
+    public ChatServerImpl(ChatHandler chatHandler) throws RemoteException {
         this.chatHandler = chatHandler;
+        UnicastRemoteObject.exportObject(this,0);
     }
 
     @Override
@@ -29,3 +33,4 @@ public class ChatServerImpl implements ChatServer {
         return chatHandler.getAllCustomersWhoWantsToChat(username);
     }
 }
+
