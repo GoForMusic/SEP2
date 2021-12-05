@@ -23,6 +23,8 @@ public class ModelFactory {
     private CustomerModel customerModel;
 
 
+
+
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
     }
@@ -61,6 +63,5 @@ public class ModelFactory {
         }
         return roomsModel;
     }
-
 
 }

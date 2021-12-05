@@ -54,8 +54,7 @@ public class SearchReservationViewModel {
         } else if (request.getObject() instanceof Reservation) {
             Reservation reservationFromServer = (Reservation) request.getObject();
             List<String> roomList = reservationFromServer.getBookedRooms();
-            for (String i : roomList
-            ) {
+            for (String i : roomList) {
                 reservations.add(new Reservation(i, reservationFromServer.getDateFrom(), reservationFromServer.getDateTo()));
             }
 
