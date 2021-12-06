@@ -40,6 +40,7 @@ public class ChatViewModel {
     private double clientListBoxPrefWidth;
     private List<HBox> clientContainer;
     private VBox chatBox;
+    private StringProperty client;
 
     public ChatViewModel(ModelFactory modelFactory) {
         this.chatModel = modelFactory.getChatModel();
@@ -105,6 +106,12 @@ public class ChatViewModel {
         emoji.set(false);
         message = new SimpleStringProperty();
         usernameReceiver = new SimpleStringProperty();
+        client = new SimpleStringProperty();
+        if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())) {
+            client.set("Customers");
+        } else if (loginModel.getUserType().equals(Usertype.CUSTOMER.toString())) {
+            client.set("Receptionists");
+        }
     }
 
     private Request getALlReceptionists() {
@@ -132,7 +139,7 @@ public class ChatViewModel {
         List<String> allClients = (List<String>) responseFromServer.getObject();
         for (String client : allClients
         ) {
-            if (client.equals(loginModel.getUsername())) continue;
+          //  if (client.equals(loginModel.getUsername())) continue;
             HBox container = new HBox();
             container.setAlignment(Pos.CENTER_LEFT);
             container.setSpacing(10);
@@ -173,7 +180,7 @@ public class ChatViewModel {
             System.out.println("Recieved is messsage");
             System.out.println("The sender is " + tempMessage.getUserNameSender());
             System.out.println("The selected is " + usernameReceiver.get());
-            if (usernameReceiver.get().equals(tempMessage.getUserNameReceiver())) {
+            if (usernameReceiver.get().equals(tempMessage.getUserNameReceiver()) || usernameReceiver.get().equals(tempMessage.getUserNameSender())) {
                 System.out.println(usernameReceiver.get());
                 Platform.runLater(() -> {
                     updateUI(tempMessage);
@@ -235,4 +242,7 @@ public class ChatViewModel {
     }
 
 
+    public StringProperty getClientProperty() {
+        return this.client;
+    }
 }

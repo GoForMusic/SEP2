@@ -3,6 +3,7 @@ package client.view.customer.mainView;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -12,7 +13,6 @@ public class CustomerHomePageController implements ViewController {
 
     public BorderPane customerBorderPane;
     private ViewHandler viewHandler;
-    public BorderPane receptionistBorderPane;
 
 
     @Override
@@ -42,9 +42,6 @@ public class CustomerHomePageController implements ViewController {
 
     }
 
-    //  public void clickedBookButton(MouseEvent mouseEvent) {
-
-    // }
 
 
     @FXML
@@ -61,7 +58,16 @@ public class CustomerHomePageController implements ViewController {
         try {
             customerBorderPane.setCenter(viewHandler.getCustomerOverview());
         } catch (Exception e) {
+    private void clickedBookButton(MouseEvent mouseEvent) {
+        try {
+            customerBorderPane.setCenter(viewHandler.getViewRoom());
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void clickedChat(ActionEvent event) {
+        customerBorderPane.setCenter(viewHandler.getChatView());
     }
 }
