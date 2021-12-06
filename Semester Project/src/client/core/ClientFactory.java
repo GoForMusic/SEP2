@@ -11,6 +11,8 @@ import client.networking.create.CreateClientImpl;
 import client.networking.rooms.RoomsClient;
 import client.networking.rooms.RoomsClientImp;
 
+import java.rmi.RemoteException;
+
 /**
  * @author Sachin
  * The class that creates and stores all the clients
@@ -54,7 +56,7 @@ public class ClientFactory {
 
     public ChatClient getChatClient() {
         if (chatClient == null) {
-            chatClient = new ChatClientImpl();
+                chatClient = new ChatClientImpl();
         }
         return chatClient;
     }

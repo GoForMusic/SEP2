@@ -9,6 +9,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,17 +36,23 @@ public class ChatViewModel {
     private LoginModel loginModel;
     private double clientListBoxPrefWidth;
     private List<HBox> clientContainer;
+    private HBox chatBox;
 
     public ChatViewModel(ModelFactory modelFactory) {
         this.chatModel = modelFactory.getChatModel();
         this.loginModel = modelFactory.getLoginModel();
         initializeProperties();
         clientContainer = new ArrayList<>();
+        chatBox = new HBox();
         loadClients();
     }
 
     public List<HBox> getContainer() {
         return clientContainer;
+    }
+
+    public HBox getChatBox() {
+        return chatBox;
     }
 
     public void setClientListBoxPrefWidth(double clientListBoxPrefWidth) {
@@ -74,8 +82,19 @@ public class ChatViewModel {
 
     public void sendMessage() {
         if (message.get().equals("")) return;
-        Request request = chatModel.sendMessage(new Message(loginModel.getUsername(), usernameReceiver.get(), message.get()));
-        message.set("");
+        if (usernameReceiver.get()==null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("User not selected");
+            alert.setHeaderText("User not selected");
+            alert.setContentText("Please select a user to send a message");
+            alert.getButtonTypes().setAll(ButtonType.OK);
+            alert.showAndWait();
+        }
+        else{
+            Request request = chatModel.sendMessage(new Message(loginModel.getUsername(), usernameReceiver.get(), message.get()));
+            message.set("");
+        }
+
     }
 
     private void initializeProperties() {
@@ -93,7 +112,7 @@ public class ChatViewModel {
         return chatModel.getAllCustomersWhoWantsToChat(loginModel.getUsername());
     }
 
-    public void loadClients() {
+    private void loadClients() {
         Request responseFromServer = null;
         if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())) {
             System.out.println("Receptionist");
@@ -119,7 +138,7 @@ public class ChatViewModel {
             container.getStyleClass().add("online-user-container");
             Circle img = new Circle(28,28,14);
             try {
-                Image image = new Image(new FileInputStream("../chat/user.png"));
+                Image image = new Image(new FileInputStream("Semester Project/src/client/view/images/user.png"));
                 img.setFill(new ImagePattern(image));
             } catch (Exception e) {
                 System.out.println("Failed loading image");
@@ -127,27 +146,18 @@ public class ChatViewModel {
             img.getStyleClass().add("imageView");
             container.getChildren().add(img);
 
-            VBox userDetailContainer = new VBox();
-            userDetailContainer.setPrefWidth(clientListBoxPrefWidth / 1.7);
+
+            ;
             Label user = new Label(client);
             user.getStyleClass().add("online-label");
            container.getChildren().add(user);
 
-            System.out.println("..........................."+user.getText());
-
-//            Label lblUsername = new Label();
-//            lblUsername.setText(client);
-//            System.out.println("\t\tclient\t\t\t"+client);
-//            lblUsername.getStyleClass().add("online-label");
-//            userDetailContainer.getChildren().add(lblUsername);
-//            Label lblName = new Label(loginModel.getUsername());
-//            lblName.getStyleClass().add("online-label-details");
-//            userDetailContainer.getChildren().add(lblName);
-            container.getChildren().add(userDetailContainer);
             clientContainer.add(container);
         }
 
     }
+
+
 
 
 }
