@@ -73,7 +73,7 @@ public class SearchReservationViewModel {
 
         Request request = roomsModel.removeReservation(username.getValue(), reservation.getDateFrom(),reservation.getDateTo());
         error.set(request.getType());
-        System.out.println(request.toString());
+
     }
 }
 

@@ -16,7 +16,7 @@ import shared.utils.reservation.Reservation;
 import java.time.LocalDate;
 
 public class SearchCustomerReservationToEditController implements ViewController {
-    @FXML private TableColumn iD;
+
     private ViewHandler viewHandler;
     @FXML
     private AnchorPane anchorPane;
@@ -69,6 +69,6 @@ public class SearchCustomerReservationToEditController implements ViewController
     {
 
         viewModel.removeReservation(tableView.getSelectionModel().getSelectedItem());
-
+            searchByUsername();
     }
 }
