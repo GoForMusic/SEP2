@@ -15,7 +15,7 @@
     <left>
         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #67B7CB;" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Home" textFill="#aa5353">
+                <Button mnemonicParsing="false" onMouseClicked="#refreshList" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Refresh" textFill="#aa5353">
                     <font>
                         <Font name="Georgia Italic" size="13.0" />
                     </font>

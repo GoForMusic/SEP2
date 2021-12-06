@@ -31,11 +31,8 @@ public class CleanerHomePageViewModel {
         roomList = new SimpleListProperty<>();
     }
 
-    public void updateRoomStatus(Room room){
-
-    }
-
     public void loadRooms(){
+
         List<Room> rooms = roomsModel.getRooms();
         ArrayList<HBox> elements = new ArrayList<>();
 
@@ -57,17 +54,16 @@ public class CleanerHomePageViewModel {
                         Room localRoomUpdated = new Room(item.getName(), item.getType());
                         localRoomUpdated.setClean(true);
                         roomsModel.updateRoom(localRoomUpdated);
-                        loadRooms();
                     });
 
 
                     HBox.setMargin(editButton,new Insets(0,5,0,0));
                     hBox.getChildren().addAll(editButton);
                     elements.add(hBox);
+                    }
                 }
-            }
-            roomList = FXCollections.observableArrayList(elements);
         }
+        roomList = FXCollections.observableArrayList(elements);
     }
 
     public ObservableList<HBox> getRoomList()
