@@ -174,12 +174,12 @@ public class ChatViewModel {
     }
 
     private void updateMessage(PropertyChangeEvent event) {
-        System.out.println("View model is here");
+//        System.out.println("View model is here");
         if (event.getNewValue() instanceof Message) {
             Message tempMessage = (Message) event.getNewValue();
-            System.out.println("Recieved is messsage");
-            System.out.println("The sender is " + tempMessage.getUserNameSender());
-            System.out.println("The selected is " + usernameReceiver.get());
+//            System.out.println("Recieved is messsage");
+//            System.out.println("The sender is " + tempMessage.getUserNameSender());
+//            System.out.println("The selected is " + usernameReceiver.get());
             if (usernameReceiver.get().equals(tempMessage.getUserNameReceiver()) || usernameReceiver.get().equals(tempMessage.getUserNameSender())) {
                 System.out.println(usernameReceiver.get());
                 Platform.runLater(() -> {
