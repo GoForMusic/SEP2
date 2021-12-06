@@ -109,7 +109,7 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         LocalDate dateFrom, LocalDate dateTo)
     {
         try {
-
+            System.out.println("RoomClientImple");
             return server.getRoomsServer().removeReservation(username,dateFrom,dateTo);
         } catch (RemoteException e) {
             return new Request("Cannot connect to server",null);

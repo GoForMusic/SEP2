@@ -146,7 +146,8 @@ public class RoomsModelImpl implements RoomsModel {
     @Override public Request removeReservation(String username, LocalDate dateFrom,
         LocalDate dateTo)
     {
-        System.out.println("username +  +dateFrom + dateTo ");
+        ////////
+        System.out.println("okk ");
         return client.removeReservation(username,dateFrom,dateTo);
 
 

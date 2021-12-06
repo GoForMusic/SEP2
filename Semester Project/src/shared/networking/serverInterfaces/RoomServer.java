@@ -27,5 +27,6 @@ public interface RoomServer extends Remote {
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) throws RemoteException;
 
-    Request removeReservation(String username, LocalDate dateFrom, LocalDate dateTo) throws  RemoteException;
+
+    Request removeReservation(String username, LocalDate dateFrom, LocalDate dateTo) throws RemoteException;
 }
