@@ -47,4 +47,8 @@ public class MainViewReceptionistController implements ViewController {
     private void roomList(MouseEvent mouseEvent) {
         borderPane.setCenter(viewHandler.getRoomListReceptionist());
     }
+
+    public void chat(ActionEvent event) {
+        borderPane.setCenter(viewHandler.getChatView());
+    }
 }

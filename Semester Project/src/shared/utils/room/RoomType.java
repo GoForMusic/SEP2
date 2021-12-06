@@ -1,5 +1,7 @@
 package shared.utils.room;
 
-public enum RoomType {
+import java.io.Serializable;
+
+public enum RoomType implements Serializable {
     SINGLE,DOUBLE,LUXURY
 }

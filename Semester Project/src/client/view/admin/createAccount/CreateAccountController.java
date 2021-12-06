@@ -24,16 +24,10 @@ public class CreateAccountController implements ViewController
   @FXML private Label errorLabel;
   @FXML private ChoiceBox<String> userType;
   private String newUser;
-
-
   private final String[] user = {"Admin","Cleaner","Receptionist"};
   private ViewHandler viewHandler;
   private  AdminCreateAccountViewModel adminCreateAccountViewModel;
   private ViewModelFactory viewModelFactory;
-
-
-
-
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
@@ -41,13 +35,8 @@ public class CreateAccountController implements ViewController
     viewModelFactory = vmf;
     adminCreateAccountViewModel = viewModelFactory.getAdminCreateAccountViewModel();
     bindEverything();
-
-
     userType.getItems().addAll(user);
     userType.setOnAction(this::getUserType);
-
-
-
 
   }
 

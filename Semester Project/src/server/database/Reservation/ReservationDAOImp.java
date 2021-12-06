@@ -58,20 +58,19 @@ public class ReservationDAOImp implements ReservationDAO {
                 statement = connection.prepareStatement("SELECT * FROM \"Reservation\" WHERE \"userName\"=?;");
                 statement.setString(1, username);
                 resultSet = statement.executeQuery();
-                List<String> roomList = new ArrayList<>();
                 List<Reservation> reservations = new ArrayList<>();
                 LocalDate startDate = null;
                 LocalDate endDate = null;
                 while (resultSet.next()) {
                     String roomName = resultSet.getString("roomName");
-                    roomList.add(roomName);
                     startDate = (resultSet.getDate("startDate")).toLocalDate();
                     endDate = (resultSet.getDate("endDate")).toLocalDate();
+                    reservations.add(new Reservation(roomName,startDate,endDate));
                 }
-                if (startDate == null || endDate == null || roomList.isEmpty()) {
+                if (startDate == null || endDate == null || reservations.isEmpty()) {
                     return new Request("User has not reserved any room", null);
                 } else {
-                    return new Request("Reservation found..", new Reservation(username, startDate, endDate, roomList));
+                    return new Request("Reservation found..", reservations);
                 }
             } else {
                 return new Request("Username doesnot exist", null);
