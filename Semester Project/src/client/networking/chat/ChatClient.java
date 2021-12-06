@@ -1,17 +1,24 @@
 package client.networking.chat;
 
 import shared.utils.Request;
+import shared.utils.Subject;
 import shared.utils.chat.Message;
 
 import java.util.List;
 
 /**
+ * @author Sachin Baral
  * The client class for chat that deals with communication with the server regarding chat between customer and cleaner
  */
-public interface ChatClient {
+public interface ChatClient extends Subject {
 
     Request sendMessage(Message message);
 
     Request getAllReceptionists() throws Exception;
 
-    Request getAllCustomersWhoWantsToChat(String username);}
+    Request getAllCustomersWhoWantsToChat(String username);
+
+    void setUsername(String username);
+
+    void setUserType(String userType);
+}

@@ -68,6 +68,7 @@ public class ChatRoomController implements ViewController {
         viewModel.setClientListBoxPrefWidth(clientListBox.getPrefWidth());
         clientListBox.getChildren().clear();
         clientListBox.getChildren().setAll(viewModel.getContainer());
+        chatBox.getChildren().setAll(viewModel.getChatBox());
     }
 
     @FXML
@@ -77,13 +78,13 @@ public class ChatRoomController implements ViewController {
 
     @FXML
     private void emojiAction(ActionEvent event) {
-        if (viewModel.isEmojiVisible()){
+        if (viewModel.isEmojiVisible()) {
             viewModel.makeEmojiInVisible();
-        }
-        else{
+        } else {
             viewModel.makeEmojiVisible();
         }
     }
+
     private void manageEmojiList() {
         for (Node text : emojiList.getChildren()
         ) {
@@ -94,6 +95,7 @@ public class ChatRoomController implements ViewController {
         }
         scrollPane.vvalueProperty().bind(chatBox.heightProperty());
     }
+
     private void bindEverything() {
         emojiList.visibleProperty().bind(viewModel.getEmojiProperty());
         txtMsg.textProperty().bindBidirectional(viewModel.getMessage());

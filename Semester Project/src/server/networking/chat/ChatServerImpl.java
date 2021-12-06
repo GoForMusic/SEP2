@@ -1,10 +1,12 @@
 package server.networking.chat;
 
 import server.model.chat.ChatHandler;
+import shared.networking.clientInterfaces.ChatCallBack;
 import shared.networking.serverInterfaces.ChatServer;
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
+import java.beans.PropertyChangeListener;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -32,5 +34,7 @@ public class ChatServerImpl implements ChatServer {
     public Request getAllCustomersWhoWantsToChat(String username) {
         return chatHandler.getAllCustomersWhoWantsToChat(username);
     }
+
+
 }
 

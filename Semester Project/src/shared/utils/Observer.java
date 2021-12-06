@@ -1,5 +1,5 @@
 package shared.utils;
 
 public enum Observer {
-    AVAILABLEROOMS,
+    AVAILABLEROOMS,MESSAGE_RECEIVED;
 }
