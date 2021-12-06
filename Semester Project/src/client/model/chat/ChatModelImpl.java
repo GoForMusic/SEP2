@@ -8,6 +8,7 @@ import shared.utils.chat.Message;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.List;
 
 public class ChatModelImpl implements ChatModel {
     private ChatClient chatClient;
@@ -20,12 +21,13 @@ public class ChatModelImpl implements ChatModel {
     }
 
     private void messageReceived(PropertyChangeEvent event) {
+        System.out.println("Model fires property change");
         support.firePropertyChange(event);
     }
 
     @Override
-    public Request sendMessage(Message message) {
-        return chatClient.sendMessage(message);
+    public void sendMessage(Message message) {
+        chatClient.sendMessage(message);
     }
 
     @Override
@@ -40,6 +42,11 @@ public class ChatModelImpl implements ChatModel {
     @Override
     public Request getAllCustomersWhoWantsToChat(String username) {
         return chatClient.getAllCustomersWhoWantsToChat(username);
+    }
+
+    @Override
+    public List<Message> getAllMessages(String username, String client) {
+        return chatClient.getALlMessages(username,client);
     }
 
 

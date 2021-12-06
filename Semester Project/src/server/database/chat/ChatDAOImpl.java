@@ -70,15 +70,38 @@ public class ChatDAOImpl implements ChatDAO {
     public Request getAllCustomersWhoWantsToChat(String username) throws Exception {
         try (Connection connection = DataBaseConnection.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT DISTINCT \"Username_Sender\" from \"Message\" WHERE \"Username_Receiver\" =?;");
-            statement.setString(1,username);
+            statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             List<String> customers = new ArrayList<>();
             while (resultSet.next()) {
                 customers.add(resultSet.getString("Username_Sender"));
             }
-            return new Request("Customers wanting to chat",customers);
+            return new Request("Customers wanting to chat", customers);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            throw new Exception(throwables.getMessage());
+        }
+    }
+
+    @Override
+    public List<Message> getAllMessages(String username, String client) throws Exception {
+        try (Connection connection = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Message\" WHERE \"Username_Sender\"=? AND \"Username_Receiver\"=? OR \"Username_Sender\"=? AND \"Username_Receiver\"=?; ");
+            statement.setString(1, username);
+            statement.setString(2, client);
+            statement.setString(3, client);
+            statement.setString(4, username);
+            ResultSet resultSet = statement.executeQuery();
+            List<Message> allMessages = new ArrayList<>();
+            while (resultSet.next()) {
+                String usernameSender = resultSet.getString("Username_Sender");
+                String usernameReceiver = resultSet.getString("Username_Receiver");
+                String messageBody = resultSet.getString("Message_Body");
+                Message message = new Message(usernameSender, usernameReceiver, messageBody);
+                allMessages.add(message);
+            }
+            return allMessages;
+        } catch (SQLException throwables) {
             throw new Exception(throwables.getMessage());
         }
     }

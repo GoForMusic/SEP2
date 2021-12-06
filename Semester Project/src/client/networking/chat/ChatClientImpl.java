@@ -11,6 +11,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 public class ChatClientImpl implements ChatClient, ChatCallBack {
 
@@ -27,14 +28,19 @@ public class ChatClientImpl implements ChatClient, ChatCallBack {
             e.printStackTrace();
         }
         this.server = GetServer.getServerFromRmi();
+        try {
+            server.getChatServer().registerChatCallBack(this);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public Request sendMessage(Message message) {
+    public void sendMessage(Message message) {
         try {
-            return server.getChatServer().sendMessage(message);
+            server.getChatServer().sendMessage(message);
         } catch (RemoteException e) {
-            return new Request("Cannot connect to server", null);
+            throw new RuntimeException(e.getMessage());
         }
     }
 
@@ -73,12 +79,23 @@ public class ChatClientImpl implements ChatClient, ChatCallBack {
     }
 
     @Override
+    public List<Message> getALlMessages(String username, String client) {
+        try {
+            return server.getChatServer().getAllMessages(username,client);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public String getUserType() throws RemoteException {
         return null;
     }
 
     @Override
     public void messageReceived(Message message) throws RemoteException {
+        System.out.println("Property change fireddddd");
         support.firePropertyChange(Observer.MESSAGE_RECEIVED.toString(),null,message);
 
     }

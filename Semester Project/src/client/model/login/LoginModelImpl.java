@@ -1,5 +1,6 @@
 package client.model.login;
 
+import client.networking.chat.ChatClient;
 import client.networking.login.LoginClient;
 import shared.utils.Request;
 
@@ -12,9 +13,12 @@ public class LoginModelImpl implements LoginModel {
     private LoginClient client;
     private String userName;
     private String userType;
+    private ChatClient chatClient;
 
-    public LoginModelImpl(LoginClient loginClient) {
+    public LoginModelImpl(LoginClient loginClient, ChatClient chatClient) {
         this.client = loginClient;
+        this.chatClient=chatClient;
+
     }
 
     @Override
@@ -26,12 +30,13 @@ public class LoginModelImpl implements LoginModel {
     public void setUsername(String userName) {
 
         this.userName = userName;
-        System.out.println("Set username called .. username set to be :" + this.userName);
+        chatClient.setUsername(userName);
+     //   System.out.println("Set username called .. username set to be :" + this.userName);
     }
 
     @Override
     public String getUsername() {
-        System.out.println("get username called ,,, returned." + userName);
+        //System.out.println("get username called ,,, returned." + userName);
         return userName;
     }
 

@@ -11,4 +11,6 @@ public interface ChatHandler {
     Request getAllReceptionists();
 
     Request getAllCustomersWhoWantsToChat(String username);
+
+    List<Message> getAllMessages(String username, String client);
 }
