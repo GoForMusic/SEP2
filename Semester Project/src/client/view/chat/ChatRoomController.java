@@ -67,7 +67,7 @@ public class ChatRoomController implements ViewController {
         bindEverything();
         viewModel.setClientListBoxPrefWidth(clientListBox.getPrefWidth());
         clientListBox.getChildren().clear();
-        clientListBox.getChildren().add(viewModel.getClientContainer());
+        clientListBox.getChildren().setAll(viewModel.getContainer());
     }
 
     @FXML

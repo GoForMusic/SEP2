@@ -68,11 +68,7 @@
     17.386906 0 0 1 95.250002,86.845238 Z";
 }
 
-#btnClose{
-    -fx-background-radius: 50%;
-    -fx-graphic: url("../images/icons/logout.png");
-    -fx-background-color: transparent;
-}
+
 
 #btnClose:hover{
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5) , 0.5, 0.5, 2, 2);
@@ -251,7 +247,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5) , 0.5, 0.5, 2, 2);
 }
 
-.online-label , .online-settings{
+.online-label{
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
