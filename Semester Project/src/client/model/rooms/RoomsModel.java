@@ -7,6 +7,7 @@ import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,10 @@ public interface RoomsModel extends Subject {
      * @param roomType the category of the room
      */
     Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
+
+    ArrayList<Room> getRooms();
+
+    void updateRoom(Room room);
 
     String getDescriptionByCategory(RoomType roomType);
 

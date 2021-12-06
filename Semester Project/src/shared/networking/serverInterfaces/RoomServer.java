@@ -9,9 +9,14 @@ import shared.utils.room.RoomType;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface RoomServer extends Remote {
+
+    ArrayList<Room> getRooms() throws RemoteException;
+
+    void updateRoom(Room room) throws RemoteException;
 
     Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) throws RemoteException;
 

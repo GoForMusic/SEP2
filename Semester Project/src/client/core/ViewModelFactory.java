@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.admin.createAccount.AdminCreateAccountViewModel;
 import client.view.bookRooms.BookRoomViewModel;
+import client.view.cleaner.CleanerHomePageViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.overview.overviewViewModel;
@@ -32,6 +33,7 @@ public class ViewModelFactory {
     private ReceptionistCreateCustomerAccountViewModel receptionistCreateCustomerAccountViewModel;
     private EditReservationViewModel editReservationViewModel;
     private overviewViewModel overviewViewModel;
+    private CleanerHomePageViewModel cleanerHomePageViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -120,4 +122,10 @@ public class ViewModelFactory {
         return overviewViewModel;
     }
 
+    public CleanerHomePageViewModel getCleanerHomePageViewModel() {
+        if(cleanerHomePageViewModel ==null){
+            cleanerHomePageViewModel =new CleanerHomePageViewModel(modelFactory);
+        }
+        return cleanerHomePageViewModel;
+    }
 }

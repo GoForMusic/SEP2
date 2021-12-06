@@ -17,6 +17,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomImpl implements RoomHandler {
@@ -50,6 +51,26 @@ public class RoomImpl implements RoomHandler {
     @Override
     public String getDescriptionByCategory(RoomType roomType) {
         return viewRoomTypeDAO.getRoomDescriptionByCategory(roomType.toString());
+    }
+
+    @Override
+    public ArrayList<Room> getRooms() {
+       ArrayList<Room> roomList = new ArrayList<>();
+        try {
+            roomList= roomDAO.getAllRooms();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return roomList;
+    }
+
+    @Override
+    public void updateRoom(Room room) {
+        try {
+            roomDAO.updateRoom(room);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -143,6 +143,8 @@ public class LoginController implements ViewController {
       }
       else if (temp.equals(Usertype.ADMIN.toString())){
           viewHandler.openAdminMainView();
+      }else if(temp.equals(Usertype.CLEANER.toString())){
+          viewHandler.openClenerMainView();
       }
     }
 

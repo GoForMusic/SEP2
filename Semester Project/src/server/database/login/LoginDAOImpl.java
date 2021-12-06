@@ -60,7 +60,9 @@ public class LoginDAOImpl implements LoginDAO{
             return new Request(Usertype.RECEPTIONIST.toString(), new Receptionist(firstname,lastname,username));
         } else if (accessType.equals(Usertype.CUSTOMER.toString())) {
             return new Request(Usertype.CUSTOMER.toString(), new Customer(firstname,lastname,username));
-        }
+        } else if(accessType.equals(Usertype.CLEANER.toString())){
+            return new Request(Usertype.CLEANER.toString(),new Cleaner(firstname,lastname,username));
+        }else
         return new Request("Something went wrong in database",null);
     }
 }

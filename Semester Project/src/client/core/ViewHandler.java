@@ -84,6 +84,18 @@ public class ViewHandler {
         stage.show();
 
     }
+
+    public void openClenerMainView() {
+        if (receptionistMainView == null) {
+            Parent root = loadFXML("../view/cleaner/cleanerHomePage.fxml");
+            receptionistMainView = new Scene(root);
+            stage.setTitle("Receptionist");
+        }
+        stage.setScene(receptionistMainView);
+        stage.show();
+
+    }
+
     //    private void test(){
     //        Parent root = getSingleRoom();
     //        Scene scene = new Scene(root);
@@ -152,4 +164,6 @@ public class ViewHandler {
     public Parent getCustomerOverview(){
         return loadFXML("../view/customer/overview/overview.fxml");
     }
+
+
 }

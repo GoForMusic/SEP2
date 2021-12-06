@@ -14,6 +14,7 @@ import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /** @author Emil
@@ -53,6 +54,25 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
            return new Request("Cannot connect to the server",null);
         }
 
+    }
+
+    @Override
+    public ArrayList<Room> getRooms() {
+        try {
+            return server.getRoomsServer().getRooms();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void updateRoom(Room room) {
+        try {
+            server.getRoomsServer().updateRoom(room);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
