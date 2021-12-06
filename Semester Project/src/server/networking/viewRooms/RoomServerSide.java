@@ -13,6 +13,7 @@ import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomServerSide implements RoomServer {
@@ -25,6 +26,16 @@ public class RoomServerSide implements RoomServer {
         this.roomHandler = roomHandler;
         UnicastRemoteObject.exportObject(this, 0);
         roomHandler.addListener(Observer.AVAILABLEROOMS.toString(), this::fireAvailableRooms);
+    }
+
+    @Override
+    public ArrayList<Room> getRooms() {
+        return roomHandler.getRooms();
+    }
+
+    @Override
+    public void updateRoom(Room room) {
+        roomHandler.updateRoom(room);
     }
 
     @Override

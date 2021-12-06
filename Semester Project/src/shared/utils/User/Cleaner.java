@@ -21,6 +21,17 @@ public class Cleaner extends User implements Serializable {
     }
 
     /**
+     * A 3 argument constructor
+     * @param firstname
+     * @param lastname
+     * @param userName
+     */
+    public Cleaner (String firstname,String lastname,String userName){
+        super(firstname, lastname, userName);
+        this.userType="Cleaner";
+    }
+
+    /**
      * A 4 argument constructor, when the user will be created in the app and after pushed to the database
      * @param firstname
      * @param lastname

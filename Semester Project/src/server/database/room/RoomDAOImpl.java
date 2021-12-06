@@ -24,8 +24,23 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
-    public List<Room> getAllRooms() {
-        return null;
+    public void updateRoom(Room room) throws SQLException {
+        try (Connection connection = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE \"Room\" SET isclean=? WHERE \"Room_name\"=?;");
+            statement.setBoolean(1,room.isCleanOrNot());
+            statement.setString(2,room.getName());
+
+            statement.executeUpdate();
+        }
+    }
+
+    @Override
+    public ArrayList<Room> getAllRooms() throws SQLException {
+        try (Connection connection = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM \"Room\";");
+
+            return (ArrayList<Room>) getRooms(statement);
+        }
     }
 
     @Override
@@ -65,7 +80,9 @@ public class RoomDAOImpl implements RoomDAO {
         while (resultSet.next()){
             String room_type = resultSet.getString("Room_type");
             String name = resultSet.getString("Room_name");
+            Boolean isclean = resultSet.getBoolean("isclean");
             Room room = new Room(name,room_type);
+            room.setClean(isclean);
             rooms.add(room);
         }
         return rooms;

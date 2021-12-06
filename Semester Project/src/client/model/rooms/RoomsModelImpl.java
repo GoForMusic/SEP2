@@ -55,6 +55,16 @@ public class RoomsModelImpl implements RoomsModel {
       return   client.searchRooms(dateFrom, dateTo, roomType);
     }
 
+    @Override
+    public ArrayList<Room> getRooms() {
+        return client.getRooms();
+    }
+
+    @Override
+    public void updateRoom(Room room) {
+        client.updateRoom(room);
+    }
+
     /**
      * An override method that will search for a room and get the descriptions
      *

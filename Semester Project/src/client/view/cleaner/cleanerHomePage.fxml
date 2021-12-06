@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.cleaner.CleanerHomePageController">
+    <left>
+        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #67B7CB;" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onMouseClicked="#refreshList" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Refresh" textFill="#aa5353">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+            <opaqueInsets>
+                <Insets right="3.0" />
+            </opaqueInsets>
+        </VBox>
+    </left>
+   <top>
+      <Pane prefHeight="82.0" prefWidth="600.0" style="-fx-background-color: #1A424C;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="99.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="261.0" layoutY="31.0" prefHeight="23.0" prefWidth="142.0" text="Welcome To Hesam" textFill="#82b5e8">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #7A00F5;" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="roomToBeClean" layoutX="1.0" layoutY="1.0" prefHeight="466.0" prefWidth="595.0" stylesheets="@../customer/Customer.css" />
+         </children></AnchorPane>
+   </center>
+</BorderPane>

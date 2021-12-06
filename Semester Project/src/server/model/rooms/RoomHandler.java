@@ -3,9 +3,12 @@ package server.model.rooms;
 import shared.utils.Request;
 import shared.utils.Subject;
 import shared.utils.reservation.Reservation;
+import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Sachin Baral
@@ -20,6 +23,10 @@ public interface RoomHandler extends Subject {
     Request searchRoom(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
     String getDescriptionByCategory(RoomType roomType);
+
+    ArrayList<Room> getRooms();
+
+    void updateRoom(Room room);
 
     String getPriceByCategory(RoomType roomType);
 

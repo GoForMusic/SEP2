@@ -2,10 +2,13 @@ package server.model.rooms;
 
 import shared.utils.Request;
 import shared.utils.reservation.Reservation;
+import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomProxy implements RoomHandler {
 
@@ -44,6 +47,16 @@ public class RoomProxy implements RoomHandler {
             //return "Error in database.. maybe invalid input";
         }
 
+    }
+
+    @Override
+    public ArrayList<Room> getRooms() {
+        return roomHandler.getRooms();
+    }
+
+    @Override
+    public void updateRoom(Room room) {
+        roomHandler.updateRoom(room);
     }
 
 
