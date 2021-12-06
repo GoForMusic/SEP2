@@ -67,6 +67,13 @@ public class SearchReservationViewModel {
         roomsModel.setTempUsername(text);
     }
 
+    public void removeReservation(Reservation reservation)
+    {
 
+
+        Request request = roomsModel.removeReservation(username.getValue(), reservation.getDateFrom(),reservation.getDateTo());
+        error.set(request.getType());
+        System.out.println(request.toString());
     }
+}
 

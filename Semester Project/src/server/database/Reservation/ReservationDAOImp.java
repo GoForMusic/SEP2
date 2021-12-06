@@ -102,4 +102,10 @@ public class ReservationDAOImp implements ReservationDAO {
             return new Request(throwables.getMessage(),null);
         }
     }
+
+    @Override public Request removeReservation(String username,
+        LocalDate dateFrom, LocalDate dateTo)
+    {
+        return ;
+    }
 }

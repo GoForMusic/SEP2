@@ -19,7 +19,7 @@ import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
-public class RunServer {
+public class RunServer  {
     public static void main(String[] args) throws RemoteException, AlreadyBoundException, SQLException {
         LoginHandler loginHandler= new LoginHandlerImpl();
         LoginServer loginServer = new LoginServerImpl(loginHandler);

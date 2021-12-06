@@ -143,6 +143,15 @@ public class RoomsModelImpl implements RoomsModel {
         return client.updateReservation(username,previousStart, previousEnd,  roomName,  newStart,  newEnd,  newRoom);
     }
 
+    @Override public Request removeReservation(String username, LocalDate dateFrom,
+        LocalDate dateTo)
+    {
+        System.out.println("username +  +dateFrom + dateTo ");
+        return client.removeReservation(username,dateFrom,dateTo);
+
+
+    }
+
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
