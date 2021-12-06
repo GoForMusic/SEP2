@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +25,8 @@ public class ChatRoomController implements ViewController {
 
     @FXML
     private AnchorPane rootPane;
+    @FXML
+    private Label client;
 
     @FXML
     private AnchorPane detailPane;
@@ -100,6 +103,7 @@ public class ChatRoomController implements ViewController {
     private void bindEverything() {
         emojiList.visibleProperty().bind(viewModel.getEmojiProperty());
         txtMsg.textProperty().bindBidirectional(viewModel.getMessage());
+        client.textProperty().bind(viewModel.getClientProperty());
     }
 
 }

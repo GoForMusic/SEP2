@@ -65,6 +65,7 @@ public class ChatClientImpl implements ChatClient, ChatCallBack {
 
     @Override
     public void setUsername(String username) {
+        System.out.println("ChatClient ......username set as"+username);
         this.username = username;
     }
 

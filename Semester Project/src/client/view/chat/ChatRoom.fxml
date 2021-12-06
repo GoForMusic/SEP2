@@ -18,7 +18,7 @@
          <children>
             <AnchorPane fx:id="detailPane" prefHeight="504.0" prefWidth="112.0">
                <children>
-                  <Label layoutX="12.0" layoutY="14.0" text="Customers" textFill="WHITE">
+                  <Label fx:id="client" layoutX="12.0" layoutY="14.0" text="Customers" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
