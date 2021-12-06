@@ -75,4 +75,11 @@ public class SearchReservationViewModel {
         }
         table.setAll(reservations);
     }
+
+    public void removeReservation(Reservation reservation)
+    {
+        Request request = roomsModel.removeReservation(reservation);
+
+
+    }
 }

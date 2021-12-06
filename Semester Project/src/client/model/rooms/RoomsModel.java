@@ -2,6 +2,7 @@ package client.model.rooms;
 
 import shared.utils.Request;
 import shared.utils.Subject;
+import shared.utils.reservation.Reservation;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
@@ -35,4 +36,5 @@ public interface RoomsModel extends Subject {
     Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate);
 
     Request searchByUsername(String username);
+  Request removeReservation(Reservation reservation);
 }
