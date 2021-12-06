@@ -3,7 +3,7 @@ package client.view.chat;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
-import com.jfoenix.controls.JFXDrawer;
+//import com.jfoenix.controls.JFXDrawer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -48,8 +48,8 @@ public class ChatRoomController implements ViewController {
 
     @FXML
     private Button btnEmoji;
-    @FXML
-    private JFXDrawer drawerPane;
+   // @FXML
+  //  private JFXDrawer drawerPane;
 
     @FXML
     private ScrollPane clientListScroll;

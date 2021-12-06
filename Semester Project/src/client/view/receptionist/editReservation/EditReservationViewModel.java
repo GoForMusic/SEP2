@@ -115,4 +115,5 @@ public class EditReservationViewModel {
     public void setSelectedRoom(Room selectedItem) {
         newRoom.set(selectedItem.getName());
     }
+
 }

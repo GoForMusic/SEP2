@@ -105,6 +105,16 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         }
     }
 
+    @Override public Request removeReservation(int reservationId)
+    {
+        try
+        {
+            return server.getRoomsServer().removeReservation(reservationId);
+        }
+        catch (RemoteException e)
+        {
+            return new Request("Cannot connect to server",null);        }
+    }
 
     @Override
     public void roomsFromServer(List<Room> roomList) throws RemoteException {

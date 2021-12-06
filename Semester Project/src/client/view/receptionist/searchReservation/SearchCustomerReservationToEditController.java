@@ -3,6 +3,8 @@ package client.view.receptionist.searchReservation;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -56,11 +58,23 @@ public class SearchCustomerReservationToEditController implements ViewController
              anchorPane.getChildren().setAll(viewHandler.getEditReservation());
          }
     }
+
+    @FXML private void removerReservation(ActionEvent actionEvent)
+    {
+        ObservableList<Reservation> reservations;
+        reservations=tableView.getItems();
+       // viewModel.removeReservation(12);
+
+
+    }
+
+
     private void initializeTable() {
         room.setCellValueFactory(new PropertyValueFactory<Reservation, String>("tempRoom"));
         startDate.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
         endDate.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
         tableView.setItems(viewModel.getTable());
     }
+
 
 }

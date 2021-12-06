@@ -64,6 +64,10 @@ public class RoomServerSide implements RoomServer {
      return    roomHandler.updateReservation(username,previousStart,previousEnd,roomName,newStart,newEnd,newRoom);
     }
 
+    @Override public Request removeReservation(int reservationId)
+    {
+        return roomHandler.removeReservation(reservationId);
+    }
 
     private void fireAvailableRooms(PropertyChangeEvent event) {
         try {

@@ -28,4 +28,6 @@ public interface RoomHandler extends Subject {
     Request searchByUsername(String username);
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
+
+    Request removeReservation(int reservationId);
 }

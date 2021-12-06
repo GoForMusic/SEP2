@@ -18,6 +18,7 @@ public class SearchReservationViewModel {
     private ObservableList<Reservation> table;
     private RoomsModel roomsModel;
 
+
     public SearchReservationViewModel(ModelFactory modelFactory) {
         roomsModel = modelFactory.getRoomsModel();
         username = new SimpleStringProperty();
@@ -68,4 +69,10 @@ public class SearchReservationViewModel {
     public void setUsername(String text) {
         roomsModel.setTempUsername(text);
     }
+
+  public void removeReservation(int reservationId){
+      Request request = roomsModel.removeReservation(reservationId);
+    error.set(request.getType());
+
+   }
 }
