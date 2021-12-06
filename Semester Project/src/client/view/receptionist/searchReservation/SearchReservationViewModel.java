@@ -76,5 +76,12 @@ public class SearchReservationViewModel {
         searchByUsername();
 
     }
+
+    public void removeReservation(Reservation reservation)
+    {
+        Request request = roomsModel.removeReservation(reservation);
+
+
+    }
 }
 
