@@ -11,15 +11,19 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import shared.utils.Request;
 import shared.utils.User.Usertype;
 import shared.utils.chat.Message;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,17 +33,17 @@ public class ChatViewModel {
     private ChatModel chatModel;
     private LoginModel loginModel;
     private double clientListBoxPrefWidth;
-    private HBox clientContainer;
+    private List<HBox> clientContainer;
 
     public ChatViewModel(ModelFactory modelFactory) {
         this.chatModel = modelFactory.getChatModel();
         this.loginModel = modelFactory.getLoginModel();
         initializeProperties();
-        clientContainer = new HBox();
+        clientContainer = new ArrayList<>();
         loadClients();
     }
 
-    public HBox getClientContainer() {
+    public List<HBox> getContainer() {
         return clientContainer;
     }
 
@@ -107,24 +111,40 @@ public class ChatViewModel {
         for (String client : allClients
         ) {
             if (client.equals(loginModel.getUsername())) continue;
-            clientContainer.setAlignment(Pos.CENTER_LEFT);
-            clientContainer.setSpacing(10);
-            clientContainer.setPadding(new Insets(3));
-            clientContainer.setPrefWidth(clientListBoxPrefWidth);
-            clientContainer.getStyleClass().add("online-user-container");
-//            Circle img = new Circle(30, 30, 15);
-//            String path = new File(String.format("user.png", client)).toURI().toString();
-//            img.setFill(new ImagePattern(new Image(path)));
-//            clientContainer.getChildren().add(img);
+            HBox container = new HBox();
+            container.setAlignment(Pos.CENTER_LEFT);
+            container.setSpacing(10);
+            container.setPrefWidth(clientListBoxPrefWidth);
+            container.setPadding(new Insets(3));
+            container.getStyleClass().add("online-user-container");
+            Circle img = new Circle(28,28,14);
+            try {
+                Image image = new Image(new FileInputStream("../chat/user.png"));
+                img.setFill(new ImagePattern(image));
+            } catch (Exception e) {
+                System.out.println("Failed loading image");
+            }
+            img.getStyleClass().add("imageView");
+            container.getChildren().add(img);
 
             VBox userDetailContainer = new VBox();
-            userDetailContainer.setPrefWidth(clientListBoxPrefWidth);
-            Label lblUsername = new Label(client);
-            lblUsername.getStyleClass().add("online-label");
-            userDetailContainer.getChildren().add(lblUsername);
+            userDetailContainer.setPrefWidth(clientListBoxPrefWidth / 1.7);
+            Label user = new Label(client);
+            user.getStyleClass().add("online-label");
+           container.getChildren().add(user);
 
-            //TODO the user stuff..
-            clientContainer.getChildren().add(userDetailContainer);
+            System.out.println("..........................."+user.getText());
+
+//            Label lblUsername = new Label();
+//            lblUsername.setText(client);
+//            System.out.println("\t\tclient\t\t\t"+client);
+//            lblUsername.getStyleClass().add("online-label");
+//            userDetailContainer.getChildren().add(lblUsername);
+//            Label lblName = new Label(loginModel.getUsername());
+//            lblName.getStyleClass().add("online-label-details");
+//            userDetailContainer.getChildren().add(lblName);
+            container.getChildren().add(userDetailContainer);
+            clientContainer.add(container);
         }
 
     }
