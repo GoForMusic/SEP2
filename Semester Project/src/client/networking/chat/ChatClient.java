@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface ChatClient extends Subject {
 
-    Request sendMessage(Message message);
+    void sendMessage(Message message);
 
     Request getAllReceptionists() throws Exception;
 
@@ -21,4 +21,6 @@ public interface ChatClient extends Subject {
     void setUsername(String username);
 
     void setUserType(String userType);
+
+    List<Message> getALlMessages(String username, String client);
 }

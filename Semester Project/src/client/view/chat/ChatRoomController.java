@@ -69,6 +69,7 @@ public class ChatRoomController implements ViewController {
         clientListBox.getChildren().clear();
         clientListBox.getChildren().setAll(viewModel.getContainer());
         chatBox.getChildren().setAll(viewModel.getChatBox());
+
     }
 
     @FXML

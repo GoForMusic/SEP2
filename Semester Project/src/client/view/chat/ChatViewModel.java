@@ -3,6 +3,7 @@ package client.view.chat;
 import client.core.ModelFactory;
 import client.model.chat.ChatModel;
 import client.model.login.LoginModel;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,17 +14,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import shared.utils.Observer;
 import shared.utils.Request;
 import shared.utils.User.Usertype;
 import shared.utils.chat.Message;
 
-import java.io.File;
+import java.beans.PropertyChangeEvent;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,22 +39,24 @@ public class ChatViewModel {
     private LoginModel loginModel;
     private double clientListBoxPrefWidth;
     private List<HBox> clientContainer;
-    private HBox chatBox;
+    private VBox chatBox;
 
     public ChatViewModel(ModelFactory modelFactory) {
         this.chatModel = modelFactory.getChatModel();
         this.loginModel = modelFactory.getLoginModel();
         initializeProperties();
         clientContainer = new ArrayList<>();
-        chatBox = new HBox();
+        chatBox = new VBox();
         loadClients();
+        chatModel.addListener(Observer.MESSAGE_RECEIVED.toString(), this::updateMessage);
     }
+
 
     public List<HBox> getContainer() {
         return clientContainer;
     }
 
-    public HBox getChatBox() {
+    public VBox getChatBox() {
         return chatBox;
     }
 
@@ -82,19 +87,17 @@ public class ChatViewModel {
 
     public void sendMessage() {
         if (message.get().equals("")) return;
-        if (usernameReceiver.get()==null){
+        if (usernameReceiver.get() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("User not selected");
             alert.setHeaderText("User not selected");
             alert.setContentText("Please select a user to send a message");
             alert.getButtonTypes().setAll(ButtonType.OK);
             alert.showAndWait();
-        }
-        else{
-            Request request = chatModel.sendMessage(new Message(loginModel.getUsername(), usernameReceiver.get(), message.get()));
+        } else {
+            chatModel.sendMessage(new Message(loginModel.getUsername(), usernameReceiver.get(), message.get()));
             message.set("");
         }
-
     }
 
     private void initializeProperties() {
@@ -136,28 +139,100 @@ public class ChatViewModel {
             container.setPrefWidth(clientListBoxPrefWidth);
             container.setPadding(new Insets(3));
             container.getStyleClass().add("online-user-container");
-            Circle img = new Circle(28,28,14);
-            try {
-                Image image = new Image(new FileInputStream("Semester Project/src/client/view/images/user.png"));
-                img.setFill(new ImagePattern(image));
-            } catch (Exception e) {
-                System.out.println("Failed loading image");
-            }
-            img.getStyleClass().add("imageView");
+            Circle img = getCircle();
             container.getChildren().add(img);
-
-
-            ;
             Label user = new Label(client);
             user.getStyleClass().add("online-label");
-           container.getChildren().add(user);
+            container.getChildren().add(user);
+            container.setOnMouseClicked(mouseEvent -> {
+                loadMessages(client);
+            });
 
             clientContainer.add(container);
+        }
+    }
+
+    private void loadMessages(String client) {
+        usernameReceiver.set(client);
+
+        chatBox.getChildren().clear();
+        List<Message> allMessages = chatModel.getAllMessages(loginModel.getUsername(), client);
+
+        for (Message message : allMessages
+        ) {
+            updateUI(message);
+        }
+
+
+    }
+
+    private void updateMessage(PropertyChangeEvent event) {
+        System.out.println("View model is here");
+        if (event.getNewValue() instanceof Message) {
+            Message tempMessage = (Message) event.getNewValue();
+            System.out.println("Recieved is messsage");
+            System.out.println("The sender is " + tempMessage.getUserNameSender());
+            System.out.println("The selected is " + usernameReceiver.get());
+            if (usernameReceiver.get().equals(tempMessage.getUserNameReceiver())) {
+                System.out.println(usernameReceiver.get());
+                Platform.runLater(() -> {
+                    updateUI(tempMessage);
+                });
+
+            }
         }
 
     }
 
+    private void updateUI(Message tempMessage) {
+        Text text = new Text(tempMessage.getMessageBody());
+        text.setFill(Color.WHITE);
+        text.getStyleClass().add("message");
 
+        TextFlow tempFLow = new TextFlow();
+        if (!loginModel.getUsername().equals(tempMessage.getUserNameSender())) {
+            Text txtName = new Text(tempMessage.getUserNameSender() + "\n");
+            txtName.getStyleClass().add("txtName");
+            tempFLow.getChildren().add(txtName);
+        }
+        tempFLow.getChildren().add(text);
+        tempFLow.setMaxWidth(180);
+
+        TextFlow flow = new TextFlow(tempFLow);
+
+        HBox hBox = new HBox(12);
+        Circle img = getCircle();
+        if (!loginModel.getUsername().equals(tempMessage.getUserNameSender())) {
+
+            tempFLow.getStyleClass().add("tempFlowFlipped");
+            flow.getStyleClass().add("textFlowFlipped");
+            chatBox.setAlignment(Pos.TOP_LEFT);
+            hBox.setAlignment(Pos.CENTER_LEFT);
+            hBox.getChildren().add(img);
+            hBox.getChildren().add(flow);
+        } else {
+            text.setFill(Color.WHITE);
+            tempFLow.getStyleClass().add("tempFLow");
+            flow.getStyleClass().add("textFlow");
+            hBox.setAlignment(Pos.BOTTOM_RIGHT);
+            hBox.getChildren().add(flow);
+            hBox.getChildren().add(img);
+        }
+        hBox.getStyleClass().add("hbox");
+        chatBox.getChildren().add(hBox);
+    }
+
+    private Circle getCircle() {
+        Circle img = new Circle(28, 28, 14);
+        try {
+            Image image = new Image(new FileInputStream("Semester Project/src/client/view/images/user.png"));
+            img.setFill(new ImagePattern(image));
+        } catch (Exception e) {
+            System.out.println("Failed loading image");
+        }
+        img.getStyleClass().add("imageView");
+        return img;
+    }
 
 
 }

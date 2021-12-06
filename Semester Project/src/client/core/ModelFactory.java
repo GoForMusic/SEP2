@@ -29,7 +29,7 @@ public class ModelFactory {
 
     public LoginModel getLoginModel() {
         if (loginModel == null) {
-            loginModel = new LoginModelImpl(clientFactory.getLoginClient());
+            loginModel = new LoginModelImpl(clientFactory.getLoginClient(),clientFactory.getChatClient());
         }
         return loginModel;
     }

@@ -5,6 +5,8 @@ import server.database.chat.ChatDAOImpl;
 import shared.utils.Request;
 import shared.utils.chat.Message;
 
+import java.util.List;
+
 public class ChatHandlerImp implements ChatHandler {
 
     private ChatDAO chatDAO;
@@ -36,6 +38,16 @@ public class ChatHandlerImp implements ChatHandler {
             return ChatDAOImpl.getInstance().getAllCustomersWhoWantsToChat(username);
         } catch (Exception e) {
             return new Request(e.getMessage(),null);
+        }
+    }
+
+    @Override
+    public List<Message> getAllMessages(String username, String client) {
+        try {
+            return ChatDAOImpl.getInstance().getAllMessages(username,client);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
