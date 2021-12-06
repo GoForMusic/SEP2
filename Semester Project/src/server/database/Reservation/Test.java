@@ -11,5 +11,6 @@ public class Test {
         ReservationDAO reservationDAO = ReservationDAOImp.getInstance();
         Request request = reservationDAO.removeReservation("sachin123",LocalDate.now() , LocalDate.now().plusDays(1));
         System.out.println(request.getType());
+
     }
 }
