@@ -1,17 +1,16 @@
-package client.view.cleaner;
+package client.view.receptionist.roomList;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import client.view.cleaner.CleanerHomePageViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
+public class RoomListController implements ViewController {
 
-public class CleanerHomePageController implements ViewController {
-
-    @FXML private ListView<HBox> roomToBeClean;
+    @FXML private ListView<HBox> roomList;
     private CleanerHomePageViewModel cleanerHomePageViewModel;
 
     @Override
@@ -22,12 +21,9 @@ public class CleanerHomePageController implements ViewController {
 
     private void loadRooms()
     {
-        cleanerHomePageViewModel.loadRooms(false);
-        roomToBeClean.setItems(cleanerHomePageViewModel.getRoomList());
+        cleanerHomePageViewModel.loadRooms(true);
+        roomList.setItems(cleanerHomePageViewModel.getRoomList());
     }
 
-    @FXML
-    public void refreshList(MouseEvent mouseEvent) {
-        loadRooms();
-    }
+
 }

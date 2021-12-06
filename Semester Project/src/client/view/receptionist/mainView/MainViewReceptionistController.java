@@ -42,4 +42,9 @@ public class MainViewReceptionistController implements ViewController {
     private  void clickedBook(MouseEvent mouseEvent) {
         borderPane.setCenter(viewHandler.getViewRoom());
     }
+
+    @FXML
+    private void roomList(MouseEvent mouseEvent) {
+        borderPane.setCenter(viewHandler.getRoomListReceptionist());
+    }
 }

@@ -107,6 +107,10 @@ public class ViewHandler {
         return loadFXML("../view/viewRoomsTypes/viewRoom.fxml");
     }
 
+    public Parent getRoomListReceptionist() {
+        return loadFXML("../view/receptionist/roomList/roomList.fxml");
+    }
+
     public Parent getSingleRoom() {
         return loadFXML("../view/customer/singleRoom/SingleRoom.fxml");
     }

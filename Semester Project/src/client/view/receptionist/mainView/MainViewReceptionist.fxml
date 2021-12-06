@@ -38,6 +38,14 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
+            <Button layoutX="10.0" layoutY="104.0" mnemonicParsing="false" onMouseClicked="#roomList" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Room List" textFill="#aa5353">
+               <font>
+                  <Font name="Georgia Italic" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
             </children>
             <opaqueInsets>
                 <Insets right="3.0" />
