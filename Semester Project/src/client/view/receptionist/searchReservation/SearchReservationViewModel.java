@@ -128,4 +128,11 @@ public class SearchReservationViewModel {
         error.set(request.getType());
 
     }
+
+    public void removeReservation(Reservation reservation)
+    {
+        Request request = roomsModel.removeReservation(reservation);
+
+
+    }
 }
