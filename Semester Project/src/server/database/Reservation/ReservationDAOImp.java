@@ -102,4 +102,9 @@ public class ReservationDAOImp implements ReservationDAO {
             return new Request(throwables.getMessage(),null);
         }
     }
+
+    @Override public Request removeReservation(Reservation reservation)
+    {
+        return null;
+    }
 }

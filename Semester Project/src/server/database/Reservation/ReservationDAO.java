@@ -1,6 +1,7 @@
 package server.database.Reservation;
 
 import shared.utils.Request;
+import shared.utils.reservation.Reservation;
 
 import java.time.LocalDate;
 
@@ -11,4 +12,5 @@ public interface ReservationDAO {
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
 
+  Request removeReservation(Reservation reservation);
 }

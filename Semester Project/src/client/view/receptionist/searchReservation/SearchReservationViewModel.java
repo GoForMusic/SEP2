@@ -67,6 +67,9 @@ public class SearchReservationViewModel {
         roomsModel.setTempUsername(text);
     }
 
-
+    public void removeReservation(Reservation reservation)
+    {
+        roomsModel.removeReservation(reservation);
     }
+}
 
