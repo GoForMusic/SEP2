@@ -31,7 +31,7 @@ public class CleanerHomePageViewModel {
         roomList = new SimpleListProperty<>();
     }
 
-    public void loadRooms(){
+    public void loadRooms(boolean isCleanOrNot){
 
         List<Room> rooms = roomsModel.getRooms();
         ArrayList<HBox> elements = new ArrayList<>();
@@ -39,7 +39,7 @@ public class CleanerHomePageViewModel {
         if(!rooms.isEmpty()){
                 for(Room item: rooms)
                 {
-                    if(!item.isCleanOrNot()){
+                    if(item.isCleanOrNot()==isCleanOrNot){
                     HBox hBox = new HBox();
                     //add the item title and author as well the specific details
                     Label label = new Label(item.getName() + " | " + item.getType() + " | "+ item.isCleanOrNot());
@@ -52,7 +52,7 @@ public class CleanerHomePageViewModel {
                     //edit item button event handler using lambda method
                     editButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
                         Room localRoomUpdated = new Room(item.getName(), item.getType());
-                        localRoomUpdated.setClean(true);
+                        localRoomUpdated.setClean(!isCleanOrNot);
                         roomsModel.updateRoom(localRoomUpdated);
                     });
 
