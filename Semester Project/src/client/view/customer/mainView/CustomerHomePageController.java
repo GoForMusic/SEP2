@@ -42,15 +42,11 @@ public class CustomerHomePageController implements ViewController {
 
     }
 
-  //  public void clickedBookButton(MouseEvent mouseEvent) {
-
-   // }
-
 
     @FXML
     private void clickedBookButton(MouseEvent mouseEvent) {
         try {
-            receptionistBorderPane.setCenter(viewHandler.getViewRoom());
+            customerBorderPane.setCenter(viewHandler.getViewRoom());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -61,6 +57,9 @@ public class CustomerHomePageController implements ViewController {
         try {
             customerBorderPane.setCenter(viewHandler.getCustomerOverview());
         } catch (Exception e) {
+
+        }
+    }
 
 
     @FXML

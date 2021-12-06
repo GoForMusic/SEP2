@@ -54,7 +54,8 @@ public class LoginDAOImpl implements LoginDAO{
 
     private Request getUserType(String firstname, String lastname,String username, String accessType) {
         if (accessType.equals(Usertype.ADMIN.toString())){
-            return new Request(Usertype.ADMIN.toString(),new Admin(firstname,lastname,username));
+//            return new Request(Usertype.ADMIN.toString(),new Admin(firstname,lastname,username));
+            return new Request(Usertype.ADMIN.toString(), new Admin(firstname,lastname,username));
         }
         else if (accessType.equals(Usertype.RECEPTIONIST.toString())){
             return new Request(Usertype.RECEPTIONIST.toString(), new Receptionist(firstname,lastname,username));
