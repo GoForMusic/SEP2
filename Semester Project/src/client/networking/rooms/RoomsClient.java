@@ -37,4 +37,5 @@ public interface RoomsClient extends Subject {
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
 
+    Request removeReservation(int id);
 }

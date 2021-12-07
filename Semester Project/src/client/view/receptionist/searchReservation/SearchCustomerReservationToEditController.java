@@ -66,6 +66,7 @@ public class SearchCustomerReservationToEditController implements ViewController
 
     public void removedReservation(ActionEvent actionEvent)
     {
-        viewModel.removeReservation();
+        viewModel.removeReservation(tableView.getSelectionModel().getSelectedItem().getId());
+        searchByUsername();
     }
 }

@@ -16,6 +16,7 @@ public class Reservation implements Serializable {
     private LocalDate dateTo;
     private List<String> bookedRooms;
     private String tempRoom;
+    private int id;
 
     /**
      * A four argument constructor that takes customer, dateFrom , dateTo and the list of booked rooms
@@ -31,6 +32,7 @@ public class Reservation implements Serializable {
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.bookedRooms = bookedRooms;
+
     }
 
     /**
@@ -38,12 +40,20 @@ public class Reservation implements Serializable {
      * @param tempRoom the room name
      * @param dateFrom the start date of the booking
      * @param dateTo the endDate of the booking.
+     *
      */
     public Reservation(String tempRoom, LocalDate dateFrom, LocalDate dateTo){
         this.tempRoom=tempRoom;
         this.dateFrom=dateFrom;
         this.dateTo=dateTo;
     }
+    public Reservation(String tempRoom, LocalDate dateFrom, LocalDate dateTo,int id){
+        this.tempRoom=tempRoom;
+        this.dateFrom=dateFrom;
+        this.dateTo=dateTo;
+        this.id=id;
+    }
+
 
     private void verifyData(String username, LocalDate dateFrom, LocalDate dateTo, List<String> bookedRooms) throws Exception {
         if (username == null) {
@@ -80,6 +90,11 @@ public class Reservation implements Serializable {
 
     public String getUsername() {
         return username;
+    }
+
+    public int getId()
+    {
+        return id;
     }
 
     public void setBookedRooms(List<String> bookedRooms) {
