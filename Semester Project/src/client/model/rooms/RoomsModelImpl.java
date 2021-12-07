@@ -153,6 +153,11 @@ public class RoomsModelImpl implements RoomsModel {
         return client.updateReservation(username,previousStart, previousEnd,  roomName,  newStart,  newEnd,  newRoom);
     }
 
+    @Override public Request removeReservation(int id)
+    {
+        return client.removeReservation(id);
+    }
+
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);

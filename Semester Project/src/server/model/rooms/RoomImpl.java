@@ -108,6 +108,10 @@ public class RoomImpl implements RoomHandler {
         return reservationDAO.updateReservation(username,previousStart,previousEnd,roomName,newStart,newEnd,newRoom);
     }
 
+    @Override public Request removeReservation(int id)
+    {
+        return reservationDAO.removeReservation(id);
+    }
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

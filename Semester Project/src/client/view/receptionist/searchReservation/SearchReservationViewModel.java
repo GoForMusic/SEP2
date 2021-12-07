@@ -87,4 +87,10 @@ public class SearchReservationViewModel {
         };
 
 
+    public void removeReservation(int id)
+    {
+        Request request = roomsModel.removeReservation(id);
+        error.set(request.getType());
+
+    }
 }

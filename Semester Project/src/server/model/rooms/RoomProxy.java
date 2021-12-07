@@ -98,6 +98,11 @@ public class RoomProxy implements RoomHandler {
         return roomHandler.updateReservation(username, previousStart, previousEnd, roomName, newStart, newEnd, newRoom);
     }
 
+    @Override public Request removeReservation(int id)
+    {
+        return roomHandler.removeReservation(id);
+    }
+
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         roomHandler.addListener(eventName, listener);

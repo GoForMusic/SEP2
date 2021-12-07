@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.searchReservation.SearchCustomerReservationToEditController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.searchReservation.SearchCustomerReservationToEditController">
    <children>
       <TextField fx:id="username" layoutX="32.0" layoutY="161.0" promptText="Username" />
       <Button layoutX="66.0" layoutY="228.0" mnemonicParsing="false" onAction="#searchByUsername" text="Search" />
@@ -20,7 +20,7 @@
         </columns>
       </TableView>
       <Button layoutX="447.0" layoutY="360.0" mnemonicParsing="false" onAction="#onEdit" text="Edit" />
-      <Button layoutX="504.0" layoutY="360.0" mnemonicParsing="false" text="Remove" />
+      <Button layoutX="504.0" layoutY="360.0" mnemonicParsing="false" onAction="#removedReservation" text="Remove" />
       <Label layoutX="212.0" layoutY="14.0" text="Current Reservations :">
          <font>
             <Font name="Elephant" size="17.0" />

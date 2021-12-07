@@ -61,11 +61,13 @@ public class ReservationDAOImp implements ReservationDAO {
                 List<Reservation> reservations = new ArrayList<>();
                 LocalDate startDate = null;
                 LocalDate endDate = null;
+                int id = 0;
                 while (resultSet.next()) {
                     String roomName = resultSet.getString("roomName");
                     startDate = (resultSet.getDate("startDate")).toLocalDate();
                     endDate = (resultSet.getDate("endDate")).toLocalDate();
-                    reservations.add(new Reservation(roomName,startDate,endDate));
+                    id=(resultSet.getInt("Reservation_Id"));
+                    reservations.add(new Reservation(roomName,startDate,endDate,id));
                 }
                 if (startDate == null || endDate == null || reservations.isEmpty()) {
                     return new Request("User has not reserved any room", null);
@@ -101,4 +103,26 @@ public class ReservationDAOImp implements ReservationDAO {
             return new Request(throwables.getMessage(),null);
         }
     }
-}
+
+    @Override public Request removeReservation(int id)
+    {
+
+            try (Connection connection = DataBaseConnection.getConnection())
+            {
+
+                PreparedStatement statement = connection.prepareStatement(
+                    "delete from \"Reservation\" where  \"Reservation_id\" = ?;");
+                statement.setInt(1, id);
+
+                statement.executeQuery();
+                return new Request("Removed successfully", null);
+            }
+            catch (SQLException throwables)
+            {
+                return new Request(throwables.getMessage(), null);
+            }
+        }
+    }
+
+
+
