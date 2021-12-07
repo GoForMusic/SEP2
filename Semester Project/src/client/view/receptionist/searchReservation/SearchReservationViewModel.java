@@ -50,7 +50,7 @@ public class SearchReservationViewModel {
         List<Reservation> reservations = new ArrayList<>();
         if (request.getObject() == null) {
             error.set(request.getType());
-            reservations.clear();
+
         } else if (request.getObject() instanceof Reservation) {
             Reservation reservationFromServer = (Reservation) request.getObject();
             List<String> roomList = reservationFromServer.getBookedRooms();
@@ -70,9 +70,10 @@ public class SearchReservationViewModel {
     public void removeReservation(Reservation reservation)
     {
 
-
+        System.out.println(username.getValue() + "   " + reservation.getDateFrom() + "     "+ reservation.getDateTo());
         Request request = roomsModel.removeReservation(username.getValue(), reservation.getDateFrom(),reservation.getDateTo());
         error.set(request.getType());
+        searchByUsername();
 
     }
 }
