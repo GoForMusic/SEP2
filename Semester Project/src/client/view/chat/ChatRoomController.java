@@ -18,8 +18,6 @@ import javafx.scene.text.TextFlow;
 
 
 public class ChatRoomController implements ViewController {
-    private double xOffset;
-    private double yOffset;
     private ViewHandler viewHandler;
     private ChatViewModel viewModel;
 

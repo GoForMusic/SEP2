@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.mainView.MainViewReceptionistController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.receptionist.mainView.MainViewReceptionistController">
     <left>
         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #67B7CB;" BorderPane.alignment="CENTER">
             <children>
@@ -39,6 +39,14 @@
                </VBox.margin>
             </Button>
             <Button layoutX="10.0" layoutY="104.0" mnemonicParsing="false" onMouseClicked="#roomList" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Room List" textFill="#aa5353">
+               <font>
+                  <Font name="Georgia Italic" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#chat" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Chat" textFill="#aa5353">
                <font>
                   <Font name="Georgia Italic" size="13.0" />
                </font>
