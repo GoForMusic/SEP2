@@ -139,7 +139,7 @@ public class ChatViewModel {
         List<String> allClients = (List<String>) responseFromServer.getObject();
         for (String client : allClients
         ) {
-          //  if (client.equals(loginModel.getUsername())) continue;
+            if (client.equals(loginModel.getUsername())) continue;
             HBox container = new HBox();
             container.setAlignment(Pos.CENTER_LEFT);
             container.setSpacing(10);
