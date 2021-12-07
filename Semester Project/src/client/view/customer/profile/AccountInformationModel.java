@@ -35,6 +35,7 @@ public class AccountInformationModel
 
   public void setUserNameFromLogin(String userNameFromLogin)
   {
+
     userNameToSearch=userNameFromLogin;
   }
 }
