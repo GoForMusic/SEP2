@@ -172,5 +172,8 @@ public class ViewHandler {
         return loadFXML("../view/customer/overview/overview.fxml");
     }
 
+    public Parent getCustomerAccountInfoView(){
+        return loadFXML("../view/customer/profile/accountInformation.fxml");
+    }
 
 }

@@ -39,6 +39,13 @@ public class CustomerHomePageController implements ViewController {
     @FXML
     private void clickedCustomerMyAccount(MouseEvent mouseEvent) {
 
+        try
+        {
+            customerBorderPane.setCenter(
+                viewHandler.getCustomerAccountInfoView());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
