@@ -7,6 +7,7 @@ import client.view.chat.ChatViewModel;
 import client.view.customer.doubleBedroom.DoubleBedRoomViewModel;
 import client.view.customer.luxuryRoom.LuxuryRoomViewModel;
 import client.view.customer.overview.overviewViewModel;
+import client.view.customer.profile.AccountInfoViewModel;
 import client.view.customer.singleRoom.SingleRoomViewModel;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
@@ -36,6 +37,7 @@ public class ViewModelFactory {
     private overviewViewModel overviewViewModel;
     private CleanerHomePageViewModel cleanerHomePageViewModel;
     private ChatViewModel chatViewModel;
+    private AccountInfoViewModel customerAccountInfoModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -137,4 +139,12 @@ public class ViewModelFactory {
         }
         return chatViewModel;
     }
+
+    public AccountInfoViewModel getCustomerAccountInfoModel(){
+        if (customerAccountInfoModel == null){
+            customerAccountInfoModel = new AccountInfoViewModel(modelFactory);
+        }
+        return customerAccountInfoModel;
+    }
+
 }

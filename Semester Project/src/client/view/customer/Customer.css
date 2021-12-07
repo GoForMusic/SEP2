@@ -36,3 +36,18 @@
 .buttonGreen:hover{
   -fx-background-color: rgb(49, 247, 0);
 }
+.text-field{
+  -fx-background-color: rgba(255, 255, 255, 0);
+  -fx-prompt-text-fill: #618196;
+  -fx-text-fill: blue;
+  -fx-border-style: solid ;
+  -fx-border-width: 0 0 .5px  0 ;
+}
+
+.text-field:hover{
+  -fx-background-color: rgba(84, 109, 149, 0.17);
+  -fx-prompt-text-fill: #273dd0;
+  -fx-text-fill: blue;
+  -fx-border-style: solid ;
+  -fx-border-width: 0 0 1px  0 ;
+}

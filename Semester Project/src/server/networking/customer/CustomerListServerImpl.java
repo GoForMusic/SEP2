@@ -39,4 +39,5 @@ public class CustomerListServerImpl implements CustomerListServer {
     public ArrayList<Customer> getCustomers() throws RemoteException {
         return customerListHandler.getCustomers();
     }
+
 }
