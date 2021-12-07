@@ -3,6 +3,7 @@ package client.view.receptionist.searchReservation;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -63,4 +64,8 @@ public class SearchCustomerReservationToEditController implements ViewController
         tableView.setItems(viewModel.getTable());
     }
 
+    public void removedReservation(ActionEvent actionEvent)
+    {
+        viewModel.removeReservation();
+    }
 }

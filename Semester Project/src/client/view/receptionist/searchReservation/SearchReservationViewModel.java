@@ -86,5 +86,8 @@ public class SearchReservationViewModel {
 
         };
 
+    public void removeReservation()
+    {
+    }
 
 }
