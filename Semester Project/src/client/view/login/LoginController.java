@@ -1,7 +1,10 @@
 package client.view.login;
+import client.core.ModelFactory;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.customer.CustomerModel;
 import client.view.ViewController;
+import client.view.customer.profile.AccountInformationModel;
 import client.view.login.createAccount.CreateAccountViewModel;
 import client.view.login.loginExisting.LoginViewModel;
 import javafx.animation.TranslateTransition;
@@ -58,6 +61,8 @@ public class LoginController implements ViewController {
     private LoginViewModel loginViewModel;
     private CreateAccountViewModel createAccountViewModel;
 
+    private AccountInformationModel accountInformationModel;
+
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.viewHandler = vh;
@@ -66,6 +71,9 @@ public class LoginController implements ViewController {
         this.createAccountViewModel = viewModelFactory.getCreateAccountViewModel();
         bindEverythingWithLogin();
         bindEverythingWithSignUp();
+        accountInformationModel= viewModelFactory.getCustomerAccountInfoModel();
+
+
         // signInAnimation();
 
     }
@@ -137,6 +145,8 @@ public class LoginController implements ViewController {
     private void signIn(ActionEvent event) {
       String temp= loginViewModel.login();
       if (temp.equals(Usertype.CUSTOMER.toString())){
+          accountInformationModel.setUserNameFromLogin(signInUsername.getText());
+            accountInformationModel.setCustomer();
           viewHandler.openCustomerMainView();
       }else if(temp.equals(Usertype.RECEPTIONIST.toString())){
           viewHandler.openReceptionistMainView();

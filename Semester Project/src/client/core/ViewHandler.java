@@ -175,6 +175,9 @@ public class ViewHandler {
     public Parent getCleanerList(){return loadFXML("../view/admin/cleanerList/CleanerList.fxml");}
     public Parent getReceptionistList() {return loadFXML("../view/admin/receptionistList/ReceptionistList.fxml");}
 
+    public Parent getCustomerAccountInfoView(){
+        return loadFXML("../view/customer/profile/accountInformation.fxml");
+    }
 
     public Parent getEditRooms() { return loadFXML("../view/admin/editRoomType/EditRooms.fxml");
     }

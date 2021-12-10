@@ -1,10 +1,6 @@
 package client.core;
 
-import client.view.admin.cleanerList.CleanerListViewModel;
 import client.view.admin.createAccount.AdminCreateAccountViewModel;
-
-import client.view.admin.editRoomType.RoomTypeViewModel;
-import client.view.admin.receptionistList.ReceptionistListViewModel;
 import client.view.bookRooms.BookRoomViewModel;
 import client.view.cleaner.CleanerHomePageViewModel;
 import client.view.chat.ChatViewModel;
@@ -44,6 +40,7 @@ public class ViewModelFactory {
     private ReceptionistListViewModel receptionistListViewModel;
     private RoomTypeViewModel editRoomsViewModel;
 
+    private  AccountInformationModel accountInformationModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -175,4 +172,12 @@ public class ViewModelFactory {
 
 
 
+
+    public AccountInformationModel getCustomerAccountInfoModel()
+    {
+        if(accountInformationModel == null){
+            accountInformationModel = new AccountInformationModel(modelFactory);
+        }
+        return accountInformationModel ;
+    }
 }
