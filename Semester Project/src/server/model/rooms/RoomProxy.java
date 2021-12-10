@@ -104,6 +104,11 @@ public class RoomProxy implements RoomHandler {
     }
 
     @Override
+    public Request createRoom(Room room) {
+        return roomHandler.createRoom(room);
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         roomHandler.addListener(eventName, listener);
     }

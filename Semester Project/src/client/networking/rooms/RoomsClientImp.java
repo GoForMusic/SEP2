@@ -135,6 +135,15 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
     }
 
     @Override
+    public Request createRoom(Room room) {
+        try {
+           return server.getRoomsServer().createRoom(room);
+        } catch (RemoteException e) {
+            return new Request(e.getMessage(),null);
+        }
+    }
+
+    @Override
     public void roomsFromServer(List<Room> roomList) throws RemoteException {
         System.out.println(roomList);
         support.firePropertyChange(Observer.AVAILABLEROOMS.toString(),null,roomList);

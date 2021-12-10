@@ -64,6 +64,7 @@ public class CustomerHomePageController implements ViewController {
         try {
             customerBorderPane.setCenter(viewHandler.getCustomerOverview());
         } catch (Exception e) {
+            e.printStackTrace();
 
         }
     }

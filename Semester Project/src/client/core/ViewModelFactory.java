@@ -1,5 +1,6 @@
 package client.core;
 
+import client.view.admin.createARoom.CreateARoomViewModel;
 import client.view.admin.createAccount.AdminCreateAccountViewModel;
 import client.view.bookRooms.BookRoomViewModel;
 import client.view.cleaner.CleanerHomePageViewModel;
@@ -38,6 +39,7 @@ public class ViewModelFactory {
     private CleanerHomePageViewModel cleanerHomePageViewModel;
     private ChatViewModel chatViewModel;
     private  AccountInformationModel accountInformationModel;
+    public CreateARoomViewModel createARoomViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -146,5 +148,11 @@ public class ViewModelFactory {
             accountInformationModel = new AccountInformationModel(modelFactory);
         }
         return accountInformationModel ;
+    }
+    public CreateARoomViewModel getCreateARoomViewModel(){
+        if (createARoomViewModel == null){
+            createARoomViewModel = new CreateARoomViewModel(modelFactory);
+        }
+        return createARoomViewModel;
     }
 }

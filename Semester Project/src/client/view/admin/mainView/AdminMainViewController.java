@@ -30,4 +30,7 @@ public class AdminMainViewController implements ViewController
 
   }
 
+    public void AdminCreateARoomClicked(ActionEvent actionEvent) {
+      AdminBorderPane.setCenter(viewHandler.getAdminCreateRoom());
+    }
 }

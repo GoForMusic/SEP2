@@ -159,6 +159,11 @@ public class RoomsModelImpl implements RoomsModel {
     }
 
     @Override
+    public Request createRoom(Room room) {
+    return  client.createRoom(room);
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }
@@ -167,4 +172,5 @@ public class RoomsModelImpl implements RoomsModel {
     public void removeListener(String eventName, PropertyChangeListener listener) {
         support.removePropertyChangeListener(eventName, listener);
     }
+
 }

@@ -80,6 +80,11 @@ public class RoomServerSide implements RoomServer {
         return roomHandler.removeReservation(id);
     }
 
+    @Override
+    public Request createRoom(Room room) throws RemoteException {
+        return roomHandler.createRoom(room);
+    }
+
     private void fireAvailableRooms(PropertyChangeEvent event) {
         try {
           //  System.out.println("\n\n\n "+event.getNewValue());
