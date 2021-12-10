@@ -114,6 +114,16 @@ public class RoomImpl implements RoomHandler {
     }
 
     @Override
+    public Request createRoom(Room room) {
+        try {
+            roomDAO.create(room);
+            return new Request("Room created",null);
+        } catch (SQLException e) {
+            return new Request(e.getMessage(),null);
+        }
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }

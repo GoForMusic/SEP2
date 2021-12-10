@@ -7,6 +7,7 @@ import client.model.customer.CustomerModelImpl;
 import client.networking.customer.CustomerInfoClient;
 import client.networking.customer.CustomerInfoImpl;
 import org.junit.jupiter.api.*;
+
 import shared.utils.User.Customer;
 
 import static org.junit.jupiter.api.Assertions.*;

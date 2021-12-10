@@ -12,7 +12,7 @@ import java.util.List;
  * The data access object for room
  */
 public interface RoomDAO {
-    void create(String type,double price) throws SQLException;
+    void create(Room room) throws SQLException;
     void updateRoom(Room room) throws SQLException;
     ArrayList<Room> getAllRooms() throws SQLException;
     List<Room> getAllRoomsByType(String category) throws SQLException;

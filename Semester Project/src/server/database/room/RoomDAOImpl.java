@@ -12,12 +12,13 @@ public class RoomDAOImpl implements RoomDAO {
 
 
     @Override
-    public void create(String type, double price) throws SQLException {
+    public void create(Room room) throws SQLException {
         try (Connection connection = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO \"Room\"(type ,price)VALUES(?,?);");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO \"Room\"(\"Room_name\" ,\"Room_type\",isclean)VALUES(?,?,?);");
 
-            statement.setString(1, type);
-            statement.setString(2, type);
+            statement.setString(1, room.getName());
+            statement.setString(2, room.getType());
+            statement.setBoolean(3,room.isCleanOrNot());
             statement.executeUpdate();
         }
 

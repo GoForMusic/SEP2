@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -176,4 +177,7 @@ public class ViewHandler {
         return loadFXML("../view/customer/profile/accountInformation.fxml");
     }
 
+    public Parent getAdminCreateRoom() {
+        return loadFXML("../view/admin/createARoom/CreateARoom.fxml");
+    }
 }
