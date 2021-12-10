@@ -25,6 +25,7 @@ public class CustomerListViewModel {
 
     private CustomerModel customerModel;
 
+
     public CustomerListViewModel(ModelFactory modelFactory) {
         this.customerModel = modelFactory.getCustomerModel();
 

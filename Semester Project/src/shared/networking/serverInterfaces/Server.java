@@ -11,4 +11,8 @@ public interface Server extends Remote {
     RoomServer getRoomsServer() throws RemoteException;
     CustomerListServer getCustomerListServer() throws RemoteException;
     ChatServer getChatServer() throws RemoteException;
+    CleanerListServer getCleanerListServer() throws RemoteException;
+    ReceptionistListServer getReceptionistListServer() throws RemoteException;
+    RoomTypeListServer getRoomTypeListServer() throws RemoteException;
+
 }

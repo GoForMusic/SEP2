@@ -3,16 +3,11 @@ package client.view.admin.createAccount;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import shared.utils.User.Usertype;
-
-import java.util.Collection;
 
 public class CreateAccountController implements ViewController
 {

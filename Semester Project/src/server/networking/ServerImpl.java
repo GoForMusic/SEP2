@@ -16,13 +16,19 @@ public class ServerImpl implements Server {
     private RoomServer roomServer;
     private CustomerListServer customerListServer;
     private ChatServer chatServer;
+    private CleanerListServer cleanerListServer;
+    private ReceptionistListServer receptionistListServer;
+    private RoomTypeListServer roomTypeListServer;
 
-    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer, CustomerListServer customerListServer,ChatServer chatServer) throws RemoteException {
+    public ServerImpl(LoginServer loginServer, CreateAccountServer createAccountServer, RoomServer roomServer, CustomerListServer customerListServer, ChatServer chatServer, CleanerListServer cleanerListServer, ReceptionistListServer receptionistListServer, RoomTypeListServer roomTypeListServer) throws RemoteException {
         this.loginServer = loginServer;
         this.createAccountServer = createAccountServer;
         this.roomServer = roomServer;
         this.customerListServer = customerListServer;
         this.chatServer=chatServer;
+        this.cleanerListServer = cleanerListServer;
+        this.receptionistListServer = receptionistListServer;
+        this.roomTypeListServer = roomTypeListServer;
         UnicastRemoteObject.exportObject(this, 0);
     }
 
@@ -45,6 +51,21 @@ public class ServerImpl implements Server {
     @Override
     public ChatServer getChatServer() throws RemoteException {
         return chatServer;
+    }
+
+    @Override
+    public CleanerListServer getCleanerListServer() throws RemoteException {
+        return cleanerListServer;
+    }
+
+    @Override
+    public ReceptionistListServer getReceptionistListServer() throws RemoteException {
+        return receptionistListServer;
+    }
+
+    @Override
+    public RoomTypeListServer getRoomTypeListServer() throws RemoteException {
+        return roomTypeListServer;
     }
 
     @Override

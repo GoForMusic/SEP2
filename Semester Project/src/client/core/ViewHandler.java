@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.ViewController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -171,6 +172,10 @@ public class ViewHandler {
     public Parent getCustomerOverview(){
         return loadFXML("../view/customer/overview/overview.fxml");
     }
+    public Parent getCleanerList(){return loadFXML("../view/admin/cleanerList/CleanerList.fxml");}
+    public Parent getReceptionistList() {return loadFXML("../view/admin/receptionistList/ReceptionistList.fxml");}
 
 
+    public Parent getEditRooms() { return loadFXML("../view/admin/editRoomType/EditRooms.fxml");
+    }
 }

@@ -93,5 +93,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
         System.out.println(list);
         return list;
+
     }
 }

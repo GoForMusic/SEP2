@@ -38,6 +38,8 @@ public class CustomerInfoImpl implements CustomerInfoClient{
         }
     }
 
+
+
     @Override
     public Customer getCustomer(String username) {
         try {

@@ -5,11 +5,9 @@ import client.core.ViewModelFactory;
 import client.view.ViewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import shared.utils.User.Usertype;
 import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
-import javax.swing.text.LabelView;
 import java.time.LocalDate;
 
 public class EditReservationController implements ViewController {

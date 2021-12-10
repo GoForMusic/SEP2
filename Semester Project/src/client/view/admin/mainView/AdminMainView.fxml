@@ -16,11 +16,48 @@
               style="-fx-background-color: #67B7CB;"
               BorderPane.alignment="CENTER">
             <children>
+
                 <Button fx:id="AdminCreateAccount" mnemonicParsing="false"
                         onAction="#AdminCreateAccountClicked"
                         prefHeight="58.0" prefWidth="102.0"
                         style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;"
                         text="Create &#10;Account">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="CleanerList" mnemonicParsing="false"
+                        onAction="#CleanerList"
+                        prefHeight="58.0" prefWidth="102.0"
+                        style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;"
+                        text="Cleaners &#10;List">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="ReceptionistList" mnemonicParsing="false"
+                        onAction="#ReceptionistList"
+                        prefHeight="58.0" prefWidth="102.0"
+                        style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;"
+                        text="Receptionists &#10;List">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="EditRooms" mnemonicParsing="false"
+                        onAction="#EditRooms"
+                        prefHeight="58.0" prefWidth="102.0"
+                        style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;"
+                        text="EditRooms &#10;List">
                     <font>
                         <Font name="Georgia Italic" size="13.0"/>
                     </font>
