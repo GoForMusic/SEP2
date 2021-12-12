@@ -22,7 +22,18 @@ import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
+/**
+ * @author Adrian. Himal, Sachin, Emil, Marian
+ * A class that start the server
+ */
 public class RunServer {
+    /**
+     * A function that start the server and initialize all the servers
+     * @param args
+     * @throws RemoteException
+     * @throws AlreadyBoundException
+     * @throws SQLException
+     */
     public static void main(String[] args) throws RemoteException, AlreadyBoundException, SQLException {
         LoginHandler loginHandler= new LoginHandlerImpl();
         LoginServer loginServer = new LoginServerImpl(loginHandler);

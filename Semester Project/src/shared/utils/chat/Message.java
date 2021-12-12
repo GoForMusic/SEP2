@@ -23,13 +23,26 @@ public class Message implements Serializable {
         this.messageBody = messageBody;
     }
 
+    /**
+     * A function that will return username sender
+     * @return username sender
+     */
     public String getUserNameSender() {
         return userNameSender;
     }
+
+    /**
+     * A function that will return message body
+     * @return message body
+     */
     public String getMessageBody() {
         return messageBody;
     }
 
+    /**
+     * A function that will return username receiver
+     * @return username receiver
+     */
     public String getUserNameReceiver() {
         return userNameReceiver;
     }

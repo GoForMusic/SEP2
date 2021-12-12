@@ -18,6 +18,7 @@ public class DataBaseConnection
    * @return the connection with the server.
    * @throws SQLException = will show on the console the specific message from database
    */
+  //TODO set this with localhost before hand-in
   public static Connection getConnection() throws SQLException
   {
     return DriverManager.getConnection(
