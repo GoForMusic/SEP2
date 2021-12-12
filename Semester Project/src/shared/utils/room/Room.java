@@ -22,6 +22,10 @@ public class Room implements Serializable {
         isClean=true;
     }
 
+    /**
+     * A function that set if is clean
+     * @param clean
+     */
     public void setClean(boolean clean) {
         isClean = clean;
     }
@@ -29,7 +33,7 @@ public class Room implements Serializable {
 
 
     /**
-     *
+     * A function that will return type
      * @return the type of the room
      */
      public String getType() {
@@ -37,17 +41,25 @@ public class Room implements Serializable {
     }
 
     /**
-     *
+     * A function that will return if is clean or not
      * @return true if the room is clean , false if not
      */
     public boolean isCleanOrNot(){
         return isClean;
     }
 
+    /**
+     * A function that will return name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * A function that will name on the object level
+     * @return name
+     */
     @Override
     public String toString() {
         return name;

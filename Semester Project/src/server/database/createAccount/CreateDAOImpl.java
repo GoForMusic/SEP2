@@ -10,6 +10,9 @@ import java.sql.*;
  */
 public class CreateDAOImpl implements CreateDAO {
 
+    /**
+     * A constructor that will initialize the with the db driver
+     */
     public CreateDAOImpl() {
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
@@ -19,6 +22,15 @@ public class CreateDAOImpl implements CreateDAO {
     }
 
 
+    /**
+     * A function that will add a user to db
+     * @param firstname the firstname of the user
+     * @param lastname the lastname of the user
+     * @param username the username of the user
+     * @param password the pasword of the user
+     * @param userType the type of user
+     * @return a message
+     */
     @Override
     public String addUser(String firstname, String lastname, String username, String password, String userType) {
         //FIXME to make the parameter

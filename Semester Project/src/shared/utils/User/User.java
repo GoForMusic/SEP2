@@ -27,6 +27,12 @@ public abstract class User implements Serializable {
         this.password=password;
     }
 
+    /**
+     * A 3 argument constructor
+     * @param firstname
+     * @param lastName
+     * @param username
+     */
     public User(String firstname,String lastName,String username){
         this.firstName=firstname;
         this.lastName=lastName;
@@ -50,8 +56,8 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * A get method for email address.
-     * @return emailAddress
+     * A function that will return username
+     * @return username
      */
     public String getUserName() {
 
@@ -110,6 +116,10 @@ public abstract class User implements Serializable {
         return temp.getUserName().equals(userName) && temp.getPassword().equals(password);
     }
 
+    /**
+     * A function that will validate username
+     * @param username
+     */
     private void validateUsername(String username){
         if (username.length()<4){
             throw new IllegalStateException("Username should consist more than 3 characters");
@@ -129,6 +139,11 @@ public abstract class User implements Serializable {
             throw new IllegalStateException("Username should have at least one digit..");
         }
     }
+
+    /**
+     * A function that will validate password
+     * @param password
+     */
     private void validatePassword(String password){
         if (password.length()<4){
             throw new IllegalStateException("Password should consist more than 3 characters");

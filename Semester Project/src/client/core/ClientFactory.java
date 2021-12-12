@@ -14,7 +14,7 @@ import client.networking.rooms.RoomsClientImp;
 import java.rmi.RemoteException;
 
 /**
- * @author Sachin
+ * @author Sachin, Adrian, Marian, Himal, Emil
  * The class that creates and stores all the clients
  */
 public class ClientFactory {
@@ -25,7 +25,10 @@ public class ClientFactory {
     private CustomerInfoClient customerInfoClient;
 
 
-
+    /**
+     * A function that will return loginClient
+     * @return loginClient
+     */
     public LoginClient getLoginClient() {
         if (loginClient == null) {
             loginClient = new LoginClientImpl();
@@ -33,6 +36,10 @@ public class ClientFactory {
         return loginClient;
     }
 
+    /**
+     * A function that will return createClient
+     * @return createClient
+     */
     public CreateClient getCreateClient() {
         if (createClient == null) {
             createClient = new CreateClientImpl();
@@ -40,6 +47,10 @@ public class ClientFactory {
         return createClient;
     }
 
+    /**
+     * A function that will return viewRoomClient
+     * @return roomsClient
+     */
     public RoomsClient getViewRoomCLient() {
         if (roomsClient == null) {
             roomsClient = new RoomsClientImp();
@@ -47,6 +58,10 @@ public class ClientFactory {
         return roomsClient;
     }
 
+    /**
+     * A function that will return customerinfoClient
+     * @return customerInfoClient
+     */
     public CustomerInfoClient getCustomerInfoClient() {
         if (customerInfoClient == null) {
             customerInfoClient = new CustomerInfoImpl();
@@ -54,6 +69,10 @@ public class ClientFactory {
         return customerInfoClient;
     }
 
+    /**
+     * A function that will return chatClient
+     * @return chatClient
+     */
     public ChatClient getChatClient() {
         if (chatClient == null) {
                 chatClient = new ChatClientImpl();

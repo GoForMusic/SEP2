@@ -4,6 +4,10 @@ import client.networking.create.CreateClient;
 import shared.utils.User.Customer;
 import shared.utils.User.User;
 
+/**
+ * @author Sachin
+ * A class that is implement all the CreateModel interfaces functions
+ */
 public class CreateImpl implements CreateModel {
     public CreateClient client;
 

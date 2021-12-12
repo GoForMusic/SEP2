@@ -8,9 +8,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Emil
+ * A class that will execute all the function from RoomDAO interface
+ */
 public class RoomDAOImpl implements RoomDAO {
 
 
+    /**
+     * A function that will create a room to db
+     */
     @Override
     public void create(Room room) throws SQLException {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -24,6 +31,11 @@ public class RoomDAOImpl implements RoomDAO {
 
     }
 
+    /**
+     * A function that update room
+     * @param room
+     * @throws SQLException
+     */
     @Override
     public void updateRoom(Room room) throws SQLException {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -35,6 +47,11 @@ public class RoomDAOImpl implements RoomDAO {
         }
     }
 
+    /**
+     * A function that wil lreturn all the rooms
+     * @return list of rooms
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Room> getAllRooms() throws SQLException {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -44,6 +61,11 @@ public class RoomDAOImpl implements RoomDAO {
         }
     }
 
+    /**
+     * A function that will return a list of rooms by type
+     * @param category
+     * @return
+     */
     @Override
     public List<Room> getAllRoomsByType(String category) {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -57,6 +79,9 @@ public class RoomDAOImpl implements RoomDAO {
         }
     }
 
+    /**
+     * A function that will return a list with all available rooms by type
+     */
     @Override
     public List<Room> getAllAvailableRoomsByType(String category, LocalDate dateFrom, LocalDate dateTo) {
 
@@ -75,6 +100,12 @@ public class RoomDAOImpl implements RoomDAO {
         }
     }
 
+    /**
+     * A function that will return a list of rooms
+     * @param statement
+     * @return list of rooms
+     * @throws SQLException
+     */
     private List<Room> getRooms(PreparedStatement statement) throws SQLException {
         ResultSet resultSet = statement.executeQuery();
         List<Room> rooms = new ArrayList<>();

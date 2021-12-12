@@ -36,17 +36,24 @@ public class Reservation implements Serializable {
     }
 
     /**
-     * Will only be used for the tableView ....
-     * @param tempRoom the room name
-     * @param dateFrom the start date of the booking
-     * @param dateTo the endDate of the booking.
-     *
+     * A 3 argument constructor
+     * @param tempRoom
+     * @param dateFrom
+     * @param dateTo
      */
     public Reservation(String tempRoom, LocalDate dateFrom, LocalDate dateTo){
         this.tempRoom=tempRoom;
         this.dateFrom=dateFrom;
         this.dateTo=dateTo;
     }
+
+    /**
+     * A 4 argument constructor
+     * @param tempRoom
+     * @param dateFrom
+     * @param dateTo
+     * @param id
+     */
     public Reservation(String tempRoom, LocalDate dateFrom, LocalDate dateTo,int id){
         this.tempRoom=tempRoom;
         this.dateFrom=dateFrom;
@@ -54,7 +61,14 @@ public class Reservation implements Serializable {
         this.id=id;
     }
 
-
+    /**
+     * A function that will verify data
+     * @param username
+     * @param dateFrom
+     * @param dateTo
+     * @param bookedRooms
+     * @throws Exception
+     */
     private void verifyData(String username, LocalDate dateFrom, LocalDate dateTo, List<String> bookedRooms) throws Exception {
         if (username == null) {
             throw new Exception("Cannot create a reservation without customer");
@@ -68,64 +82,86 @@ public class Reservation implements Serializable {
         }
     }
 
+    /**
+     * A function that will set room
+     * @param tempRoom
+     */
     public void setTempRoom(String tempRoom) {
         this.tempRoom = tempRoom;
     }
 
+    /**
+     * A function that will get room
+     * @return room
+     */
     public String getTempRoom() {
         return tempRoom;
     }
 
+    /**
+     * A function that will get date from
+     * @return date from
+     */
     public LocalDate getDateFrom() {
         return dateFrom;
     }
 
+    /**
+     * A function that will get data to
+     * @return
+     */
     public LocalDate getDateTo() {
         return dateTo;
     }
 
+    /**
+     * A function that will get a list of booked rooms
+     * @return list of booked rooms
+     */
     public List<String> getBookedRooms() {
         return bookedRooms;
     }
 
+    /**
+     * A function that will return username
+     * @return username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * A function that will return id
+     * @return id
+     */
     public int getId()
     {
         return id;
     }
 
+    /**
+     * A function that will set booked room
+     * @param bookedRooms
+     */
     public void setBookedRooms(List<String> bookedRooms) {
         this.bookedRooms = bookedRooms;
     }
 
+    /**
+     * A function that will set date from
+     * @param dateFrom
+     */
     public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
     }
 
+    /**
+     * A function that will set date to
+     * @param dateTo
+     */
     public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
     }
 
-    /**
-     * Equals method for the reservation
-     * @param obj the object to compare
-     * @return true, if the object is equal , else false.
-     */
-//    public boolean equals(Object obj) {
-//        if (!(obj instanceof Reservation)) {
-//            return false;
-//        }
-//        Reservation temp = (Reservation) obj;
-//        if (temp.getUsername().equals(this.username)) {
-//            if (temp.getDateFrom().equals(this.dateFrom) && temp.getDateTo().equals(this.getDateTo())) {
-//                if (temp.getBookedRooms().equals(this.bookedRooms)) {
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
+
 }

@@ -12,7 +12,7 @@ public class Receptionist extends User implements Serializable {
     private String userType;
 
     /**
-     * A 2 argument constructor
+     * A 3 argument constructor
      *
      * @param firstname
      * @param userName

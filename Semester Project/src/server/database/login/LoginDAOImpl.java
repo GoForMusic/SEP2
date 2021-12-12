@@ -12,22 +12,24 @@ import java.sql.*;
  * @version 1.0
  */
 public class LoginDAOImpl implements LoginDAO{
-//    private LoginDAOImpl instance;
 
+
+    /**
+     * A constructor that will initialize the db driver
+     * @throws SQLException
+     */
     public LoginDAOImpl() throws SQLException {
         DriverManager.registerDriver(new org.postgresql.Driver());
     }
-//    public  LoginDAO getInstance(){
-//        if (instance==null){
-//            try {
-//                instance= new LoginDAOImpl();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return instance;
-//    }
 
+
+    /**
+     * A login method that will ask for user credentials
+     * @param username the username all the way from the GUI
+     * @param password the password all the way from the GUI
+     * @return a message
+     * @throws SQLException
+     */
     @Override
     public Request login(String username, String password ) throws SQLException {
         try(Connection connection = DataBaseConnection.getConnection()){
@@ -52,6 +54,14 @@ public class LoginDAOImpl implements LoginDAO{
         }
     }
 
+    /**
+     * A function that will return user type
+     * @param firstname
+     * @param lastname
+     * @param username
+     * @param accessType
+     * @return a request or a message
+     */
     private Request getUserType(String firstname, String lastname,String username, String accessType) {
         if (accessType.equals(Usertype.ADMIN.toString())){
 //            return new Request(Usertype.ADMIN.toString(),new Admin(firstname,lastname,username));
