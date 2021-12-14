@@ -9,7 +9,10 @@ import shared.utils.User.Usertype;
 
 import java.util.Locale;
 
-
+/**
+ * @author Himal
+ * A class that set-up variables for GUI
+ */
 public class AdminCreateAccountViewModel
 {
 
@@ -20,32 +23,65 @@ public class AdminCreateAccountViewModel
   private CreateModel createModel;
 
 
+  /**
+   * A method that will return first name
+   * @return firstname
+   */
   public StringProperty getFirstNameProperty()
   {
     return firstName;
   }
+
+  /**
+   * A method that will return last name
+   * @return last name
+   */
   public StringProperty getLastNameProperty()
   {
     return lastName;
   }
+
+  /**
+   * A method that will return username
+   * @return username
+   */
   public StringProperty getUserNameProperty()
   {
     return userName;
   }
+
+  /**
+   * A method that will return password
+   * @return password
+   */
   public StringProperty getPasswordProperty()
   {
     return password;
   }
+
+  /**
+   * A method that will return user type
+   * @return user type
+   */
   public StringProperty getUserTypeProperty()
   {
     return userType;
   }
 
+
+  /**
+   * A method that will return error label
+   * @return error message
+   */
   public StringProperty errorLabelProperty()
   {
     return errorLabel;
   }
 
+  /**
+   * A constructor that will initialize model
+   * @param modelFactory
+   */
   public AdminCreateAccountViewModel(ModelFactory modelFactory)
   {
     this.modelFactory = modelFactory;
@@ -53,6 +89,9 @@ public class AdminCreateAccountViewModel
     initializeAllProperties();
   }
 
+  /**
+   * A function that will initialize all the variables
+   */
   private void initializeAllProperties()
   {
     firstName = new SimpleStringProperty();
@@ -63,6 +102,10 @@ public class AdminCreateAccountViewModel
     errorLabel = new SimpleStringProperty();
   }
 
+  /**
+   * A method that will create an account
+   * @return a message
+   */
   public String createAccount()
   {
     if (userName.get() == null || userName.get().isEmpty())
@@ -104,6 +147,10 @@ public class AdminCreateAccountViewModel
     return null;
 
   }
+
+  /**
+   * A method that will clean all the fields
+   */
   private void clearAll()
   {
     password.set(null);
@@ -112,6 +159,9 @@ public class AdminCreateAccountViewModel
     lastName.set(null);
   }
 
+  /**
+   * A method that will clean username and password field
+   */
   private void clearUsernameAndPassword()
   {
     password.set(null);

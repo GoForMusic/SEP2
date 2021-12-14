@@ -7,38 +7,69 @@ import javafx.beans.property.StringProperty;
 
 import java.util.Locale;
 
+/**
+ * @author Marian
+ * A class that will creat a user from receptionist view
+ */
 public class ReceptionistCreateCustomerAccountViewModel {
     private StringProperty firstName, lastName, userName, password, errorLabel, userType;
     private ModelFactory modelFactory;
     private CreateModel createModel;
 
 
-    public javafx.beans.property.StringProperty getFirstNameProperty() {
+    /**
+     * A method that will return firstname
+     * @return first name
+     */
+    public StringProperty getFirstNameProperty() {
         return firstName;
     }
 
+    /**
+     * A method that will return last name
+     * @return last name
+     */
     public StringProperty getLastNameProperty() {
         return lastName;
     }
 
+    /**
+     * A method that will return username
+     * @return username
+     */
     public StringProperty getUserNameProperty() {
         return userName;
     }
 
+    /**
+     * A method that will return password
+     * @return password
+     */
     public StringProperty getPasswordProperty() {
         return password;
     }
 
+    /**
+     * A method that will return an error label
+     * @return error message
+     */
     public StringProperty errorLabelProperty() {
         return errorLabel;
     }
 
+    /**
+     * A cosntructor
+     * @param modelFactory
+     */
     public ReceptionistCreateCustomerAccountViewModel(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
         createModel = modelFactory.getCreateModel();
         initializeAllProperties();
     }
 
+    /**
+     * A method that will initialize everthing
+     */
     private void initializeAllProperties() {
 
         firstName = new SimpleStringProperty();
@@ -48,6 +79,10 @@ public class ReceptionistCreateCustomerAccountViewModel {
         errorLabel = new SimpleStringProperty();
     }
 
+    /**
+     * A method that will create an account
+     * @return message
+     */
     public String createAccount() {
         if (userName.get() == null || userName.get().isEmpty()) {
             errorLabel.set("Username cannot be empty..");
@@ -76,6 +111,9 @@ public class ReceptionistCreateCustomerAccountViewModel {
 
     }
 
+    /**
+     * A method that will clean all the fields
+     */
     private void clearAll() {
         password.set(null);
         userName.set(null);
@@ -83,6 +121,9 @@ public class ReceptionistCreateCustomerAccountViewModel {
         lastName.set(null);
     }
 
+    /**
+     * A method that will clean all the fields
+     */
     private void clearUsernameAndPassword() {
         password.set(null);
         userName.set(null);

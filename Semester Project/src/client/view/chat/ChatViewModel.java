@@ -31,7 +31,10 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author Scahin
+ * A class that will implement chat functions
+ */
 public class ChatViewModel {
     private BooleanProperty emoji;
     private StringProperty message, usernameReceiver;
@@ -42,6 +45,10 @@ public class ChatViewModel {
     private VBox chatBox;
     private StringProperty client;
 
+    /**
+     * A constructor that will initialize every varaible
+     * @param modelFactory
+     */
     public ChatViewModel(ModelFactory modelFactory) {
         this.chatModel = modelFactory.getChatModel();
         this.loginModel = modelFactory.getLoginModel();
@@ -53,39 +60,72 @@ public class ChatViewModel {
     }
 
 
+    /**
+     * A method that will return the container
+     * @return container
+     */
     public List<HBox> getContainer() {
         return clientContainer;
     }
 
+    /**
+     * A method that will return the chat box
+     * @return chat box
+     */
     public VBox getChatBox() {
         return chatBox;
     }
 
+    /**
+     * A method that will set client list box pref width
+     * @param clientListBoxPrefWidth
+     */
     public void setClientListBoxPrefWidth(double clientListBoxPrefWidth) {
         System.out.println(clientListBoxPrefWidth);
         this.clientListBoxPrefWidth = clientListBoxPrefWidth;
     }
 
+    /**
+     * A method that will make emojy invisible
+     */
     public void makeEmojiInVisible() {
         emoji.set(false);
     }
 
+    /**
+     * A method that will make emojy visible
+     */
     public void makeEmojiVisible() {
         emoji.set(true);
     }
 
+    /**
+     * A method that will return emoji
+     * @return emoji
+     */
     public BooleanProperty getEmojiProperty() {
         return emoji;
     }
 
+    /**
+     * A method that will return emoji
+     * @return emoji
+     */
     public boolean isEmojiVisible() {
         return emoji.get();
     }
 
+    /**
+     * A method that will return the message
+     * @return message
+     */
     public StringProperty getMessage() {
         return message;
     }
 
+    /**
+     * A method that will send a message
+     */
     public void sendMessage() {
         if (message.get().equals("")) return;
         if (usernameReceiver.get() == null) {
@@ -101,6 +141,9 @@ public class ChatViewModel {
         }
     }
 
+    /**
+     * A method that will initialize everything
+     */
     private void initializeProperties() {
         emoji = new SimpleBooleanProperty();
         emoji.set(false);
@@ -114,14 +157,25 @@ public class ChatViewModel {
         }
     }
 
+    /**
+     * A method that will return all receptionist
+     * @return all the receptionist
+     */
     private Request getALlReceptionists() {
         return chatModel.getAllReceptionists();
     }
 
+    /**
+     * A method that will return all the customers
+     * @return customers
+     */
     private Request getCustomers() {
         return chatModel.getAllCustomersWhoWantsToChat(loginModel.getUsername());
     }
 
+    /**
+     * A method that will load clients
+     */
     private void loadClients() {
         Request responseFromServer = null;
         if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())) {
@@ -159,6 +213,10 @@ public class ChatViewModel {
         }
     }
 
+    /**
+     * A method that will load messages
+     * @param client
+     */
     private void loadMessages(String client) {
         usernameReceiver.set(client);
 
@@ -173,6 +231,10 @@ public class ChatViewModel {
 
     }
 
+    /**
+     * A method that will update message
+     * @param event
+     */
     private void updateMessage(PropertyChangeEvent event) {
 //        System.out.println("View model is here");
         if (event.getNewValue() instanceof Message) {
@@ -191,6 +253,10 @@ public class ChatViewModel {
 
     }
 
+    /**
+     * A method that will update UI
+     * @param tempMessage
+     */
     private void updateUI(Message tempMessage) {
         Text text = new Text(tempMessage.getMessageBody());
         text.setFill(Color.WHITE);
@@ -229,6 +295,10 @@ public class ChatViewModel {
         chatBox.getChildren().add(hBox);
     }
 
+    /**
+     * A method that will return a circle
+     * @return circle
+     */
     private Circle getCircle() {
         Circle img = new Circle(28, 28, 14);
         try {
@@ -241,7 +311,10 @@ public class ChatViewModel {
         return img;
     }
 
-
+    /**
+     * A method that will return the client
+     * @return client
+     */
     public StringProperty getClientProperty() {
         return this.client;
     }

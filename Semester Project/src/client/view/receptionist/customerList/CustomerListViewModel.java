@@ -67,7 +67,7 @@ public class CustomerListViewModel {
             {
                 HBox hBox = new HBox();
                 //add the item title and author as well the specific details
-                Label label = new Label(item.getUserName() + " | " + item.getFullName() + " | "+ item.getEmail());
+                Label label = new Label(item.getUserName() + " | " + item.getFullName() + " | ");
                 label.setPrefWidth(450);
                 hBox.getChildren().add(label);
                 //add edit button

@@ -7,6 +7,10 @@ import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 
+/**
+ * @author Sachin, Emil
+ * A class that will set-up sinple room details
+ */
 public class SingleRoomViewModel {
     private ObjectProperty<LocalDate> dateFrom;
     private ObjectProperty<LocalDate> dateTo;
