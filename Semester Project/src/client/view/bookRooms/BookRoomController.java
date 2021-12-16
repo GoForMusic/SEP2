@@ -1,5 +1,4 @@
 package client.view.bookRooms;
-
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.ViewController;
@@ -31,16 +30,18 @@ public class BookRoomController implements ViewController {
         error.textProperty().bind(viewModel.getError());
         username.visibleProperty().bind(viewModel.showStatus());
         username.textProperty().bindBidirectional(viewModel.getUsernameUsedByReceptionist());
+        roomList.setItems(viewModel.getRoomList());
 
     }
     @FXML
     private void bookRoom(){
         viewModel.setSelectedRoom(roomList.getSelectionModel().getSelectedItems());
         viewModel.bookRoom();
+       initializeRoomList();
     }
     private void initializeRoomList(){
         roomList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        roomList.setItems(viewModel.getRoomList());
+
 
     }
 
