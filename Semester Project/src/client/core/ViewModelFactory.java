@@ -1,7 +1,10 @@
 package client.core;
 
+import client.view.admin.cleanerList.CleanerListViewModel;
 import client.view.admin.createARoom.CreateARoomViewModel;
 import client.view.admin.createAccount.AdminCreateAccountViewModel;
+import client.view.admin.editRoomType.RoomTypeViewModel;
+import client.view.admin.receptionistList.ReceptionistListViewModel;
 import client.view.bookRooms.BookRoomViewModel;
 import client.view.cleaner.CleanerHomePageViewModel;
 import client.view.chat.ChatViewModel;
@@ -39,7 +42,10 @@ public class ViewModelFactory {
     private CleanerHomePageViewModel cleanerHomePageViewModel;
     private ChatViewModel chatViewModel;
     private  AccountInformationModel accountInformationModel;
-    public CreateARoomViewModel createARoomViewModel;
+    private CreateARoomViewModel createARoomViewModel;
+    private CleanerListViewModel cleanerListViewModel;
+    private ReceptionistListViewModel receptionistListViewModel;
+    private RoomTypeViewModel roomTypeViewModel;
 
     /**
      * A constructor that will initialize modelFactory
@@ -223,5 +229,30 @@ public class ViewModelFactory {
             createARoomViewModel = new CreateARoomViewModel(modelFactory);
         }
         return createARoomViewModel;
+    }
+
+    public CleanerListViewModel getCleanerListViewModel() {
+        if( cleanerListViewModel == null)
+        {
+            cleanerListViewModel = new CleanerListViewModel(modelFactory);
+        }
+        return cleanerListViewModel;
+    }
+
+    public ReceptionistListViewModel getReceptionistListViewModel()
+    {
+        if (receptionistListViewModel == null)
+        {
+            receptionistListViewModel = new ReceptionistListViewModel(modelFactory);
+        }
+        return receptionistListViewModel;
+    }
+
+    public RoomTypeViewModel getEditRoomTypeViewModel() {
+        if (roomTypeViewModel == null)
+        {
+            roomTypeViewModel = new RoomTypeViewModel(modelFactory);
+        }
+        return roomTypeViewModel;
     }
 }

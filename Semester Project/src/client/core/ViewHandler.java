@@ -237,4 +237,17 @@ public class ViewHandler {
     public Parent getAdminCreateRoom() {
         return loadFXML("../view/admin/createARoom/CreateARoom.fxml");
     }
+
+    public Parent getCleanerList()
+    {
+        return loadFXML("../view/admin/cleanerList/CleanerList.fxml");
+    }
+    public Parent getReceptionistList()
+    {
+        return loadFXML("../view/admin/receptionistList/ReceptionistList.fxml");
+    }
+    public Parent getEditRoomType()
+    {
+        return loadFXML("../view/admin/editRoomType/EditRooms.fxml");
+    }
 }

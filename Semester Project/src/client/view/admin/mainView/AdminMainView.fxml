@@ -30,6 +30,30 @@
                   <Insets top="15.0" />
                </VBox.margin>
             </Button>
+                <Button fx:id="CleanerList" layoutX="10.0" layoutY="25.0" mnemonicParsing="false" onAction="#CleanerListClicked" prefHeight="58.0" prefWidth="102.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Cleaner List&#10;">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="ReceptionistList" layoutX="10.0" layoutY="25.0" mnemonicParsing="false" onAction="#ReceptionistListClicked" prefHeight="58.0" prefWidth="102.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Receptionist List&#10;">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="EditRoomType" layoutX="10.0" layoutY="25.0" mnemonicParsing="false" onAction="#EditRoomTypeClicked" prefHeight="58.0" prefWidth="102.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Edit Room Types&#10;">
+                    <font>
+                        <Font name="Georgia Italic" size="13.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </Button>
             </children>
             <opaqueInsets>
                 <Insets right="3.0" />
