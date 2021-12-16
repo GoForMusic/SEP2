@@ -10,7 +10,6 @@ public interface LoginClient {
 
     /**
      * Checks if the login is allowed
-     * @param user
      * @return the result from server
      */
     Request login(String username,String password);

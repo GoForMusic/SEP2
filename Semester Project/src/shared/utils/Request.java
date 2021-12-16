@@ -20,10 +20,18 @@ public class Request implements Serializable {
         this.object = object;
     }
 
+    /**
+     * A function that will return get type
+     * @return type
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * A function that will return an object
+     * @return object
+     */
     public Object getObject() {
         return object;
     }

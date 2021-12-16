@@ -10,12 +10,9 @@ import javafx.scene.layout.BorderPane;
 
 public class AdminMainViewController implements ViewController
 {
-  public Button EditRooms;
   @FXML private BorderPane AdminBorderPane;
   @FXML private Button AdminCreateAccount;
   private ViewHandler viewHandler;
-  @FXML private Button CleanerList;
-  @FXML private Button ReceptionistList;
 
 
 
@@ -29,20 +26,11 @@ public class AdminMainViewController implements ViewController
   @FXML private void AdminCreateAccountClicked(ActionEvent actionEvent)
   {
     AdminBorderPane.setCenter(viewHandler.getAdminCreateAccount());
-  }
-
-  @FXML private void CleanerList(ActionEvent actionEvent)
-  {
-    AdminBorderPane.setCenter(viewHandler.getCleanerList());
-  }
-
-  @FXML private void ReceptionistList(ActionEvent actionEvent)
-  {
-    AdminBorderPane.setCenter(viewHandler.getReceptionistList());
-  }
 
 
-  public void EditRooms(ActionEvent actionEvent) {
-    AdminBorderPane.setCenter(viewHandler.getEditRooms());
   }
+
+    public void AdminCreateARoomClicked(ActionEvent actionEvent) {
+      AdminBorderPane.setCenter(viewHandler.getAdminCreateRoom());
+    }
 }

@@ -7,6 +7,9 @@ import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
 
+/**
+ * @author Sachin
+ */
 public class LuxuryRoomViewModel {
     private ObjectProperty<LocalDate> dateFrom, dateTo;
     private ModelFactory modelFactory;

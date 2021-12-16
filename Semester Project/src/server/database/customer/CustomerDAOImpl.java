@@ -7,8 +7,15 @@ import shared.utils.User.Customer;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * @author Adrian
+ * A class that will implement all the customerDAO interface functions
+ */
 public class CustomerDAOImpl implements CustomerDAO {
 
+    /**
+     * A constructor that will initialize the db driver
+     */
     public CustomerDAOImpl() {
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
@@ -17,6 +24,11 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
+    /**
+     * A function that will update customer to db
+     * @param customer
+     * @param oldUsername
+     */
     @Override
     public void updateCustomer(Customer customer, String oldUsername) {
         try(Connection connection = DataBaseConnection.getConnection()){
@@ -35,6 +47,10 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
 
+    /**
+     * A function that will remove customer to db
+     * @param customer
+     */
     @Override
     public void removeCustomer(Customer customer) {
         try(Connection connection = DataBaseConnection.getConnection()){
@@ -48,6 +64,11 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
+    /**
+     * A function that will get customer from db
+     * @param username
+     * @return a customer
+     */
     @Override
     public Customer getCustomer(String username) {
         try(Connection connection = DataBaseConnection.getConnection()){
@@ -72,11 +93,15 @@ public class CustomerDAOImpl implements CustomerDAO {
         return null;
     }
 
+    /**
+     * A function that will get a list of customers from db
+     * @return list of customers
+     */
     @Override
     public ArrayList<Customer> getCustomers() {
         ArrayList<Customer> list = new ArrayList<>();
         try(Connection connection = DataBaseConnection.getConnection()){
-            PreparedStatement statement = connection.prepareStatement("select * from \"User\"");
+            PreparedStatement statement = connection.prepareStatement("select * from \"User\" WHERE access_type='CUSTOMER'");
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){

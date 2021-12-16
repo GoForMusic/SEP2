@@ -38,7 +38,7 @@
                         <Insets top="15.0" />
                     </VBox.margin>
                 </Button>
-            <Button mnemonicParsing="false" onAction="#clickedChat" onMouseClicked="#clickedCustomerMyAccount" prefHeight="54.0" prefWidth="101.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Chat">
+            <Button fx:id="customerMyAccount1" mnemonicParsing="false" onAction="#clickedChat" prefHeight="54.0" prefWidth="101.0" style="-fx-background-color: #1A424C; -fx-text-fill: #f0f0f0;" text="Chat">
                <font>
                   <Font name="Georgia Italic" size="13.0" />
                </font>

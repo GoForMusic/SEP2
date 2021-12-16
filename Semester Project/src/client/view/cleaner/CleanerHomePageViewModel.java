@@ -20,17 +20,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author Adrian
+ * A class that will implement all the room details for cleaner
+ */
 public class CleanerHomePageViewModel {
 
     private ObservableList<HBox> roomList;
     private RoomsModel roomsModel;
 
+    /**
+     * A constructor that will initialize everything
+     */
     public CleanerHomePageViewModel(ModelFactory modelFactory) {
         this.roomsModel = modelFactory.getRoomsModel();
 
         roomList = new SimpleListProperty<>();
     }
 
+    /**
+     * A method that will load all the rooms from data base
+     * @param isCleanOrNot
+     */
     public void loadRooms(boolean isCleanOrNot){
 
         List<Room> rooms = roomsModel.getRooms();
@@ -66,6 +77,10 @@ public class CleanerHomePageViewModel {
         roomList = FXCollections.observableArrayList(elements);
     }
 
+    /**
+     * A method that will return the room list
+     * @return room list
+     */
     public ObservableList<HBox> getRoomList()
     {
         return roomList;

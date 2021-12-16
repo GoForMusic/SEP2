@@ -18,7 +18,7 @@ import client.model.rooms.RoomsModel;
 import client.model.rooms.RoomsModelImpl;
 
 /**
- * @author Sachin Baral
+ * @author Sachin Baral, Adrian, Marian, Hiaml, Emil
  * The class that creates and stores all models
  */
 public class ModelFactory {
@@ -32,10 +32,17 @@ public class ModelFactory {
     private ReceptionistModel receptionistModel;
     private EditRoomTypeModel editRoomTypeModel;
 
+    /**
+     * A constructor that will initialize client factory
+     */
     public ModelFactory(ClientFactory clientFactory){
         this.clientFactory=clientFactory;
     }
 
+    /**
+     * A function that will return loginModel
+     * @return loginModel
+     */
     public LoginModel getLoginModel() {
         if (loginModel == null) {
             loginModel = new LoginModelImpl(clientFactory.getLoginClient(),clientFactory.getChatClient());
@@ -43,6 +50,10 @@ public class ModelFactory {
         return loginModel;
     }
 
+    /**
+     * A function that will return createModel
+     * @return createModel
+     */
     public CreateModel getCreateModel() {
         if (createModel == null) {
             createModel = new CreateImpl(clientFactory.getCreateClient());
@@ -50,6 +61,10 @@ public class ModelFactory {
         return createModel;
     }
 
+    /**
+     * A function that will return roomModel
+     * @return roomsModel
+     */
     public RoomsModel getRoomsModel() {
         if (roomsModel == null) {
             roomsModel = new RoomsModelImpl(clientFactory.getViewRoomCLient());
@@ -57,6 +72,10 @@ public class ModelFactory {
         return roomsModel;
     }
 
+    /**
+     * A function that will return customerModel
+     * @return customerModel
+     */
     public CustomerModel getCustomerModel() {
         if (customerModel==null){
             customerModel= new CustomerModelImpl(clientFactory.getCustomerInfoClient());
@@ -64,6 +83,10 @@ public class ModelFactory {
         return customerModel;
     }
 
+    /**
+     * A function that will return chatModel
+     * @return chatModel
+     */
     public ChatModel getChatModel() {
         if (chatModel == null) {
             chatModel = new ChatModelImpl(clientFactory.getChatClient());

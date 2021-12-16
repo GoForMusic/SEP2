@@ -8,12 +8,11 @@ import java.io.Serializable;
  * @version 1
  */
 public class Customer extends User implements Serializable {
-    private String email;
-
     /**
-     * A 2 argument constructor
+     * A 3 argument constructor
+     * @param firstname
+     * @param lastname
      * @param userName
-
      */
     public Customer(String firstname, String lastname, String userName){
         super(firstname, lastname,userName);
@@ -21,20 +20,7 @@ public class Customer extends User implements Serializable {
     }
 
     /**
-     * A 4 argument constructor, when the user will be created in the app and after pushed to the database
-     * @param firstname
-     * @param lastname
-     * @param userName
-     * @param password
-     * @param email
-     */
-    public Customer (String firstname,String lastname,String userName,String password, String email){
-        super(firstname, lastname, userName, password);
-        this.email=email;
-    }
-
-    /**
-     * A four argument constructor that creates a customer without the e-mail address
+     * A 4 argument constructor that creates a customer without the e-mail address
      * @param firstname
      * @param lastname
      * @param userName
@@ -51,9 +37,5 @@ public class Customer extends User implements Serializable {
     @Override
     public String getEmployeeType() {
         return " ";
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

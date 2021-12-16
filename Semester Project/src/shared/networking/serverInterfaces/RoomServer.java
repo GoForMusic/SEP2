@@ -34,6 +34,5 @@ public interface RoomServer extends Remote {
 
     Request removeReservation(int id) throws RemoteException;
 
-
-
+    Request createRoom(Room room) throws  RemoteException;
 }

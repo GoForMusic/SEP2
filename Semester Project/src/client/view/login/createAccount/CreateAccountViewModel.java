@@ -8,6 +8,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.utils.User.Usertype;
 
+/**
+ * @author Sachin
+ * A class that will create a new user and set the values to database
+ */
 public class CreateAccountViewModel
 {
   private StringProperty signUpFirstName, signUpLastName, signUpUsername, signUpPassword, errorLabel;
@@ -16,6 +20,10 @@ public class CreateAccountViewModel
   private ModelFactory modelFactory;
   private CreateModel createModel;
 
+  /**
+   * A constructor
+   * @param modelFactory
+   */
   public CreateAccountViewModel(ModelFactory modelFactory)
   {
     this.modelFactory = modelFactory;
@@ -23,6 +31,9 @@ public class CreateAccountViewModel
     initializeAllProperties();
   }
 
+  /**
+   * A method that will initialize everything
+   */
   private void initializeAllProperties()
   {
     signUpFirstName = new SimpleStringProperty();
@@ -33,46 +44,80 @@ public class CreateAccountViewModel
     errorLabel = new SimpleStringProperty();
   }
 
+  /**
+   * A method that will start play sign-up animation
+   */
   public void playSignUpAnimation()
   {
     signupScene.setValue(true);
   }
 
+  /**
+   * A method that will start play sign-in animation
+   */
   public void playSignInAnimation()
   {
     signupScene.setValue(false);
   }
 
+  /**
+   * a method that will return first name
+   * @return first name
+   */
   public StringProperty getSignUpFirstName()
   {
     return signUpFirstName;
   }
 
+  /**
+   * A method that will return last name
+   * @return last name
+   */
   public StringProperty getSignUpLastName()
   {
     return signUpLastName;
   }
 
+  /**
+   * A method that will return username
+   * @return username
+   */
   public StringProperty getSignUpUsername()
   {
     return signUpUsername;
   }
 
+  /**
+   * A method that will return a password
+   * @return password
+   */
   public StringProperty getSignUpPassword()
   {
     return signUpPassword;
   }
 
+  /**
+   * A method that will return an error label
+   * @return error label
+   */
   public StringProperty getErrorLabel()
   {
     return errorLabel;
   }
 
+  /**
+   * A method that will return sign-up scene
+   * @return sign-up scene
+   */
   public BooleanProperty getSignupScene()
   {
     return signupScene;
   }
 
+  /**
+   * A method that will create an account
+   * @return create an account
+   */
   public String createAccount()
   {
     if (signUpUsername.get() == null || signUpUsername.get().isEmpty())
@@ -111,7 +156,9 @@ public class CreateAccountViewModel
   }
 
 
-
+  /**
+   * A method that will clean username and password fields
+   */
   private void clearUsernameAndPassword()
   {
     signUpPassword.set(null);

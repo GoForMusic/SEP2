@@ -6,9 +6,16 @@ import shared.utils.User.User;
 
 import java.rmi.RemoteException;
 
+/**
+ * @author Sachin
+ * A class that will used all the function from Create client interface
+ */
 public class CreateClientImpl implements CreateClient {
     private Server server;
 
+    /**
+     * A constructor that will initialize the RMI connection
+     */
     public CreateClientImpl() {
         try {
             server = GetServer.getServerFromRmi();
@@ -17,6 +24,15 @@ public class CreateClientImpl implements CreateClient {
         }
     }
 
+    /**
+     * A function that add a user
+     * @param firstname
+     * @param lastname
+     * @param username
+     * @param password
+     * @param userType
+     * @return a message
+     */
     @Override
     public String addUser(String firstname, String lastname, String username, String password, String userType) {
         try {

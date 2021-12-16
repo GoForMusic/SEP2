@@ -21,6 +21,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Sachin
+ * A class that will set-up values for book list
+ */
 public class BookRoomViewModel {
     private RoomsModel roomsModel;
     private LoginModel loginModel;
@@ -31,6 +35,10 @@ public class BookRoomViewModel {
     private StringProperty usernameUsedByReceptionist;
 
 
+    /**
+     * A constructor that will initialize al lthe variables
+     * @param modelFactory
+     */
     public BookRoomViewModel(ModelFactory modelFactory) {
         roomsModel = modelFactory.getRoomsModel();
         this.loginModel = modelFactory.getLoginModel();
@@ -44,6 +52,9 @@ public class BookRoomViewModel {
 
     }
 
+    /**
+     * A function that will do a specific action base on the user type
+     */
     private void doActionOnTextField() {
         if (loginModel.getUserType().equals(Usertype.CUSTOMER.toString())){
             showTextField.set(false);
@@ -53,6 +64,10 @@ public class BookRoomViewModel {
     }
 
 
+    /**
+     * A function that will remove an element
+     * @param event
+     */
     private void roomFromServer(PropertyChangeEvent event) {
         Platform.runLater(() -> {
             listRooms.clear();
@@ -61,10 +76,17 @@ public class BookRoomViewModel {
         });
     }
 
+    /**
+     * A function that will return a list of rooms
+     * @return a list of rooms
+     */
     public ObservableList<Room> getRoomList() {
         return listRooms;
     }
 
+    /**
+     * A function that will book a room
+     */
     public void bookRoom() {
         if (loginModel.getUserType().equals(Usertype.CUSTOMER)){
             Request request = roomsModel.bookRoom(loginModel.getUsername(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
@@ -77,21 +99,37 @@ public class BookRoomViewModel {
     }
 
 
-
+    /**
+     * A function that will set selected room
+     * @param selectedRooms
+     */
     public void setSelectedRoom(ObservableList<Room> selectedRooms) {
         for (Room i : selectedRooms
         ) {
             this.selectedRooms.add(i);
         }
     }
+
+    /**
+     * A function that will return room status
+     * @return room status
+     */
     public BooleanProperty showStatus(){
         return showTextField;
     }
 
+    /**
+     * A function that will return username used by receptionist
+     * @return receptionist username
+     */
     public StringProperty getUsernameUsedByReceptionist() {
         return usernameUsedByReceptionist;
     }
 
+    /**
+     * A function that will return an error message
+     * @return error message
+     */
     public StringProperty getError() {
         return error;
     }

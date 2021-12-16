@@ -7,6 +7,10 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+/**
+ * @author Adrian, Sachin, Emil, Marian, Himal
+ * A class that will initialize the RMI protocol between Client and server
+ */
 public class GetServer {
     public static Server getServerFromRmi(){
         Registry registry=null;

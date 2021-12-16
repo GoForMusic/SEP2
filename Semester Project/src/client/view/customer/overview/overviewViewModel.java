@@ -12,11 +12,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Sachin
+ * A class that will show all the details of the customer
+ */
 public class overviewViewModel {
     private RoomsModel roomsModel;
     private LoginModel loginModel;
     private ObservableList<Reservation> table;
 
+    /**
+     * A constructor that will initialize everything
+     * @param modelFactory
+     */
     public overviewViewModel(ModelFactory modelFactory){
         roomsModel = modelFactory.getRoomsModel();
         table = FXCollections.observableArrayList();
@@ -24,11 +32,17 @@ public class overviewViewModel {
 
     }
 
+    /**
+     * A method that will return a table
+     */
     public ObservableList<Reservation> getTable(){
         searchByUsername();
         return table;
     }
 
+    /**
+     * A method that will search by username
+     */
     public void searchByUsername() {
         String username = loginModel.getUsername();
         Request request = roomsModel.searchByUsername(username);

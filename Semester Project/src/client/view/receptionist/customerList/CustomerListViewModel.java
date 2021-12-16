@@ -17,6 +17,10 @@ import shared.utils.User.Customer;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * @author Adrian
+ * A class that will process the date and prepare to be presented on the UI
+ */
 public class CustomerListViewModel {
     private ObservableList<HBox> customerList;
     private StringProperty firstName, lastName, username, password, errorLabel;
@@ -25,7 +29,10 @@ public class CustomerListViewModel {
 
     private CustomerModel customerModel;
 
-
+    /**
+     * A constructor that will initialize model factory
+     * @param modelFactory
+     */
     public CustomerListViewModel(ModelFactory modelFactory) {
         this.customerModel = modelFactory.getCustomerModel();
 
@@ -39,10 +46,18 @@ public class CustomerListViewModel {
         oldUsernameStored = new SimpleStringProperty();
     }
 
+    /**
+     * A function that will updateCustomer details
+     * @param customer
+     * @param oldUsername
+     */
     public void updateCustomer(Customer customer, String oldUsername){
         customerModel.updateCustomer(customer,oldUsername);
     }
 
+    /**
+     * A function that will load users and set-up on a list
+     */
     public void loadUsers(){
         ArrayList<Customer> customers = customerModel.getCustomers();
         ArrayList<HBox> elements = new ArrayList<>();
@@ -52,7 +67,7 @@ public class CustomerListViewModel {
             {
                 HBox hBox = new HBox();
                 //add the item title and author as well the specific details
-                Label label = new Label(item.getUserName() + " | " + item.getFullName() + " | "+ item.getEmail());
+                Label label = new Label(item.getUserName() + " | " + item.getFullName() + " | ");
                 label.setPrefWidth(450);
                 hBox.getChildren().add(label);
                 //add edit button
@@ -91,35 +106,67 @@ public class CustomerListViewModel {
         }
     }
 
+    /**
+     * A function that will return a temp username
+     * @return temporary username
+     */
     public StringProperty getOldUsernameStored()
     {
         return oldUsernameStored;
     }
 
-    ObservableList<HBox> getCustomerList(){
+    /**
+     * A function that will return customer list
+     * @return customer list
+     */
+    public ObservableList<HBox> getCustomerList(){
         return customerList;
     }
 
+    /**
+     * A function that is returning first name
+     * @return first name
+     */
     public StringProperty getFirstName() {
         return firstName;
     }
 
+    /**
+     * A function that is returning last name
+     * @return last name
+     */
     public StringProperty getLastName() {
         return lastName;
     }
 
+    /**
+     * A function that is returning username
+     * @return username
+     */
     public StringProperty getUsername() {
         return username;
     }
 
+    /**
+     * A function that is returning password
+     * @return password
+     */
     public StringProperty getPassword() {
         return password;
     }
 
+    /**
+     * A function that is returning error message
+     * @return error message
+     */
     public StringProperty getErrorLabel() {
         return errorLabel;
     }
 
+    /**
+     * A function that is returning edit customer
+     * @return edit customer
+     */
     public BooleanProperty getEditCustomer(){
         return editCustomer;
     }

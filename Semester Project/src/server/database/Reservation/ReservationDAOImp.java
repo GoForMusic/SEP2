@@ -12,16 +12,23 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-
+/**
+ * @author Sachin
+ */
 public class ReservationDAOImp implements ReservationDAO {
 
     private static ReservationDAO instance;
     private static Lock lock = new ReentrantLock();
 
+
     private ReservationDAOImp() {
 
     }
 
+    /**
+     * A function that will do instance in singleton
+     * @return instance
+     */
     public static ReservationDAO getInstance() {
         if (instance == null) {
             synchronized (lock) {
@@ -33,6 +40,14 @@ public class ReservationDAOImp implements ReservationDAO {
         return instance;
     }
 
+    /**
+     * A function that add reservation
+     * @param username
+     * @param startDate
+     * @param endDate
+     * @param roomName
+     * @return a message
+     */
     @Override
     public Request addReservation(String username, LocalDate startDate, LocalDate endDate, String roomName) {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -48,6 +63,11 @@ public class ReservationDAOImp implements ReservationDAO {
         }
     }
 
+    /**
+     * A function that will get reservation by username
+     * @param username
+     * @return reservation or error message
+     */
     @Override
     public Request getReservationByUsername(String username) {
         try (Connection connection = DataBaseConnection.getConnection()) {
