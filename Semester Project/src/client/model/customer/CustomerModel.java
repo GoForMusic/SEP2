@@ -12,3 +12,4 @@ public interface CustomerModel extends Subject {
     Customer getCustomer(String username);
     ArrayList<Customer> getCustomers();
 }
+    

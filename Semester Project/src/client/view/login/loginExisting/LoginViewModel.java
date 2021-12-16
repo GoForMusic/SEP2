@@ -26,7 +26,6 @@ public class LoginViewModel {
         this.loginModel=modelFactory.getLoginModel();
         initializeAllProperties();
         signInScene.setValue(true);
-
     }
 
     /**
@@ -90,7 +89,7 @@ public class LoginViewModel {
      * @return a message
      */
     public String login() {
-        //  System.out.println(usernameLogin.get());
+
         if (usernameLogin.get() == null || usernameLogin.get().isEmpty()) {
             errorLogin.set("Username cannot be empty !!");
             return "";
