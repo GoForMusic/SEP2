@@ -88,10 +88,10 @@ public class BookRoomViewModel {
      * A function that will book a room
      */
     public void bookRoom() {
-        if (loginModel.getUserType().equals(Usertype.CUSTOMER)){
+        if (loginModel.getUserType().equals(Usertype.CUSTOMER.toString())){
             Request request = roomsModel.bookRoom(loginModel.getUsername(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
             error.set(request.getType());
-        }else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST)){
+        }else if (loginModel.getUserType().equals(Usertype.RECEPTIONIST.toString())){
             Request request = roomsModel.bookRoom(usernameUsedByReceptionist.get(), selectedRooms, roomsModel.getTempStartDate(), roomsModel.getTempEndDate());
             error.set(request.getType());
         }
