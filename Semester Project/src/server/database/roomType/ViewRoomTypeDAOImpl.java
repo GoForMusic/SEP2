@@ -16,6 +16,7 @@ public class ViewRoomTypeDAOImpl implements ViewRoomTypeDAO
    * @version 0.1
    */
 
+
   @Override public String getRoomDescriptionByCategory(String roomType)
   {
     String temp = "It was connected but did not get Description";
