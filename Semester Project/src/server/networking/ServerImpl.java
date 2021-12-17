@@ -26,6 +26,8 @@ public class ServerImpl implements Server {
         UnicastRemoteObject.exportObject(this, 0);
     }
 
+
+
     public void startServer() throws AlreadyBoundException, RemoteException {
         Registry registry = LocateRegistry.createRegistry(1099);
         registry.bind("Server", this);
