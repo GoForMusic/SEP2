@@ -13,7 +13,6 @@ import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomServerSide implements RoomServer {
@@ -26,16 +25,6 @@ public class RoomServerSide implements RoomServer {
         this.roomHandler = roomHandler;
         UnicastRemoteObject.exportObject(this, 0);
         roomHandler.addListener(Observer.AVAILABLEROOMS.toString(), this::fireAvailableRooms);
-    }
-
-    @Override
-    public ArrayList<Room> getRooms() {
-        return roomHandler.getRooms();
-    }
-
-    @Override
-    public void updateRoom(Room room) {
-        roomHandler.updateRoom(room);
     }
 
     @Override
@@ -75,14 +64,11 @@ public class RoomServerSide implements RoomServer {
      return    roomHandler.updateReservation(username,previousStart,previousEnd,roomName,newStart,newEnd,newRoom);
     }
 
-    @Override public Request removeReservation(int id)
+    @Override public Request removeReservation(String username,
+        LocalDate dateFrom, LocalDate dateTo)
     {
-        return roomHandler.removeReservation(id);
-    }
 
-    @Override
-    public Request createRoom(Room room) throws RemoteException {
-        return roomHandler.createRoom(room);
+        return roomHandler.removeReservation(username, dateFrom, dateTo);
     }
 
     private void fireAvailableRooms(PropertyChangeEvent event) {

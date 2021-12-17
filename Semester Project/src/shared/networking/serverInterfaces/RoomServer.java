@@ -9,14 +9,9 @@ import shared.utils.room.RoomType;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public interface RoomServer extends Remote {
-
-    ArrayList<Room> getRooms() throws RemoteException;
-
-    void updateRoom(Room room) throws RemoteException;
 
     Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) throws RemoteException;
 
@@ -32,7 +27,6 @@ public interface RoomServer extends Remote {
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) throws RemoteException;
 
-    Request removeReservation(int id) throws RemoteException;
 
-    Request createRoom(Room room) throws  RemoteException;
+    Request removeReservation(String username, LocalDate dateFrom, LocalDate dateTo) throws RemoteException;
 }

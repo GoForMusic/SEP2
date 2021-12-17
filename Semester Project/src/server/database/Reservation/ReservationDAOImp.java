@@ -12,23 +12,16 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * @author Sachin
- */
+
 public class ReservationDAOImp implements ReservationDAO {
 
     private static ReservationDAO instance;
     private static Lock lock = new ReentrantLock();
 
-
     private ReservationDAOImp() {
 
     }
 
-    /**
-     * A function that will do instance in singleton
-     * @return instance
-     */
     public static ReservationDAO getInstance() {
         if (instance == null) {
             synchronized (lock) {
@@ -40,14 +33,6 @@ public class ReservationDAOImp implements ReservationDAO {
         return instance;
     }
 
-    /**
-     * A function that add reservation
-     * @param username
-     * @param startDate
-     * @param endDate
-     * @param roomName
-     * @return a message
-     */
     @Override
     public Request addReservation(String username, LocalDate startDate, LocalDate endDate, String roomName) {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -63,11 +48,6 @@ public class ReservationDAOImp implements ReservationDAO {
         }
     }
 
-    /**
-     * A function that will get reservation by username
-     * @param username
-     * @return reservation or error message
-     */
     @Override
     public Request getReservationByUsername(String username) {
         try (Connection connection = DataBaseConnection.getConnection()) {
@@ -78,21 +58,22 @@ public class ReservationDAOImp implements ReservationDAO {
                 statement = connection.prepareStatement("SELECT * FROM \"Reservation\" WHERE \"userName\"=?;");
                 statement.setString(1, username);
                 resultSet = statement.executeQuery();
+                List<String> roomList = new ArrayList<>();
                 List<Reservation> reservations = new ArrayList<>();
                 LocalDate startDate = null;
                 LocalDate endDate = null;
-                int id = 0;
+
                 while (resultSet.next()) {
                     String roomName = resultSet.getString("roomName");
+                    roomList.add(roomName);
                     startDate = (resultSet.getDate("startDate")).toLocalDate();
                     endDate = (resultSet.getDate("endDate")).toLocalDate();
-                    id=(resultSet.getInt("Reservation_Id"));
-                    reservations.add(new Reservation(roomName,startDate,endDate,id));
+
                 }
-                if (startDate == null || endDate == null || reservations.isEmpty()) {
+                if (startDate == null || endDate == null || roomList.isEmpty()) {
                     return new Request("User has not reserved any room", null);
                 } else {
-                    return new Request("Reservation found..", reservations);
+                    return new Request("Reservation found..", new Reservation(username, startDate, endDate, roomList));
                 }
             } else {
                 return new Request("Username doesnot exist", null);
@@ -124,25 +105,23 @@ public class ReservationDAOImp implements ReservationDAO {
         }
     }
 
-    @Override public Request removeReservation(int id)
+    @Override public Request removeReservation(String username,
+        LocalDate dateFrom, LocalDate dateTo)
     {
+        try (Connection connection = DataBaseConnection.getConnection())
+        {
 
-            try (Connection connection = DataBaseConnection.getConnection())
-            {
-
-                PreparedStatement statement = connection.prepareStatement(
-                    "delete from \"Reservation\" where  \"Reservation_id\" = ?;");
-                statement.setInt(1, id);
-
-                statement.executeQuery();
-                return new Request("Removed successfully", null);
-            }
-            catch (SQLException throwables)
-            {
-                return new Request(throwables.getMessage(), null);
-            }
+            PreparedStatement statement = connection.prepareStatement(
+                "delete from \"Reservation\" where  \"userName\" = ? and \"startDate\" =  ? and \"endDate\" = ? ;");
+            statement.setString(1, username);
+           statement.setDate(2, Date.valueOf(dateFrom));
+            statement.setDate(3, Date.valueOf(dateTo));
+             statement.executeQuery();
+            return new Request("Removed successfully", null);
+        }
+        catch (SQLException throwables)
+        {
+            return new Request(throwables.getMessage(), null);
         }
     }
-
-
-
+}

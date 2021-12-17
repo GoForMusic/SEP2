@@ -7,7 +7,6 @@ import shared.utils.room.Room;
 import shared.utils.room.RoomType;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,10 +22,6 @@ public interface RoomsClient extends Subject {
      */
     Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType);
 
-    ArrayList<Room> getRooms();
-
-    void updateRoom(Room room);
-
     String getDescriptionByCategory(RoomType roomType);
 
     String getPriceByCategory(RoomType roomType);
@@ -37,10 +32,5 @@ public interface RoomsClient extends Subject {
 
     Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom);
 
-    Request removeReservation(int id);
-
-    Request createRoom(Room room);
-
-
-
+    Request removeReservation(String username, LocalDate dateFrom, LocalDate dateTo);
 }

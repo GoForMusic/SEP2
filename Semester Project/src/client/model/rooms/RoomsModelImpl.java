@@ -17,7 +17,6 @@ import java.util.List;
 /**
  * @author Adrian
  * @version 0.1
- * A class that is implement all the function from room model
  */
 public class RoomsModelImpl implements RoomsModel {
     private RoomsClient client;
@@ -29,6 +28,8 @@ public class RoomsModelImpl implements RoomsModel {
 
     /**
      * A constructor that will initialize the client
+     *
+     * @param roomsClient
      */
     public RoomsModelImpl(RoomsClient roomsClient) {
         this.client = roomsClient;
@@ -36,9 +37,6 @@ public class RoomsModelImpl implements RoomsModel {
         client.addListener(Observer.AVAILABLEROOMS.toString(), this::fireProperty);
     }
 
-    /**
-     * A function that is starting a fire property
-     */
     private void fireProperty(PropertyChangeEvent event) {
         support.firePropertyChange(event);
 
@@ -55,23 +53,6 @@ public class RoomsModelImpl implements RoomsModel {
     public Request searchRooms(LocalDate dateFrom, LocalDate dateTo, RoomType roomType) {
         System.out.println(" room model");
       return   client.searchRooms(dateFrom, dateTo, roomType);
-    }
-
-    /**
-     * A function that is returning a list of rooms
-     * @return list of rooms
-     */
-    @Override
-    public ArrayList<Room> getRooms() {
-        return client.getRooms();
-    }
-
-    /**
-     * A function that will update room details
-     */
-    @Override
-    public void updateRoom(Room room) {
-        client.updateRoom(room);
     }
 
     /**
@@ -96,34 +77,22 @@ public class RoomsModelImpl implements RoomsModel {
         return client.getPriceByCategory(roomType);
     }
 
-    /**
-     * A function that is set start date and end date
-     */
     @Override
     public void setTempStartAndEndDate(LocalDate startDate, LocalDate endDate) {
         this.tempStartDate = startDate;
         this.tempEndDate = endDate;
     }
 
-    /**
-     * A function that start date
-     */
     @Override
     public LocalDate getTempStartDate() {
         return tempStartDate;
     }
 
-    /**
-     * A function that will get end date
-     */
     @Override
     public LocalDate getTempEndDate() {
         return tempEndDate;
     }
 
-    /**
-     * A function that will book a room
-     */
     @Override
     public Request bookRoom(String username, List<Room> selectedRooms, LocalDate startDate, LocalDate endDate) {
 
@@ -144,102 +113,50 @@ public class RoomsModelImpl implements RoomsModel {
 
     }
 
-    /**
-     * A function that will search base on username
-     */
     @Override
     public Request searchByUsername(String username) {
         return client.searchByUsername(username);
     }
 
-    /**
-     * A function that will return a reservation
-     * @return reservation
-     * */
     @Override
     public Reservation getSelectedReservation() {
         return selectedReservation;
     }
 
-    /**
-     * A function that set select reservation
-     */
     @Override
     public void setSelectedReservation(Reservation reservation) {
         this.selectedReservation = reservation;
     }
 
-    /**
-     * A function to set username
-     */
     @Override
     public void setTempUsername(String text) {
         this.tempUsername = text;
     }
 
-    /**
-     * A function that get username
-     * @return
-     */
     @Override
     public String getUsername() {
         return tempUsername;
     }
 
-    /**
-     * A function that update reservation
-     * @param username
-     * @param previousStart
-     * @param previousEnd
-     * @param roomName
-     * @param newStart
-     * @param newEnd
-     * @param newRoom
-     * @return a message
-     */
     @Override
     public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom) {
         return client.updateReservation(username,previousStart, previousEnd,  roomName,  newStart,  newEnd,  newRoom);
     }
 
-    /**
-     * A function that remove reservation
-     * @param id
-     * @return a message
-     */
-    @Override public Request removeReservation(int id)
+    @Override public Request removeReservation(String username, LocalDate dateFrom,
+        LocalDate dateTo)
     {
-        return client.removeReservation(id);
+        return client.removeReservation(username,dateFrom,dateTo);
+
     }
 
-    /**
-     * A function that create a room
-     * @param room
-     * @return a message
-     */
-    @Override
-    public Request createRoom(Room room) {
-    return  client.createRoom(room);
-    }
-
-    /**
-     * A function that add property change listener
-     * @param eventName
-     * @param listener
-     */
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }
 
-    /**
-     * A function that remove listener
-     * @param eventName
-     * @param listener
-     */
     @Override
     public void removeListener(String eventName, PropertyChangeListener listener) {
         support.removePropertyChangeListener(eventName, listener);
     }
-
 }

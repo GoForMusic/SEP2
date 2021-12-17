@@ -14,11 +14,11 @@ import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 /** @author Emil
  * creating a class for the rooms view
+ *
  */
 public class RoomsClientImp implements RoomsClient, RoomsCallBack {
     private Server server;
@@ -55,38 +55,6 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
 
     }
 
-    /**
-     * A function that will return a list of rooms
-     * @return room of list
-     */
-    @Override
-    public ArrayList<Room> getRooms() {
-        try {
-            return server.getRoomsServer().getRooms();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * A function that will update room details
-     * @param room
-     */
-    @Override
-    public void updateRoom(Room room) {
-        try {
-            server.getRoomsServer().updateRoom(room);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * A function that will return description by category
-     * @param roomType
-     * @return description
-     */
     @Override
     public String getDescriptionByCategory(RoomType roomType) {
         try {
@@ -97,11 +65,6 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         return null;
     }
 
-    /**
-     * A function that will return price by category
-     * @param roomType
-     * @return
-     */
     @Override
     public String getPriceByCategory(RoomType roomType) {
         try {
@@ -112,11 +75,6 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         return "Error...";
     }
 
-    /**
-     * A function that will book a room
-     * @param reservation
-     * @return a message
-     */
     @Override
     public Request bookRoom(Reservation reservation) {
         System.out.println("Rooms client impl");
@@ -128,11 +86,6 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         return new Request("Error connecting to server",null);
     }
 
-    /**
-     * A function that will search by username
-     * @param username
-     * @return a message
-     */
     @Override
     public Request searchByUsername(String username) {
         try {
@@ -143,17 +96,6 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         return new Request("Error connecting to server",null);
     }
 
-    /**
-     * A function that will update the reservation
-     * @param username
-     * @param previousStart
-     * @param previousEnd
-     * @param roomName
-     * @param newStart
-     * @param newEnd
-     * @param newRoom
-     * @return a message
-     */
     @Override
     public Request updateReservation(String username, LocalDate previousStart, LocalDate previousEnd, String roomName, LocalDate newStart, LocalDate newEnd, String newRoom)  {
         try {
@@ -163,60 +105,28 @@ public class RoomsClientImp implements RoomsClient, RoomsCallBack {
         }
     }
 
-    /**
-     * A function that will remove a reservation
-     * @param id
-     * @return a message
-     */
-    @Override public Request removeReservation(int id)
+    @Override public Request removeReservation(String username,
+        LocalDate dateFrom, LocalDate dateTo)
     {
         try {
-            return server.getRoomsServer().removeReservation(id);
+            System.out.println("RoomClientImple");
+            return server.getRoomsServer().removeReservation(username,dateFrom,dateTo);
         } catch (RemoteException e) {
             return new Request("Cannot connect to server",null);
         }
     }
 
-    /**
-     * A function that will create a room
-     * @param room
-     * @return a message
-     */
-    @Override
-    public Request createRoom(Room room) {
-        try {
-           return server.getRoomsServer().createRoom(room);
-        } catch (RemoteException e) {
-            return new Request(e.getMessage(),null);
-        }
-    }
-
-    /**
-     * A function that will print a list of rooms and fire property change
-     * @param roomList
-     * @throws RemoteException
-     */
     @Override
     public void roomsFromServer(List<Room> roomList) throws RemoteException {
         System.out.println(roomList);
         support.firePropertyChange(Observer.AVAILABLEROOMS.toString(),null,roomList);
     }
 
-    /**
-     * A function that add a listener
-     * @param eventName
-     * @param listener
-     */
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName,listener);
     }
 
-    /**
-     * A function that remove a lsitener
-     * @param eventName
-     * @param listener
-     */
     @Override
     public void removeListener(String eventName, PropertyChangeListener listener) {
         support.removePropertyChangeListener(eventName,listener);
